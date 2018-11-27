@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
-import PropTypes from 'prop-types'
-import NavButtons from './molecules/NavButtons'
 import BannerPromo from './molecules/BannerPromo'
-// import CartSidebar from './CartSidebar.jsx'
-// import MobileSidebar from './MobileSidebar.jsx'
-// import { CartConsumer } from '../containers/CartContext'
-// import 'futura-font/styles.css'
+import NavButtons from './molecules/NavButtons'
+
+/** Overview of NavBar component:
+ *  - Created a styled div NavContainer which wraps our NavBar
+ *  - NavBar renders NavButtons and Banner Promo
+ *
+ */
 
 const NavContainer = Styled.div`
   position: fixed;
@@ -21,58 +22,12 @@ const NavContainer = Styled.div`
 `
 
 class NavBar extends Component {
-  //TODO: Mobile work
-  // state = {
-  //   mobileSidebar: false,
-  //   mobileDisplayFix: false,
-  // }
-  static contextTypes = {
-    firebase: PropTypes.object,
-  }
   render() {
-    const {
-      curUser,
-      sidebar,
-      displayFix,
-      handleSidebar,
-      handleBannerMargin,
-    } = this.props
-    //TODO: Mobile work
-    // const { mobileSidebar, mobileDisplayFix } = this.state
     return (
-      <div>
-        {/* //TODO: Mobile work
-        <MobileSidebar
-          display={mobileSidebar}
-          handleMobileSidebar={this.handleMobileSidebar}
-          logOut={this.logOut}
-          curUser={curUser}
-          handleSidebar={handleSidebar}
-          mobileDisplayFix={mobileDisplayFix}
-        /> */}
-        <NavContainer>
-          <BannerPromo handleBannerMargin={handleBannerMargin} />
-          <NavButtons
-            curUser={curUser}
-            handleMobileSidebar={this.handleMobileSidebar}
-            handleSidebar={handleSidebar}
-            logOut={this.logOut}
-          />
-        </NavContainer>
-        {/* TODO: Cart
-        <CartConsumer>
-          {cartContext => (
-            <CartSidebar
-              cart={cartContext.cart}
-              handleCart={cartContext.handleCart}
-              curUser={curUser}
-              display={sidebar}
-              handleSidebar={handleSidebar}
-              displayFix={displayFix}
-            />
-          )}
-        </CartConsumer> */}
-      </div>
+      <NavContainer>
+        <BannerPromo />
+        <NavButtons />
+      </NavContainer>
     )
   }
 }

@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
-import { FaRegUser, FaBars, FaRegQuestionCircle } from 'react-icons/fa'
-import NavLink from '../atoms/NavLink'
-import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
-import DropdownMenu from '../atoms/DropdownMenu'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
+import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
+import { Link } from 'gatsby'
+import { FaRegUser, FaBars, FaRegQuestionCircle } from 'react-icons/fa'
+// import NavLink from '../atoms/NavLink'
+import DropdownMenu from '../atoms/DropdownMenu'
+
+/** Overview of NavButtons component:
+ *  - Created a styled div container that wraps the NavButtons
+ *  - Created two constants that act as links for two diff dropdown menus (Help and Signin). These will be passed down as props to DropdownMenu component
+ *  - This component renders the two dropdown menus, the cherries icon, and a search button
+ *
+ *  - TODO: Make this dynamic by allowing Contentful to get buttons and icons
+ *
+ */
 
 const Container = styled.div`
   display: flex;
@@ -82,18 +91,15 @@ const Container = styled.div`
 `
 
 class NavButtons extends Component {
-  constructor(props, context) {
-    super(props)
-  }
   render() {
-    const { handleMobileSidebar, handleSidebar, curUser, logOut } = this.props
-    const search = 'Hola!'
-    const userLinks = !curUser
-      ? [{ text: 'Sign Up', page: 'signup' }, { text: 'Log In', page: 'login' }]
-      : [
-          { text: 'Account', page: 'account' },
-          { text: 'Log Out', page: '', onClick: logOut },
-        ]
+    // const { handleMobileSidebar, handleSidebar, curUser, logOut } = this.props
+
+    const userLinks = [
+      { text: 'Sign Up', page: 'signup' },
+      { text: 'Log In', page: 'login' },
+      { text: 'Account', page: 'account' },
+      { text: 'Log Out', page: 'logout' },
+    ]
     const helpLinks = [
       { text: 'FAQ', page: 'faq' },
       { text: 'Help', page: 'faq' },
@@ -103,13 +109,7 @@ class NavButtons extends Component {
     return (
       <Container>
         <div className="leftNav">
-          {/* //TODO: Mobile
-          <FaBars
-            className="hamburger"
-            onClick={handleMobileSidebar}
-            size="1.5rem"
-          /> */}
-          <DropdownMenu links={search} dropdownText={'Search'} />
+          <p>Search</p>
         </div>
         <div className="logo">
           <Link to="/">
@@ -132,7 +132,7 @@ class NavButtons extends Component {
             links={userLinks}
             dropdownText={<FaRegUser size="1.9rem" />}
           />
-          <ShoppingBagIcon click={handleSidebar} />
+          <ShoppingBagIcon />
         </div>
       </Container>
     )

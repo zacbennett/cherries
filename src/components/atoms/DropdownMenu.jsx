@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import NavLink from './NavLink'
 
+/** Overview of DropdownMenu component:
+ *  - Created a styled div container that wraps DropdownMenu
+ *  - State is initiallly false
+ *  - Have two functions that either display or hide the dropdown menu depending on mouse hover
+ *  - DropdownMenu renders links passed down from NavButtons (Help and Signin)
+ *
+ */
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,7 +61,7 @@ class DropdownMenu extends Component {
     const links = this.props.links.map((link, i) => (
       <NavLink
         to={link.page}
-        onClick={link.onClick ? link.onClick : null}
+        // Change key to stable and unique ID
         key={i}
       >
         {link.text}

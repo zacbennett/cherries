@@ -1,6 +1,8 @@
 /* GATSBY INIT STYLES BELOW */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 html {
-  font-family: 'futura';
+  font-family: 'Montserrat';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
