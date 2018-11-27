@@ -56,10 +56,12 @@ export default () => (
   <Container>
     <div id="tryptych-container">
       <h4 id="tryptych-header">
+      {/* HERE */}
         <i>Jewelry, but make it fun.</i>
       </h4>
       <div id="tryptych-panel-container">
         <div className="tryptych-panel">
+        {/* tryptych */}
           <img src={sparkle} alt="sparkle" className="tryptych-panel-image" />
           <p className="tryptych-panel-text">
             We make cute, unique jewelry for every occasion—that good ish you
