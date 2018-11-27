@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import sparkle from '../images/sparkle-emoji.png'
+import envelope from '../images/envelope-emoji.png'
+import deliveryTruck from '../images/delivery-truck-emoji.png'
 
 // Refactor to have the theme/picture/text be dynamic
 const Container = styled.div`
@@ -58,7 +61,8 @@ export default () => (
       <div id="tryptych-panel-container">
         <div className="tryptych-panel">
           <img
-            src="https://baohaojun.github.io/blog/2014/09/05/SPARKLES.png"
+            src={sparkle}
+            // src="https://baohaojun.github.io/blog/2014/09/05/SPARKLES.png"
             alt="sparkle"
             className="tryptych-panel-image"
           />
@@ -68,11 +72,7 @@ export default () => (
           </p>
         </div>
         <div className="tryptych-panel">
-          <img
-            src="https://cdn.jsdelivr.net/emojione/assets/4.0/png/128/1f48c.png"
-            alt="envelope"
-            className="tryptych-panel-image"
-          />
+          <img src={envelope} alt="envelope" className="tryptych-panel-image" />
           <p className="tryptych-panel-text">
             Subscribe to monthly deliveries to save that $$$ and keep your looks
             fresh.
@@ -80,7 +80,7 @@ export default () => (
         </div>
         <div className="tryptych-panel">
           <img
-            src="https://www.emoji.co.uk/files/apple-emojis/travel-places-ios/489-articulated-lorry.png"
+            src={deliveryTruck}
             alt="truck"
             className="tryptych-panel-image"
           />
