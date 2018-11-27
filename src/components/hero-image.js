@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// Refactor to have the color be dynamic 
+// Refactor to have the color be dynamic
 const Container = styled.div`
-  .hero-image-container {
+  #hero-image-container {
     position: relative;
   }
   img {
@@ -11,13 +11,13 @@ const Container = styled.div`
     height: 250px;
     object-fit: cover;
   }
-  .hero-image-text {
+  #hero-image-text-container {
     position: absolute;
     top: 30%;
     left: 25%;
     width: 175px;
   }
-  button {
+  #hero-image-button {
     background-color: #e20031;
     color: white;
     text-transform: uppercase;
@@ -26,7 +26,7 @@ const Container = styled.div`
     border: none;
     width: 100%;
   }
-  h4 {
+  #hero-image-text {
     color: #e20031;
     width: 100%;
     margin: 5px;
@@ -35,15 +35,15 @@ const Container = styled.div`
 
 export default () => (
   <Container>
-    <div className="hero-image-container">
-    {/* Change below to get text from contentful */}
+    <div id="hero-image-container">
+      {/* Change below to get text from contentful */}
       <img
         src="https://media.beaut.ie/uploads/2013/10/ariane1.jpg"
         alt="hero-image"
       />
-      <div className="hero-image-text">
-        <h4>Fresh earrings, hand-picked by you</h4>
-        <button>Get Started</button>
+      <div id="hero-image-text-container">
+        <h4 id="hero-image-text">Fresh earrings, hand-picked by you</h4>
+        <button id="hero-image-button">Get Started</button>
       </div>
     </div>
   </Container>

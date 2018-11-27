@@ -4,6 +4,7 @@ import Styled from 'styled-components'
 import Layout from '../components/layout'
 import Image from '../components/image'
 import HeroImage from '../components/hero-image'
+import HomepageTryptych from '../components/homepage-tryptych'
 
 const Container = Styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Container = Styled.div`
 const IndexPage = () => (
   <Container>
     <HeroImage />
+    <HomepageTryptych />
     <h1>Cherries</h1>
     <p>Welcome to Cherries.</p>
     <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
