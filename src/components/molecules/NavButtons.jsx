@@ -143,4 +143,27 @@ class NavButtons extends Component {
   }
 }
 
+let user = {
+  data: [
+    {
+      icon: true,
+      dropdown: true,
+      navButton: 'userLinksNoUser',
+      dropdownLinks: [
+        { text: 'Sign Up', page: 'signup' },
+        { text: 'Log In', page: 'login' },
+      ],
+    },
+    {
+      icon: true,
+      dropdown: true,
+      navButton: 'userLinksUser',
+      dropdownLinks: [
+        { text: 'Account', page: 'account' },
+        { text: 'Log Out', page: 'logout' },
+      ],
+    },
+  ],
+}
+
 export default NavButtons
