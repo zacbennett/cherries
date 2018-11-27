@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html,
+.banner-text {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: bold;
+}
