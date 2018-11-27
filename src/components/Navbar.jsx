@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { NavButtons, BannerPromo } from './molecules'
-import CartSidebar from './CartSidebar.jsx'
-import MobileSidebar from './MobileSidebar.jsx'
-import { CartConsumer } from '../containers/CartContext'
-import 'futura-font/styles.css'
+import NavButtons from './molecules/NavButtons'
+import BannerPromo from './molecules/BannerPromo'
+// import CartSidebar from './CartSidebar.jsx'
+// import MobileSidebar from './MobileSidebar.jsx'
+// import { CartConsumer } from '../containers/CartContext'
+// import 'futura-font/styles.css'
 
 const NavContainer = Styled.div`
   position: fixed;
@@ -19,7 +20,7 @@ const NavContainer = Styled.div`
   z-index: 2;
 `
 
-class Navbar extends Component {
+class NavBar extends Component {
   //TODO: Mobile work
   // state = {
   //   mobileSidebar: false,
@@ -58,6 +59,7 @@ class Navbar extends Component {
             logOut={this.logOut}
           />
         </NavContainer>
+        {/* TODO: Cart
         <CartConsumer>
           {cartContext => (
             <CartSidebar
@@ -69,8 +71,10 @@ class Navbar extends Component {
               displayFix={displayFix}
             />
           )}
-        </CartConsumer>
+        </CartConsumer> */}
       </div>
     )
   }
 }
+
+export default NavBar

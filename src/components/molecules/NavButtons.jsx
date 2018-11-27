@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { FaRegUser, FaBars, FaRegQuestionCircle } from 'react-icons/fa'
-import { NavLink, ShoppingBagIcon, DropdownMenu } from '../atoms'
+import NavLink from '../atoms/NavLink'
+import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
+import DropdownMenu from '../atoms/DropdownMenu'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
@@ -85,6 +87,7 @@ class NavButtons extends Component {
   }
   render() {
     const { handleMobileSidebar, handleSidebar, curUser, logOut } = this.props
+    const search = 'Hola!'
     const userLinks = !curUser
       ? [{ text: 'Sign Up', page: 'signup' }, { text: 'Log In', page: 'login' }]
       : [

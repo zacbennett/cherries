@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { TiShoppingBag } from 'react-icons/ti'
-import { CartConsumer } from '../../containers/CartContext'
+// import { CartConsumer } from '../../containers/CartContext'
 
 const Container = styled.div`
   cursor: pointer;
@@ -30,9 +30,10 @@ class ShoppingBagIcon extends Component {
     return (
       <Container>
         <TiShoppingBag size="2.4rem" onClick={click} />
+        {/* TODO: Cart
         <CartConsumer>
           {cartContext => <p onClick={click}>{cartContext.cart.length}</p>}
-        </CartConsumer>
+        </CartConsumer> */}
       </Container>
     )
   }
