@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 import BannerPromo from './molecules/BannerPromo'
 import NavButtons from './molecules/NavButtons'
+import { StaticQuery, graphql } from 'gatsby'
 
 /** Overview of NavBar component:
  *  - Created a styled div NavContainer which wraps our NavBar
@@ -21,15 +22,68 @@ const NavContainer = Styled.div`
   z-index: 2;
 `
 
-class NavBar extends Component {
-  render() {
-    return (
-      <NavContainer>
-        <BannerPromo />
-        <NavButtons />
-      </NavContainer>
-    )
-  }
-}
+// class NavBar extends Component {
+//   render() {
+//     return (
+//       <NavContainer>
+//         <BannerPromo />
+//         <NavButtons />
+//       </NavContainer>
+//     )
+//   }
+// }
 
-export default NavBar
+export default () => (
+  <StaticQuery
+    query={graphql`
+      {
+        contentfulHomePage(pageTitle: { eq: "Home Page" }) {
+          navHelpIcon {
+            fluid {
+              src
+            }
+          }
+          navUserIcon {
+            fluid {
+              src
+            }
+          }
+          navCartIcon {
+            fluid {
+              src
+            }
+          }
+          navSearchIcon {
+            fluid {
+              src
+            }
+          }
+          navCherriesIcon {
+            fluid {
+              src
+            }
+          }
+          bannerPromoText
+          bannerPromoTitle
+        }
+      }
+    `}
+    render={data => (
+      <NavContainer>
+        <BannerPromo
+          bannerText={data.contentfulHomePage.bannerPromoText}
+          bannerTitle={data.contentfulHomePage.bannerPromoTitle}
+        />
+        <NavButtons
+          helpIcon={data.contentfulHomePage.navHelpIcon.fluid.src}
+          userIcon={data.contentfulHomePage.navUserIcon.fluid.src}
+          searchIcon={data.contentfulHomePage.navSearchIcon.fluid.src}
+          cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
+          cherriesIcon={data.contentfulHomePage.navCherriesIcon.fluid.src}
+        />
+      </NavContainer>
+    )}
+  />
+)
+
+// export default NavBar

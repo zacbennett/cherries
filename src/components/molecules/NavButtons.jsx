@@ -106,33 +106,37 @@ class NavButtons extends Component {
       { text: 'Returns', page: 'faq' },
       { text: 'team@lipslut.com', page: 'contact' },
     ]
+    console.log('HEEEEEEEEEEEEEEY', this.props)
     return (
       <Container>
         <div className="leftNav">
-          <p>Search</p>
+          <img
+            style={{
+              margin: 10,
+              maxWidth: 28,
+              maxHeight: 28,
+            }}
+            src={this.props.searchIcon}
+            alt="search-icon"
+          />
         </div>
         <div className="logo">
           <Link to="/">
             <img
               style={{
                 margin: '0 auto',
-                maxWidth: 175,
+                maxWidth: 48,
+                maxHeight: 48,
               }}
-              src="https://static1.squarespace.com/static/5887fa45d482e9ca1fca0fcc/t/5a0f8b654192028235394491/1531257223005/?format=1500w"
+              src={this.props.cherriesIcon}
               alt="Cherries Logo"
             />
           </Link>
         </div>
         <div className="rightNav">
-          <DropdownMenu
-            links={helpLinks}
-            dropdownText={<FaRegQuestionCircle size="1.9rem" />}
-          />
-          <DropdownMenu
-            links={userLinks}
-            dropdownText={<FaRegUser size="1.9rem" />}
-          />
-          <ShoppingBagIcon />
+          <DropdownMenu links={helpLinks} icon={this.props.helpIcon} />
+          <DropdownMenu links={userLinks} icon={this.props.userIcon} />
+          <ShoppingBagIcon cartIcon={this.props.cartIcon} />
         </div>
       </Container>
     )
