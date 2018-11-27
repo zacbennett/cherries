@@ -60,12 +60,7 @@ export default () => (
       </h4>
       <div id="tryptych-panel-container">
         <div className="tryptych-panel">
-          <img
-            src={sparkle}
-            // src="https://baohaojun.github.io/blog/2014/09/05/SPARKLES.png"
-            alt="sparkle"
-            className="tryptych-panel-image"
-          />
+          <img src={sparkle} alt="sparkle" className="tryptych-panel-image" />
           <p className="tryptych-panel-text">
             We make cute, unique jewelry for every occasion—that good ish you
             can't get anywhere else.
