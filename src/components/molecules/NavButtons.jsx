@@ -94,49 +94,66 @@ class NavButtons extends Component {
   render() {
     // const { handleMobileSidebar, handleSidebar, curUser, logOut } = this.props
 
-    const userLinks = [
-      { text: 'Sign Up', page: 'signup' },
-      { text: 'Log In', page: 'login' },
-      { text: 'Account', page: 'account' },
-      { text: 'Log Out', page: 'logout' },
-    ]
-    const helpLinks = [
-      { text: 'FAQ', page: 'faq' },
-      { text: 'Help', page: 'faq' },
-      { text: 'Returns', page: 'faq' },
-      { text: 'team@lipslut.com', page: 'contact' },
-    ]
+    const userLinks = this.props.userLinks[0].dropdownLinks
+    const helpLinks = this.props.helpLinks[0].dropdownLinks
+    console.log('USERLINKS', userLinks)
     return (
       <Container>
         <div className="leftNav">
-          <p>Search</p>
+          <img
+            style={{
+              margin: 10,
+              maxWidth: 28,
+              maxHeight: 28,
+            }}
+            src={this.props.searchIcon}
+            alt="search-icon"
+          />
         </div>
         <div className="logo">
           <Link to="/">
             <img
               style={{
                 margin: '0 auto',
-                maxWidth: 175,
+                maxWidth: 48,
+                maxHeight: 48,
               }}
-              src="https://static1.squarespace.com/static/5887fa45d482e9ca1fca0fcc/t/5a0f8b654192028235394491/1531257223005/?format=1500w"
+              src={this.props.cherriesIcon}
               alt="Cherries Logo"
             />
           </Link>
         </div>
         <div className="rightNav">
-          <DropdownMenu
-            links={helpLinks}
-            dropdownText={<FaRegQuestionCircle size="1.9rem" />}
-          />
-          <DropdownMenu
-            links={userLinks}
-            dropdownText={<FaRegUser size="1.9rem" />}
-          />
-          <ShoppingBagIcon />
+          <DropdownMenu links={helpLinks} icon={this.props.helpIcon} />
+          <DropdownMenu links={userLinks} icon={this.props.userIcon} />
+          <ShoppingBagIcon cartIcon={this.props.cartIcon} />
         </div>
       </Container>
     )
   }
+}
+
+let user = {
+  data: [
+    {
+      icon: true,
+      dropdown: true,
+      navButton: 'userLinksNoUser',
+      dropdownLinks: [
+        { text: 'Sign Up', page: 'signup' },
+        { text: 'Log In', page: 'login' },
+      ],
+    },
+    {
+      icon: true,
+      dropdown: true,
+      navButton: 'userLinksUser',
+      dropdownLinks: [
+        { text: 'Account', page: 'account' },
+        { text: 'Log Out', page: 'logout' },
+      ],
+    },
+  ],
 }
 
 export default NavButtons

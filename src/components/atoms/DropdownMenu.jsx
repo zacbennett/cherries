@@ -19,7 +19,7 @@ const Container = styled.div`
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: #fbe5e9;
     border-radius: 2px;
     box-shadow: 1px 1px 10px 0 rgba(46, 61, 73, 0.2);
     margin-top: 2rem;
@@ -57,20 +57,29 @@ class DropdownMenu extends Component {
   }
 
   render() {
+    console.log('DROPDOWN PROPS', this.props)
     const display = this.state.display ? 'initial' : 'none'
     const links = this.props.links.map((link, i) => (
       <NavLink
-        to={link.page}
-        // Change key to stable and unique ID
+        to={link.route}
+        // TODO: Change key to stable and unique ID
         key={i}
       >
-        {link.text}
+        {link.name}
       </NavLink>
     ))
     return (
       <Container onMouseLeave={this.hideMenu}>
         <NavLink className="dropdown" onMouseEnter={this.showMenu} to="">
-          {this.props.dropdownText}
+          <img
+            style={{
+              margin: 5,
+              maxWidth: 28,
+              maxHeight: 28,
+            }}
+            src={this.props.icon}
+            alt="nav-bar-icon"
+          />
         </NavLink>
         <div className="dropdown-content" style={{ display: display }}>
           <div className="links">{links}</div>
