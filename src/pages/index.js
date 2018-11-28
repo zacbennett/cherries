@@ -12,7 +12,7 @@ import NavBar from '../components/NavBar'
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
  *
  */
-
+//Adding a comment for now
 const Container = Styled.div`
   align-items: center;
   animation: fadein 1s; 
