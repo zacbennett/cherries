@@ -40,6 +40,9 @@ const PromoText = styled.div`
 `
 const Icon = styled.div`
   margin-left: auto;
+  :hover {
+    cursor: pointer;
+  }
 `
 // TODO: Why does the location of 'X' go to one spot first then
 class BannerPromo extends Component {
