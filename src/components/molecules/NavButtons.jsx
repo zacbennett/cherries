@@ -94,8 +94,9 @@ class NavButtons extends Component {
   render() {
     // const { handleMobileSidebar, handleSidebar, curUser, logOut } = this.props
 
-    const userLinks = this.props.userLinks
-    const helpLinks = this.props.helpLinks
+    const userLinks = this.props.userLinks[0].dropdownLinks
+    const helpLinks = this.props.helpLinks[0].dropdownLinks
+    console.log('USERLINKS', userLinks)
     return (
       <Container>
         <div className="leftNav">
