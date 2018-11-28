@@ -1,8 +1,7 @@
+// Component for rendering each panel of tryptych shown on homepage
+
 import React from 'react'
 import styled from 'styled-components'
-import sparkle from '../images/sparkle-emoji.png'
-import envelope from '../images/envelope-emoji.png'
-import deliveryTruck from '../images/delivery-truck-emoji.png'
 import TryptychPanel from './tryptychPanel'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
@@ -51,9 +50,14 @@ const Container = styled.div`
     font-size: 1em;
     border: none;
     width: 220px;
+    cursor: pointer;
+  }
+  a {
+    margin: 0 auto;
   }
 `
 
+// Trypytch information pulled from contentful to pass into TryptychPanel component
 export default () => (
   <StaticQuery
     query={graphql`
@@ -67,6 +71,8 @@ export default () => (
             }
           }
           tryptychPanelText
+          tryptychButtonText
+          tryptychButtonLink
         }
       }
     `}
@@ -75,9 +81,12 @@ export default () => (
       const tryptychHeaderText = contentfulData.tryptychHeaderText
       const tryptychPanelImage = contentfulData.tryptychPanelImages
       const tryptychPanelText = contentfulData.tryptychPanelText
+      const tryptychButtonText = contentfulData.tryptychButtonText
+      const tryptychButtonLink = contentfulData.tryptychButtonLink
 
       let panelArr = []
 
+      // Loop through all trypytch items and pass information into TryptychPanel component
       for (let i = 0; i < tryptychPanelText.length; i++) {
         panelArr.push(
           <TryptychPanel
@@ -93,11 +102,14 @@ export default () => (
         <Container>
           <div id="tryptych-container">
             <h4 id="tryptych-header">
-              {/* HERE */}
               <i>{tryptychHeaderText}</i>
             </h4>
             <div id="tryptych-panel-container">{panelArr}</div>
-            <button className="get-started-button">Get Started</button>
+            <Link to={tryptychButtonLink}>
+              <button className="get-started-button">
+                {tryptychButtonText}
+              </button>
+            </Link>
           </div>
         </Container>
       )

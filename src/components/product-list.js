@@ -1,3 +1,5 @@
+// Component for mapping out ProductCard component with passed-in product list
+
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
@@ -10,6 +12,7 @@ const Container = styled.div`
   }
   .product-list-card-container {
     display: flex;
+    flex-wrap:wrap
     justify-content: space-between;
   }
   .product-list-header{
@@ -26,7 +29,7 @@ const Container = styled.div`
     margin-left: 30px
   }
 `
-
+// Map through list of products and passing product information into ProductCard component
 class ProductList extends Component {
   render() {
     let products = this.props.products.map(product => (
@@ -36,7 +39,8 @@ class ProductList extends Component {
         product={product.node}
       />
     ))
-    // Refactor to display image/name/price based on props passed in
+
+    // Section title and link to be refactored to be dynamic
     return (
       <Container>
         <div className="product-list-container">

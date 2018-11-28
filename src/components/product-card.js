@@ -1,11 +1,14 @@
+// Component for rendering individual product cards
+
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import productImage from '../images/earrings.png'
 
 const Container = styled.div`
   .product-card {
     text-align: center;
     margin-bottom: 70px;
+    width: 187.02px;
+    flex: 1 0 25%;
   }
   .product-card-image {
     width: 187.02px;
@@ -31,10 +34,11 @@ const Container = styled.div`
   }
 `
 
+// Renders product information and first image from connected contentful data
 class ProductCard extends Component {
   render() {
     const product = this.props.product
-    // Refactor to display image/name/price based on props passed in
+
     return (
       <Container>
         <div className="product-card">

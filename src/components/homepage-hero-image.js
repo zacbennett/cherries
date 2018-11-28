@@ -1,3 +1,5 @@
+// Componet for rendering hero image, message, and link on homepage
+
 import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
@@ -37,6 +39,7 @@ const Container = styled.div`
 
 `
 
+// Connect to contentful for hero image information
 export default () => (
   <StaticQuery
     query={graphql`
