@@ -42,10 +42,10 @@ class BannerPromo extends Component {
   render() {
     return (
       <Container>
-        <Announcement className="banner-text">Announcements!</Announcement>
-        <PromoText className="banner-text">
-          Monster rat is attacking pizza rat
-        </PromoText>
+        <Announcement className="banner-text">
+          {this.props.bannerTitle}
+        </Announcement>
+        <PromoText className="banner-text">{this.props.bannerText}</PromoText>
 
         {/* <IoIosClose /> */}
       </Container>

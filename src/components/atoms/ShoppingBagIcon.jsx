@@ -29,11 +29,17 @@ class ShoppingBagIcon extends Component {
     const { click } = this.props
     return (
       <Container>
-        <TiShoppingBag size="2.4rem" onClick={click} />
-        {/* TODO: Cart
-        <CartConsumer>
-          {cartContext => <p onClick={click}>{cartContext.cart.length}</p>}
-        </CartConsumer> */}
+        <img
+          style={{
+            marginRight: 20,
+            marginBottom: 5,
+            marginLeft: 10,
+            maxWidth: 23.92,
+            maxHeight: 26,
+          }}
+          src={this.props.cartIcon}
+          alt="search-icon"
+        />
       </Container>
     )
   }
