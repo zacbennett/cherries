@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import sparkle from '../images/sparkle-emoji.png'
 import envelope from '../images/envelope-emoji.png'
 import deliveryTruck from '../images/delivery-truck-emoji.png'
+import TryptychPanel from './tryptychPanel'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 // Refactor to have the theme/picture/text be dynamic
 const Container = styled.div`
@@ -53,39 +55,51 @@ const Container = styled.div`
 `
 
 export default () => (
-  <Container>
-    <div id="tryptych-container">
-      <h4 id="tryptych-header">
-        <i>Jewelry, but make it fun.</i>
-      </h4>
-      <div id="tryptych-panel-container">
-        <div className="tryptych-panel">
-          <img src={sparkle} alt="sparkle" className="tryptych-panel-image" />
-          <p className="tryptych-panel-text">
-            We make cute, unique jewelry for every occasion—that good ish you
-            can't get anywhere else.
-          </p>
-        </div>
-        <div className="tryptych-panel">
-          <img src={envelope} alt="envelope" className="tryptych-panel-image" />
-          <p className="tryptych-panel-text">
-            Subscribe to monthly deliveries to save that $$$ and keep your looks
-            fresh.
-          </p>
-        </div>
-        <div className="tryptych-panel">
-          <img
-            src={deliveryTruck}
-            alt="truck"
-            className="tryptych-panel-image"
+  <StaticQuery
+    query={graphql`
+      {
+        contentfulHomePage(pageTitle: { eq: "Home Page" }) {
+          tryptychHeaderText
+          tryptychPanelImages {
+            file {
+              url
+            }
+          }
+          tryptychPanelText
+        }
+      }
+    `}
+    render={data => {
+      const contentfulData = data.contentfulHomePage
+      const tryptychHeaderText = contentfulData.tryptychHeaderText
+      const tryptychPanelImage = contentfulData.tryptychPanelImages
+      const tryptychPanelText = contentfulData.tryptychPanelText
+
+      let panelArr = []
+
+      for (let i = 0; i < tryptychPanelText.length; i++) {
+        panelArr.push(
+          <TryptychPanel
+            imageUrl={tryptychPanelImage[i].file.url}
+            imageName={tryptychPanelImage[i].file.fileName}
+            text={tryptychPanelText[i]}
           />
-          <p className="tryptych-panel-text">
-            We offer free shipping to subscribers on all US orders, because we
-            got your back girl.
-          </p>
-        </div>
-      </div>
-      <button className="get-started-button">Get Started</button>
-    </div>
-  </Container>
+        )
+      }
+
+      console.log(panelArr)
+      return (
+        <Container>
+          <div id="tryptych-container">
+            <h4 id="tryptych-header">
+              {/* HERE */}
+              <i>{tryptychHeaderText}</i>
+            </h4>
+            <div id="tryptych-panel-container">{panelArr}</div>
+            <button className="get-started-button">Get Started</button>
+          </div>
+        </Container>
+      )
+    }}
+  />
 )

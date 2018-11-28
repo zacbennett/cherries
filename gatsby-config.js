@@ -3,12 +3,7 @@ console.log('activeEnv', activeEnv)
 require('dotenv').config({
   path: `.env.${activeEnv}`,
 })
-console.log('all env', process.env)
-console.log('are we getting anything?', process.env.CONTENTFUL_SPACE_ID)
-console.log(
-  'are we getting anything here?',
-  process.env.CONTENTFUL_ACCESS_TOKEN
-)
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
