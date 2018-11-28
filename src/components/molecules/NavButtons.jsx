@@ -8,11 +8,9 @@ import DropdownMenu from '../atoms/DropdownMenu'
 
 /** Overview of NavButtons component:
  *  - Created a styled div container that wraps the NavButtons
- *  - Created two constants that act as links for two diff dropdown menus (Help and Signin). These will be passed down as props to DropdownMenu component
- *  - This component renders the two dropdown menus, the cherries icon, and a search button
- *
- *  - TODO: Make this dynamic by allowing Contentful to get buttons and icons
- *
+ *  - Created two constants that act as links for two diff dropdown menus (Help and SignIn). These will be passed down as props to DropdownMenu component
+ *  - This component renders the two dropdown menus, the cherries icon, and a search button - all these components are rendered dynamically
+ *  - These components are queried from contentful using graphQL and passed down as props from NavBar.
  */
 
 const Container = styled.div`
@@ -92,11 +90,9 @@ const Container = styled.div`
 
 class NavButtons extends Component {
   render() {
-    // const { handleMobileSidebar, handleSidebar, curUser, logOut } = this.props
-
+    //Get user links and help links that are passed down as props from NavBar - come from contentful
     const userLinks = this.props.userLinks[0].dropdownLinks
     const helpLinks = this.props.helpLinks[0].dropdownLinks
-    console.log('USERLINKS', userLinks)
     return (
       <Container>
         <div className="leftNav">
@@ -131,29 +127,6 @@ class NavButtons extends Component {
       </Container>
     )
   }
-}
-
-let user = {
-  data: [
-    {
-      icon: true,
-      dropdown: true,
-      navButton: 'userLinksNoUser',
-      dropdownLinks: [
-        { text: 'Sign Up', page: 'signup' },
-        { text: 'Log In', page: 'login' },
-      ],
-    },
-    {
-      icon: true,
-      dropdown: true,
-      navButton: 'userLinksUser',
-      dropdownLinks: [
-        { text: 'Account', page: 'account' },
-        { text: 'Log Out', page: 'logout' },
-      ],
-    },
-  ],
 }
 
 export default NavButtons

@@ -4,10 +4,9 @@ import NavLink from './NavLink'
 
 /** Overview of DropdownMenu component:
  *  - Created a styled div container that wraps DropdownMenu
- *  - State is initiallly false
+ *  - State is initially false
  *  - Have two functions that either display or hide the dropdown menu depending on mouse hover
  *  - DropdownMenu renders links passed down from NavButtons (Help and Signin)
- *
  */
 
 const Container = styled.div`
@@ -60,11 +59,7 @@ class DropdownMenu extends Component {
     console.log('DROPDOWN PROPS', this.props)
     const display = this.state.display ? 'initial' : 'none'
     const links = this.props.links.map((link, i) => (
-      <NavLink
-        to={link.route}
-        // TODO: Change key to stable and unique ID
-        key={i}
-      >
+      <NavLink to={link.route} key={i}>
         {link.name}
       </NavLink>
     ))
