@@ -44,7 +44,6 @@ const Icon = styled.div`
     cursor: pointer;
   }
 `
-// TODO: Why does the location of 'X' go to one spot first then
 class BannerPromo extends Component {
   constructor(props) {
     super(props)
@@ -57,14 +56,7 @@ class BannerPromo extends Component {
 
   handleClick() {
     this.setState({ display: false })
-    // this.props.handleBannerMargin(3.5)
   }
-
-  // hidePromo = () => {
-  //   this.setState( st => { st.display: false });
-  //   console.log('inside hidePromo,', this.state)
-  //   // this.props.handleBannerMargin(3.5)
-  // }
 
   render() {
     console.log('what is the state', this.state)
