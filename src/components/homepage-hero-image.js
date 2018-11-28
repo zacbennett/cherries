@@ -1,3 +1,5 @@
+// Componet for rendering hero image, message, and link on homepage
+
 import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
@@ -37,6 +39,7 @@ const Container = styled.div`
 
 `
 
+// Connect to contentful for hero image information
 export default () => (
   <StaticQuery
     query={graphql`
@@ -54,15 +57,12 @@ export default () => (
       }
     `}
     render={data => {
-      
-
       const contentfulData = data.contentfulHomePage
       const heroImage = contentfulData.heroImage.file.url
       const heroImageText = contentfulData.heroImageText
       const heroImageButtonText = contentfulData.heroImageButtonText
       const heroImageButtonLink = contentfulData.heroImageButtonLink
 
-      console.log('HELLO!!!', contentfulData)
       return (
         <Container>
           <div id="hero-image-container">

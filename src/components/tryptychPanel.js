@@ -1,3 +1,5 @@
+// Component for each panel on tryptych, rendering passed in image and information
+
 import React, { Component } from 'react'
 
 class TryptychPanel extends Component {
