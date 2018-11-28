@@ -7,6 +7,7 @@ import { StaticQuery, graphql } from 'gatsby'
 /** Overview of NavBar component:
  *  - Created a styled div NavContainer which wraps our NavBar
  *  - NavBar renders NavButtons and Banner Promo
+ *  - NavButtons and Banner Promo will be passed down props such as icons and text that are queried dynamically from contentful
  *
  */
 
@@ -22,17 +23,7 @@ const NavContainer = Styled.div`
   z-index: 2;
 `
 
-// class NavBar extends Component {
-//   render() {
-//     return (
-//       <NavContainer>
-//         <BannerPromo />
-//         <NavButtons />
-//       </NavContainer>
-//     )
-//   }
-// }
-
+//Static query using graphQL that fetched images, text and links for the NavBar component and it's children components.
 export default () => (
   <StaticQuery
     query={graphql`
@@ -103,5 +94,3 @@ export default () => (
     )}
   />
 )
-
-// export default NavBar

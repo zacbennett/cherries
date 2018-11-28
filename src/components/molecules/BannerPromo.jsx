@@ -8,9 +8,8 @@ import './BannerPromo.css'
  *  - Created three styled div containers
  *    - One wraps the whole BannerPromo
  *    - The other two wrap the text inside the BannerPromo
- *  - BannerPromo renders Announcement and PromoText
+ *  - BannerPromo renders Announcement and PromoText - these are queried dynamically from contentful and passed down as props from NavBar component
  *  - TODO: Add functionality to close the announcement and X icon
- *
  */
 
 const Container = styled.div`

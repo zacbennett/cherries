@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { TiShoppingBag } from 'react-icons/ti'
-// import { CartConsumer } from '../../containers/CartContext'
+
+/** Component that renders cart icon that we have queried from contentful and passed down as props.
+ */
 
 const Container = styled.div`
   cursor: pointer;
