@@ -54,15 +54,12 @@ export default () => (
       }
     `}
     render={data => {
-      
-
       const contentfulData = data.contentfulHomePage
       const heroImage = contentfulData.heroImage.file.url
       const heroImageText = contentfulData.heroImageText
       const heroImageButtonText = contentfulData.heroImageButtonText
       const heroImageButtonLink = contentfulData.heroImageButtonLink
 
-      console.log('HELLO!!!', contentfulData)
       return (
         <Container>
           <div id="hero-image-container">

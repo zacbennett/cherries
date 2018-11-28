@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Styled from 'styled-components'
 
 import Layout from '../components/layout'
@@ -23,13 +23,39 @@ const Container = Styled.div`
     }
 `
 
-const IndexPage = () => (
-  <Container>
-    <NavBar />
-    <HeroImage />
-    <ProductList />
-    <HomepageTryptych />
-  </Container>
-)
+const IndexPage = ({ data }) => {
+  const freshPicks = data.allContentfulProductPage.edges
+  return (
+    <Container>
+      <NavBar />
+      <HeroImage />
+      <ProductList products={freshPicks} />
+      <HomepageTryptych />
+    </Container>
+  )
+}
+
+export const query = graphql`
+  {
+    allContentfulProductPage(
+      sort: { fields: [createdAt], order: DESC }
+      limit: 4
+    ) {
+      edges {
+        node {
+          id
+          createdAt
+          title
+          price
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

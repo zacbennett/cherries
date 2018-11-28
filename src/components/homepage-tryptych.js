@@ -61,6 +61,7 @@ export default () => (
         contentfulHomePage(pageTitle: { eq: "Home Page" }) {
           tryptychHeaderText
           tryptychPanelImages {
+            id
             file {
               url
             }
@@ -80,6 +81,7 @@ export default () => (
       for (let i = 0; i < tryptychPanelText.length; i++) {
         panelArr.push(
           <TryptychPanel
+            key={tryptychPanelImage[i].id}
             imageUrl={tryptychPanelImage[i].file.url}
             imageName={tryptychPanelImage[i].file.fileName}
             text={tryptychPanelText[i]}
@@ -87,7 +89,6 @@ export default () => (
         )
       }
 
-      console.log(panelArr)
       return (
         <Container>
           <div id="tryptych-container">

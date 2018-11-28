@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import productImage from '../images/earrings.png'
 
@@ -31,13 +31,23 @@ const Container = styled.div`
   }
 `
 
-export default () => (
-  // Refactor to display image/name/price based on props passed in
-  <Container>
-    <div className="product-card">
-      <img className="product-card-image" src={productImage} />
-      <p className="product-card-name"> Blue Medium Hoops</p>
-      <p className="product-card-price">$18.00</p>
-    </div>
-  </Container>
-)
+class ProductCard extends Component {
+  render() {
+    const product = this.props.product
+    // Refactor to display image/name/price based on props passed in
+    return (
+      <Container>
+        <div className="product-card">
+          <img
+            className="product-card-image"
+            src={product.images[0].file.url}
+          />
+          <p className="product-card-name">{product.title}</p>
+          <p className="product-card-price">${product.price}</p>
+        </div>
+      </Container>
+    )
+  }
+}
+
+export default ProductCard
