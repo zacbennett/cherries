@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Styled from 'styled-components'
 import ProductList from '../components/product-list'
 import NavBar from '../components/NavBar'
-import ShopPageHeader from '../components/atoms/ShopPageHeader'
 
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
@@ -28,7 +27,6 @@ const CatalogPage = ({ data }) => {
   return (
     <Container>
       <NavBar />
-      {/* <ShopPageHeader /> */}
       <ProductList products={productPicks} catalog={true} />
       {/* TODO: Footer */}
     </Container>
