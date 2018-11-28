@@ -10,7 +10,7 @@ import { StaticQuery, graphql } from 'gatsby'
  *  - NavButtons and Banner Promo will be passed down props such as icons and text that are queried dynamically from contentful
  *
  */
-
+//Another comment
 const NavContainer = Styled.div`
   position: fixed;
   top: 0;
