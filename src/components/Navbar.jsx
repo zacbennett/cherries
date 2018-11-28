@@ -96,8 +96,8 @@ export default () => (
           searchIcon={data.contentfulHomePage.navSearchIcon.fluid.src}
           cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
           cherriesIcon={data.contentfulHomePage.navCherriesIcon.fluid.src}
-          userLinks={data.contentfulHomePage.userLinks.data.dropdownLinks}
-          helpLinks={data.contentfulHomePage.helpLinks.data.dropdownLinks}
+          userLinks={data.contentfulHomePage.userLinks.data}
+          helpLinks={data.contentfulHomePage.helpLinks.data}
         />
       </NavContainer>
     )}
