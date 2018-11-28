@@ -94,19 +94,8 @@ class NavButtons extends Component {
   render() {
     // const { handleMobileSidebar, handleSidebar, curUser, logOut } = this.props
 
-    const userLinks = [
-      { text: 'Sign Up', page: 'signup' },
-      { text: 'Log In', page: 'login' },
-      { text: 'Account', page: 'account' },
-      { text: 'Log Out', page: 'logout' },
-    ]
-    const helpLinks = [
-      { text: 'FAQ', page: 'faq' },
-      { text: 'Help', page: 'faq' },
-      { text: 'Returns', page: 'faq' },
-      { text: 'team@lipslut.com', page: 'contact' },
-    ]
-    console.log('HEEEEEEEEEEEEEEY', this.props)
+    const userLinks = this.props.userLinks
+    const helpLinks = this.props.helpLinks
     return (
       <Container>
         <div className="leftNav">

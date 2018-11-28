@@ -19,7 +19,7 @@ const Container = styled.div`
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: #fbe5e9;
     border-radius: 2px;
     box-shadow: 1px 1px 10px 0 rgba(46, 61, 73, 0.2);
     margin-top: 2rem;
@@ -62,7 +62,7 @@ class DropdownMenu extends Component {
     const links = this.props.links.map((link, i) => (
       <NavLink
         to={link.page}
-        // Change key to stable and unique ID
+        // TODO: Change key to stable and unique ID
         key={i}
       >
         {link.text}
