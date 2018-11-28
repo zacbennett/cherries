@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import heroImage from '../images/homepage-hero-image.png'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
-// Refactor to have the color be dynamic
 const Container = styled.div`
   #hero-image-container {
     position: relative;
@@ -33,19 +32,50 @@ const Container = styled.div`
     font-size: 23px;
     border: none;
     width: 100%;
+    cursor: pointer;
   }
-  
+
 `
 
 export default () => (
-  <Container>
-    <div id="hero-image-container">
-      {/* Change below to get text from contentful */}
-      <img id="hero-image" src={heroImage} alt="hero-image" />
-      <div id="hero-image-text-container">
-        <h4 id="hero-image-text">Fresh earrings, hand-picked by you</h4>
-        <button id="hero-image-button">Get Started</button>
-      </div>
-    </div>
-  </Container>
+  <StaticQuery
+    query={graphql`
+      {
+        contentfulHomePage(pageTitle: { eq: "Home Page" }) {
+          heroImage {
+            file {
+              url
+            }
+          }
+          heroImageText
+          heroImageButtonText
+          heroImageButtonLink
+        }
+      }
+    `}
+    render={data => {
+      
+
+      const contentfulData = data.contentfulHomePage
+      const heroImage = contentfulData.heroImage.file.url
+      const heroImageText = contentfulData.heroImageText
+      const heroImageButtonText = contentfulData.heroImageButtonText
+      const heroImageButtonLink = contentfulData.heroImageButtonLink
+
+      console.log('HELLO!!!', contentfulData)
+      return (
+        <Container>
+          <div id="hero-image-container">
+            <img id="hero-image" src={heroImage} alt="hero-image" />
+            <div id="hero-image-text-container">
+              <h4 id="hero-image-text">{heroImageText}</h4>
+              <Link to={heroImageButtonLink}>
+                <button id="hero-image-button">{heroImageButtonText}</button>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      )
+    }}
+  />
 )
