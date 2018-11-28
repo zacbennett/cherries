@@ -32,6 +32,20 @@ const Container = styled.div`
 // Map through list of products and passing product information into ProductCard component
 class ProductList extends Component {
   render() {
+    const header = this.props.catalog ? 'Shop All' : 'Fresh Picks'
+    const subheader = this.props.catalog ? (
+      'xyz'
+    ) : (
+      <Link to="/">
+        <u>
+          <i>
+            <small>
+              <span className="product-list-subheader">Show all</span>
+            </small>
+          </i>
+        </u>
+      </Link>
+    )
     let products = this.props.products.map(product => (
       <ProductCard
         className="ProductCard"
@@ -45,16 +59,7 @@ class ProductList extends Component {
       <Container>
         <div className="product-list-container">
           <p className="product-list-header">
-            <i>Fresh picks</i>{' '}
-            <Link to="/">
-              <u>
-                <i>
-                  <small>
-                    <span className="product-list-subheader">Shop all</span>
-                  </small>
-                </i>
-              </u>
-            </Link>
+            <i>{header}</i> {subheader}
           </p>
           <div className="product-list-card-container">{products}</div>
         </div>

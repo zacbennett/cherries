@@ -1,13 +1,9 @@
-// Page for rendering homepage content
-
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import Styled from 'styled-components'
-
-import HeroImage from '../components/homepage-hero-image'
-import HomepageTryptych from '../components/homepage-tryptych'
 import ProductList from '../components/product-list'
 import NavBar from '../components/NavBar'
+import ShopPageHeader from '../components/atoms/ShopPageHeader'
 
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
@@ -15,25 +11,26 @@ import NavBar from '../components/NavBar'
  */
 
 const Container = Styled.div`
-  align-items: center;
-  animation: fadein 1s; 
-  @keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
-    }
+position: relative;
+align-items: center;
+flex-direction: column;
+display: flex;
+animation: fadein 1s; 
+@keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
 `
 
-const IndexPage = ({ data }) => {
-  const freshPicks = data.allContentfulProductPage.edges
+const CatalogPage = ({ data }) => {
+  const productPicks = data.allContentfulProductPage.edges
+
   return (
     <Container>
       <NavBar />
-      <HeroImage />
-      <ProductList products={freshPicks} />
-      <HomepageTryptych />
-      <ProductList products={freshPicks} />
-      <ProductList products={freshPicks} />
-      <ProductList products={freshPicks} />
+      {/* <ShopPageHeader /> */}
+      <ProductList products={productPicks} catalog={true} />
+      {/* TODO: Footer */}
     </Container>
   )
 }
@@ -41,12 +38,10 @@ const IndexPage = ({ data }) => {
 // Query contentful for products limiting to fresh picks (top four most recently created products)
 // Passed into ProductList component
 // Eventually may connect to shopify for sales-driven data
+//TODO: Make sure it's Shopify later
 export const query = graphql`
   {
-    allContentfulProductPage(
-      sort: { fields: [createdAt], order: DESC }
-      limit: 4
-    ) {
+    allContentfulProductPage {
       edges {
         node {
           id
@@ -64,4 +59,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default CatalogPage
