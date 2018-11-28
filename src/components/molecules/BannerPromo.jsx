@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-// import { IoIosClose } from 'react-icons/io'
+import { IoIosClose } from 'react-icons/io'
 // import { Link } from 'gatsby'
 import './BannerPromo.css'
 
@@ -36,19 +36,49 @@ const Announcement = styled.div`
 const PromoText = styled.div`
   color: white;
   font-size: 12px;
+  margin-top: 2px;
 `
+const Icon = styled.div`
+  margin-left: auto;
+`
+// TODO: Why does the location of 'X' go to one spot first then
 class BannerPromo extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      display: true,
+    }
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.setState({ display: false })
+    // this.props.handleBannerMargin(3.5)
+  }
+
+  // hidePromo = () => {
+  //   this.setState( st => { st.display: false });
+  //   console.log('inside hidePromo,', this.state)
+  //   // this.props.handleBannerMargin(3.5)
+  // }
+
   render() {
-    return (
+    console.log('what is the state', this.state)
+    const banner = this.state.display ? (
       <Container>
         <Announcement className="banner-text">
           {this.props.bannerTitle}
         </Announcement>
         <PromoText className="banner-text">{this.props.bannerText}</PromoText>
-
-        {/* <IoIosClose /> */}
+        <Icon>
+          <IoIosClose size={30} onClick={this.handleClick} />
+        </Icon>{' '}
       </Container>
+    ) : (
+      ''
     )
+    return <React.Fragment>{banner}</React.Fragment>
   }
 }
 
