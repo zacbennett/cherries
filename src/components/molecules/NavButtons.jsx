@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
 import { Link } from 'gatsby'
-import { FaRegUser, FaBars, FaRegQuestionCircle } from 'react-icons/fa'
 // import NavLink from '../atoms/NavLink'
 import DropdownMenu from '../atoms/DropdownMenu'
 

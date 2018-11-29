@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-/** Component that renders cart icon that we have queried from contentful and passed down as props.
- */
-
 const Container = styled.div`
   cursor: pointer;
   display: flex;
@@ -27,7 +24,7 @@ const Container = styled.div`
 
 class ShoppingBagIcon extends Component {
   render() {
-    const { click } = this.props
+    // const { click } = this.props
     return (
       <Container>
         <img

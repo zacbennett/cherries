@@ -1,5 +1,3 @@
-// Component for rendering each panel of tryptych shown on homepage
-
 import React from 'react'
 import styled from 'styled-components'
 import TryptychPanel from './tryptychPanel'
@@ -7,21 +5,20 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 
 // Refactor to have the theme/picture/text be dynamic
 const Container = styled.div`
-  #tryptych-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: #ffe2e2;
-    width: 100vw;
-    height: 375px;
-    padding-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #ffe2e2;
+  width: 100vw;
+  height: 375px;
+  padding-bottom: 20px;
   #tryptych-header {
     margin: 25px 0 0px 0;
     color: #e20031;
     font-size: 25px;
     width: 100%;
     text-align: center;
+    font-style: italic;
   }
   #tryptych-panel-container {
     display: flex;
@@ -57,60 +54,70 @@ const Container = styled.div`
   }
 `
 
-// Trypytch information pulled from contentful to pass into TryptychPanel component
 export default () => (
   <StaticQuery
     query={graphql`
       {
         contentfulHomePage(pageTitle: { eq: "Home Page" }) {
-          tryptychHeaderText
-          tryptychPanelImages {
-            id
-            file {
-              url
+          tryptychButtonText
+          tryptych {
+            content {
+              nodeType
+              data {
+                target {
+                  fields {
+                    file {
+                      en_US {
+                        url
+                        fileName
+                      }
+                    }
+                  }
+                }
+              }
+              content {
+                value
+              }
             }
           }
-          tryptychPanelText
-          tryptychButtonText
-          tryptychButtonLink
         }
       }
     `}
     render={data => {
-      const contentfulData = data.contentfulHomePage
-      const tryptychHeaderText = contentfulData.tryptychHeaderText
-      const tryptychPanelImage = contentfulData.tryptychPanelImages
-      const tryptychPanelText = contentfulData.tryptychPanelText
-      const tryptychButtonText = contentfulData.tryptychButtonText
-      const tryptychButtonLink = contentfulData.tryptychButtonLink
+      const tryptychButtonText = data.contentfulHomePage.tryptychButtonText
+      const tryptychContent = data.contentfulHomePage.tryptych.content
+      let tryptychHeader
+      let tryptychIcons = []
+      let tryptychCopy = []
 
-      let panelArr = []
+      // Seperate content into its seperate nodetypes
+      tryptychContent.forEach(item => {
+        if (item.nodeType === 'heading-4')
+          tryptychHeader = item.content[0].value
+        else if (item.nodeType === 'embedded-asset-block')
+          tryptychIcons.push(item.data.target.fields.file.en_US)
+        else if (item.nodeType === 'paragraph')
+          tryptychCopy.push(item.content[0].value)
+      })
 
-      // Loop through all trypytch items and pass information into TryptychPanel component
-      for (let i = 0; i < tryptychPanelText.length; i++) {
-        panelArr.push(
+      let tryptychPanels = []
+      tryptychIcons.forEach((icon, i) => {
+        tryptychPanels.push(
           <TryptychPanel
-            key={tryptychPanelImage[i].id}
-            imageUrl={tryptychPanelImage[i].file.url}
-            imageName={tryptychPanelImage[i].file.fileName}
-            text={tryptychPanelText[i]}
+            key={i}
+            imageUrl={icon.url}
+            imageName={icon.fileName}
+            text={tryptychCopy[i]}
           />
         )
-      }
-
+      })
       return (
         <Container>
-          <div id="tryptych-container">
-            <h4 id="tryptych-header">
-              <i>{tryptychHeaderText}</i>
-            </h4>
-            <div id="tryptych-panel-container">{panelArr}</div>
-            <Link to={tryptychButtonLink}>
-              <button className="get-started-button">
-                {tryptychButtonText}
-              </button>
-            </Link>
-          </div>
+          <h4 id="tryptych-header">{tryptychHeader}</h4>
+          <div id="tryptych-panel-container">{tryptychPanels}</div>
+          <Link to="/">
+            <button className="get-started-button">{tryptychButtonText}</button>
+          </Link>
         </Container>
       )
     }}
