@@ -11,9 +11,6 @@ const Container = styled.div`
   .dropdownContent {
     display: none;
   }
-  // .dropdownContent > * {
-  //   margin-left: 25px;
-  // }
   ul {
     list-style: none;
   }

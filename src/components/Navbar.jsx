@@ -12,7 +12,7 @@ import { StaticQuery, graphql } from 'gatsby'
  */
 //Another comment
 const NavContainer = Styled.div`
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100vw;

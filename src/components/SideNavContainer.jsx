@@ -10,13 +10,7 @@ import SideNav from './molecules/SideNav'
 
 const Container = Styled.div`
 position: fixed;
-top: 150px;
-// left: 0;
-// width: 100vw;
-// display: flex;
-// flex-direction: column;
-// align-items: center;
-// justify-content: center;
+margin-top: 80px;
 z-index: 2;
 `
 
