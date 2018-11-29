@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat'); */
 
 /* html,
 .banner-text {
@@ -6,7 +6,7 @@
   font-style: italic;
   font-weight: bold;
 } */
-
+/* 
 html {
   font-family: 'Courier';
   -ms-text-size-adjust: 100%;
@@ -207,7 +207,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: 'Montserrat', serif;
+  /* font-family: 'Montserrat', serif; */
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -630,4 +630,4 @@ pre tt:after {
   html {
     font-size: 100%;
   }
-}
+} */
