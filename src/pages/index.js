@@ -8,12 +8,14 @@ import HeroImage from '../components/homepage-hero-image'
 import HomepageTryptych from '../components/homepage-tryptych'
 import ProductList from '../components/product-list'
 import NavBar from '../components/NavBar'
+
 import SideNavContainer from '../components/SideNavContainer'
+
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
  *
  */
-//Adding a comment for now
+
 const Container = Styled.div`
   align-items: center;
   animation: fadein 1s; 
