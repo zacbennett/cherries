@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import TryptychPanel from './tryptychPanel'
+import TryptychPanel from './TryptychPanel'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 // Refactor to have the theme/picture/text be dynamic

@@ -4,12 +4,12 @@ import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import Styled from 'styled-components'
 
-import HeroImage from '../components/homepage-hero-image'
-import HomepageTryptych from '../components/homepage-tryptych'
-import ProductList from '../components/product-list'
+import HeroImage from '../components/HomePageHeroImage'
+import HomepageTryptych from '../components/HomePageTryptych'
+import ProductList from '../components/ProductList'
 import NavBar from '../components/NavBar'
 import SideNavContainer from '../components/SideNavContainer'
-import Layout from '../components/layoutFont'
+import Layout from '../components/LayoutFont'
 
 
 
