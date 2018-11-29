@@ -1,14 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
-import NavBar from './NavBar'
-import ProductPageInfoContainer from './ProductPageInfoContainer'
-import ProductPageProductOrder from './ProductPageProductOrder'
+import { ProductPageInfoContainer } from '../components'
 import { graphql } from 'gatsby'
-
-/** Overview of index.js component:
- *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
- *
- */
 
 const Container = Styled.div`
   align-items: center;
@@ -23,7 +16,7 @@ const ProductPageContainer = ({ data }) => {
   return (
     <Container>
       {/* Image Component Goes Here */}
-      <ProductPageInfoContainer/>
+      <ProductPageInfoContainer />
     </Container>
   )
 }

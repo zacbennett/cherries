@@ -1,15 +1,9 @@
-// Component for mapping out ProductCard component with passed-in product list
-
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
-import ProductPageProductInfo from './ProductPageProductInfo'
-import ProductPageProductOrder from './ProductPageProductOrder'
+import { ProductPageProductInfo, ProductPageProductOrder } from './atoms'
 // import ProductPageProductDetails from './ProductPageProductDetails'
 
-const Container = styled.div`
-
-`
+const Container = styled.div``
 
 class ProductPageInfoContainer extends Component {
   render() {

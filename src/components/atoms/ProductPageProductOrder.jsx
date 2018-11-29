@@ -1,5 +1,3 @@
-// Component for rendering individual product cards
-
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
@@ -7,7 +5,6 @@ const Container = styled.div`
   display: block;
 `
 
-// Renders product information and first image from connected contentful data
 class ProductPageProductOrder extends Component {
   render() {
     return (

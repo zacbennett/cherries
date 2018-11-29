@@ -1,9 +1,7 @@
-// Componet for rendering hero image, message, and link on homepage
-
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql, Link } from 'gatsby'
-import HomePageButton from './atoms/HomePageButton'
+import { StaticQuery, graphql } from 'gatsby'
+import { HomePageButton } from './atoms'
 
 const Container = styled.div`
   position: relative;
@@ -27,7 +25,6 @@ const Container = styled.div`
   }
 `
 
-// Connect to contentful for hero image information
 export default () => (
   <StaticQuery
     query={graphql`
@@ -51,7 +48,7 @@ export default () => (
 
       return (
         <Container>
-          <img id="hero-image" src={heroImage} alt="hero-image" />
+          <img id="hero-image" src={heroImage} alt="hero" />
           <div id="hero-image-text-container">
             <h4 id="hero-image-text">{heroImageText}</h4>
             <HomePageButton buttonText={heroImageButtonText} />

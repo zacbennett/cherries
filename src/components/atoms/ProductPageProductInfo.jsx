@@ -1,5 +1,3 @@
-// Component for rendering individual product cards
-
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
@@ -13,12 +11,7 @@ const Container = styled.div`
     font-weight: bold;
   }
 `
-
-// Renders product information and first image from connected contentful data
 class ProductPageProductInfo extends Component {
-  constructor(props) {
-    super(props)
-  }
   static defaultProps = {
     title: 'Blue Medium Hoops',
     productCopy:

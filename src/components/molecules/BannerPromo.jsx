@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { IoIosClose } from 'react-icons/io'
-// import { Link } from 'gatsby'
-import './BannerPromo.css'
 
 /** Overview of BannerPromo component:
  *  - Created three styled div containers
  *    - One wraps the whole BannerPromo
  *    - The other two wrap the text inside the BannerPromo
  *  - BannerPromo renders Announcement and PromoText - these are queried dynamically from contentful and passed down as props from NavBar component
- *  - TODO: Add functionality to close the announcement and X icon
  */
 
 const Container = styled.div`
@@ -32,12 +29,16 @@ const Announcement = styled.div`
   color: white;
   font-size: 20px
   margin: 0px 15px 10px 20px;
+  font-style: italic;
+  font-weight: bold;
 `
 const PromoText = styled.div`
   color: white;
   font-size: 12px;
   margin-top: 2px;
   font-weight: 400;
+  font-style: italic;
+  font-weight: bold;
 `
 const Icon = styled.div`
   margin-left: auto;

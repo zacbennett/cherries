@@ -1,13 +1,8 @@
-// Component for rendering each panel of tryptych shown on homepage
-
 import React from 'react'
 import styled from 'styled-components'
-import TryptychPanel from './TryptychPanel'
-import HomePageButton from './atoms/HomePageButton'
+import { TryptychPanel, HomePageButton } from './atoms'
+import { StaticQuery, graphql } from 'gatsby'
 
-import { StaticQuery, graphql, Link } from 'gatsby'
-
-// Refactor to have the theme/picture/text be dynamic
 const Container = styled.div`
   display: flex;
   flex-direction: column;

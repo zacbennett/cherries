@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
-import NavLink from '../atoms/NavLink'
-
-/** Overview of NavButtons component:
- *  -
- */
+import { NavLink } from '../atoms'
 
 const Container = styled.div`
   .dropdownContent {
@@ -18,7 +13,6 @@ const Container = styled.div`
     margin-left: 25px;
   }
 `
-//Use the way constructor and normal bind
 class SideNavLink extends Component {
   constructor(props) {
     super(props)
@@ -28,6 +22,7 @@ class SideNavLink extends Component {
     this.toggleMenu = this.toggleMenu.bind(this)
   }
 
+  //when links are clicked state will change and dropdown will be shown
   toggleMenu(evt) {
     evt.preventDefault()
     this.setState(st => ({
@@ -35,6 +30,7 @@ class SideNavLink extends Component {
     }))
   }
 
+  //render NavLinks - dropdown menu will be a ul that renders different li's depending on props passed down from SideNav
   render() {
     const display = this.state.display ? 'initial' : 'none'
     return (

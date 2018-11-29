@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
-import { Link } from 'gatsby'
-import NavLink from '../atoms/NavLink'
-import SideNavLink from '../atoms/SideNavLink'
-import DropdownMenu from '../atoms/DropdownMenu'
-
-/** Overview of NavButtons component:
- *  -
- */
+import { NavLink, SideNavLink } from '../atoms'
 
 const Container = styled.div`
   ul {
@@ -18,7 +10,6 @@ const Container = styled.div`
     margin-left: 7px;
   }
 `
-//Use the way constructor and normal bind
 class SideNav extends Component {
   render() {
     const links = this.props.links.map((link, i) => {

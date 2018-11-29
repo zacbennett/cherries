@@ -1,9 +1,7 @@
-// Component for mapping out ProductCard component with passed-in product list
-
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import ProductCard from '../atoms/ProductCard'
+import { ProductCard } from '../atoms'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -49,7 +47,6 @@ class ProductList extends Component {
   }
 
   render() {
-    console.log('what does the state look like', this.state)
     const header = this.props.catalog ? 'Shop All' : 'Fresh Picks'
     const subheader = this.props.catalog ? (
       <form htmlFor="shopDropdown">
@@ -86,7 +83,6 @@ class ProductList extends Component {
       />
     ))
 
-    // Section title and link to be refactored to be dynamic
     return (
       <Container>
         <p className="product-list-header">

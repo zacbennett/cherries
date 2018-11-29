@@ -1,13 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Styled from 'styled-components'
-import ProductList from '../components/molecules/ProductList'
-import NavBar from '../components/NavBar'
-
-/** Overview of index.js component:
- *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
- *
- */
+import { ProductList } from '../components/molecules'
+import { NavBar } from '../components'
 
 const Container = Styled.div`
 position: relative;
