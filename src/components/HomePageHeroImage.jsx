@@ -5,9 +5,7 @@ import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 const Container = styled.div`
-  #hero-image-container {
-    position: relative;
-  }
+  position: relative;
   #hero-image {
     width: 100vw;
     height: 431.97px;
@@ -65,14 +63,12 @@ export default () => (
 
       return (
         <Container>
-          <div id="hero-image-container">
-            <img id="hero-image" src={heroImage} alt="hero-image" />
-            <div id="hero-image-text-container">
-              <h4 id="hero-image-text">{heroImageText}</h4>
-              <Link to={heroImageButtonLink}>
-                <button id="hero-image-button">{heroImageButtonText}</button>
-              </Link>
-            </div>
+          <img id="hero-image" src={heroImage} alt="hero-image" />
+          <div id="hero-image-text-container">
+            <h4 id="hero-image-text">{heroImageText}</h4>
+            <Link to={heroImageButtonLink}>
+              <button id="hero-image-button">{heroImageButtonText}</button>
+            </Link>
           </div>
         </Container>
       )
