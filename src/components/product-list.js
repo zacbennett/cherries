@@ -1,4 +1,6 @@
-import React from 'react'
+// Component for mapping out ProductCard component with passed-in product list
+
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import ProductCard from './product-card'
@@ -10,6 +12,7 @@ const Container = styled.div`
   }
   .product-list-card-container {
     display: flex;
+    flex-wrap:wrap
     justify-content: space-between;
   }
   .product-list-header{
@@ -26,27 +29,38 @@ const Container = styled.div`
     margin-left: 30px
   }
 `
+// Map through list of products and passing product information into ProductCard component
+class ProductList extends Component {
+  render() {
+    let products = this.props.products.map(product => (
+      <ProductCard
+        className="ProductCard"
+        key={product.node.id}
+        product={product.node}
+      />
+    ))
 
-let tempArray = [1, 2, 3, 4]
-let products = tempArray.map(product => <ProductCard className="ProductCard" />)
+    // Section title and link to be refactored to be dynamic
+    return (
+      <Container>
+        <div className="product-list-container">
+          <p className="product-list-header">
+            <i>Fresh picks</i>{' '}
+            <Link to="/">
+              <u>
+                <i>
+                  <small>
+                    <span className="product-list-subheader">Shop all</span>
+                  </small>
+                </i>
+              </u>
+            </Link>
+          </p>
+          <div className="product-list-card-container">{products}</div>
+        </div>
+      </Container>
+    )
+  }
+}
 
-export default () => (
-  // Refactor to display image/name/price based on props passed in
-  <Container>
-    <div className="product-list-container">
-      <p className="product-list-header">
-        <i>Fresh picks</i>{' '}
-        <Link>
-          <u>
-            <i>
-              <small>
-                <span className="product-list-subheader">Shop all</span>
-              </small>
-            </i>
-          </u>
-        </Link>
-      </p>
-      <div className="product-list-card-container">{products}</div>
-    </div>
-  </Container>
-)
+export default ProductList
