@@ -7,14 +7,14 @@ import { Link } from 'gatsby'
  */
 
 const Container = Styled.div`
-#hero-image-button{
+.get-started-button{
 background-color: #e20031;
 color: white;
 text-transform: uppercase;
 padding: 10px 30px 
 font-size: 23px;
 border: none;
-width: 100%;
+// width: 100%;
 cursor: pointer;
 }
 `
@@ -24,7 +24,9 @@ class HomePageButton extends Component {
     return (
       <Container>
         <Link to="/">
-          <button id="hero-image-button">{this.props.buttonText}</button>
+          <button className="get-started-button">
+            {this.props.buttonText}
+          </button>
         </Link>
       </Container>
     )

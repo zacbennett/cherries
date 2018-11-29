@@ -3,13 +3,11 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import ProductPageProductInfo from './ProductPageProductInfo'
-import ProductPageProductOrder from './ProductPageProductOrder'
+import ProductPageProductInfo from './atoms/ProductPageProductInfo'
+import ProductPageProductOrder from './atoms/ProductPageProductOrder'
 // import ProductPageProductDetails from './ProductPageProductDetails'
 
-const Container = styled.div`
-
-`
+const Container = styled.div``
 
 class ProductPageInfoContainer extends Component {
   render() {
