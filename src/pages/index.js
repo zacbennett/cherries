@@ -9,6 +9,7 @@ import HomepageTryptych from '../components/homepage-tryptych'
 import ProductList from '../components/product-list'
 import ProductCard from '../components/product-card'
 import NavBar from '../components/NavBar'
+import SideNavContainer from '../components/SideNavContainer'
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
  *
@@ -29,6 +30,7 @@ const IndexPage = () => (
     <HeroImage />
     <ProductList />
     <HomepageTryptych />
+    <SideNavContainer />
   </Container>
 )
 
