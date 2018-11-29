@@ -1,17 +1,9 @@
-// Page for rendering homepage content
-
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
 import Styled from 'styled-components'
-
-import HeroImage from '../components/homepage-hero-image'
-import HomepageTryptych from '../components/homepage-tryptych'
-import ProductList from '../components/product-list'
 import NavBar from '../components/NavBar'
-import SideNavContainer from '../components/SideNavContainer'
-import Layout from '../components/layoutFont'
-
-
+import ProductPageInfoContainer from './ProductPageInfoContainer'
+import ProductPageProductOrder from './ProductPageProductOrder'
+import { graphql } from 'gatsby'
 
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
@@ -25,23 +17,14 @@ const Container = Styled.div`
         from { opacity: 0; }
         to   { opacity: 1; }
     }
-
 `
 
-const IndexPage = ({ data }) => {
-  const freshPicks = data.allContentfulProductPage.edges
+const ProductPageContainer = ({ data }) => {
   return (
     <Container>
       <NavBar />
-      <SideNavContainer />
-      <div className="homepage-content-container">
-        <HeroImage />
-        <ProductList products={freshPicks} />
-        <HomepageTryptych />
-        <ProductList products={freshPicks} />
-        <ProductList products={freshPicks} />
-        <ProductList products={freshPicks} />
-      </div>
+      {/* Image Component Goes Here */}
+      <ProductPageInfoContainer/>
     </Container>
   )
 }
@@ -72,4 +55,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default ProductPageContainer

@@ -4,12 +4,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  .product-card {
-    text-align: center;
-    margin-bottom: 70px;
-    width: 187.02px;
-    flex: 1 0 25%;
-  }
+  text-align: center;
+  margin-bottom: 70px;
+  width: 187.02px;
+  flex: 1 0 25%;
+
   .product-card-image {
     width: 187.02px;
     height: 238.63px;

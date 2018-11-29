@@ -1,14 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css?family=Montserrat'); */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-/* html,
-.banner-text {
-  font-family: 
-  font-style: italic;
-  font-weight: bold;
-} */
-/* 
 html {
-  font-family: 'Courier';
+  font-family: 'Montserrat', Courier, monospace;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
