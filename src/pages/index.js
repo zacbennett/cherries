@@ -6,7 +6,7 @@ import Styled from 'styled-components'
 
 import HeroImage from '../components/HomePageHeroImage'
 import HomepageTryptych from '../components/HomePageTryptych'
-import ProductList from '../components/ProductList'
+import ProductList from '../components/molecules/ProductList'
 import NavBar from '../components/NavBar'
 import SideNavContainer from '../components/SideNavContainer'
 import Layout from '../components/LayoutFont'

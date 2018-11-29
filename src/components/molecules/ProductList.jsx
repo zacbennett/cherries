@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import ProductCard from './ProductCard'
+import ProductCard from '../atoms/ProductCard'
 
 const Container = styled.div`
   margin: 0 auto;

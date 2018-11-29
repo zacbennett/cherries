@@ -22,7 +22,6 @@ const Container = Styled.div`
 const ProductPageContainer = ({ data }) => {
   return (
     <Container>
-      <NavBar />
       {/* Image Component Goes Here */}
       <ProductPageInfoContainer/>
     </Container>
