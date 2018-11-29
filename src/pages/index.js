@@ -11,8 +11,6 @@ import NavBar from '../components/NavBar'
 import SideNavContainer from '../components/SideNavContainer'
 import Layout from '../components/layoutFont'
 
-
-
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
  *

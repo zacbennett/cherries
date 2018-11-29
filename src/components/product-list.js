@@ -6,11 +6,11 @@ import styled from 'styled-components'
 import ProductCard from './product-card'
 
 const Container = styled.div`
-  margin: 0 auto
+  margin: 0 auto;
   width: 75vw;
   .product-list-card-container {
     display: flex;
-    flex-wrap:wrap
+    flex-wrap:wrap;
     justify-content: space-between;
   }
   .product-list-header {
@@ -19,9 +19,9 @@ const Container = styled.div`
    font-weight: 700
    font-size: 30px;
    line-height: 39px;
-   margin-bottom: 0
+   margin-bottom: 0;
    text-align: left;
-   font-style: italic
+   font-style: italic;
   }
   .product-list-subheader{
     font-size: 16px;
@@ -96,7 +96,6 @@ class ProductList extends Component {
           </Link>
         </p>
         <div className="product-list-card-container">{products}</div>
-
       </Container>
     )
   }

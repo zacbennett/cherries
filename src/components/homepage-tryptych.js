@@ -7,15 +7,13 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 
 // Refactor to have the theme/picture/text be dynamic
 const Container = styled.div`
-  #tryptych-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: #ffe2e2;
-    width: 100vw;
-    height: 375px;
-    padding-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #ffe2e2;
+  width: 100vw;
+  height: 375px;
+  padding-bottom: 20px;
   #tryptych-header {
     margin: 25px 0 0px 0;
     color: #e20031;
@@ -100,17 +98,13 @@ export default () => (
 
       return (
         <Container>
-          <div id="tryptych-container">
-            <h4 id="tryptych-header">
-              <i>{tryptychHeaderText}</i>
-            </h4>
-            <div id="tryptych-panel-container">{panelArr}</div>
-            <Link to={tryptychButtonLink}>
-              <button className="get-started-button">
-                {tryptychButtonText}
-              </button>
-            </Link>
-          </div>
+          <h4 id="tryptych-header">
+            <i>{tryptychHeaderText}</i>
+          </h4>
+          <div id="tryptych-panel-container">{panelArr}</div>
+          <Link to={tryptychButtonLink}>
+            <button className="get-started-button">{tryptychButtonText}</button>
+          </Link>
         </Container>
       )
     }}
