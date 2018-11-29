@@ -56,7 +56,6 @@ class DropdownMenu extends Component {
   }
 
   render() {
-    console.log('DROPDOWN PROPS', this.props)
     const display = this.state.display ? 'initial' : 'none'
     const links = this.props.links.map((link, i) => (
       <NavLink to={link.route} key={i}>
