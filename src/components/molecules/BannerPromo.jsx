@@ -37,6 +37,7 @@ const PromoText = styled.div`
   color: white;
   font-size: 12px;
   margin-top: 2px;
+  font-weight: 400;
 `
 const Icon = styled.div`
   margin-left: auto;

@@ -29,7 +29,6 @@ const Container = styled.div`
     margin-left: 30px
   }
 `
-// Map through list of products and passing product information into ProductCard component
 class ProductList extends Component {
   constructor(props) {
     super(props)

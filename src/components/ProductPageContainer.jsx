@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import NavBar from '../components/NavBar'
+import ProductPageInfoContainer from './ProductPageInfoContainer'
 import { graphql } from 'gatsby'
 
 /** Overview of index.js component:
@@ -21,6 +22,8 @@ const ProductPageContainer = ({ data }) => {
   return (
     <Container>
       <NavBar />
+      {/* Image Component Goes Here */}
+      <ProductPageInfoContainer/>
     </Container>
   )
 }

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 html {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', Courier, monospace;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
