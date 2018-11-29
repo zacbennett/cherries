@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
 import { Link } from 'gatsby'
 import NavLink from '../atoms/NavLink'
-import SideNavLink from '../atoms/SideNavLink'
+import SideNavDropdown from '../atoms/SideNavDropdown'
 import DropdownMenu from '../atoms/DropdownMenu'
 
-/** Overview of NavButtons component:
- *  -
+/** Overview of SideNav component:
+ *  - Component maps through side-nav links passed in and renders either links or DropdownMenu components depending on type
  */
 
 const Container = styled.div`
@@ -53,7 +53,7 @@ class SideNav extends Component {
           </li>
         )
       } else {
-        return <SideNavLink name={link.name} dropDown={link.dropDown} />
+        return <SideNavDropdown name={link.name} dropDown={link.dropDown} />
       }
     })
     return (

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import NavLink from '../atoms/NavLink'
+import NavLink from './NavLink'
 
-/** Overview of NavButtons component:
- *  -
+/** Overview of SideNavDropdown component:
+ *  - Component for dropdown menu in side-nav
  */
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Container = styled.div`
   }
 `
 //Use the way constructor and normal bind
-class SideNavLink extends Component {
+class SideNavDropdown extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -75,4 +75,4 @@ class SideNavLink extends Component {
   }
 }
 
-export default SideNavLink
+export default SideNavDropdown
