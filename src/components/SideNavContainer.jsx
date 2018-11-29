@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import Styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import SideNav from './molecules/SideNav'
 
@@ -7,6 +7,18 @@ import SideNav from './molecules/SideNav'
  *  - Container for side nav component that makes a graphQL query to contentful to load
  * sideNav links - passes down this data as props to SideNav component
  */
+
+const Container = Styled.div`
+position: fixed;
+top: 150px;
+// left: 0;
+// width: 100vw;
+// display: flex;
+// flex-direction: column;
+// align-items: center;
+// justify-content: center;
+z-index: 2;
+`
 
 export default () => (
   <StaticQuery
@@ -27,6 +39,10 @@ export default () => (
         }
       }
     `}
-    render={data => <SideNav links={data.contentfulHomePage.sideNavBar.data} />}
+    render={data => (
+      <Container>
+        <SideNav links={data.contentfulHomePage.sideNavBar.data} />
+      </Container>
+    )}
   />
 )

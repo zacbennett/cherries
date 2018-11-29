@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
 import { Link } from 'gatsby'
 import NavLink from '../atoms/NavLink'
+import SideNavLink from '../atoms/SideNavLink'
 import DropdownMenu from '../atoms/DropdownMenu'
 
 /** Overview of NavButtons component:
@@ -10,12 +11,12 @@ import DropdownMenu from '../atoms/DropdownMenu'
  */
 
 const Container = styled.div`
-  .dropdownContent {
-    display: none;
-  }
-  .dropdownContent > * {
-    margin-left: 25px;
-  }
+  // .dropdownContent {
+  //   display: none;
+  // }
+  // .dropdownContent > * {
+  //   margin-left: 25px;
+  // }
   ul {
     list-style: none;
   }
@@ -25,28 +26,16 @@ const Container = styled.div`
 `
 //Use the way constructor and normal bind
 class SideNav extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      display: false,
-    }
-    this.toggleMenu = this.toggleMenu.bind(this)
-  }
-
-  toggleMenu(evt) {
-    evt.preventDefault()
-    this.setState(st => ({
-      display: !st.display,
-    }))
-  }
-
   render() {
-    const display = this.state.display ? 'initial' : 'none'
     const links = this.props.links.map((link, i) => {
       if (link.name === '-') {
         return (
           <li
-            style={{ textDecoration: 'none', color: '#e20031' }}
+            style={{
+              textDecoration: 'none',
+              color: '#e20031',
+              fontWeight: 'bold',
+            }}
             className="hyphen"
           >
             {link.name}
@@ -57,7 +46,11 @@ class SideNav extends Component {
         return (
           <li>
             <NavLink
-              style={{ textDecoration: 'none', color: '#e20031' }}
+              style={{
+                textDecoration: 'none',
+                color: '#e20031',
+                fontWeight: 'bold',
+              }}
               key={i}
               to={link.route}
             >
@@ -66,32 +59,7 @@ class SideNav extends Component {
           </li>
         )
       } else {
-        return (
-          <li>
-            <NavLink
-              style={{ textDecoration: 'none', color: '#e20031' }}
-              key={i}
-              onClick={this.toggleMenu}
-            >
-              {link.name} +
-            </NavLink>
-            <ul className="dropdownContent" style={{ display: display }}>
-              {link.dropDown.map((li, i) => {
-                return (
-                  <li>
-                    <NavLink
-                      style={{ textDecoration: 'none', color: '#47525E' }}
-                      key={i}
-                      to={li.route}
-                    >
-                      {li.name}
-                    </NavLink>
-                  </li>
-                )
-              })}
-            </ul>
-          </li>
-        )
+        return <SideNavLink name={link.name} dropDown={link.dropDown} />
       }
     })
     return (
