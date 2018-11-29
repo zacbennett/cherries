@@ -60,7 +60,6 @@ class BannerPromo extends Component {
   }
 
   render() {
-    console.log('what is the state', this.state)
     const banner = this.state.display ? (
       <Container>
         <Announcement className="banner-text">

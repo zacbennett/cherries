@@ -3,6 +3,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import TryptychPanel from './TryptychPanel'
+import HomePageButton from './atoms/HomePageButton'
+
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 // Refactor to have the theme/picture/text be dynamic
@@ -70,7 +72,6 @@ export default () => (
           }
           tryptychPanelText
           tryptychButtonText
-          tryptychButtonLink
         }
       }
     `}
@@ -80,7 +81,6 @@ export default () => (
       const tryptychPanelImage = contentfulData.tryptychPanelImages
       const tryptychPanelText = contentfulData.tryptychPanelText
       const tryptychButtonText = contentfulData.tryptychButtonText
-      const tryptychButtonLink = contentfulData.tryptychButtonLink
 
       let panelArr = []
 
@@ -102,9 +102,7 @@ export default () => (
             <i>{tryptychHeaderText}</i>
           </h4>
           <div id="tryptych-panel-container">{panelArr}</div>
-          <Link to={tryptychButtonLink}>
-            <button className="get-started-button">{tryptychButtonText}</button>
-          </Link>
+          <HomePageButton buttonText={tryptychButtonText} />
         </Container>
       )
     }}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import Styled from 'styled-components'
-import ProductList from '../components/product-list'
+import ProductList from '../components/molecules/ProductList'
 import NavBar from '../components/NavBar'
 
 /** Overview of index.js component:
