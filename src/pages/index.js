@@ -8,6 +8,7 @@ import HeroImage from '../components/homepage-hero-image'
 import HomepageTryptych from '../components/homepage-tryptych'
 import ProductList from '../components/product-list'
 import NavBar from '../components/NavBar'
+import Layout from '../components/layout'
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
  *
@@ -25,15 +26,17 @@ const Container = Styled.div`
 const IndexPage = ({ data }) => {
   const freshPicks = data.allContentfulProductPage.edges
   return (
-    <Container>
-      <NavBar />
-      <HeroImage />
-      <ProductList products={freshPicks} />
-      <HomepageTryptych />
-      <ProductList products={freshPicks} />
-      <ProductList products={freshPicks} />
-      <ProductList products={freshPicks} />
-    </Container>
+    <Layout>
+      <Container>
+        <NavBar />
+        <HeroImage />
+        <ProductList products={freshPicks} />
+        <HomepageTryptych />
+        <ProductList products={freshPicks} />
+        <ProductList products={freshPicks} />
+        <ProductList products={freshPicks} />
+      </Container>
+    </Layout>
   )
 }
 
