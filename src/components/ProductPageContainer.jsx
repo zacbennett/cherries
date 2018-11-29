@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import NavBar from './NavBar'
-import ProductPageInfoContainer from './ProductPageInfoContainer'
-import ProductPageProductOrder from './ProductPageProductOrder'
+import ProductPageInfoContainer from './atoms/ProductPageInfoContainer'
+import ProductPageProductOrder from './atoms/ProductPageProductOrder'
 import { graphql } from 'gatsby'
 
 /** Overview of index.js component:
@@ -23,7 +23,7 @@ const ProductPageContainer = ({ data }) => {
   return (
     <Container>
       {/* Image Component Goes Here */}
-      <ProductPageInfoContainer/>
+      <ProductPageInfoContainer />
     </Container>
   )
 }

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import TryptychPanel from './TryptychPanel'
+import TryptychPanel from './atoms/TryptychPanel'
 import HomePageButton from './atoms/HomePageButton'
 
 import { StaticQuery, graphql, Link } from 'gatsby'
@@ -102,7 +102,9 @@ export default () => (
             <i>{tryptychHeaderText}</i>
           </h4>
           <div id="tryptych-panel-container">{panelArr}</div>
+          {/* <div className="get-started-button"> */}
           <HomePageButton buttonText={tryptychButtonText} />
+          {/* </div> */}
         </Container>
       )
     }}
