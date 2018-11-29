@@ -4,11 +4,11 @@ import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import ProductPageProductInfo from './ProductPageProductInfo'
-// import ProductPageProductOrder from './ProductPageProductOrder'
+import ProductPageProductOrder from './ProductPageProductOrder'
 // import ProductPageProductDetails from './ProductPageProductDetails'
 
 const Container = styled.div`
-  right: 0;
+
 `
 
 class ProductPageInfoContainer extends Component {
@@ -17,12 +17,11 @@ class ProductPageInfoContainer extends Component {
     return (
       <Container>
         <ProductPageProductInfo />
-        {/* <ProductPageProductOrder />
-        <ProductPageProductDetails /> */}
+        <ProductPageProductOrder />
+        {/* <ProductPageProductDetails />  */}
       </Container>
     )
   }
 }
 
 export default ProductPageInfoContainer
-

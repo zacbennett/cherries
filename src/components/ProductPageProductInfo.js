@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
+  display: block;
+
   float: left;
   width: 409px;
   #product-title {

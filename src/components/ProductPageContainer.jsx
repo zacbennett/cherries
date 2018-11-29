@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 import NavBar from '../components/NavBar'
 import ProductPageInfoContainer from './ProductPageInfoContainer'
+import ProductPageProductOrder from './ProductPageProductOrder'
 import { graphql } from 'gatsby'
 
 /** Overview of index.js component:
