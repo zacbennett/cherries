@@ -8,11 +8,12 @@ const Container = styled.form`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 1000px;
   /* height: 14rem; */
   .name {
     display: flex;
     justify-content: space-between;
-    width: 24.2rem;
+    width: 425px;
   }
   .radio {
     margin-top: 2rem;
@@ -81,23 +82,23 @@ class SignupEmailPassword extends Component {
           <StyledInput
             aria-label="First Name"
             type="text"
-            width="10.5rem"
+            width="180px"
             placeholder="First Name"
             name="firstName"
             value={this.state.firstName}
             onChange={this.handleChange}
-            marginRight="1.3em"
+            marginRight="1em"
             fontFamily="Lato"
           />
           <StyledInput
             aria-label="Last Name"
             type="text"
-            width="10.5rem"
+            width="180px"
             placeholder="Last Name"
             name="lastName"
             onChange={this.handleChange}
             value={this.state.lastName}
-            marginLeft="1.3em"
+            marginLeft="1em"
             fontFamily="Lato"
           />
         </div>
@@ -108,7 +109,7 @@ class SignupEmailPassword extends Component {
           name="email"
           onChange={this.handleChange}
           value={this.state.email}
-          width="22rem"
+          width="390px"
           fontFamily="Lato"
         />
         <StyledInput
@@ -117,7 +118,7 @@ class SignupEmailPassword extends Component {
           name="password"
           onChange={this.handleChange}
           value={this.state.password}
-          width="22rem"
+          width="390px"
           fontFamily="Lato"
           marginBottom="2em"
         />
@@ -126,7 +127,7 @@ class SignupEmailPassword extends Component {
           borderColor="#E20031"
           fontWeight="700"
           fontSize="16px"
-          width="23.2rem"
+          width="409px"
           height="2.2rem"
           margin="0"
         >

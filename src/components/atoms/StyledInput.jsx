@@ -14,5 +14,6 @@ const StyledInput = styled.input`
   border-radius: ${({ borderRadius }) => borderRadius || '0px'};
   padding-left: 1rem;
   font-family: ${({ fontFamily }) => fontFamily || 'Montserrat'};
+  font-size: ${({ fontSize }) => fontSize || '16px'};
 `
 export default StyledInput

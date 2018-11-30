@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { NavLink } from '../components/atoms'
 import {
   SignupEmailPassword,
-  // SignupGoogle,
-  // SignupFacebook,
+  SignupGoogle,
+  SignupFacebook,
 } from '../components/molecules'
 
 // import lightBlueLayout from '../layouts/lightBlue.jsx'
@@ -18,6 +18,9 @@ const Container = styled.div`
   color: #47525e;
   background-color: #FBE5E9
   font-family: Lato;
+  a {
+    text-decoration: none;
+  }
   animation: fadein 1s;
   @keyframes fadein {
     from {
@@ -63,8 +66,8 @@ class Signup extends Component {
         </p>
         <SignupEmailPassword handleError={this.handleError} />
         <p>or</p>
-        {/* <SignupGoogle handleError={this.handleError} />
-        <SignupFacebook handleError={this.handleError} /> */}
+        <SignupFacebook handleError={this.handleError} />
+        <SignupGoogle handleError={this.handleError} />
 
         <NavLink
           to="/login"
@@ -72,7 +75,7 @@ class Signup extends Component {
           hovercolor="#00a6f6"
           letterSpacing="0"
         >
-          Already have an account? <u>Log In!</u>
+          Already have an account? Sign in
         </NavLink>
       </Container>
     )
