@@ -10,8 +10,6 @@ import {
 } from '../components'
 import { ProductList } from '../components/molecules'
 
-import SideNavContainer from '../components/SideNavContainer'
-
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
  */
