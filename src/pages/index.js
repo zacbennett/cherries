@@ -10,6 +10,8 @@ import {
 } from '../components'
 import { ProductList } from '../components/molecules'
 
+import SideNavContainer from '../components/SideNavContainer'
+
 /** Overview of index.js component:
  *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
  */
@@ -17,6 +19,12 @@ import { ProductList } from '../components/molecules'
 const Container = Styled.div`
   align-items: center;
   animation: fadein 1s; 
+  // .SideNavContainer{
+  //   position:sticky
+  // };
+  // .homepage-content-container{
+  //   position:absolute
+  // };
   @keyframes fadein {
         from { opacity: 0; }
         to   { opacity: 1; }
