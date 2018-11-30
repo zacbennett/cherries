@@ -32,6 +32,7 @@ const Container = styled.div`
     line-height: 20px;
     width: 58px;
     text-align: left;
+    margin: 0
   }
 `
 

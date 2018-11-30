@@ -25,13 +25,11 @@ const Container = styled.div`
   }
   .product-list-subheader{
     font-size: 16px;
+    margin-left: 30px
   }
   a{
     color: #E20031 ;
   };
-  .product-list-subheader{
-    margin-left: 30px
-  }
 `
 class ProductList extends Component {
   constructor(props) {
