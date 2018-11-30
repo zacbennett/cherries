@@ -41,7 +41,12 @@ class ProductList extends Component {
   handleChange(evt) {
     //TODO: Work on Method
     //PROP METHOD GOES HERE
-    this.setState({ [evt.target.name]: evt.target.value })
+    this.setState(
+      { [evt.target.name]: evt.target.value },
+      () => console.log('boop')
+      // alert(this.state.shopDropdown)
+      // TODO: THIS NEEDS TO TRIGGER A QUERY to shopify !!!!
+    )
   }
 
   render() {
@@ -84,10 +89,8 @@ class ProductList extends Component {
     return (
       <Container>
         <p className="product-list-header">
-          Fresh picks{' '}
-          <Link to="/">
-            <span className="product-list-subheader">Shop all</span>
-          </Link>
+          {header}
+          <span className="product-list-subheader">{subheader}</span>
         </p>
         <div className="product-list-card-container">{products}</div>
       </Container>

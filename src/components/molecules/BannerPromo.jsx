@@ -11,7 +11,7 @@ import { IoIosClose } from 'react-icons/io'
 
 const Container = styled.div`
   position: relative;
-  top: 0;
+  top: -8px;
   width: 100%;
   display: flex;
   justify-content: start;
@@ -41,6 +41,7 @@ const PromoText = styled.div`
   font-weight: bold;
 `
 const Icon = styled.div`
+  color: black;
   margin-left: auto;
   :hover {
     cursor: pointer;
@@ -68,7 +69,11 @@ class BannerPromo extends Component {
         </Announcement>
         <PromoText className="banner-text">{this.props.bannerText}</PromoText>
         <Icon>
-          <IoIosClose size={30} onClick={this.handleClick} />
+          <IoIosClose
+            // style={{ color: 'black' }}
+            size={30}
+            onClick={this.handleClick}
+          />
         </Icon>{' '}
       </Container>
     ) : (

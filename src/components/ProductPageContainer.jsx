@@ -21,9 +21,7 @@ const ProductPageContainer = ({ data }) => {
   )
 }
 
-// Query contentful for products limiting to fresh picks (top four most recently created products)
-// Passed into ProductList component
-// Eventually may connect to shopify for sales-driven data
+// Connect to contentful and pass down information to info and image component
 export const query = graphql`
   {
     allContentfulProductPage(

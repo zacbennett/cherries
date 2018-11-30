@@ -1,14 +1,16 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 
-import Layout from '../components/LayoutFont'
-import ProductPageInfoContainer from '../components/ProductPageInfoContainer'
+import Layout from '../components/Layout'
+import ProductPageContainer from '../components/ProductPageContainer'
 
-const testProductPage = () => (
-  <Layout>
-    <NavBar />
-    <ProductPageInfoContainer />
-  </Layout>
-)
+// WORK IN PROGRESS!
+const testProductPage = () => {
+  return (
+    <Layout>
+      <ProductPageContainer />
+    </Layout>
+  )
+}
 
 export default testProductPage
