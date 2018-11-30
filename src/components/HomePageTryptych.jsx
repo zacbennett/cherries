@@ -36,6 +36,7 @@ const Container = styled.div`
   }
   .tryptych-panel-text {
     line-height: 1.5em;
+    color: #47525e;
   }
   #tryptych-button-container {
     margin: 0 auto;
