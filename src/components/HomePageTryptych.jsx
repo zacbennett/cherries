@@ -17,6 +17,7 @@ const Container = styled.div`
     font-size: 25px;
     width: 100%;
     text-align: center;
+    font-style: italic;
   }
   #tryptych-panel-container {
     display: flex;
@@ -36,19 +37,9 @@ const Container = styled.div`
   .tryptych-panel-text {
     line-height: 1.5em;
   }
-  .get-started-button {
+  #tryptych-button-container {
     margin: 0 auto;
-    background-color: #e20031;
-    color: white;
-    text-transform: uppercase;
-    padding: 5px 30px 5px 30px;
-    font-size: 1em;
-    border: none;
     width: 220px;
-    cursor: pointer;
-  }
-  a {
-    margin: 0 auto;
   }
 `
 
@@ -92,11 +83,11 @@ export default () => (
 
       return (
         <Container>
-          <h4 id="tryptych-header">
-            <i>{tryptychHeaderText}</i>
-          </h4>
+          <h4 id="tryptych-header">{tryptychHeaderText}</h4>
           <div id="tryptych-panel-container">{panelArr}</div>
-          <HomePageButton buttonText={tryptychButtonText} />
+          <div id="tryptych-button-container">
+            <HomePageButton buttonText={tryptychButtonText} />
+          </div>
         </Container>
       )
     }}

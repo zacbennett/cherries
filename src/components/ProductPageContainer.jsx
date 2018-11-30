@@ -1,6 +1,12 @@
 import React from 'react'
 import Styled from 'styled-components'
+<<<<<<< HEAD
 import { ProductPageInfoContainer } from '../components'
+=======
+import NavBar from './NavBar'
+import ProductPageInfoContainer from './atoms/ProductPageInfoContainer'
+import ProductPageProductOrder from './atoms/ProductPageProductOrder'
+>>>>>>> 9ef1dc50a1fb8eae7fd865ba4a2acb65bf9339cd
 import { graphql } from 'gatsby'
 
 const Container = Styled.div`
