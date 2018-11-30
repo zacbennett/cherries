@@ -1,5 +1,5 @@
 import React from 'react'
 
-import './layoutFont.css'
+import './LayoutFont.css'
 
 export default () => <div />
