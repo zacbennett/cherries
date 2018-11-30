@@ -52,7 +52,6 @@ const Container = styled.div`
   }
 `
 
-// Trypytch information pulled from contentful to pass into TryptychPanel component
 export default () => (
   <StaticQuery
     query={graphql`
