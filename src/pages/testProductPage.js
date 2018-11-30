@@ -1,8 +1,5 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
-
-import Layout from '../components/LayoutFont'
-import ProductPageInfoContainer from '../components/ProductPageInfoContainer'
+import { NavBar, Layout, ProductPageInfoContainer } from '../components'
 
 const testProductPage = () => (
   <Layout>
