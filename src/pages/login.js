@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from '../components/atoms'
 import {
-  SignupEmailPassword,
+  LoginEmailPassword,
   SignupGoogle,
   SignupFacebook,
 } from '../components/molecules'
@@ -11,14 +11,14 @@ import { NavBar, SideNavContainer } from '../components'
 // import lightBlueLayout from '../layouts/lightBlue.jsx'
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem;
-  color: #47525e;
-  background-color: #FBE5E9
-  font-family: Lato;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    color: #47525e;
+    background-color: #FBE5E9
+    font-family: Lato;
   a {
     text-decoration: none;
   }
@@ -59,27 +59,37 @@ class Signup extends Component {
     const displayError = {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
     }
+
+    // Set preliminary link for resetting password
     return (
       <>
         <NavBar />
         <SideNavContainer />
         <Container>
-          <h2>Create Account</h2>
+          <h2>Hey again!</h2>
           <p className="errorMessage animated fadeInRight" style={displayError}>
             {this.state.errorMessage}
           </p>
-          <SignupEmailPassword handleError={this.handleError} />
+          <LoginEmailPassword handleError={this.handleError} />
           <p>or</p>
           <SignupFacebook handleError={this.handleError} />
           <SignupGoogle handleError={this.handleError} />
 
           <NavLink
-            to="/login"
+            to="/signup"
             fontSize=".8rem"
             hovercolor="#00a6f6"
             letterSpacing="0"
           >
-            Already have an account? Sign in
+            Don't have an account? Create one!
+          </NavLink>
+          <NavLink
+            to="/reset-password"
+            fontSize=".8rem"
+            hovercolor="#00a6f6"
+            letterSpacing="0"
+          >
+            Forgot your password?
           </NavLink>
         </Container>
       </>
