@@ -1,27 +1,23 @@
-// Component for rendering each panel of tryptych shown on homepage
-
 import React from 'react'
 import styled from 'styled-components'
-import TryptychPanel from './tryptychPanel'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { TryptychPanel, HomePageButton } from './atoms'
+import { StaticQuery, graphql } from 'gatsby'
 
-// Refactor to have the theme/picture/text be dynamic
 const Container = styled.div`
-  #tryptych-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: #ffe2e2;
-    width: 100vw;
-    height: 375px;
-    padding-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #ffe2e2;
+  width: 100vw;
+  height: 375px;
+  padding-bottom: 20px;
   #tryptych-header {
     margin: 25px 0 0px 0;
     color: #e20031;
     font-size: 25px;
     width: 100%;
     text-align: center;
+    font-style: italic;
   }
   #tryptych-panel-container {
     display: flex;
@@ -40,24 +36,14 @@ const Container = styled.div`
   }
   .tryptych-panel-text {
     line-height: 1.5em;
+    color: #47525e;
   }
-  .get-started-button {
+  #tryptych-button-container {
     margin: 0 auto;
-    background-color: #e20031;
-    color: white;
-    text-transform: uppercase;
-    padding: 5px 30px 5px 30px;
-    font-size: 1em;
-    border: none;
     width: 220px;
-    cursor: pointer;
-  }
-  a {
-    margin: 0 auto;
   }
 `
 
-// Trypytch information pulled from contentful to pass into TryptychPanel component
 export default () => (
   <StaticQuery
     query={graphql`
@@ -72,7 +58,6 @@ export default () => (
           }
           tryptychPanelText
           tryptychButtonText
-          tryptychButtonLink
         }
       }
     `}
@@ -82,7 +67,6 @@ export default () => (
       const tryptychPanelImage = contentfulData.tryptychPanelImages
       const tryptychPanelText = contentfulData.tryptychPanelText
       const tryptychButtonText = contentfulData.tryptychButtonText
-      const tryptychButtonLink = contentfulData.tryptychButtonLink
 
       let panelArr = []
 
@@ -100,16 +84,10 @@ export default () => (
 
       return (
         <Container>
-          <div id="tryptych-container">
-            <h4 id="tryptych-header">
-              <i>{tryptychHeaderText}</i>
-            </h4>
-            <div id="tryptych-panel-container">{panelArr}</div>
-            <Link to={tryptychButtonLink}>
-              <button className="get-started-button">
-                {tryptychButtonText}
-              </button>
-            </Link>
+          <h4 id="tryptych-header">{tryptychHeaderText}</h4>
+          <div id="tryptych-panel-container">{panelArr}</div>
+          <div id="tryptych-button-container">
+            <HomePageButton buttonText={tryptychButtonText} />
           </div>
         </Container>
       )

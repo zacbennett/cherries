@@ -1,5 +1,8 @@
+/* GATSBY INIT STYLES BELOW */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 html {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -41,6 +44,7 @@ a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
+
 a:active,
 a:hover {
   outline-width: 0;
@@ -139,7 +143,7 @@ button::-moz-focus-inner {
 [type='reset']:-moz-focusring,
 [type='submit']:-moz-focusring,
 button:-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: 1px dotted status;
 }
 fieldset {
   border: 1px solid silver;

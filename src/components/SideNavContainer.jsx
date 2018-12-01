@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
-import SideNav from './molecules/SideNav'
+import { SideNav } from './molecules'
 
 /** Overview of NavButtons component:
  *  - Container for side nav component that makes a graphQL query to contentful to load

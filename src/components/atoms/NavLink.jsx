@@ -1,8 +1,6 @@
 import Styled from 'styled-components'
 import { Link } from 'gatsby'
 
-/** Style for NavLink */
-
 const NavLink = Styled(Link)`
     color: ${({ color }) => color || 'black'};
     font-size: ${({ fontSize }) => fontSize || '.85rem'};

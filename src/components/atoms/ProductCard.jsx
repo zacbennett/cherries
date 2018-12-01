@@ -1,5 +1,3 @@
-// Component for rendering individual product cards
-
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
@@ -17,23 +15,25 @@ const Container = styled.div`
   .product-card-name {
     color: #000000;
     font-family: Glacial Indifference;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 26px;
+    line-height: 20px
+    width: 168px;
     text-align: left;
     margin-bottom: 0;
   }
   .product-card-price {
     color: #444444;
     font-family: Glacial Indifference;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 20px;
+    width: 58px;
     text-align: left;
+    margin: 0
   }
 `
 
-// Renders product information and first image from connected contentful data
 class ProductCard extends Component {
   render() {
     const product = this.props.product
@@ -44,6 +44,7 @@ class ProductCard extends Component {
           <img
             className="product-card-image"
             src={product.images[0].file.url}
+            alt="earring"
           />
           <p className="product-card-name">{product.title}</p>
           <p className="product-card-price">${product.price}</p>
