@@ -1,16 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import ShoppingBagIcon from '../atoms/ShoppingBagIcon'
 import { Link } from 'gatsby'
-// import NavLink from '../atoms/NavLink'
-import DropdownMenu from '../atoms/DropdownMenu'
-
-/** Overview of NavButtons component:
- *  - Created a styled div container that wraps the NavButtons
- *  - Created two constants that act as links for two diff dropdown menus (Help and SignIn). These will be passed down as props to DropdownMenu component
- *  - This component renders the two dropdown menus, the cherries icon, and a search button - all these components are rendered dynamically
- *  - These components are queried from contentful using graphQL and passed down as props from NavBar.
- */
+import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 
 const Container = styled.div`
   display: flex;

@@ -15,19 +15,22 @@ const Container = styled.div`
   .product-card-name {
     color: #000000;
     font-family: Glacial Indifference;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 26px;
+    line-height: 20px
+    width: 168px;
     text-align: left;
     margin-bottom: 0;
   }
   .product-card-price {
     color: #444444;
     font-family: Glacial Indifference;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 20px;
+    width: 58px;
     text-align: left;
+    margin: 0
   }
 `
 
@@ -40,7 +43,7 @@ class ProductCard extends Component {
           <img
             className="product-card-image"
             src={product.images[0].file.url}
-            alt={product.title}
+            alt="earring"
           />
           <p className="product-card-name">{product.title}</p>
           <p className="product-card-price">${product.price}</p>

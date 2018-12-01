@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { IoIosClose } from 'react-icons/io'
-import 'https://fonts.googleapis.com/css?family=Montserrat'
-// import { Link } from 'gatsby'
-import './BannerPromo.css'
-
-// TODO: Add functionality to close the announcement and X icon
 
 const Container = styled.div`
   position: relative;
@@ -32,11 +27,16 @@ const Announcement = styled.div`
   color: white;
   font-size: 20px;
   margin: 0px 15px 10px 20px;
+  font-style: italic;
+  font-weight: bold;
 `
 const PromoText = styled.div`
   color: white;
   font-size: 12px;
   margin-top: 2px;
+  font-weight: 400;
+  font-style: italic;
+  font-weight: bold;
 `
 const Icon = styled.div`
   margin-left: auto;
@@ -59,7 +59,6 @@ class BannerPromo extends Component {
   }
 
   render() {
-    console.log('what is the state', this.state)
     const banner = this.state.display ? (
       <Container>
         <Announcement className="banner-text">

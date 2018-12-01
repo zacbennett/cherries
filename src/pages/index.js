@@ -1,11 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Styled from 'styled-components'
-import HeroImage from '../components/homepage-hero-image'
-import HomepageTryptych from '../components/homepage-tryptych'
-import ProductList from '../components/product-list'
-import NavBar from '../components/NavBar'
-import SideNavContainer from '../components/SideNavContainer'
+import {
+  HomePageHeroImage,
+  NavBar,
+  SideNavContainer,
+  LayoutFont,
+  HomePageTryptych,
+} from '../components'
+import { ProductList } from '../components/molecules'
 
 const Container = Styled.div`
   align-items: center;
@@ -28,11 +31,11 @@ const IndexPage = ({ data }) => {
   return (
     <Container>
       <NavBar />
-      <SideNavContainer className="SideNavContainer" />
+      <SideNavContainer />
       <div className="homepage-content-container">
-        <HeroImage />
+        <HomePageHeroImage />
         <ProductList products={freshPicks} />
-        <HomepageTryptych />
+        <HomePageTryptych />
         <ProductList products={freshPicks} />
         <ProductList products={freshPicks} />
         <ProductList products={freshPicks} />

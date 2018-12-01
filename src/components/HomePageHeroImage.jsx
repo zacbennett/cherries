@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import { HomePageButton } from './atoms'
 
 const Container = styled.div`
   position: relative;
@@ -22,16 +23,6 @@ const Container = styled.div`
     margin: 15px 0px;
     padding: 0px 10px;
   }
-  #hero-image-button {
-    background-color: #e20031;
-    color: white;
-    text-transform: uppercase;
-    padding: 10px 30px;
-    font-size: 23px;
-    border: none;
-    width: 100%;
-    cursor: pointer;
-  }
 `
 
 export default () => (
@@ -46,31 +37,21 @@ export default () => (
           }
           heroImageText
           heroImageButtonText
-          heroImageButtonLink
         }
       }
     `}
     render={data => {
       const contentfulData = data.contentfulHomePage
-      const {
-        heroImage,
-        heroImageText,
-        heroImageButtonLink,
-        heroImageButtonText,
-      } = contentfulData
+      const heroImage = contentfulData.heroImage.file.url
+      const heroImageText = contentfulData.heroImageText
+      const heroImageButtonText = contentfulData.heroImageButtonText
 
       return (
         <Container>
-          <img
-            id="hero-image"
-            src={heroImage.file.url}
-            alt="Hero of Pretty Lady"
-          />
+          <img id="hero-image" src={heroImage} alt="hero" />
           <div id="hero-image-text-container">
             <h4 id="hero-image-text">{heroImageText}</h4>
-            <Link to={heroImageButtonLink}>
-              <button id="hero-image-button">{heroImageButtonText}</button>
-            </Link>
+            <HomePageButton buttonText={heroImageButtonText} />
           </div>
         </Container>
       )

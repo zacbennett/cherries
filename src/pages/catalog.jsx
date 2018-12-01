@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Styled from 'styled-components'
-import ProductList from '../components/product-list'
-import NavBar from '../components/NavBar'
+import { ProductList } from '../components/molecules'
+import { NavBar } from '../components'
 
 const Container = Styled.div`
 position: relative;

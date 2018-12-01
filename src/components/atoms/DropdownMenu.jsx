@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import NavLink from './NavLink'
+import { NavLink } from '../atoms'
 
 const Container = styled.div`
   display: flex;

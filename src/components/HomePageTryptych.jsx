@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import TryptychPanel from './tryptychPanel'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { TryptychPanel, HomePageButton } from './atoms'
+import { StaticQuery, graphql } from 'gatsby'
 
-// Refactor to have the theme/picture/text be dynamic
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,20 +36,11 @@ const Container = styled.div`
   }
   .tryptych-panel-text {
     line-height: 1.5em;
+    color: #47525e;
   }
-  .get-started-button {
+  #tryptych-button-container {
     margin: 0 auto;
-    background-color: #e20031;
-    color: white;
-    text-transform: uppercase;
-    padding: 5px 30px 5px 30px;
-    font-size: 1em;
-    border: none;
     width: 220px;
-    cursor: pointer;
-  }
-  a {
-    margin: 0 auto;
   }
 `
 

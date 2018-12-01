@@ -24,7 +24,6 @@ const Container = styled.div`
 
 class ShoppingBagIcon extends Component {
   render() {
-    // const { click } = this.props
     return (
       <Container>
         <img

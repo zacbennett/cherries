@@ -1,7 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
-import SideNav from './molecules/SideNav'
+import { SideNav } from './molecules'
 
 const Container = Styled.div`
 position: fixed;
