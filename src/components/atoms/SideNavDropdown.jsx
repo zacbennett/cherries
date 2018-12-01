@@ -3,10 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import NavLink from './NavLink'
 
-/** Overview of SideNavDropdown component:
- *  - Component for dropdown menu in side-nav
- */
-
 const Container = styled.div`
   .dropdownContent {
     display: none;
@@ -28,8 +24,8 @@ class SideNavDropdown extends Component {
     this.toggleMenu = this.toggleMenu.bind(this)
   }
 
-  toggleMenu(evt) {
-    evt.preventDefault()
+  toggleMenu(e) {
+    e.preventDefault()
     this.setState(st => ({
       display: !st.display,
     }))

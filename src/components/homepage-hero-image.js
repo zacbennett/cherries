@@ -61,7 +61,11 @@ export default () => (
 
       return (
         <Container>
-          <img id="hero-image" src={heroImage} alt="Hero of Pretty Lady" />
+          <img
+            id="hero-image"
+            src={heroImage.file.url}
+            alt="Hero of Pretty Lady"
+          />
           <div id="hero-image-text-container">
             <h4 id="hero-image-text">{heroImageText}</h4>
             <Link to={heroImageButtonLink}>

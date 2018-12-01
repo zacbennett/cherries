@@ -1,13 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Styled from 'styled-components'
 import ProductList from '../components/product-list'
 import NavBar from '../components/NavBar'
-
-/** Overview of index.js component:
- *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
- *
- */
 
 const Container = Styled.div`
 position: relative;
@@ -33,8 +28,6 @@ const CatalogPage = ({ data }) => {
   )
 }
 
-// Query contentful for products limiting to fresh picks (top four most recently created products)
-// Passed into ProductList component
 // Eventually may connect to shopify for sales-driven data
 //TODO: Make sure it's Shopify later
 export const query = graphql`

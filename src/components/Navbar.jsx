@@ -4,13 +4,6 @@ import BannerPromo from './molecules/BannerPromo'
 import NavButtons from './molecules/NavButtons'
 import { StaticQuery, graphql } from 'gatsby'
 
-/** Overview of NavBar component:
- *  - Created a styled div NavContainer which wraps our NavBar
- *  - NavBar renders NavButtons and Banner Promo
- *  - NavButtons and Banner Promo will be passed down props such as icons and text that are queried dynamically from contentful
- *
- */
-//Another comment
 const NavContainer = Styled.div`
   position: relative;
   top: 0;
@@ -22,7 +15,7 @@ const NavContainer = Styled.div`
   justify-content: center;
   z-index: 2;
 `
-//Static query using graphQL that fetched images, text and links for the NavBar component and it's children components.
+
 export default () => (
   <StaticQuery
     query={graphql`

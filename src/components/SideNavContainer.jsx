@@ -1,12 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import SideNav from './molecules/SideNav'
-
-/** Overview of NavButtons component:
- *  - Container for side nav component that makes a graphQL query to contentful to load
- * sideNav links - passes down this data as props to SideNav component
- */
 
 const Container = Styled.div`
 position: fixed;

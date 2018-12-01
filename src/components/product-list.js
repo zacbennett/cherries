@@ -43,7 +43,6 @@ class ProductList extends Component {
   }
 
   render() {
-    console.log('what does the state look like', this.state)
     const header = this.props.catalog ? 'Shop All' : 'Fresh Picks'
     const subheader = this.props.catalog ? (
       <form htmlFor="shopDropdown">
