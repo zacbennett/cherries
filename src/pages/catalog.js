@@ -3,6 +3,7 @@ import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import { ProductList } from '../components/molecules'
+import { MainLayout } from '../components/layouts'
 
 const Container = Styled.div`
   position: relative;
@@ -20,10 +21,12 @@ const CatalogPage = ({ data }) => {
   const productPicks = data.allContentfulProductPage.edges
 
   return (
-    <Container>
-      <ProductList products={productPicks} catalog={true} />
-      {/* TODO: Footer */}
-    </Container>
+    <MainLayout>
+      <Container>
+        <ProductList products={productPicks} catalog={true} />
+        {/* TODO: Footer */}
+      </Container>
+    </MainLayout>
   )
 }
 
