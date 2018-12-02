@@ -27,17 +27,6 @@ const Container = styled.div`
     justify-content: space-evenly;
     width: 70%;
   }
-  .tryptych-panel {
-    text-align: center;
-    // border: 1px solid black;
-    width: 220px;
-    font-size: 13px;
-    font-weight: bold;
-  }
-  .tryptych-panel-image {
-    width: 60px;
-    margin: 0 auto;
-  }
   .tryptych-panel-text {
     line-height: 1.5em;
     color: #47525e;
