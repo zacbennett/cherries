@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { NavBar, SideNav } from '../components'
+import { SideNav } from '../components'
 import {
   SignupEmailPassword,
   SignupGoogle,
   SignupFacebook,
 } from '../components/molecules'
 import { NavLink } from '../components/atoms'
+import { MainLayout } from '../components/layouts'
 
 const Container = styled.div`
   display: flex;
@@ -59,8 +60,7 @@ class Signup extends Component {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
     }
     return (
-      <>
-        <NavBar />
+      <MainLayout>
         <SideNav />
         <Container>
           <h2>Create Account</h2>
@@ -81,7 +81,7 @@ class Signup extends Component {
             Already have an account? Sign in
           </NavLink>
         </Container>
-      </>
+      </MainLayout>
     )
   }
 }

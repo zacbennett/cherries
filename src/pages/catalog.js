@@ -2,7 +2,6 @@ import React from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import { NavBar } from '../components'
 import { ProductList } from '../components/molecules'
 
 const Container = Styled.div`
@@ -22,7 +21,6 @@ const CatalogPage = ({ data }) => {
 
   return (
     <Container>
-      <NavBar />
       <ProductList products={productPicks} catalog={true} />
       {/* TODO: Footer */}
     </Container>

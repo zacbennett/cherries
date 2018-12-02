@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { SideNav, NavBar } from '../components'
+import { SideNav } from '../components'
 import {
   LoginEmailPassword,
   SignupGoogle,
   SignupFacebook,
 } from '../components/molecules'
 import { NavLink } from '../components/atoms'
+import { MainLayout } from '../components/layouts'
 
 const Container = styled.div`
   display: flex;
@@ -61,8 +62,7 @@ class Signup extends Component {
 
     // Set preliminary link for resetting password
     return (
-      <>
-        <NavBar />
+      <MainLayout>
         <SideNav />
         <Container>
           <h2>Hey again!</h2>
@@ -91,7 +91,7 @@ class Signup extends Component {
             Forgot your password?
           </NavLink>
         </Container>
-      </>
+      </MainLayout>
     )
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import { HomePageHero, NavBar, HomePageTryptych, SideNav } from '../components'
+import { HomePageHero, HomePageTryptych, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
 
@@ -28,9 +28,8 @@ class IndexPage extends Component {
     const freshPicks = this.props.data.allContentfulProductPage.edges
     return (
       <Container>
-        <NavBar />
-        <SideNav className="sideNav" />
         <MainLayout>
+          <SideNav className="sideNav" />
           <div>
             <HomePageHero />
             <ProductList products={freshPicks} />
