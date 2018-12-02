@@ -1,19 +1,20 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import Styled from 'styled-components'
-import { ProductList } from '../components/molecules'
+import { graphql } from 'gatsby'
+
 import { NavBar } from '../components'
+import { ProductList } from '../components/molecules'
 
 const Container = Styled.div`
-position: relative;
-align-items: center;
-flex-direction: column;
-display: flex;
-animation: fadein 1s; 
-@keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  animation: fadein 1s; 
+  @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
 `
 
 const CatalogPage = ({ data }) => {

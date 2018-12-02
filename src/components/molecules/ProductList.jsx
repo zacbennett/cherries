@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
+
 import { ProductCard } from '../atoms'
 
 const Container = styled.div`
@@ -8,26 +9,26 @@ const Container = styled.div`
   width: 75vw;
   .product-list-card-container {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
   .product-list-header {
-   color: #E20031 ;
-   font-family: Glacial Indifference;
-   font-weight: 700
-   font-size: 30px;
-   line-height: 39px;
-   margin-bottom: 0;
-   text-align: left;
-   font-style: italic;
+    color: #e20031;
+    font-family: Glacial Indifference;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 39px;
+    margin-bottom: 0;
+    text-align: left;
+    font-style: italic;
   }
-  .product-list-subheader{
+  .product-list-subheader {
     font-size: 16px;
-    margin-left: 30px
+    margin-left: 30px;
   }
-  a{
-    color: #E20031 ;
-  };
+  a {
+    color: #e20031;
+  }
 `
 class ProductList extends Component {
   constructor(props) {

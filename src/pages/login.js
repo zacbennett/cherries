@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { NavLink } from '../components/atoms'
+
+import { SideNav, NavBar } from '../components'
 import {
   LoginEmailPassword,
   SignupGoogle,
   SignupFacebook,
 } from '../components/molecules'
-import { NavBar, SideNavContainer } from '../components'
-
-// import lightBlueLayout from '../layouts/lightBlue.jsx'
+import { NavLink } from '../components/atoms'
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem;
-    color: #47525e;
-    background-color: #FBE5E9
-    font-family: Lato;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  color: #47525e;
+  background-color: #fbe5e9;
+  font-family: Lato;
   a {
     text-decoration: none;
   }
@@ -64,7 +63,7 @@ class Signup extends Component {
     return (
       <>
         <NavBar />
-        <SideNavContainer />
+        <SideNav />
         <Container>
           <h2>Hey again!</h2>
           <p className="errorMessage animated fadeInRight" style={displayError}>

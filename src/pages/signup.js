@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { NavLink } from '../components/atoms'
+
+import { NavBar, SideNav } from '../components'
 import {
   SignupEmailPassword,
   SignupGoogle,
   SignupFacebook,
 } from '../components/molecules'
-import { NavBar, SideNavContainer } from '../components'
-
-// import lightBlueLayout from '../layouts/lightBlue.jsx'
+import { NavLink } from '../components/atoms'
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +16,7 @@ const Container = styled.div`
   align-items: center;
   padding: 4rem;
   color: #47525e;
-  background-color: #FBE5E9
+  background-color: #fbe5e9;
   font-family: Lato;
   a {
     text-decoration: none;
@@ -62,7 +61,7 @@ class Signup extends Component {
     return (
       <>
         <NavBar />
-        <SideNavContainer />
+        <SideNav />
         <Container>
           <h2>Create Account</h2>
           <p className="errorMessage animated fadeInRight" style={displayError}>

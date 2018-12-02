@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 
 const Container = styled.div`

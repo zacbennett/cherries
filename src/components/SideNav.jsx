@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { NavLink, SideNavLink } from '../atoms'
+import { NavLink, SideNavLink } from './atoms'
+import { StaticQuery } from 'gatsby'
 
 const Container = styled.div`
+  position: fixed;
+  margin-top: 80px;
+  z-index: 2;
   #side-navbar-list {
     list-style: none;
   }
@@ -54,4 +58,25 @@ class SideNav extends Component {
   }
 }
 
-export default SideNav
+export default () => (
+  <StaticQuery
+    query={graphql`
+      {
+        contentfulHomePage(pageTitle: { eq: "Home Page" }) {
+          sideNavBar {
+            data {
+              name
+              displayed
+              route
+              dropDown {
+                name
+                route
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <SideNav links={data.contentfulHomePage.sideNavBar.data} />}
+  />
+)

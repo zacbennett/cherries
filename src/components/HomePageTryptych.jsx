@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TryptychPanel, HomePageButton } from './atoms'
 import { StaticQuery, graphql } from 'gatsby'
+
+import { TryptychPanel } from './molecules'
+import { HomePageButton } from './atoms'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   background-color: #ffe2e2;
   width: 100vw;
   height: 375px;
@@ -22,6 +25,7 @@ const Container = styled.div`
   #tryptych-panel-container {
     display: flex;
     justify-content: space-evenly;
+    width: 70%;
   }
   .tryptych-panel {
     text-align: center;
@@ -37,10 +41,6 @@ const Container = styled.div`
   .tryptych-panel-text {
     line-height: 1.5em;
     color: #47525e;
-  }
-  #tryptych-button-container {
-    margin: 0 auto;
-    width: 220px;
   }
 `
 
@@ -105,9 +105,7 @@ export default () => (
         <Container>
           <h4 id="tryptych-header">{tryptychHeader}</h4>
           <div id="tryptych-panel-container">{tryptychPanels}</div>
-          <Link to="/">
-            <button className="get-started-button">{tryptychButtonText}</button>
-          </Link>
+          <HomePageButton buttonText={tryptychButtonText} />
         </Container>
       )
     }}

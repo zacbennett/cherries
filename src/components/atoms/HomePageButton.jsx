@@ -10,6 +10,7 @@ text-align: center;
 padding: 10px 30px 
 font-size: 23px;
 font-weight: 700;
+width: 16rem;
 cursor: pointer;
 a{
   color: white;
@@ -21,11 +22,7 @@ class HomePageButton extends Component {
   render() {
     return (
       <Container>
-        <Link to="/">
-          {/* <button className="get-started-button"> */}
-          {this.props.buttonText}
-          {/* </button> */}
-        </Link>
+        <Link to="/">{this.props.buttonText}</Link>
       </Container>
     )
   }
