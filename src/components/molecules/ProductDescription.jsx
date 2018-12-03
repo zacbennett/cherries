@@ -52,6 +52,11 @@ class ProductDescription extends Component {
     quantity: 1,
     price: this.props.price,
     status: 'ADD TO BAG',
+    oneTimePurchase: true,
+  }
+  handleChange = e => {
+    e.preventDefault()
+    this.setState({ [e.target.name]: e.target.value })
   }
   handleAdjust = e => {
     let newQuantity
@@ -110,6 +115,7 @@ class ProductDescription extends Component {
           <ProductOrder
             price={this.state.price}
             handleAdjust={this.handleAdjust}
+            handleChange={this.handleChange}
           />
         </div>
         <form className="purchase" onSubmit={this.handleSubmit}>
