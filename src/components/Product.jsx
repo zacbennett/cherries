@@ -40,10 +40,6 @@ class Product extends Component {
           images={images}
           sku={sku}
         />
-        {/* )} */}
-        {/* </CartConsumer> */}
-        {/* <ProductInfo />
-        <ProductOrder /> */}
       </Layout>
     )
   }

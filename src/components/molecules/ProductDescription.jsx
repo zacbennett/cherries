@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { StyledHr, StyledButton, QuantityAdjustButton } from '../atoms'
+import {
+  StyledHr,
+  StyledButton,
+  QuantityAdjustButton,
+  ProductDetail,
+} from '../atoms'
 import { ProductOrder } from '../molecules'
 
 const Layout = styled.div`
@@ -112,13 +117,18 @@ class ProductDescription extends Component {
             quantity={this.state.quantity}
             handleAdjust={this.handleAdjust}
             id={''}
-            color={'#FF009A'}
+            color={'#E20031'}
             height={'2.5rem'}
           />
           <StyledButton height={'2.5rem'} width={'18rem'} fontSize={'.65rem'}>
             <b>{this.state.status}</b>
           </StyledButton>
         </form>
+        <ProductDetail
+          materials={'something'}
+          closure={'comes'}
+          allergy={'this way'}
+        />
       </Layout>
     )
   }
