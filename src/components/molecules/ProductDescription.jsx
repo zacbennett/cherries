@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StyledHr, StyledButton, QuantityAdjustButton } from '../atoms'
+import { ProductOrder } from '../molecules'
 
 const Layout = styled.div`
-  flex-basis: 50%;
+  flex-basis: 45%;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -100,6 +101,12 @@ class ProductDescription extends Component {
         <h1>{this.props.title}</h1>
         {productCopy}
         <StyledHr width={'100%'} margin={'.8rem'} />
+        <div>
+          <ProductOrder
+            price={this.state.price}
+            handleAdjust={this.handleAdjust}
+          />
+        </div>
         <form className="purchase" onSubmit={this.handleSubmit}>
           <QuantityAdjustButton
             quantity={this.state.quantity}
@@ -111,7 +118,6 @@ class ProductDescription extends Component {
           <StyledButton height={'2.5rem'} width={'18rem'} fontSize={'.65rem'}>
             <b>{this.state.status}</b>
           </StyledButton>
-          <p className="price">${this.state.price}</p>
         </form>
       </Layout>
     )

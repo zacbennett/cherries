@@ -5,7 +5,7 @@ import { ProductPhotos, ProductDescription } from './molecules'
 
 const Layout = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: 80vw;
   animation: fadein 1s;
   padding: 1rem;
   @keyframes fadein {

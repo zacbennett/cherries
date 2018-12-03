@@ -8,7 +8,6 @@ const Layout = styled.div`
   flex-direction: column;
   align-items: center;
   height: 70%;
-  padding: 1rem;
   img {
     transition: 0.5s;
   }
@@ -34,6 +33,7 @@ const Layout = styled.div`
 
   .highlight {
     margin-bottom: 1rem;
+    width: 90%;
   }
 
   @media (max-width: 420px) {
