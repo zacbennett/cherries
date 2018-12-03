@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { StyledInput, StyledButton, Loading } from '../atoms'
+import postLambda from '../../utilities/postLambda'
 
 const Container = styled.form`
   display: flex;
@@ -31,43 +32,40 @@ const Container = styled.form`
 `
 
 class SignupEmailPassword extends Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    newsletter: false,
-    status: 'SIGN UP',
+  constructor(props) {
+    super(props)
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      newsletter: false,
+      status: 'SIGN UP',
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
-  static contextTypes = {
-    firebase: PropTypes.object,
-  }
-  handleChange = e => {
-    if (e.target.type === 'radio') {
+
+  handleChange(evt) {
+    console.log('HANDLE CHANGE: WORKING')
+    if (evt.target.type === 'radio') {
       let newsState = !this.state.newsletter
       this.setState({
         newsletter: newsState,
       })
     } else {
       this.setState({
-        [e.target.name]: e.target.value,
+        [evt.target.name]: evt.target.value,
       })
     }
   }
-  handleSubmit = e => {
-    e.preventDefault()
-    const { firebase } = this.context
-    const { firstName, lastName, email, password, newsletter } = this.state
+  handleSubmit(evt) {
+    console.log('HANDLE SUBMIT: WORKING')
+    evt.preventDefault()
     this.setState({ status: <Loading /> })
+    console.log('state', this.state)
     try {
-      firebase.signupEmailPassword(
-        this,
-        firstName,
-        lastName,
-        email,
-        password,
-        newsletter
-      )
+      postLambda('newAccount', this.state)
     } catch (err) {
       console.log(err)
       this.setState({ status: 'FAILURE' })
@@ -139,7 +137,7 @@ class SignupEmailPassword extends Component {
             name="newsletter"
             id="newsletter"
           />
-          <label for="newsletter"> I'd like to hear from Lipslut</label>
+          <label for="newsletter"> I'd like to hear from Cherries</label>
         </div>
       </Container>
     )

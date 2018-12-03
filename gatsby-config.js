@@ -7,6 +7,10 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
   },
+  proxy: {
+    prefix: '/localhost:9000',
+    url: 'http:/',
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
@@ -37,8 +41,14 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-source-shopify',
+      options: {
+        shopName: 'cherries2018',
+        accessToken: 'b28549690c520f1fa013929645fef88e',
+        verbose: true,
+      },
+    },
+    `gatsby-plugin-netlify`,
   ],
 }
