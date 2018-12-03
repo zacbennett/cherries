@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Styled from 'styled-components'
-import { BannerPromo, NavButtons } from './molecules/'
+import BannerPromo from './molecules/BannerPromo'
+import NavButtons from './molecules/NavButtons'
 import { StaticQuery, graphql } from 'gatsby'
 
 /** Overview of NavBar component:
+ *  - Created a styled div NavContainer which wraps our NavBar
  *  - NavBar renders NavButtons and Banner Promo
  *  - NavButtons and Banner Promo will be passed down props such as icons and text that are queried dynamically from contentful
+ *
  */
-
+//Another comment
 const NavContainer = Styled.div`
   position: relative;
   top: 0;
