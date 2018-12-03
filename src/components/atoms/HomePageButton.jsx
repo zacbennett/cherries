@@ -22,7 +22,7 @@ class HomePageButton extends Component {
   render() {
     return (
       <Container>
-        <Link to="/">{this.props.buttonText}</Link>
+        <Link to="/">GET STARTED</Link>
       </Container>
     )
   }

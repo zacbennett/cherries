@@ -51,7 +51,7 @@ export default () => (
           <img id="hero-image" src={heroImage} alt="hero" />
           <div id="hero-image-text-container">
             <h4 id="hero-image-text">{heroImageText}</h4>
-            <HomePageButton buttonText={heroImageButtonText} />
+            <HomePageButton />
           </div>
         </Container>
       )
