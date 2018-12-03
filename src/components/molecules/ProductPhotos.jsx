@@ -78,10 +78,10 @@ class ProductPhotos extends Component {
       />
     )
     return (
-      <Container>
+      <Layout>
         {highlight}
         <div className="photoCarousel animated slideInRight">{images}</div>
-      </Container>
+      </Layout>
     )
   }
 }

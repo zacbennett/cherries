@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
-import { ProductInfo, ProductOrder } from './molecules'
-// import ProductPageProductDetails from './ProductPageProductDetails'
+import { ProductPhotos, ProductDescription } from './molecules'
+// import { CartConsumer } from '../containers/CartContext'
 
 const Layout = styled.div`
   display: flex;
@@ -28,17 +27,23 @@ const Layout = styled.div`
 class Product extends Component {
   render() {
     // Renders info, order and detail for the product based on query
+    const { images, productCopy, title, price, sku } = this.props
     return (
       <Layout>
         <ProductPhotos images={images} />
-        <CartConsumer>
-          {/* {cartContext => ( */}
-            <ProductDescription productCopy={} title={title} price={prices} images={images} sku={sku} />
-          {/* )} */}
-        </CartConsumer>
+        {/* <CartConsumer> */}
+        {/* {cartContext => ( */}
+        <ProductDescription
+          productCopy={productCopy}
+          title={title}
+          price={price}
+          images={images}
+          sku={sku}
+        />
+        {/* )} */}
+        {/* </CartConsumer> */}
         {/* <ProductInfo />
         <ProductOrder /> */}
-        {/* <ProductPageProductDetails />  */}
       </Layout>
     )
   }
