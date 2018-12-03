@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from '../atoms'
 
-/** Overview of DropdownMenu component:
- *  - Have two functions that either display or hide the dropdown menu depending on mouse hover
- *  - DropdownMenu renders links passed down from NavButtons (Help and Signin)
- */
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;

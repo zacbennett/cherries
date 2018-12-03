@@ -2,13 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { IoIosClose } from 'react-icons/io'
 
-/** Overview of BannerPromo component:
- *  - Created three styled div containers
- *    - One wraps the whole BannerPromo
- *    - The other two wrap the text inside the BannerPromo
- *  - BannerPromo renders Announcement and PromoText - these are queried dynamically from contentful and passed down as props from NavBar component
- */
-
 const Container = styled.div`
   position: relative;
   top: -8px;
@@ -24,10 +17,15 @@ const Container = styled.div`
     margin-bottom: 0;
     margin-right: 1rem;
   }
+  .banner-text {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: bold;
+  }
 `
 const Announcement = styled.div`
   color: white;
-  font-size: 20px
+  font-size: 20px;
   margin: 0px 15px 10px 20px;
   font-style: italic;
   font-weight: bold;

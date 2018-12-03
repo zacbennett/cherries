@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ProductPageProductInfo, ProductPageProductOrder } from './atoms'
+
+import { ProductInfo, ProductOrder } from './molecules'
 // import ProductPageProductDetails from './ProductPageProductDetails'
 
 const Container = styled.div``
 
-class ProductPageInfoContainer extends Component {
+class Product extends Component {
   render() {
     // Renders info, order and detail for the product based on query
     return (
       <Container>
-        <ProductPageProductInfo />
-        <ProductPageProductOrder />
+        <ProductInfo />
+        <ProductOrder />
         {/* <ProductPageProductDetails />  */}
       </Container>
     )
   }
 }
 
-export default ProductPageInfoContainer
+export default Product

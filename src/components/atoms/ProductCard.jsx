@@ -17,7 +17,7 @@ const Container = styled.div`
     font-family: Glacial Indifference;
     font-size: 16px;
     font-weight: 700;
-    line-height: 20px
+    line-height: 20px;
     width: 168px;
     text-align: left;
     margin-bottom: 0;
@@ -30,14 +30,13 @@ const Container = styled.div`
     line-height: 20px;
     width: 58px;
     text-align: left;
-    margin: 0
+    margin: 0;
   }
 `
 
 class ProductCard extends Component {
   render() {
     const product = this.props.product
-
     return (
       <Container>
         <div className="product-card">
