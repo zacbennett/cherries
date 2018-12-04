@@ -38,7 +38,6 @@ export default () => (
     query={graphql`
       {
         contentfulHomePage(pageTitle: { eq: "Home Page" }) {
-          tryptychButtonText
           tryptych {
             content {
               nodeType
@@ -63,7 +62,6 @@ export default () => (
       }
     `}
     render={data => {
-      const tryptychButtonText = data.contentfulHomePage.tryptychButtonText
       const tryptychContent = data.contentfulHomePage.tryptych.content
       let tryptychHeader
       let tryptychIcons = []
@@ -94,7 +92,7 @@ export default () => (
         <Container>
           <h4 id="tryptych-header">{tryptychHeader}</h4>
           <div id="tryptych-panel-container">{tryptychPanels}</div>
-          <HomePageButton buttonText={tryptychButtonText} />
+          <HomePageButton />
         </Container>
       )
     }}
