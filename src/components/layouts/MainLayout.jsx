@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { NavBar } from '..'
+import { NavBar, Footer } from '..'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -36,6 +36,7 @@ const Layout = ({ children }) => (
         >
           {children}
         </div>
+        <Footer />
       </>
     )}
   />

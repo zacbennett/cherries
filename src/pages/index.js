@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import { HomePageHero, HomePageTryptych, SideNav } from '../components'
+import { Footer, HomePageHero, HomePageTryptych, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
 
