@@ -32,7 +32,7 @@ class Product extends Component {
       <Layout>
         <ProductPhotos images={images} />
         {/* <CartConsumer> */}
-        {/* {cartContext => ( */}
+        {/* {cartContext => ( */}.
         <ProductDescription
           productCopy={productCopy}
           title={title}
