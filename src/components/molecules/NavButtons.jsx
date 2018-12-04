@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 
-/** Overview of NavButtons component:
- *  - Created two constants that act as links for two diff dropdown menus (Help and SignIn). These will be passed down as props to DropdownMenu component
- *  - This component renders the two dropdown menus, the cherries icon, and a search button - all these components are rendered dynamically
- */
+import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 
 const Container = styled.div`
   display: flex;

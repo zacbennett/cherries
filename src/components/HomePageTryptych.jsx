@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TryptychPanel, HomePageButton } from './atoms'
 import { StaticQuery, graphql } from 'gatsby'
+
+import { TryptychPanel } from './molecules'
+import { HomePageButton } from './atoms'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   background-color: #ffe2e2;
   width: 100vw;
   height: 375px;
@@ -22,25 +25,11 @@ const Container = styled.div`
   #tryptych-panel-container {
     display: flex;
     justify-content: space-evenly;
-  }
-  .tryptych-panel {
-    text-align: center;
-    // border: 1px solid black;
-    width: 220px;
-    font-size: 13px;
-    font-weight: bold;
-  }
-  .tryptych-panel-image {
-    width: 60px;
-    margin: 0 auto;
+    width: 70%;
   }
   .tryptych-panel-text {
     line-height: 1.5em;
     color: #47525e;
-  }
-  #tryptych-button-container {
-    margin: 0 auto;
-    width: 220px;
   }
 `
 
@@ -49,46 +38,61 @@ export default () => (
     query={graphql`
       {
         contentfulHomePage(pageTitle: { eq: "Home Page" }) {
-          tryptychHeaderText
-          tryptychPanelImages {
-            id
-            file {
-              url
+          tryptych {
+            content {
+              nodeType
+              data {
+                target {
+                  fields {
+                    file {
+                      en_US {
+                        url
+                        fileName
+                      }
+                    }
+                  }
+                }
+              }
+              content {
+                value
+              }
             }
           }
-          tryptychPanelText
-          tryptychButtonText
         }
       }
     `}
     render={data => {
-      const contentfulData = data.contentfulHomePage
-      const tryptychHeaderText = contentfulData.tryptychHeaderText
-      const tryptychPanelImage = contentfulData.tryptychPanelImages
-      const tryptychPanelText = contentfulData.tryptychPanelText
-      const tryptychButtonText = contentfulData.tryptychButtonText
+      const tryptychContent = data.contentfulHomePage.tryptych.content
+      let tryptychHeader
+      let tryptychIcons = []
+      let tryptychCopy = []
 
-      let panelArr = []
+      // Seperate content into its seperate nodetypes
+      tryptychContent.forEach(item => {
+        if (item.nodeType === 'heading-4')
+          tryptychHeader = item.content[0].value
+        else if (item.nodeType === 'embedded-asset-block')
+          tryptychIcons.push(item.data.target.fields.file.en_US)
+        else if (item.nodeType === 'paragraph')
+          tryptychCopy.push(item.content[0].value)
+      })
 
-      // Loop through all trypytch items and pass information into TryptychPanel component
-      for (let i = 0; i < tryptychPanelText.length; i++) {
-        panelArr.push(
+      let tryptychPanels = []
+      tryptychIcons.forEach((icon, i) => {
+        tryptychPanels.push(
           <TryptychPanel
-            key={tryptychPanelImage[i].id}
-            imageUrl={tryptychPanelImage[i].file.url}
-            imageName={tryptychPanelImage[i].file.fileName}
-            text={tryptychPanelText[i]}
+            key={i}
+            imageUrl={icon.url}
+            imageName={icon.fileName}
+            text={tryptychCopy[i]}
           />
         )
-      }
-
+      })
       return (
         <Container>
-          <h4 id="tryptych-header">{tryptychHeaderText}</h4>
-          <div id="tryptych-panel-container">{panelArr}</div>
-          <div id="tryptych-button-container">
-            <HomePageButton buttonText={tryptychButtonText} />
-          </div>
+          <h4 id="tryptych-header">{tryptychHeader}</h4>
+          <div id="tryptych-panel-container">{tryptychPanels}</div>
+          <HomePageButton />
         </Container>
       )
     }}

@@ -1,49 +1,49 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React, { Component } from 'react'
 import Styled from 'styled-components'
-import {
-  HomePageHeroImage,
-  NavBar,
-  SideNavContainer,
-  LayoutFont,
-  HomePageTryptych,
-} from '../components'
-import { ProductList } from '../components/molecules'
+import { graphql } from 'gatsby'
 
-/** Overview of index.js component:
- *  - Created a styled div container which will wrap our NavBar component and, later on, our app.
- */
+import { HomePageHero, HomePageTryptych, SideNav } from '../components'
+import { ProductList } from '../components/molecules'
+import { MainLayout } from '../components/layouts'
 
 const Container = Styled.div`
   align-items: center;
   animation: fadein 1s; 
+  .sideNav{
+    position:sticky
+  };
+
   @keyframes fadein {
         from { opacity: 0; }
         to   { opacity: 1; }
     }
 
 `
-
-const IndexPage = ({ data }) => {
-  const freshPicks = data.allContentfulProductPage.edges
-  return (
-    <Container>
-      <NavBar />
-      <SideNavContainer />
-      <div className="homepage-content-container">
-        <HomePageHeroImage />
-        <ProductList products={freshPicks} />
-        <HomePageTryptych />
-        <ProductList products={freshPicks} />
-        <ProductList products={freshPicks} />
-        <ProductList products={freshPicks} />
-      </div>
-    </Container>
-  )
+class IndexPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+  render() {
+    const freshPicks = this.props.data.allContentfulProductPage.edges
+    return (
+      <Container>
+        <MainLayout>
+          <SideNav className="sideNav" />
+          <div>
+            <HomePageHero />
+            <ProductList products={freshPicks} />
+            <HomePageTryptych />
+            <ProductList products={freshPicks} />
+            <ProductList products={freshPicks} />
+            <ProductList products={freshPicks} />
+          </div>
+        </MainLayout>
+      </Container>
+    )
+  }
 }
 
-// Query contentful for products limiting to fresh picks (top four most recently created products)
-// Passed into ProductList component
 // Eventually may connect to shopify for sales-driven data
 export const query = graphql`
   {
