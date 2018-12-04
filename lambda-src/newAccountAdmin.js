@@ -9,7 +9,7 @@ const headers = {
 const shopifyConfig = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
-  'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_KEY,
+  'X-Shopify-Access-Token': process.env.SHOPIFY_API_PASSWORD,
 }
 
 exports.handler = function(event, context, callback) {
@@ -26,27 +26,22 @@ exports.handler = function(event, context, callback) {
     let data = JSON.parse(event.body)
     let body = JSON.parse(data.body)
 
-    const query = `mutation customerCreate($input: CustomerCreateInput!) {
-      customerCreate(input: $input) {
-        userErrors {
-          field
-          message
+    const query = `mutation customerCreate($input: CustomerInput!) {
+        customerCreate(input: $input) {
+          userErrors {
+            field
+            message
+          }
+          customer {
+            id
+          }
         }
-        customer {
-          id
-        }
-        customerUserErrors {
-          field
-          message
-        }
-      }
-    }`
+      }`
 
     //shopify-admin api doesn't accept password as a field
     const variables = {
       input: {
         email: body.email,
-        password: body.password,
         acceptsMarketing: body.newsletter,
         firstName: body.firstName,
         lastName: body.lastName,
@@ -55,7 +50,7 @@ exports.handler = function(event, context, callback) {
 
     axios
       .post(
-        'https://cherries2018.myshopify.com/api/graphql',
+        'https://cherries2018.myshopify.com/admin/api/graphql.json',
         {
           variables,
           query,
@@ -70,6 +65,7 @@ exports.handler = function(event, context, callback) {
         } else {
           customer = data.data.customerCreate
         }
+        // console.log('what is customer?', customer)
         let response = {
           statusCode: 200,
           headers,
