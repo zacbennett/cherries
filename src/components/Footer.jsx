@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 import { FooterSubscription, FooterLinks } from './atoms'
+import { StaticQuery, graphql } from 'gatsby'
 
 const Container = Styled.div`
   position: relative;
@@ -17,15 +18,45 @@ const Container = Styled.div`
   justify-content: center;
   z-index: 2;
 `
-class Footer extends Component {
-  render() {
-    return (
-      <Container>
-        <FooterSubscription />
-        <FooterLinks />
-      </Container>
-    )
-  }
-}
 
-export default Footer
+export default () => (
+  <StaticQuery
+    query={graphql`
+      {
+        allContentfulFooter {
+          edges {
+            node {
+              footerSubscriptionTitle
+              footerSubscriptionText
+              footerLinks {
+                content {
+                  content {
+                    data {
+                      uri
+                    }
+                    content {
+                      value
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
+      <Container>
+        <FooterSubscription
+          title={data.allContentfulFooter.edges[0].node.footerSubscriptionTitle}
+          text={data.allContentfulFooter.edges[0].node.footerSubscriptionText}
+        />
+        <FooterLinks
+          linkData={data.allContentfulFooter.edges[0].node.footerLinks.content[0].content.map(
+            c => c[1]
+          )}
+        />
+      </Container>
+    )}
+  />
+)

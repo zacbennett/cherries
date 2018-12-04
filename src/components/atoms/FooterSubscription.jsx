@@ -18,13 +18,9 @@ class FooterSubscription extends Component {
   render() {
     return (
       <Container>
-        {/* TODO: Find out if Niki wants this to be dynamic from Contentful */}
         <div>
-          <h4>Join the Cherries fam</h4>
-          <p style={{ maxWidth: '20.8rem' }}>
-            Sign up to be the first to know about new products, get exclusive
-            discounts, and other special stuff :)
-          </p>
+          <h4>{this.props.title}</h4>
+          <p style={{ maxWidth: '20.8rem' }}>{this.props.text}</p>
           {/* TODO:  Move to separate component */}
           <form>
             <label htmlFor="email">Email</label>
