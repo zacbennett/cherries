@@ -38,14 +38,14 @@ class LoginEmailPassword extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  async handleSubmit(e) {
-    e.preventDefault()
-    let token = await postLambda('getAccount', this.state)
-    console.log('token', token)
+  async handleSubmit(evt) {
+    evt.preventDefault()
+    let response = await postLambda('getAccount', this.state)
+    let customer = response.data.customer
   }
-  handleChange(e) {
+  handleChange(evt) {
     this.setState({
-      [e.target.name]: e.target.value,
+      [evt.target.name]: evt.target.value,
     })
   }
   render() {

@@ -70,7 +70,6 @@ exports.handler = function(event, context, callback) {
         } else {
           customer = data.data.customerCreate
         }
-        // console.log('what is customer?', customer)
         let response = {
           statusCode: 200,
           headers,

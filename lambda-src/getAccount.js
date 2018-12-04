@@ -18,10 +18,14 @@ exports.handler = async function(event, context, callback) {
     })
   }
   if (event.body[0] == '{') {
+    console.log('getAccount EVENT', event.body)
     let data = JSON.parse(event.body)
     let body = JSON.parse(data.body)
 
-    const query1 = `mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
+    // Initial query to create token from Shopify Storefront API based on customer input email and password
+    // Still generating non-terminating error of statusCode undefined
+    // TODO: Abstract logic into separate class to handle graphQL/axios requests to Shopify API
+    const tokenQuery = `mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
         customerAccessTokenCreate(input: $input) {
           userErrors {
             field
@@ -38,141 +42,102 @@ exports.handler = async function(event, context, callback) {
         }
       }
       `
-    const variables1 = {
+    const tokenVariables = {
       input: {
         email: body.email,
         password: body.password,
       },
     }
 
-    axios
-      .post(
+    let token
+    try {
+      let response = await axios.post(
         'https://cherries2018.myshopify.com/api/graphql',
         {
-          variables: variables1,
-          query: query1,
+          variables: tokenVariables,
+          query: tokenQuery,
         },
         { headers: shopifyConfig }
       )
-      .then(function(data) {
-        let token
-        if (data.data.errors) {
-          return callback(token.data.data.customerAccessTokenCreate.userErrors)
-        } else {
-          token =
-            data.data.data.customerAccessTokenCreate.customerAccessToken
-              .accessToken
-        }
-        let response = {
+      if (response.data.data.errors) {
+        return callback(response.data.data.customerAccessTokenCreate.userErrors)
+      } else {
+        token =
+          response.data.data.customerAccessTokenCreate.customerAccessToken
+            .accessToken
+      }
+    } catch (err) {
+      return callback(err)
+    }
+
+    // Query to pull customer information based on authenticated token generated from previous query
+    const customerQuery = `query customerQuery($customerAccessToken: String!){
+          customer(customerAccessToken: $customerAccessToken) {
+            firstName
+            lastName
+            acceptsMarketing
+            phone
+            email
+            orders(first:100){
+              edges{
+                node{
+                  orderNumber
+                  totalPrice
+                  processedAt
+                  statusUrl
+                  successfulFulfillments(first: 100){
+                    trackingInfo(first: 100){
+                      number
+                      url
+                    }
+                  }
+                  lineItems(first:100){
+                    edges{
+                      node{
+                        quantity
+                        title
+                        variant{
+                          title
+                          price
+                          image{
+                            originalSrc
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                }
+              }
+            }
+          }
+        }`
+
+    const customerVariable = {
+      customerAccessToken: token,
+    }
+
+    try {
+      let response = await axios.post(
+        'https://cherries2018.myshopify.com/api/graphql',
+        { variables: customerVariable, query: customerQuery },
+        { headers: shopifyConfig }
+      )
+      if (response.data.data.errors) {
+        return callback(response.data.data)
+      } else {
+        let customer = response.data.data.customer
+        let responseObj = {
           statusCode: 200,
           headers,
           body: JSON.stringify({
-            token,
+            customer,
           }),
         }
-        return callback(null, response)
-      })
-      .catch(err => {
-        return callback(err)
-      })
-
-    // let token
-    // try {
-    //   token = await axios({
-    //     url: 'https://cherries2018.myshopify.com/api/graphql',
-    //     method: 'POST',
-    //     headers: shopifyConfig,
-    //     data: JSON.stringify(payload1),
-    //   })
-    //   if (token.data.data.customerAccessTokenCreate.userErrors.length > 0)
-    //     throw token.data.data.customerAccessTokenCreate.userErrors
-    //   else
-    //     token =
-    //       token.data.data.customerAccessTokenCreate.customerAccessToken
-    //         .accessToken
-    // } catch (err) {
-    //   console.log(err)
-    //   let response = {
-    //     statusCode: 500,
-    //     headers,
-    //     body: JSON.stringify({
-    //       error: err,
-    //     }),
-    //   }
-    //   return callback(null, response)
-    // }
-    //   const query2 = `query customerQuery($customerAccessToken: String!){
-    //       customer(customerAccessToken: $customerAccessToken) {
-    //         firstName
-    //         lastName
-    //         acceptsMarketing
-    //         phone
-    //         email
-    //         orders(first:100){
-    //           edges{
-    //             node{
-    //               orderNumber
-    //               totalPrice
-    //               processedAt
-    //               statusUrl
-    //               successfulFulfillments(first: 100){
-    //                 trackingInfo(first: 100){
-    //                   number
-    //                   url
-    //                 }
-    //               }
-    //               lineItems(first:100){
-    //                 edges{
-    //                   node{
-    //                     quantity
-    //                     title
-    //                     variant{
-    //                       title
-    //                       price
-    //                       image{
-    //                         originalSrc
-    //                       }
-    //                     }
-    //                   }
-    //                 }
-    //               }
-
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }`,
-    //     variables: {
-    //       customerAccessToken: token,
-    //     },
-    //   }
-    //   try {
-    //     let customer = await axios({
-    //       url: 'https://cherries2018.myshopify.com/api/graphql',
-    //       method: 'POST',
-    //       headers: shopifyConfig,
-    //       data: JSON.stringify(payload2),
-    //     })
-    //     customer = customer.data.data.customer
-    //     let response = {
-    //       statusCode: 200,
-    //       headers,
-    //       body: JSON.stringify({
-    //         customer,
-    //       }),
-    //     }
-    //     callback(null, response)
-    //   } catch (err) {
-    //     console.log(err)
-    //     let response = {
-    //       statusCode: 500,
-    //       headers,
-    //       body: JSON.stringify({
-    //         error: err.message,
-    //       }),
-    //     }
-    //     callback(null, response)
-    //   }
-    // }
+        return callback(null, responseObj)
+      }
+    } catch (err) {
+      return callback(err)
+    }
   }
 }
