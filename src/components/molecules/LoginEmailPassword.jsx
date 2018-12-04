@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { StyledInput, StyledButton } from '../atoms'
+import postLambda from '../../utilities/postLambda'
 
 const Container = styled.form`
   display: flex;
@@ -26,21 +27,23 @@ const Container = styled.form`
 `
 
 class LoginEmailPassword extends Component {
-  state = {
-    email: '',
-    password: '',
-    remember: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: '',
+      remember: false,
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
-  static contextTypes = {
-    firebase: PropTypes.object,
-  }
-  handleSubmit = e => {
+
+  async handleSubmit(e) {
     e.preventDefault()
-    const { firebase } = this.context
-    const { email, password } = this.state
-    firebase.login(this, 'emailPassword', email, password)
+    let token = await postLambda('getAccount', this.state)
+    console.log('token', token)
   }
-  handleChange = e => {
+  handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
     })
