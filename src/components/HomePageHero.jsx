@@ -36,7 +36,6 @@ export default () => (
             }
           }
           heroImageText
-          heroImageButtonText
         }
       }
     `}
@@ -44,14 +43,13 @@ export default () => (
       const contentfulData = data.contentfulHomePage
       const heroImage = contentfulData.heroImage.file.url
       const heroImageText = contentfulData.heroImageText
-      const heroImageButtonText = contentfulData.heroImageButtonText
 
       return (
         <Container>
           <img id="hero-image" src={heroImage} alt="hero" />
           <div id="hero-image-text-container">
             <h4 id="hero-image-text">{heroImageText}</h4>
-            <HomePageButton buttonText={heroImageButtonText} />
+            <HomePageButton />
           </div>
         </Container>
       )

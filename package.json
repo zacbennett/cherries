@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.18.0",
+=======
+    "animate.css": "^3.7.0",
+>>>>>>> 73b78075128e2fd847499d68012fff538bdf9080
     "contentful": "^7.0.5",
     "dotenv": "^6.1.0",
     "gatsby": "^2.0.53",
