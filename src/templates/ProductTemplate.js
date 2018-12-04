@@ -14,7 +14,6 @@ class ProductTemplate extends Component {
   //   this.props.resetSidebar()
   // }
   render() {
-    console.log('prod template props', this.props.pageContext.node)
     const data = this.props.pageContext.node
     const images = data.images.map(img => img.file.url)
     const details = data.details.content.map(c => c.content[0].value)

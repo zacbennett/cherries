@@ -10,7 +10,6 @@ class ProductDetail extends Component {
     super(props)
   }
   render() {
-    console.log(this.props)
     const details = this.props.details.map(d => <p>{d}</p>)
     return (
       <Layout>
