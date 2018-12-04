@@ -43,7 +43,6 @@ export default () => (
       const contentfulData = data.contentfulHomePage
       const heroImage = contentfulData.heroImage.file.url
       const heroImageText = contentfulData.heroImageText
-      const heroImageButtonText = contentfulData.heroImageButtonText
 
       return (
         <Container>
