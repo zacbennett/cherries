@@ -39,6 +39,8 @@ animation: fadein 1s;
   }
 
   #sub-info-text{
+        // white-space: pre-line;    
+
     padding-left: 79px;
     padding-top: 50px;
     width: 563px;
@@ -92,7 +94,38 @@ class Subscribe extends Component {
     super(props)
     this.state = {}
   }
+
   render() {
+    const subscribeText = this.props.data.allContentfulSupportPage.edges[0].node
+      .subscription.content
+
+    let header
+    let lead
+    let textBeforeButton = []
+    let textAfterButton
+    let currValue
+
+    subscribeText.forEach(function(item, index) {
+      currValue = item.content[0].value
+      if (index === 0) {
+        header = currValue
+      } else if (index === 1) {
+        lead = currValue
+      } else if (index === subscribeText.length - 1) {
+        textAfterButton = currValue
+      } else {
+        textBeforeButton.push(currValue)
+      }
+    })
+
+    textBeforeButton = textBeforeButton.map(function(item, i) {
+      return (
+        <React.Fragment key={i}>
+          <p>{item} </p>
+        </React.Fragment>
+      )
+    })
+    
     return (
       <Container>
         <MainLayout>
@@ -101,26 +134,15 @@ class Subscribe extends Component {
 
             <div id="sub-info-container">
               <div id="sub-info-text">
-                <h1>Subscribe</h1>
-                <p className="lead">
-                  Ready to always have a fresh look? Of course you are. Here's
-                  how it works:
-                </p>
+                <h1>{header}</h1>
+                <p className="lead">{lead}</p>
                 <div className="center-text">
-                  <p>
-                    For $10/ month you'll get a pair of earrings of your choice
-                    delivered to your door. <br /> <br /> We'll notify you each
-                    month when your next pair is available. If you forget to
-                    pick, we'll send you a suprise pair you're sure to like ;){' '}
-                  </p>
-                  <br />
+                  {textBeforeButton}
+
                   <HomePageButton />
 
                   <br />
-                  <p>
-                    (Members also get free shipping, access to secret sales, and
-                    other special stuff...shhh)
-                  </p>
+                  <p>{textAfterButton}</p>
                 </div>
               </div>
             </div>
@@ -130,5 +152,23 @@ class Subscribe extends Component {
     )
   }
 }
+
+export const query = graphql`
+  {
+    allContentfulSupportPage {
+      edges {
+        node {
+          subscription {
+            content {
+              content {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Subscribe
