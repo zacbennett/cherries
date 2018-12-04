@@ -49,7 +49,6 @@ exports.createPages = async ({ actions, graphql }) => {
           let path = node.title.replace(/\s+/g, '-') + '/'
           path = path.replace(/\./, '')
           path = path.replace(/\*/, '')
-          console.log(`what's the path, zac?`, path)
           createPage({
             path,
             component: ProductPageTemplate,
