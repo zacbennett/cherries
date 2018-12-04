@@ -27,18 +27,19 @@ const Layout = styled.div`
 class Product extends Component {
   render() {
     // Renders info, order and detail for the product based on query
-    const { images, productCopy, title, price, sku } = this.props
+    const { images, productCopy, title, price, sku, details } = this.props
     return (
       <Layout>
         <ProductPhotos images={images} />
         {/* <CartConsumer> */}
-        {/* {cartContext => ( */}.
+        {/* {cartContext => ( */}
         <ProductDescription
           productCopy={productCopy}
           title={title}
           price={price}
           images={images}
           sku={sku}
+          details={details}
         />
       </Layout>
     )

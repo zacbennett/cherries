@@ -62,14 +62,16 @@ class ProductOrder extends Component {
   render() {
     return (
       <Container>
+        {/* TODO: For shopify */}
         <form action="#">
           <p>
             <input
               className="purchaseSelector"
               type="radio"
               name="radio-group"
+              id="oneTimePurchase"
             />
-            <label for="one-time-purchase">
+            <label for="oneTimePurchase">
               {' '}
               <span className="purchase-text"> One-Time Purchase:</span>
               <strong onClick={this.props.handleAdjust}>{`${
@@ -78,8 +80,8 @@ class ProductOrder extends Component {
             </label>
           </p>
           <p>
-            <input type="radio" name="radio-group" />
-            <label className="purchaseSelector" for="subscribe">
+            <input type="radio" name="radio-group" id="subscription" />
+            <label className="purchaseSelector" for="subscription">
               {' '}
               <span className="purchase-text">Subscribe and Save:</span>{' '}
               <strong>$10/mo</strong>

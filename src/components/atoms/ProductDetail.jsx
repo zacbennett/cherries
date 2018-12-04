@@ -10,13 +10,12 @@ class ProductDetail extends Component {
     super(props)
   }
   render() {
-    console.log('vat are zee pruhps?', this.props)
+    console.log(this.props)
+    const details = this.props.details.map(d => <p>{d}</p>)
     return (
       <Layout>
         <h4>Details</h4>
-        <p>Materials: {this.props.materials}</p>
-        <p>Closure: {this.props.closure}</p>
-        <p>Allergy Information: {this.props.allergy}</p>
+        {details}
       </Layout>
     )
   }

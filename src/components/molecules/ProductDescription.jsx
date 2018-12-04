@@ -18,7 +18,7 @@ const Layout = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-around;
+    justify-content: flex-start;
     @media (max-width: 420px) {
       flex-direction: column;
     }
@@ -125,16 +125,13 @@ class ProductDescription extends Component {
             id={''}
             color={'#E20031'}
             height={'2.5rem'}
+            width={'3rem'}
           />
           <StyledButton height={'2.5rem'} width={'18rem'} fontSize={'.65rem'}>
             <b>{this.state.status}</b>
           </StyledButton>
         </form>
-        <ProductDetail
-          materials={'something'}
-          closure={'comes'}
-          allergy={'this way'}
-        />
+        <ProductDetail details={this.props.details} />
       </Layout>
     )
   }

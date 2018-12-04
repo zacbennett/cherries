@@ -18,6 +18,7 @@ const Layout = styled.div`
     }
     display: flex;
     overflow: auto;
+    padding-right: 10px;
   }
   .animation {
     animation: fadein 1.25s;
