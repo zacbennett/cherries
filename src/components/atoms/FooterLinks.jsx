@@ -8,7 +8,6 @@ flex-basis: 50%;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-font-weight: 700;
 .list-items {
   text-decoration: none;
   color: white;
