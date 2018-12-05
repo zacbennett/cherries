@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { SideNav } from '../components'
 import {
   LoginEmailPassword,
-  SignupGoogle,
-  SignupFacebook,
+  LoginGoogle,
+  LoginFacebook,
 } from '../components/molecules'
 import { NavLink } from '../components/atoms'
 import { MainLayout } from '../components/layouts'
@@ -45,7 +45,7 @@ const Container = styled.div`
   }
 `
 
-class Signup extends Component {
+class Login extends Component {
   state = {
     errorMessage: null,
   }
@@ -71,8 +71,8 @@ class Signup extends Component {
           </p>
           <LoginEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <SignupFacebook handleError={this.handleError} />
-          <SignupGoogle handleError={this.handleError} />
+          <LoginFacebook handleError={this.handleError} />
+          <LoginGoogle handleError={this.handleError} />
 
           <NavLink
             to="/signup"
@@ -96,4 +96,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+export default Login

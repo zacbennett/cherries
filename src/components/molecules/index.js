@@ -1,6 +1,8 @@
 export { default as TryptychPanel } from '../molecules/TryptychPanel'
 export { default as BannerPromo } from './BannerPromo'
 export { default as LoginEmailPassword } from './LoginEmailPassword'
+export { default as LoginFacebook } from './LoginFacebook'
+export { default as LoginGoogle } from './LoginGoogle'
 export { default as NavButtons } from './NavButtons'
 export { default as ProductList } from './ProductList'
 export { default as ProductOrder } from './ProductOrder'
