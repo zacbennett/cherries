@@ -21,30 +21,30 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <UserProvider
+        {/* <UserProvider
           value={{
             customer: windowGlobal.localStorage.getItem('curUser') || {},
           }}
+        > */}
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
         >
-          <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
-            ]}
-          >
-            <html lang="en" />
-          </Helmet>
-          <NavBar />
-          <div
-            style={{
-              margin: '0 auto',
-              fontFamily: 'Montserrat',
-            }}
-          >
-            {children}
-          </div>
-        </UserProvider>
+          <html lang="en" />
+        </Helmet>
+        <NavBar />
+        <div
+          style={{
+            margin: '0 auto',
+            fontFamily: 'Montserrat',
+          }}
+        >
+          {children}
+        </div>
+        {/* </UserProvider> */}
         {children}
         <Footer />
       </>
