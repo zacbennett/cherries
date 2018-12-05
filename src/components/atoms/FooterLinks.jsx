@@ -30,6 +30,7 @@ class FooterLinks extends Component {
     console.log('what are the footer links props', this.props)
     const links = this.props.linkData.map(d => (
       <li>
+        {/* TODO: JUAN --> Add a comment here  */}
         <Link className="list-items" to={d.content[1].data.uri}>
           {d.content[1].content[0].value}
         </Link>
