@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import { HomePageHero, HomePageTryptych, SideNav } from '../components'
-import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
 import { HomePageButton } from '../components/atoms'
 import postLambda from '../utilities/postLambda'
@@ -35,13 +33,12 @@ animation: fadein 1s;
 	-ms-flex: 1; /* IE 10 */
 	flex: 1; /* Standard syntax */
 
-    height: 962px;
+    height: 100%;
     background-color: #FBE5E9;
   }
 
   #sub-info-text{
-        // white-space: pre-line;    
-
+    font-weight: bold;
     padding-left: 79px;
     padding-top: 50px;
     width: 563px;
@@ -69,13 +66,14 @@ h1{
   align-items: center;
   margin: 0 auto;
 }
-  .lead{
-    font-size:1.2rem
-    font-weight: bold;
-  }
+.lead{
+  font-size:1.2rem
+  font-weight: bold;
+}
 
 .flex-container{
-	width: 100%;
+  width: 100%;
+  height: 650px;
 	min-height: 300px;
 	margin: 0 auto;
 	display: -webkit-flex; /* Safari */		
@@ -84,10 +82,8 @@ h1{
 
 img{
   width: 640px;
-  height: 962px;
+  height: 100%;
 }
-
-
 
 `
 class Subscribe extends Component {
@@ -108,38 +104,54 @@ class Subscribe extends Component {
     const subscribeText = this.props.data.allContentfulSupportPage.edges[0].node
       .subscription.content
 
+    // Gets image immediately from the data and removes the element from the array to allow for the for
+    let image
     let header
     let lead
     let textBeforeButton = []
     let textAfterButton
     let currValue
 
+    // The following functions pulls data from graphql and sets values
+    // to be displayed based on the order in the contentful richtext field.
+    // The first value becomes the image, second value is the header, third value is the lead.
+    // The last value becomes the text after the button,
+    // everything else becomes the text before the button
     subscribeText.forEach(function(item, index) {
-      currValue = item.content[0].value
+      console.log('item is ', item)
+
       if (index === 0) {
-        header = currValue
+        image = item.data.target.fields.file.en_US.url
+        console.log('image is ', image)
       } else if (index === 1) {
-        lead = currValue
+        header = item.content[0].value
+      } else if (index === 2) {
+        lead = item.content[0].value
       } else if (index === subscribeText.length - 1) {
-        textAfterButton = currValue
+        textAfterButton = <p> {item.content[0].value} </p>
       } else {
-        textBeforeButton.push(currValue)
+        textBeforeButton.push(
+          <React.Fragment key={index}>
+            <p>{item.content[0].value} </p>
+          </React.Fragment>
+        )
       }
     })
 
-    textBeforeButton = textBeforeButton.map(function(item, i) {
-      return (
-        <React.Fragment key={i}>
-          <p>{item} </p>
-        </React.Fragment>
-      )
-    })
+    // Refactor the code below to be contained in the forEach above
+    // textBeforeButton = textBeforeButton.map(function(item, i) {
+    //   return (
+    //     <React.Fragment key={i}>
+    //       <p>{item} </p>
+    //     </React.Fragment>
+    //   )
+    // })
 
     return (
       <Container>
         <MainLayout>
           <div className="flex-container">
-            <img src="https://i.redd.it/bptzx7ur4uj11.jpg" alt="image" />
+            <img src={image} alt="subscription-image" />
 
             <div id="sub-info-container">
               <div id="sub-info-text">
@@ -151,7 +163,7 @@ class Subscribe extends Component {
                     <HomePageButton />
                   </button>
                   <br />
-                  <p>{textAfterButton}</p>
+                  {textAfterButton}
                 </div>
               </div>
             </div>
@@ -169,6 +181,17 @@ export const query = graphql`
         node {
           subscription {
             content {
+              data {
+                target {
+                  fields {
+                    file {
+                      en_US {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
               content {
                 value
               }
