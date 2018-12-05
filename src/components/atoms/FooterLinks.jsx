@@ -5,16 +5,23 @@ import { Link } from 'gatsby'
 const Container = Styled.div`
 display: flex;
 flex-basis: 50%;
-flex-direction: row;
 align-items: center;
 justify-content: center;
 .list-items {
   text-decoration: none;
   color: white;
 }
+li {
+  padding-right: 3.6rem;
+}
 .list {
+  height: 6rem;
   list-style-type: none;
   padding-right: 1rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+  flex-basis: 50%;
 }
 `
 class FooterLinks extends Component {
@@ -30,9 +37,7 @@ class FooterLinks extends Component {
     console.log('what do links look like', links)
     return (
       <Container>
-        <div>
-          <ul className="list">{links}</ul>
-        </div>
+        <ul className="list">{links}</ul>
       </Container>
     )
   }
