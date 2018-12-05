@@ -45,7 +45,6 @@ const Layout = ({ children }) => (
           {children}
         </div>
         {/* </UserProvider> */}
-        {children}
         <Footer />
       </>
     )}

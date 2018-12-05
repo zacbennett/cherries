@@ -140,8 +140,8 @@ class Subscribe extends Component {
     })
 
     return (
-      <Container>
-        <MainLayout>
+      <MainLayout>
+        <Container>
           <div className="flex-container">
             <img src={image} id="subscription-image" alt="subscription-image" />
 
@@ -161,8 +161,8 @@ class Subscribe extends Component {
               </div>
             </div>
           </div>
-        </MainLayout>
-      </Container>
+        </Container>
+      </MainLayout>
     )
   }
 }
