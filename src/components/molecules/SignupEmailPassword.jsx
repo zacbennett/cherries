@@ -107,8 +107,9 @@ class SignupEmailPassword extends Component {
           fontFamily="Lato"
         />
         <StyledInput
-          placeholder="Password"
           aria-label="Password"
+          placeholder="Password"
+          type="password"
           name="password"
           onChange={this.handleChange}
           value={this.state.password}
