@@ -6,6 +6,8 @@ import { NavBar } from '..'
 import { UserProvider } from '../../containers/UserContext'
 import './layout.css'
 
+const windowGlobal = typeof window !== 'undefined' && window
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -21,7 +23,7 @@ const Layout = ({ children }) => (
       <>
         <UserProvider
           value={{
-            customer: this.state.customer,
+            customer: windowGlobal.localStorage.getItem('curUser') || {},
           }}
         >
           <Helmet

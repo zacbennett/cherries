@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 
+const windowGlobal = typeof window !== 'undefined' && window
+
 const Container = styled.form`
   display: flex;
   flex-direction: column;
@@ -42,6 +44,8 @@ class LoginEmailPassword extends Component {
     evt.preventDefault()
     let response = await postLambda('getAccount', this.state)
     console.log('LOGIN EMAIL PASSWORD RESPONSE', response.data.customer)
+    let curUser = response.data.customer
+    windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
   }
 
   handleChange(evt) {

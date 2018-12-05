@@ -8,7 +8,7 @@ import { MainLayout } from '../components/layouts'
 
 const Container = Styled.div`
   align-items: center;
-  animation: fadein 1s; 
+  animation: fadein 1s;
   .sideNav{
     position:sticky
   };
