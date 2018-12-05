@@ -1,4 +1,5 @@
 require('dotenv').config({ path: '.env.development' })
+const postLambda = require('../src/utilities/postLambda')
 const axios = require('axios')
 const statusCode = 200
 const headers = {
@@ -63,7 +64,6 @@ exports.handler = function(event, context, callback) {
         { headers: shopifyConfig }
       )
       .then(function(data) {
-        console.log('THIS RUNS')
         let customer
         if (data.data.errors) {
           return callback(data.data.errors)
@@ -77,7 +77,9 @@ exports.handler = function(event, context, callback) {
             customer,
           }),
         }
-        return callback(null, response)
+        callback(null, response)
+        //TODO: FIGURE OUT HOW TO RUN postLambda HERE TO GET TOKEN AND CUSTOMER DETAILS
+        // postLambda('getAccount', { email: body.email, password: body.password })
       })
       .catch(err => {
         console.log('ERROR!')

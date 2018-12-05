@@ -41,7 +41,7 @@ class LoginEmailPassword extends Component {
   async handleSubmit(evt) {
     evt.preventDefault()
     let response = await postLambda('getAccount', this.state)
-    let customer = response.data.customer
+    // console.log('LOGIN EMAIL PASSWORD RESPONSE', response.data.customer)
   }
   handleChange(evt) {
     this.setState({

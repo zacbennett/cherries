@@ -6,6 +6,7 @@ import { HomePageHero, HomePageTryptych, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
 import { HomePageButton } from '../components/atoms'
+import postLambda from '../utilities/postLambda'
 
 const Container = Styled.div`
 	
@@ -93,6 +94,14 @@ class Subscribe extends Component {
   constructor(props) {
     super(props)
     this.state = {}
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    postLambda('addSubscription', {
+      id: 'Z2lkOi8vc2hvcGlmeS9DdXN0b21lci83NDA4NDQ4MzA4MjA=',
+      tags: ['subscribed'],
+    })
   }
 
   render() {
@@ -125,7 +134,7 @@ class Subscribe extends Component {
         </React.Fragment>
       )
     })
-    
+
     return (
       <Container>
         <MainLayout>
@@ -138,9 +147,9 @@ class Subscribe extends Component {
                 <p className="lead">{lead}</p>
                 <div className="center-text">
                   {textBeforeButton}
-
-                  <HomePageButton />
-
+                  <button onClick={this.handleClick}>
+                    <HomePageButton />
+                  </button>
                   <br />
                   <p>{textAfterButton}</p>
                 </div>
