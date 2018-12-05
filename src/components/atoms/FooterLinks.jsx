@@ -15,8 +15,9 @@ li {
   padding-right: 3.6rem;
 }
 .list {
-  height: 6rem;
+  height: 10rem;
   list-style-type: none;
+  padding-top: 1rem;
   padding-right: 1rem;
   flex-direction: column;
   flex-wrap: wrap;
