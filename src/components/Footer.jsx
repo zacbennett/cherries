@@ -52,9 +52,7 @@ export default () => (
           text={data.allContentfulFooter.edges[0].node.footerSubscriptionText}
         />
         <FooterLinks
-          linkData={data.allContentfulFooter.edges[0].node.footerLinks.content[0].content.map(
-            c => c[1]
-          )}
+          linkData={data.allContentfulFooter.edges[0].node.footerLinks.content}
         />
       </Container>
     )}

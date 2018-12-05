@@ -19,55 +19,19 @@ justify-content: center;
 `
 class FooterLinks extends Component {
   render() {
+    console.log('what are the footer links props', this.props)
+    const links = this.props.linkData.map(d => (
+      <li>
+        <Link className="list-items" to={d.content[1].data.uri}>
+          {d.content[1].content[0].value}
+        </Link>
+      </li>
+    ))
+    console.log('what do links look like', links)
     return (
       <Container>
         <div>
-          <ul className="list">
-            <li className="footer-link">
-              <Link to="/" className="list-items">
-                Refer a Friend
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="list-items">
-                My Account
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="list-items">
-                Careers
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="list-items">
-                Help
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul className="list">
-            <li>
-              <Link to="/" className="list-items">
-                Our Story
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="list-items">
-                Instagram
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="list-items">
-                Terms of Use
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="list-items">
-                Privacy
-              </Link>
-            </li>
-          </ul>
+          <ul className="list">{links}</ul>
         </div>
       </Container>
     )

@@ -21,7 +21,7 @@ class FooterSubscription extends Component {
         <div>
           <h4>{this.props.title}</h4>
           <p style={{ maxWidth: '20.8rem' }}>{this.props.text}</p>
-          {/* TODO:  Move to separate component */}
+          {/* TODO:  Move to separate component once this actually does something! */}
           <form>
             <label htmlFor="email">Email</label>
             <br />
