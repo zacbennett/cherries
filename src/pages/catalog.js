@@ -33,21 +33,30 @@ class CatalogPage extends Component {
     super(props)
   }
   render() {
+    // Grabs query string from the url to use for search.
     const parsedQueryString = queryString.parse(this.props.location.search)
     const searchTerm = parsedQueryString.search
+
+    // Grab our productdata from contentful
+    const contentfulProductData = this.props.data.allContentfulProductPage.edges
+
     let productPicks
+
     if (searchTerm) {
-      let fuse = new Fuse(
-        this.props.data.allContentfulProductPage.edges,
-        options
-      )
+      // if the search term exists, create an instance of the Fuse class with data and options
+      let fuse = new Fuse(contentfulProductData, options)
+      
+      // Apply the search on productdata with our searchterm
       productPicks = fuse.search(searchTerm)
+
     } else {
-      productPicks = this.props.data.allContentfulProductPage.edges
+      // If no query string exists, productPicks contains all data for all products
+      productPicks = contentfulProductData
     }
     return (
       <MainLayout>
         <Container>
+          {/* Productpicks is passed into productList to be rendered */}
           <ProductList products={productPicks} catalog={true} />
         </Container>
       </MainLayout>
