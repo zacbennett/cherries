@@ -98,7 +98,12 @@ class NavButtons extends Component {
     const helpLinks = this.props.helpLinks[0].dropdownLinks
     return (
       <Container>
-        {this.state.showPopup ? <Search /> : null}
+        {this.state.showPopup ? (
+          <Search
+            searchIcon={this.props.searchIcon}
+            togglePopup={this.togglePopup}
+          />
+        ) : null}
         <div className="leftNav">
           <img
             style={{
