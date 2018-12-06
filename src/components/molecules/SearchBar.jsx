@@ -7,8 +7,8 @@ import { IoIosClose } from 'react-icons/io'
 
 const Container = styled.div`
   width: 100%;
-  z-index: 2;
   .popup {
+    z-index: 10;
     position: fixed;
     width: 100%;
     height: 300px;
@@ -26,6 +26,8 @@ const Container = styled.div`
   }
 
   input {
+    text-align: center;
+
     background-color: #fbe5e9;
     border: 0px;
     border-bottom: 2px solid black;
@@ -62,6 +64,21 @@ const Container = styled.div`
     text-align: center;
     font-weight: bold;
   }
+  .grayed-out {
+    margin: auto;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 900px;
+    z-index: 2;
+    // display: flex;
+    // position: absolute;
+    // height: 100vh;
+    // justify-content: center;
+    //  margin-top: -80px;
+    // align-items: center;
+    //  overflow: hidden;
+  }
 `
 
 class Search extends Component {
@@ -88,22 +105,24 @@ class Search extends Component {
 
     return (
       <Container>
-        <div className="popup">
-          <div>
-            <IoIosClose id="close-button" onClick={this.handleClick} />
-          </div>
-          <div className="popupInner">
-            <form id="searchForm" action="/catalog">
-              <div id="button-container">
-                <button id="search-button">
-                  <img id="search-image" src={this.props.searchIcon} alt="" />
-                </button>
+        <div className="grayed-out">
+          <div className="popup">
+            <div>
+              <IoIosClose id="close-button" onClick={this.handleClick} />
+            </div>
+            <div className="popupInner">
+              <form id="searchForm" action="/catalog">
+                <div id="button-container">
+                  <button id="search-button">
+                    <img id="search-image" src={this.props.searchIcon} alt="" />
+                  </button>
+                </div>
+                <input onChange={this.handleChange} name="search" type="text" />
+              </form>
+              <div id="search-bar-text">
+                <p>What are you looking for?</p>
+                <p>Product name, type, color (or anything)</p>
               </div>
-              <input onChange={this.handleChange} name="search" type="text" />
-            </form>
-            <div id="search-bar-text">
-              <p>What are you looking for?</p>
-              <p>Product name, type, color (or anything)</p>
             </div>
           </div>
         </div>

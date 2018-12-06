@@ -6,7 +6,7 @@ import { StaticQuery } from 'gatsby'
 const Container = styled.div`
   position: fixed;
   margin-top: 80px;
-  z-index: 2;
+  z-index: 1;
   #side-navbar-list {
     list-style: none;
   }
