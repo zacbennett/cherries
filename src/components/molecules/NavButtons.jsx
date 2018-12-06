@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 import Search from './SearchBar'
 
@@ -99,10 +100,12 @@ class NavButtons extends Component {
     return (
       <Container>
         {this.state.showPopup ? (
-          <Search
-            searchIcon={this.props.searchIcon}
-            togglePopup={this.togglePopup}
-          />
+          <ModalLayout>
+            <Search
+              searchIcon={this.props.searchIcon}
+              togglePopup={this.togglePopup}
+            />
+          </ModalLayout>
         ) : null}
         <div className="leftNav">
           <img

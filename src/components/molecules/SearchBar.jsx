@@ -84,21 +84,6 @@ const Container = styled.div`
     padding-top: 1rem;
     line-height: 0.1rem;
   }
-  .grayed-out {
-    margin: auto;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: 900px;
-    z-index: 2;
-    display: flex;
-    position: absolute;
-    height: 100vh;
-    justify-content: center;
-    margin-top: -80px;
-    align-items: center;
-    overflow: hidden;
-  }
 `
 
 class Search extends Component {
@@ -116,16 +101,27 @@ class Search extends Component {
   }
 
   handleClick() {
-    console.log('HELLO', this.props)
     this.props.togglePopup()
   }
 
   render() {
-    console.log('HELLO', this.props)
+    const style = {
+      display: 'flex',
+      alignItems: 'center',
+      position: 'fixed',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+      zIndex: 100000,
+    }
 
     return (
       <Container>
-        <div className="grayed-out">
+        <div className="grayed-out" style={style}>
           <div className="popup">
             <div>
               <IoIosClose id="close-button" onClick={this.handleClick} />

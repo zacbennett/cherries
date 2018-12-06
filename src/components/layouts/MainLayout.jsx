@@ -35,6 +35,10 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
+
+        {/* placeholder div for Modal's children*/}
+        <div id="modalContainer" />
+        
         <NavBar />
         <div
           style={{
