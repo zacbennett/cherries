@@ -2,11 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { UserProvider } from '../../containers/UserContext'
 import { NavBar, Footer } from '..'
 import './layout.css'
-
-const windowGlobal = typeof window !== 'undefined' && window
 
 const Layout = ({ children }) => (
   <StaticQuery
