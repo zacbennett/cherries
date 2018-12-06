@@ -63,7 +63,6 @@ class Login extends Component {
 
     // Set preliminary link for resetting password
     return (
-      // <UserProvider>
       <MainLayout>
         <SideNav />
         <Container>
@@ -94,7 +93,6 @@ class Login extends Component {
           </NavLink>
         </Container>
       </MainLayout>
-      // </UserProvider>
     )
   }
 }

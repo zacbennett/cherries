@@ -78,6 +78,7 @@ exports.handler = function(event, context, callback) {
           }),
         }
         callback(null, response)
+
         //TODO: FIGURE OUT HOW TO RUN postLambda HERE TO GET TOKEN AND CUSTOMER DETAILS
         // postLambda('getAccount', { email: body.email, password: body.password })
       })

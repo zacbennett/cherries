@@ -198,9 +198,7 @@ export const query = graphql`
 // Because we are exporting function, graphql query needs to be explicitly passed into Subscribe component (instead of Gatsby automatically implicitly passing in)
 // Need to wrap components with UserProvider so userContext can be accessed (doesn't work if put Provider in the return)
 export default props => (
-  // <UserProvider>
   <UserContext.Consumer>
     {userContext => <Subscribe userContext={userContext} data={props.data} />}
   </UserContext.Consumer>
-  // </UserProvider>
 )

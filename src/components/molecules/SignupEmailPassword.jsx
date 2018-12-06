@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { StyledInput, StyledButton, Loading } from '../atoms'
 import postLambda from '../../utilities/postLambda'
+import { UserContext } from '../../containers/UserContext'
 
 const Container = styled.form`
   display: flex;
@@ -58,11 +59,13 @@ class SignupEmailPassword extends Component {
       })
     }
   }
-  handleSubmit(evt) {
+  async handleSubmit(evt) {
     evt.preventDefault()
     this.setState({ status: <Loading /> })
     try {
-      postLambda('newAccount', this.state)
+      let response = await postLambda('newAccount', this.state)
+      let curUser = response.data.customer
+      console.log('signup user', curUser)
     } catch (err) {
       console.log(err)
       this.setState({ status: 'FAILURE' })
@@ -142,4 +145,9 @@ class SignupEmailPassword extends Component {
   }
 }
 
-export default SignupEmailPassword
+// export default SignupEmailPassword
+export default () => (
+  <UserContext.Consumer>
+    {userContext => <SignupEmailPassword userContext={userContext} />}
+  </UserContext.Consumer>
+)

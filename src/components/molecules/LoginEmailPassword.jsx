@@ -5,8 +5,6 @@ import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
 
-const windowGlobal = typeof window !== 'undefined' && window
-
 const Container = styled.form`
   display: flex;
   flex-direction: column;
