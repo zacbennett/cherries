@@ -36,16 +36,10 @@ const Layout = ({ children }) => (
             margin: '0 auto',
             fontFamily: 'Montserrat',
           }}
-        > */}
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
         >
           {children}
         </div>
+        <Footer />
       </>
     )}
   />
