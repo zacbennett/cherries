@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 import Search from './SearchBar'
 
@@ -98,7 +99,14 @@ class NavButtons extends Component {
     const helpLinks = this.props.helpLinks[0].dropdownLinks
     return (
       <Container>
-        {this.state.showPopup ? <Search /> : null}
+        {this.state.showPopup ? (
+          <ModalLayout>
+            <Search
+              searchIcon={this.props.searchIcon}
+              togglePopup={this.togglePopup}
+            />
+          </ModalLayout>
+        ) : null}
         <div className="leftNav">
           <img
             style={{
