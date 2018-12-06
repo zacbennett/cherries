@@ -54,7 +54,9 @@ class CatalogPage extends Component {
     )
   }
 }
-
+//edges pages
+//nodes information
+//access the inforamtion using this.props.data
 export const query = graphql`
   {
     allContentfulProductPage {
