@@ -65,7 +65,8 @@ class SignupEmailPassword extends Component {
     try {
       let response = await postLambda('newAccount', this.state)
       let curUser = response.data.customer
-      console.log('signup user', curUser)
+      // Set state on context through UserProvider component
+      this.props.userContext.setState({ curUser })
     } catch (err) {
       console.log(err)
       this.setState({ status: 'FAILURE' })
@@ -145,7 +146,6 @@ class SignupEmailPassword extends Component {
   }
 }
 
-// export default SignupEmailPassword
 export default () => (
   <UserContext.Consumer>
     {userContext => <SignupEmailPassword userContext={userContext} />}
