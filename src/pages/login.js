@@ -63,41 +63,38 @@ class Login extends Component {
 
     // Set preliminary link for resetting password
     return (
-      <UserProvider>
-        <MainLayout>
-          <SideNav />
-          <Container>
-            <h2>Hey again!</h2>
-            <p
-              className="errorMessage animated fadeInRight"
-              style={displayError}
-            >
-              {this.state.errorMessage}
-            </p>
-            <LoginEmailPassword handleError={this.handleError} />
-            <p>or</p>
-            <LoginFacebook handleError={this.handleError} />
-            <LoginGoogle handleError={this.handleError} />
+      // <UserProvider>
+      <MainLayout>
+        <SideNav />
+        <Container>
+          <h2>Hey again!</h2>
+          <p className="errorMessage animated fadeInRight" style={displayError}>
+            {this.state.errorMessage}
+          </p>
+          <LoginEmailPassword handleError={this.handleError} />
+          <p>or</p>
+          <LoginFacebook handleError={this.handleError} />
+          <LoginGoogle handleError={this.handleError} />
 
-            <NavLink
-              to="/signup"
-              fontSize=".8rem"
-              hovercolor="#00a6f6"
-              letterSpacing="0"
-            >
-              Don't have an account? Create one!
-            </NavLink>
-            <NavLink
-              to="/reset-password"
-              fontSize=".8rem"
-              hovercolor="#00a6f6"
-              letterSpacing="0"
-            >
-              Forgot your password?
-            </NavLink>
-          </Container>
-        </MainLayout>
-      </UserProvider>
+          <NavLink
+            to="/signup"
+            fontSize=".8rem"
+            hovercolor="#00a6f6"
+            letterSpacing="0"
+          >
+            Don't have an account? Create one!
+          </NavLink>
+          <NavLink
+            to="/reset-password"
+            fontSize=".8rem"
+            hovercolor="#00a6f6"
+            letterSpacing="0"
+          >
+            Forgot your password?
+          </NavLink>
+        </Container>
+      </MainLayout>
+      // </UserProvider>
     )
   }
 }

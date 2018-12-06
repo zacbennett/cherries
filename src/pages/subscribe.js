@@ -99,13 +99,15 @@ class Subscribe extends Component {
   }
 
   handleClick() {
+    console.log('click', this.props.userContext.curUser)
     postLambda('addSubscription', {
-      id: this.props.userContext.id,
+      id: this.props.userContext.curUser.id,
       tags: ['subscribed'],
     })
   }
 
   render() {
+    console.log('subscribe this.props.userContext', this.props.userContext)
     let image = this.props.data.allContentfulSubscriptionPage.edges[0].node
       .image.file.url
 
@@ -192,12 +194,13 @@ export const query = graphql`
   }
 `
 
+// userContext is resetting everytime it get rendered -- need to figure out how to persist across renderings
 // Because we are exporting function, graphql query needs to be explicitly passed into Subscribe component (instead of Gatsby automatically implicitly passing in)
 // Need to wrap components with UserProvider so userContext can be accessed (doesn't work if put Provider in the return)
 export default props => (
-  <UserProvider>
-    <UserContext.Consumer>
-      {userContext => <Subscribe userContext={userContext} data={props.data} />}
-    </UserContext.Consumer>
-  </UserProvider>
+  // <UserProvider>
+  <UserContext.Consumer>
+    {userContext => <Subscribe userContext={userContext} data={props.data} />}
+  </UserContext.Consumer>
+  // </UserProvider>
 )

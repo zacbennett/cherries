@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { NavBar } from '..'
+import { UserProvider } from '../../containers/UserContext'
 import './layout.css'
 
 const windowGlobal = typeof window !== 'undefined' && window
