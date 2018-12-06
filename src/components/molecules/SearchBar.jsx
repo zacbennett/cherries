@@ -6,6 +6,16 @@ import Redirect from '@reach/router'
 import { IoIosClose } from 'react-icons/io'
 
 const Container = styled.div`
+  animation: fadein 0.4s;
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   width: 100%;
   .popup {
     z-index: 10;
@@ -33,7 +43,8 @@ const Container = styled.div`
     border-bottom: 2px solid black;
     width: 100%;
   }
-  #searchForm {
+
+  #search-form {
     width: 100%;
     position: relative;
   }
@@ -51,6 +62,13 @@ const Container = styled.div`
     border: 0px;
     margin: 0 auto;
   }
+
+  #search-button:hover {
+    cursor: pointer;
+  }
+  #close-button:hover {
+    cursor: pointer;
+  }
   #button-container {
     text-align: center;
     width: 100%;
@@ -63,6 +81,8 @@ const Container = styled.div`
   #search-bar-text {
     text-align: center;
     font-weight: bold;
+    padding-top: 1rem;
+    line-height: 0.1rem;
   }
   .grayed-out {
     margin: auto;
@@ -71,13 +91,13 @@ const Container = styled.div`
     width: 100%;
     height: 900px;
     z-index: 2;
-    // display: flex;
-    // position: absolute;
-    // height: 100vh;
-    // justify-content: center;
-    //  margin-top: -80px;
-    // align-items: center;
-    //  overflow: hidden;
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    justify-content: center;
+    margin-top: -80px;
+    align-items: center;
+    overflow: hidden;
   }
 `
 
@@ -111,7 +131,7 @@ class Search extends Component {
               <IoIosClose id="close-button" onClick={this.handleClick} />
             </div>
             <div className="popupInner">
-              <form id="searchForm" action="/catalog">
+              <form id="search-form" action="/catalog">
                 <div id="button-container">
                   <button id="search-button">
                     <img id="search-image" src={this.props.searchIcon} alt="" />
