@@ -3,6 +3,7 @@ import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import { MainLayout } from '../components/layouts'
+import { UserContext, UserProvider } from '../containers/UserContext'
 import { HomePageButton } from '../components/atoms'
 import postLambda from '../utilities/postLambda'
 
@@ -99,7 +100,7 @@ class Subscribe extends Component {
 
   handleClick() {
     postLambda('addSubscription', {
-      id: 'Z2lkOi8vc2hvcGlmeS9DdXN0b21lci83NDA4NDQ4MzA4MjA=',
+      id: this.props.userContext.id,
       tags: ['subscribed'],
     })
   }
@@ -140,8 +141,8 @@ class Subscribe extends Component {
     })
 
     return (
-      <Container>
-        <MainLayout>
+      <MainLayout>
+        <Container>
           <div className="flex-container">
             <img src={image} id="subscription-image" alt="subscription-image" />
 
@@ -161,8 +162,8 @@ class Subscribe extends Component {
               </div>
             </div>
           </div>
-        </MainLayout>
-      </Container>
+        </Container>
+      </MainLayout>
     )
   }
 }
@@ -191,4 +192,12 @@ export const query = graphql`
   }
 `
 
-export default Subscribe
+// Because we are exporting function, graphql query needs to be explicitly passed into Subscribe component (instead of Gatsby automatically implicitly passing in)
+// Need to wrap components with UserProvider so userContext can be accessed (doesn't work if put Provider in the return)
+export default props => (
+  <UserProvider>
+    <UserContext.Consumer>
+      {userContext => <Subscribe userContext={userContext} data={props.data} />}
+    </UserContext.Consumer>
+  </UserProvider>
+)

@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const UserContext = React.createContext({})
+export const UserContext = React.createContext()
 
-export const UserProvider = UserContext.Provider
-export const UserConsumer = UserContext.Consumer
+export class UserProvider extends Component {
+  state = {
+    curUser: {},
+  }
+
+  render() {
+    return (
+      <UserContext.Provider
+        value={{ ...this.state, setState: this.setState.bind(this) }}
+      >
+        {this.props.children}
+      </UserContext.Provider>
+    )
+  }
+}

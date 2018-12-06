@@ -9,6 +9,7 @@ import {
 } from '../components/molecules'
 import { NavLink } from '../components/atoms'
 import { MainLayout } from '../components/layouts'
+import { UserContext, UserProvider } from '../containers/UserContext'
 
 const Container = styled.div`
   display: flex;
@@ -62,36 +63,41 @@ class Login extends Component {
 
     // Set preliminary link for resetting password
     return (
-      <MainLayout>
-        <SideNav />
-        <Container>
-          <h2>Hey again!</h2>
-          <p className="errorMessage animated fadeInRight" style={displayError}>
-            {this.state.errorMessage}
-          </p>
-          <LoginEmailPassword handleError={this.handleError} />
-          <p>or</p>
-          <LoginFacebook handleError={this.handleError} />
-          <LoginGoogle handleError={this.handleError} />
+      <UserProvider>
+        <MainLayout>
+          <SideNav />
+          <Container>
+            <h2>Hey again!</h2>
+            <p
+              className="errorMessage animated fadeInRight"
+              style={displayError}
+            >
+              {this.state.errorMessage}
+            </p>
+            <LoginEmailPassword handleError={this.handleError} />
+            <p>or</p>
+            <LoginFacebook handleError={this.handleError} />
+            <LoginGoogle handleError={this.handleError} />
 
-          <NavLink
-            to="/signup"
-            fontSize=".8rem"
-            hovercolor="#00a6f6"
-            letterSpacing="0"
-          >
-            Don't have an account? Create one!
-          </NavLink>
-          <NavLink
-            to="/reset-password"
-            fontSize=".8rem"
-            hovercolor="#00a6f6"
-            letterSpacing="0"
-          >
-            Forgot your password?
-          </NavLink>
-        </Container>
-      </MainLayout>
+            <NavLink
+              to="/signup"
+              fontSize=".8rem"
+              hovercolor="#00a6f6"
+              letterSpacing="0"
+            >
+              Don't have an account? Create one!
+            </NavLink>
+            <NavLink
+              to="/reset-password"
+              fontSize=".8rem"
+              hovercolor="#00a6f6"
+              letterSpacing="0"
+            >
+              Forgot your password?
+            </NavLink>
+          </Container>
+        </MainLayout>
+      </UserProvider>
     )
   }
 }

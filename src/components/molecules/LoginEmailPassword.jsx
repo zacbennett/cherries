@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
+import { UserContext } from '../../containers/UserContext'
 
 const windowGlobal = typeof window !== 'undefined' && window
 
@@ -43,9 +44,10 @@ class LoginEmailPassword extends Component {
   async handleSubmit(evt) {
     evt.preventDefault()
     let response = await postLambda('getAccount', this.state)
-    console.log('LOGIN EMAIL PASSWORD RESPONSE', response.data.customer)
     let curUser = response.data.customer
-    windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
+    // Set state on context through UserProvider component
+    this.props.userContext.setState({ curUser })
+    console.log('HANDLE SUBMIT CONTEXT', this.props.userContext)
   }
 
   handleChange(evt) {
@@ -105,4 +107,8 @@ class LoginEmailPassword extends Component {
   }
 }
 
-export default LoginEmailPassword
+export default () => (
+  <UserContext.Consumer>
+    {userContext => <LoginEmailPassword userContext={userContext} />}
+  </UserContext.Consumer>
+)
