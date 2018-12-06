@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 
 const Container = Styled.div`
-
 display: flex;
 flex-basis: 50%;
-height: 12rem;
+maxHeight: 200px;
 flex-direction: column;
 align-items: center;
 justify-content: center;
@@ -19,7 +18,7 @@ class FooterSubscription extends Component {
   render() {
     return (
       <Container>
-        <div style={{ maxHeight: '100%', paddingTop: '.5rem' }}>
+        <div>
           <h4>{this.props.title}</h4>
           <p style={{ maxWidth: '20.8rem' }}>{this.props.text}</p>
           {/* TODO:  Move to separate component once this actually does something! */}

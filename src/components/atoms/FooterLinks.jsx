@@ -15,10 +15,9 @@ li {
   padding-right: 3.6rem;
 }
 .list {
-  margin: 0;
-  height: 9rem;
+  height: 10rem;
   list-style-type: none;
-  padding-top: 1.4 rem;
+  padding-top: 1rem;
   padding-right: 1rem;
   flex-direction: column;
   flex-wrap: wrap;
@@ -31,6 +30,7 @@ class FooterLinks extends Component {
     console.log('what are the footer links props', this.props)
     const links = this.props.linkData.map(d => (
       <li>
+        {/* TODO: JUAN --> Add a comment here  */}
         <Link className="list-items" to={d.content[1].data.uri}>
           {d.content[1].content[0].value}
         </Link>

@@ -52,7 +52,7 @@ animation: fadein 1s;
   line-height: 33px;
   text-align: left;
 }
-h1{
+#sub-header{
   color: #E20031;
   font-size: 40px;
   font-weight: 700;
@@ -80,9 +80,13 @@ h1{
 	display: flex; /* Standard syntax */
 }
 
-img{
+#subscription-image{
   width: 640px;
   height: 100%;
+}
+#get-started-button{
+  background-color: #FBE5E9;
+    border: none;
 }
 
 `
@@ -101,11 +105,12 @@ class Subscribe extends Component {
   }
 
   render() {
-    const subscribeText = this.props.data.allContentfulSupportPage.edges[0].node
-      .subscription.content
+    let image = this.props.data.allContentfulSubscriptionPage.edges[0].node
+      .image.file.url
 
-    // Gets image immediately from the data and removes the element from the array to allow for the for
-    let image
+    const subscribeText = this.props.data.allContentfulSubscriptionPage.edges[0]
+      .node.copy.content
+
     let header
     let lead
     let textBeforeButton = []
@@ -114,52 +119,40 @@ class Subscribe extends Component {
 
     // The following functions pulls data from graphql and sets values
     // to be displayed based on the order in the contentful richtext field.
-    // The first value becomes the image, second value is the header, third value is the lead.
+    // The first value becomes the header, second value is the lead.
     // The last value becomes the text after the button,
     // everything else becomes the text before the button
     subscribeText.forEach(function(item, index) {
-      console.log('item is ', item)
-
+      currValue = item.content[0].value
       if (index === 0) {
-        image = item.data.target.fields.file.en_US.url
-        console.log('image is ', image)
+        header = currValue
       } else if (index === 1) {
-        header = item.content[0].value
-      } else if (index === 2) {
-        lead = item.content[0].value
+        lead = currValue
       } else if (index === subscribeText.length - 1) {
-        textAfterButton = <p> {item.content[0].value} </p>
+        textAfterButton = <p> {currValue} </p>
       } else {
         textBeforeButton.push(
           <React.Fragment key={index}>
-            <p>{item.content[0].value} </p>
+            <p>{currValue} </p>
           </React.Fragment>
         )
       }
     })
 
-    // Refactor the code below to be contained in the forEach above
-    // textBeforeButton = textBeforeButton.map(function(item, i) {
-    //   return (
-    //     <React.Fragment key={i}>
-    //       <p>{item} </p>
-    //     </React.Fragment>
-    //   )
-    // })
-
     return (
-      <Container>
-        <MainLayout>
+      <MainLayout>
+        <Container>
           <div className="flex-container">
-            <img src={image} alt="subscription-image" />
+            <img src={image} id="subscription-image" alt="subscription-image" />
 
             <div id="sub-info-container">
               <div id="sub-info-text">
-                <h1>{header}</h1>
+                {/* header = <h1>{header}</h1> or header = header */}
+                <h1 id="sub-header">{header}</h1>
                 <p className="lead">{lead}</p>
                 <div className="center-text">
                   {textBeforeButton}
-                  <button onClick={this.handleClick}>
+                  <button id="get-started-button" onClick={this.handleClick}>
                     <HomePageButton />
                   </button>
                   <br />
@@ -168,30 +161,25 @@ class Subscribe extends Component {
               </div>
             </div>
           </div>
-        </MainLayout>
-      </Container>
+        </Container>
+      </MainLayout>
     )
   }
 }
 
 export const query = graphql`
   {
-    allContentfulSupportPage {
+    allContentfulSubscriptionPage {
       edges {
         node {
-          subscription {
+          image {
+            file {
+              url
+            }
+          }
+          copy {
+            nodeType
             content {
-              data {
-                target {
-                  fields {
-                    file {
-                      en_US {
-                        url
-                      }
-                    }
-                  }
-                }
-              }
               content {
                 value
               }

@@ -2,8 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { UserProvider } from '../../containers/UserContext'
 import { NavBar, Footer } from '..'
 import './layout.css'
+
+const windowGlobal = typeof window !== 'undefined' && window
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -18,6 +21,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        {/* <UserProvider
+          value={{
+            customer: windowGlobal.localStorage.getItem('curUser') || {},
+          }}
+        > */}
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -36,6 +44,7 @@ const Layout = ({ children }) => (
         >
           {children}
         </div>
+        {/* </UserProvider> */}
         <Footer />
       </>
     )}

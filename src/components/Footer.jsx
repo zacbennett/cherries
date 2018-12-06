@@ -10,7 +10,7 @@ const Container = Styled.div`
   font-size: .8rem;
   font-weight: 700;
   color: white;
-  height: 15vw;
+  height: 17vw;
   width: 100vw;
   display: inline-flex;
   flex-direction: row;

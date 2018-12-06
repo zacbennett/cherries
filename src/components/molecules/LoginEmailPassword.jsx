@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 
+const windowGlobal = typeof window !== 'undefined' && window
+
 const Container = styled.form`
   display: flex;
   flex-direction: column;
@@ -41,18 +43,23 @@ class LoginEmailPassword extends Component {
   async handleSubmit(evt) {
     evt.preventDefault()
     let response = await postLambda('getAccount', this.state)
-    // console.log('LOGIN EMAIL PASSWORD RESPONSE', response.data.customer)
+    console.log('LOGIN EMAIL PASSWORD RESPONSE', response.data.customer)
+    let curUser = response.data.customer
+    windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
   }
+
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value,
     })
   }
+
   render() {
     return (
       <Container onSubmit={this.handleSubmit}>
         <StyledInput
           aria-label="Email Address"
+          type="email"
           placeholder="Email"
           name="email"
           onChange={this.handleChange}
@@ -60,12 +67,15 @@ class LoginEmailPassword extends Component {
           width="24rem"
         />
         <StyledInput
-          aria-label="Email Address"
+          aria-label="Password"
+          type="password"
           placeholder="Password"
           name="password"
           onChange={this.handleChange}
           value={this.state.password}
-          width="24rem"
+          width="24.3rem"
+          fontFamily="Lato"
+          marginBottom="2em"
         />
         <div className="radio">
           <StyledInput
