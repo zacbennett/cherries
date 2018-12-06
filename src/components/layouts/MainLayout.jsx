@@ -21,7 +21,6 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-<<<<<<< HEAD
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -36,11 +35,6 @@ const Layout = ({ children }) => (
           style={{
             margin: '0 auto',
             fontFamily: 'Montserrat',
-=======
-        {/* <UserProvider
-          value={{
-            customer: windowGlobal.localStorage.getItem('curUser') || {},
->>>>>>> master
           }}
         > */}
         <Helmet
@@ -50,24 +44,8 @@ const Layout = ({ children }) => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         >
-<<<<<<< HEAD
           {children}
         </div>
-=======
-          <html lang="en" />
-        </Helmet>
-        <NavBar />
-        <div
-          style={{
-            margin: '0 auto',
-            fontFamily: 'Montserrat',
-          }}
-        >
-          {children}
-        </div>
-        {/* </UserProvider> */}
-        <Footer />
->>>>>>> master
       </>
     )}
   />
