@@ -100,6 +100,7 @@ class Search extends Component {
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
+  //handleClick will call togglePopup which will change state of parent component NavButtons
   handleClick() {
     this.props.togglePopup()
   }

@@ -18,6 +18,7 @@ const Container = Styled.div`
     }
 `
 
+//config for Fuse.js search
 const options = {
   shouldSort: true,
   threshold: 0.3,
@@ -59,9 +60,7 @@ class CatalogPage extends Component {
     )
   }
 }
-//edges pages
-//nodes information
-//access the inforamtion using this.props.data
+
 export const query = graphql`
   {
     allContentfulProductPage {
