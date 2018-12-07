@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { CartSidebarBody, CartSidebarFooter } from './molecules'
-// FIX: file naming issue on build, have to pull off this hack for now
-// WHAT WAS THE NAMING ISSUE?
-import CartSidebarHeader from './molecules/CartSIdebarHeader.jsx'
+import {
+  CartSidebarHeader,
+  CartSidebarBody,
+  CartSidebarFooter,
+} from './molecules'
 import postLambda from '../utilities/postLambda'
 import 'animate.css'
 

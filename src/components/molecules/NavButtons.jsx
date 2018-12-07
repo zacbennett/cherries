@@ -81,6 +81,14 @@ const Container = styled.div`
 
 class NavButtons extends Component {
   render() {
+    const {
+      searchIcon,
+      cherriesIcon,
+      helpIcon,
+      userIcon,
+      cartIcon,
+      handleSidebar,
+    } = this.props
     //Get user links and help links that are passed down as props from NavBar - come from contentful
     const userLinks = this.props.userLinks[0].dropdownLinks
     const helpLinks = this.props.helpLinks[0].dropdownLinks
@@ -93,7 +101,7 @@ class NavButtons extends Component {
               maxWidth: 28,
               maxHeight: 28,
             }}
-            src={this.props.searchIcon}
+            src={searchIcon}
             alt="search-icon"
           />
         </div>
@@ -105,15 +113,15 @@ class NavButtons extends Component {
                 maxWidth: 48,
                 maxHeight: 48,
               }}
-              src={this.props.cherriesIcon}
+              src={cherriesIcon}
               alt="Cherries Logo"
             />
           </Link>
         </div>
         <div className="rightNav">
-          <DropdownMenu links={helpLinks} icon={this.props.helpIcon} />
-          <DropdownMenu links={userLinks} icon={this.props.userIcon} />
-          <ShoppingBagIcon cartIcon={this.props.cartIcon} />
+          <DropdownMenu links={helpLinks} icon={helpIcon} />
+          <DropdownMenu links={userLinks} icon={userIcon} />
+          <ShoppingBagIcon cartIcon={cartIcon} click={handleSidebar} />
         </div>
       </Container>
     )

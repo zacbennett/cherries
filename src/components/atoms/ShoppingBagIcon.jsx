@@ -24,6 +24,7 @@ const Container = styled.div`
 
 class ShoppingBagIcon extends Component {
   render() {
+    const { click } = this.props
     return (
       <Container>
         <img
@@ -36,6 +37,7 @@ class ShoppingBagIcon extends Component {
           }}
           src={this.props.cartIcon}
           alt="search-icon"
+          onClick={click}
         />
       </Container>
     )
