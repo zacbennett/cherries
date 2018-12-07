@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { MainLayout } from '../layouts'
-import { graphql, navigate } from 'gatsby'
-import Redirect from '@reach/router'
 import { IoIosClose } from 'react-icons/io'
 
 const Container = styled.div`

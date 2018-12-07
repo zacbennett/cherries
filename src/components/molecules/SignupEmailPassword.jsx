@@ -46,7 +46,6 @@ class SignupEmailPassword extends Component {
   }
 
   handleChange(evt) {
-    console.log('HANDLE CHANGE: WORKING')
     if (evt.target.type === 'radio') {
       let newsState = !this.state.newsletter
       this.setState({
@@ -59,14 +58,11 @@ class SignupEmailPassword extends Component {
     }
   }
   handleSubmit(evt) {
-    console.log('HANDLE SUBMIT: WORKING')
     evt.preventDefault()
     this.setState({ status: <Loading /> })
-    console.log('state', this.state)
     try {
       postLambda('newAccount', this.state)
     } catch (err) {
-      console.log(err)
       this.setState({ status: 'FAILURE' })
     }
   }

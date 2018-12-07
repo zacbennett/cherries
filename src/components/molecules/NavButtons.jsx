@@ -90,7 +90,6 @@ class NavButtons extends Component {
   }
 
   togglePopup() {
-    console.log(this.state)
     this.setState({ showPopup: !this.state.showPopup })
   }
   render() {
