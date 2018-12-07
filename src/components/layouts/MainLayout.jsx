@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
+
 import { StaticQuery, graphql } from 'gatsby'
 import { UserProvider } from '../../containers/UserContext'
 import { NavBar, Footer } from '..'
@@ -38,7 +40,7 @@ const Layout = ({ children }) => (
 
         {/* placeholder div for Modal's children*/}
         <div id="modalContainer" />
-        
+
         <NavBar />
         <div
           style={{

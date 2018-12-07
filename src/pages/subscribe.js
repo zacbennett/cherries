@@ -8,10 +8,8 @@ import postLambda from '../utilities/postLambda'
 
 const Container = Styled.div`
 	
-animation: fadein 1s; 
-  .sideNav{
-    position:sticky
-  };
+  animation: fadein 1s; 
+  
 
   @keyframes fadein {
         from { opacity: 0; }
@@ -24,7 +22,6 @@ animation: fadein 1s;
 	-webkit-flex: 1; /* Safari */
 	-ms-flex: 1; /* IE 10 */
 	flex: 1; /* Standard syntax */
-    background-color: orange;
   }
   
   #sub-info-container{

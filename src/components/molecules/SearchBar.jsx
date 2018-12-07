@@ -6,16 +6,6 @@ import Redirect from '@reach/router'
 import { IoIosClose } from 'react-icons/io'
 
 const Container = styled.div`
-  animation: fadein 0.4s;
-
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
   width: 100%;
   .popup {
     z-index: 10;
@@ -84,6 +74,19 @@ const Container = styled.div`
     padding-top: 1rem;
     line-height: 0.1rem;
   }
+
+  .grayed-out {
+    animation: fadein 0.5s;
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
 `
 
 class Search extends Component {
@@ -118,7 +121,6 @@ class Search extends Component {
       backgroundColor: 'rgba(255, 255, 255, 0.9)',
       zIndex: 100000,
     }
-
     return (
       <Container>
         <div className="grayed-out" style={style}>
