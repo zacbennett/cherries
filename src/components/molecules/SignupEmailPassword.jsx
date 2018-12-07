@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { StyledInput, StyledButton, Loading } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 
