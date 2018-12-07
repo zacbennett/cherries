@@ -143,7 +143,7 @@ class Subscribe extends Component {
       <MainLayout>
         <Container>
           <div className="flex-container">
-            <img src={image} id="subscription-image" alt="subscription-image" />
+            <img src={image} id="subscription-image" alt="subscription-pic" />
 
             <div id="sub-info-container">
               <div id="sub-info-text">
