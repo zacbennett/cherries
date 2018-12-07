@@ -16,7 +16,8 @@ const Container = styled.div`
   z-index: 3;
   width: 23rem;
   height: 100%;
-  background-color: #e4f1f4;
+  background-color: #fbe5e9;
+  font-family: Montserrat;
   p {
     text-align: center;
   }
@@ -64,14 +65,18 @@ class CartSidebar extends Component {
     })
   }
   render() {
-    const { cart, handleCart, handleSidebar, display } = this.props
+    const { cart, cartIcon, handleCart, handleSidebar, display } = this.props
     const animation = 'animated ' + (display ? 'slideInRight' : 'slideOutRight')
     const displayFix = this.props.displayFix ? 'inital' : 'none'
 
     return (
       <Container className={animation} displayFix={displayFix}>
         <div className="contents">
-          <CartSidebarHeader handleSidebar={handleSidebar} />
+          <CartSidebarHeader
+            handleSidebar={handleSidebar}
+            cartIcon={cartIcon}
+            cart={cart}
+          />
           <CartSidebarBody
             cart={cart}
             handleCart={handleCart}

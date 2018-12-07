@@ -87,6 +87,7 @@ class NavButtons extends Component {
       helpIcon,
       userIcon,
       cartIcon,
+      cart,
       handleSidebar,
     } = this.props
     //Get user links and help links that are passed down as props from NavBar - come from contentful
@@ -121,7 +122,11 @@ class NavButtons extends Component {
         <div className="rightNav">
           <DropdownMenu links={helpLinks} icon={helpIcon} />
           <DropdownMenu links={userLinks} icon={userIcon} />
-          <ShoppingBagIcon cartIcon={cartIcon} click={handleSidebar} />
+          <ShoppingBagIcon
+            cart={cart}
+            cartIcon={cartIcon}
+            click={handleSidebar}
+          />
         </div>
       </Container>
     )

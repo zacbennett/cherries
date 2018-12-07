@@ -43,32 +43,38 @@ class Navbar extends Component {
     const { sidebar, displayFix } = this.state
     return (
       <Container>
-        <BannerPromo
-          bannerText={data.contentfulHomePage.bannerPromoText}
-          bannerTitle={data.contentfulHomePage.bannerPromoTitle}
-        />
-        <NavButtons
-          helpIcon={data.contentfulHomePage.navHelpIcon.fluid.src}
-          userIcon={data.contentfulHomePage.navUserIcon.fluid.src}
-          searchIcon={data.contentfulHomePage.navSearchIcon.fluid.src}
-          cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
-          cherriesIcon={data.contentfulHomePage.navCherriesIcon.fluid.src}
-          userLinks={data.contentfulHomePage.userLinks.data}
-          helpLinks={data.contentfulHomePage.helpLinks.data}
-          handleSidebar={this.handleSidebar}
-        />
         <UserContext.Consumer>
           {userContext => (
             <CartContext.Consumer>
               {cartContext => (
-                <CartSidebar
-                  cart={cartContext.cart}
-                  handleCart={cartContext.handleCart}
-                  curUser={userContext.curUser}
-                  display={sidebar}
-                  handleSidebar={this.handleSidebar}
-                  displayFix={displayFix}
-                />
+                <>
+                  <BannerPromo
+                    bannerText={data.contentfulHomePage.bannerPromoText}
+                    bannerTitle={data.contentfulHomePage.bannerPromoTitle}
+                  />
+                  <NavButtons
+                    helpIcon={data.contentfulHomePage.navHelpIcon.fluid.src}
+                    userIcon={data.contentfulHomePage.navUserIcon.fluid.src}
+                    searchIcon={data.contentfulHomePage.navSearchIcon.fluid.src}
+                    cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
+                    cherriesIcon={
+                      data.contentfulHomePage.navCherriesIcon.fluid.src
+                    }
+                    userLinks={data.contentfulHomePage.userLinks.data}
+                    helpLinks={data.contentfulHomePage.helpLinks.data}
+                    handleSidebar={this.handleSidebar}
+                    cart={cartContext.cart}
+                  />
+                  <CartSidebar
+                    cart={cartContext.cart}
+                    handleCart={cartContext.handleCart}
+                    curUser={userContext.curUser}
+                    display={sidebar}
+                    handleSidebar={this.handleSidebar}
+                    displayFix={displayFix}
+                    cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
+                  />
+                </>
               )}
             </CartContext.Consumer>
           )}

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { IoIosClose } from 'react-icons/io'
+import { ProgressBar } from '../molecules'
 import { ShoppingBagIcon } from '../atoms'
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 90%;
@@ -15,6 +17,8 @@ const Container = styled.div`
   }
   h3 {
     margin: 0;
+    /* How to inherit font dynamically? */
+    font-family: Montserrat;
   }
   #bag {
     cursor: default;
@@ -30,12 +34,18 @@ class CartSidebarHeader extends Component {
     this.state = {}
   }
   render() {
-    const { handleSidebar } = this.props
+    const { cartIcon, handleSidebar, cart } = this.props
     return (
       <Container>
         <IoIosClose onClick={handleSidebar} size={'2rem'} className="close" />
         <h3>Your Bag</h3>
-        <ShoppingBagIcon id="bag" click={handleSidebar} />
+        <ShoppingBagIcon
+          id="bag"
+          cart={cart}
+          cartIcon={cartIcon}
+          click={handleSidebar}
+        />
+        <ProgressBar cart={cart} />
       </Container>
     )
   }
