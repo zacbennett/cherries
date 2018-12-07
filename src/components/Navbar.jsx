@@ -3,6 +3,8 @@ import Styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { BannerPromo, NavButtons } from './molecules'
+import CartSidebar from './CartSidebar'
+import { CartContext } from '../containers/CartContext'
 
 const Container = Styled.div`
   position: relative;
@@ -81,6 +83,18 @@ export default () => (
           userLinks={data.contentfulHomePage.userLinks.data}
           helpLinks={data.contentfulHomePage.helpLinks.data}
         />
+        {/* <CartContext.Consumer>
+          {cartContext => (
+            <CartSidebar
+              cart={cartContext.cart}
+              handleCart={cartContext.handleCart}
+              curUser={curUser}
+              display={sidebar}
+              handleSidebar={handleSidebar}
+              displayFix={displayFix}
+            />
+          )}
+        </CartContext.Consumer> */}
       </Container>
     )}
   />
