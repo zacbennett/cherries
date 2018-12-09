@@ -105,7 +105,6 @@ exports.handler = async function(event, context, callback) {
         return callback(null, loggedInUser)
       })
       .catch(err => {
-        console.log('ERROR!')
         return callback(err)
       })
   }

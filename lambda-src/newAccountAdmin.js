@@ -58,14 +58,12 @@ exports.handler = function(event, context, callback) {
         { headers: shopifyConfig }
       )
       .then(function(data) {
-        console.log('THIS RUNS')
         let customer
         if (data.data.errors) {
           return callback(data.data.errors)
         } else {
           customer = data.data.customerCreate
         }
-        // console.log('what is customer?', customer)
         let response = {
           statusCode: 200,
           headers,
@@ -76,7 +74,6 @@ exports.handler = function(event, context, callback) {
         return callback(null, response)
       })
       .catch(err => {
-        console.log('ERROR!')
         return callback(err)
       })
   }

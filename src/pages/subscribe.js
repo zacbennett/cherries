@@ -9,10 +9,8 @@ import postLambda from '../utilities/postLambda'
 
 const Container = Styled.div`
 	
-animation: fadein 1s; 
-  .sideNav{
-    position:sticky
-  };
+  animation: fadein 1s; 
+  
 
   @keyframes fadein {
         from { opacity: 0; }
@@ -25,7 +23,6 @@ animation: fadein 1s;
 	-webkit-flex: 1; /* Safari */
 	-ms-flex: 1; /* IE 10 */
 	flex: 1; /* Standard syntax */
-    background-color: orange;
   }
   
   #sub-info-container{
@@ -146,7 +143,7 @@ class Subscribe extends Component {
       <MainLayout>
         <Container>
           <div className="flex-container">
-            <img src={image} id="subscription-image" alt="subscription-image" />
+            <img src={image} id="subscription-image" alt="subscription-pic" />
 
             <div id="sub-info-container">
               <div id="sub-info-text">

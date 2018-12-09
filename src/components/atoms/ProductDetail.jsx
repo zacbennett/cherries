@@ -6,9 +6,6 @@ const Layout = styled.div`
 `
 
 class ProductDetail extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     const details = this.props.details.map(d => <p>{d}</p>)
     return (

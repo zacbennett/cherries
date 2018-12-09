@@ -43,9 +43,7 @@ class ProductList extends Component {
     //TODO: Work on Method
     //PROP METHOD GOES HERE
     this.setState(
-      { [evt.target.name]: evt.target.value },
-      () => console.log('boop')
-      // alert(this.state.shopDropdown)
+      { [evt.target.name]: evt.target.value }
       // TODO: THIS NEEDS TO TRIGGER A QUERY to shopify !!!!
     )
   }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-
+import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
+import Search from './SearchBar'
 
 const Container = styled.div`
   display: flex;
@@ -80,12 +81,31 @@ const Container = styled.div`
 `
 
 class NavButtons extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showPopup: false,
+    }
+    this.togglePopup = this.togglePopup.bind(this)
+  }
+
+  togglePopup() {
+    this.setState({ showPopup: !this.state.showPopup })
+  }
   render() {
     //Get user links and help links that are passed down as props from NavBar - come from contentful
     const userLinks = this.props.userLinks[0].dropdownLinks
     const helpLinks = this.props.helpLinks[0].dropdownLinks
     return (
       <Container>
+        {this.state.showPopup ? (
+          <ModalLayout>
+            <Search
+              searchIcon={this.props.searchIcon}
+              togglePopup={this.togglePopup}
+            />
+          </ModalLayout>
+        ) : null}
         <div className="leftNav">
           <img
             style={{
@@ -95,6 +115,7 @@ class NavButtons extends Component {
             }}
             src={this.props.searchIcon}
             alt="search-icon"
+            onClick={this.togglePopup}
           />
         </div>
         <div className="logo">
