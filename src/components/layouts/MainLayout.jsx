@@ -19,14 +19,6 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-<<<<<<< HEAD
-        {/* <UserProvider
-          value={{
-            customer: windowGlobal.localStorage.getItem('curUser') || {},
-          }}
-        > */}
-=======
->>>>>>> 46284f64f0ad5894b95f08e1fdfe42ac1dd2163e
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
