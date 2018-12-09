@@ -134,6 +134,7 @@ exports.handler = async function(event, context, callback) {
             customer,
           }),
         }
+
         return callback(null, responseObj)
       }
     } catch (err) {

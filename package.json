@@ -6,6 +6,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "animate.css": "^3.7.0",
+    "aws-sdk": "^2.371.0",
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.9.2",
     "contentful": "^7.0.5",
