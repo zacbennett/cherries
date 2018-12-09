@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const Container = styled.div`
   text-align: center;
@@ -39,7 +40,10 @@ class ProductCard extends Component {
     const product = this.props.product
     return (
       <Container>
-        <div className="product-card">
+        <Link
+          to={product.title.replace(/\s+/g, '-') + '/'}
+          className="product-card"
+        >
           <img
             className="product-card-image"
             src={product.images[0].file.url}
@@ -47,7 +51,7 @@ class ProductCard extends Component {
           />
           <p className="product-card-name">{product.title}</p>
           <p className="product-card-price">${product.price}</p>
-        </div>
+        </Link>
       </Container>
     )
   }
