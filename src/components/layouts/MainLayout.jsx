@@ -5,8 +5,15 @@ import { StaticQuery, graphql } from 'gatsby'
 import { UserProvider } from '../../containers/UserContext'
 import { NavBar, Footer } from '..'
 import './layout.css'
+// import 'pace-js'
+import 'pace-js/themes/blue/pace-theme-minimal.css'
 
 const windowGlobal = typeof window !== 'undefined' && window
+
+// Insert script when in development. Utilize script in Netlify when in production.
+// const loadingScript = process.env.GATSBY_NODE_ENV === 'development' && (
+//   <script src="https://unpkg.com/pace-js@1.0.2/pace.min.js" />
+// )
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -26,6 +33,7 @@ const Layout = ({ children }) => (
             customer: windowGlobal.localStorage.getItem('curUser') || {},
           }}
         > */}
+        {/* {loadingScript} */}
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -34,6 +42,9 @@ const Layout = ({ children }) => (
           ]}
         >
           <html lang="en" />
+          {typeof window !== 'undefined' && (
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.js" />
+          )}
         </Helmet>
         <NavBar />
         <div
