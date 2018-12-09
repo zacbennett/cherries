@@ -12,12 +12,12 @@ const Container = styled.div`
   align-items: center;
   background-color: #ffe2e2;
   width: 100vw;
-  height: 375px;
-  padding-bottom: 20px;
+  padding: 3rem;
+  height: 40rem;
   #tryptych-header {
-    margin: 25px 0 0px 0;
+    margin: 0;
     color: #e20031;
-    font-size: 25px;
+    font-size: 3rem;
     width: 100%;
     text-align: center;
     font-style: italic;
@@ -90,7 +90,7 @@ export default () => (
       })
       return (
         <Container>
-          <h4 id="tryptych-header">{tryptychHeader}</h4>
+          <h2 id="tryptych-header">{tryptychHeader}</h2>
           <div id="tryptych-panel-container">{tryptychPanels}</div>
           <HomePageButton />
         </Container>

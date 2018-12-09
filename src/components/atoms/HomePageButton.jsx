@@ -22,7 +22,7 @@ class HomePageButton extends Component {
   render() {
     return (
       <Container>
-        <Link to="/">GET STARTED</Link>
+        <Link to="/subscribe">GET STARTED</Link>
       </Container>
     )
   }
