@@ -22,12 +22,6 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        {/* <UserProvider
-          value={{
-            customer: windowGlobal.localStorage.getItem('curUser') || {},
-          }}
-        > */}
-        {/* {loadingScript} */}
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -53,7 +47,6 @@ const Layout = ({ children }) => (
         >
           {children}
         </div>
-        {/* </UserProvider> */}
         <Footer />
       </>
     )}

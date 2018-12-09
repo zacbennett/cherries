@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
-
-const windowGlobal = typeof window !== 'undefined' && window
+import { UserContext } from '../../containers/UserContext'
 
 const Container = styled.form`
   display: flex;
@@ -43,7 +42,9 @@ class LoginEmailPassword extends Component {
     evt.preventDefault()
     let response = await postLambda('getAccount', this.state)
     let curUser = response.data.customer
-    windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
+    // Set state on context through UserProvider component
+    this.props.userContext.setState({ curUser })
+    console.log('HANDLE SUBMIT CONTEXT', this.props.userContext)
   }
 
   handleChange(evt) {
@@ -103,4 +104,8 @@ class LoginEmailPassword extends Component {
   }
 }
 
-export default LoginEmailPassword
+export default () => (
+  <UserContext.Consumer>
+    {userContext => <LoginEmailPassword userContext={userContext} />}
+  </UserContext.Consumer>
+)
