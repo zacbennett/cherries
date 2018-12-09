@@ -2,19 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { UserProvider } from '../../containers/UserContext'
 import { NavBar, Footer } from '..'
 import './layout.css'
 // import 'pace-js'
 import 'pace-js/themes/blue/pace-theme-minimal.css'
 
+
 const windowGlobal = typeof window !== 'undefined' && window
-
-// Insert script when in development. Utilize script in Netlify when in production.
-// const loadingScript = process.env.GATSBY_NODE_ENV === 'development' && (
-//   <script src="https://unpkg.com/pace-js@1.0.2/pace.min.js" />
-// )
-
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -46,6 +40,10 @@ const Layout = ({ children }) => (
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.js" />
           )}
         </Helmet>
+
+        {/* placeholder div for Modal's children*/}
+        <div id="modalContainer" />
+
         <NavBar />
         <div
           style={{

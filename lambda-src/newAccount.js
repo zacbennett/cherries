@@ -82,7 +82,6 @@ exports.handler = function(event, context, callback) {
         // postLambda('getAccount', { email: body.email, password: body.password })
       })
       .catch(err => {
-        console.log('ERROR!')
         return callback(err)
       })
   }

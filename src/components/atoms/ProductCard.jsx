@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Container = styled.div`
-  text-align: center;
   margin-bottom: 70px;
   width: 187.02px;
   flex: 1 0 25%;
