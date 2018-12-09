@@ -4,12 +4,12 @@ import { IoIosClose } from 'react-icons/io'
 
 const Container = styled.div`
   width: 100%;
+  padding: 1rem;
   .popup {
     z-index: 10;
     position: fixed;
     width: 100%;
     height: 300px;
-    margin: auto;
     background-color: #fbe5e9;
   }
   .popupInner {
@@ -34,6 +34,7 @@ const Container = styled.div`
   #search-form {
     width: 100%;
     position: relative;
+    font-size: 4rem;
   }
   input:focus {
     outline: none;
@@ -73,7 +74,7 @@ const Container = styled.div`
   }
 
   .grayed-out {
-    animation: fadein 0.5s;
+    animation: fadein 0.2s;
 
     @keyframes fadein {
       from {
@@ -86,29 +87,26 @@ const Container = styled.div`
   }
 `
 
-class Search extends Component {
+class SearchModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
       search: '',
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleChange(evt) {
+  handleChange = evt => {
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
   //handleClick will call togglePopup which will change state of parent component NavButtons
-  handleClick() {
+  handleClick = () => {
     this.props.togglePopup()
   }
 
   render() {
     const style = {
       display: 'flex',
-      alignItems: 'center',
       position: 'fixed',
       top: 0,
       bottom: 0,
@@ -133,7 +131,12 @@ class Search extends Component {
                     <img id="search-image" src={this.props.searchIcon} alt="" />
                   </button>
                 </div>
-                <input onChange={this.handleChange} name="search" type="text" />
+                <input
+                  onChange={this.handleChange}
+                  name="search"
+                  type="text"
+                  autofocus="autofocus"
+                />
               </form>
               <div id="search-bar-text">
                 <p>What are you looking for?</p>
@@ -147,4 +150,4 @@ class Search extends Component {
   }
 }
 
-export default Search
+export default SearchModal

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
-import Search from './SearchBar'
+import SearchModal from './SearchModal'
 
 const Container = styled.div`
   display: flex;
@@ -58,6 +58,9 @@ const Container = styled.div`
       flex-basis: 20%;
       width: 100%;
       padding-left: 0rem;
+      :hover {
+        background-color: blue;
+      }
       a {
         display: none;
       }
@@ -100,7 +103,7 @@ class NavButtons extends Component {
       <Container>
         {this.state.showPopup ? (
           <ModalLayout>
-            <Search
+            <SearchModal
               searchIcon={this.props.searchIcon}
               togglePopup={this.togglePopup}
             />

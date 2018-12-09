@@ -4,11 +4,8 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { NavBar, Footer } from '..'
 import './layout.css'
-// import 'pace-js'
 import 'pace-js/themes/blue/pace-theme-minimal.css'
 
-
-const windowGlobal = typeof window !== 'undefined' && window
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -27,7 +24,6 @@ const Layout = ({ children }) => (
             customer: windowGlobal.localStorage.getItem('curUser') || {},
           }}
         > */}
-        {/* {loadingScript} */}
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -40,10 +36,7 @@ const Layout = ({ children }) => (
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.js" />
           )}
         </Helmet>
-
-        {/* placeholder div for Modal's children*/}
         <div id="modalContainer" />
-
         <NavBar />
         <div
           style={{
