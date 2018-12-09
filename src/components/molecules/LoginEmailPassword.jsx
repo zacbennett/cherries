@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 
@@ -43,7 +42,6 @@ class LoginEmailPassword extends Component {
   async handleSubmit(evt) {
     evt.preventDefault()
     let response = await postLambda('getAccount', this.state)
-    console.log('LOGIN EMAIL PASSWORD RESPONSE', response.data.customer)
     let curUser = response.data.customer
     windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
   }

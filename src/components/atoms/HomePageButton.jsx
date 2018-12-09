@@ -7,7 +7,7 @@ background-color: #e20031;
 color: white;
 text-transform: uppercase;
 text-align: center;
-padding: 10px 30px 
+padding: 10px 30px; 
 font-size: 23px;
 font-weight: 700;
 width: 16rem;

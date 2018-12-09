@@ -60,7 +60,6 @@ class Login extends Component {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
     }
 
-    // Set preliminary link for resetting password
     return (
       <MainLayout>
         <SideNav />

@@ -56,9 +56,6 @@ const Container = styled.div`
 `
 
 class ProductOrder extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <Container>

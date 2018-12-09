@@ -10,7 +10,6 @@ const shopifyConfig = {
   'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_KEY,
 }
 exports.handler = async function(event, context, callback) {
-  console.log('POST ACCOUNT RUUUUNING')
   if (event.httpMethod !== 'POST' || !event.body) {
     return callback(null, {
       statusCode,
@@ -19,7 +18,6 @@ exports.handler = async function(event, context, callback) {
     })
   }
   if (event.body[0] == '{') {
-    console.log('getAccount EVENT', event.body)
     let data = JSON.parse(event.body)
     let body = JSON.parse(data.body)
 
@@ -136,7 +134,6 @@ exports.handler = async function(event, context, callback) {
             customer,
           }),
         }
-        console.log('RESPONSE OBJ INSIDE LAMBDA FUNCTION', responseObj.body)
         return callback(null, responseObj)
       }
     } catch (err) {
