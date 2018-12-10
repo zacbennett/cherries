@@ -15,6 +15,25 @@ const Container = Styled.div`
   justify-content: center;
   z-index: 2;
 `
+
+export const PureNavbar = ({ data }) => (
+  <Container>
+    <BannerPromo
+      bannerText={data.contentfulHomePage.bannerPromoText}
+      bannerTitle={data.contentfulHomePage.bannerPromoTitle}
+    />
+    <NavButtons
+      helpIcon={data.contentfulHomePage.navHelpIcon.fluid.src}
+      userIcon={data.contentfulHomePage.navUserIcon.fluid.src}
+      searchIcon={data.contentfulHomePage.navSearchIcon.fluid.src}
+      cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
+      cherriesIcon={data.contentfulHomePage.navCherriesIcon.fluid.src}
+      userLinks={data.contentfulHomePage.userLinks.data}
+      helpLinks={data.contentfulHomePage.helpLinks.data}
+    />
+  </Container>
+)
+
 export default () => (
   <StaticQuery
     query={graphql`
