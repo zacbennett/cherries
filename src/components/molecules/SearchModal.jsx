@@ -108,6 +108,7 @@ class SearchModal extends Component {
   handleSubmit = e => {
     e.preventDefault()
     navigate(`/catalog?search=${this.state.search}`)
+    this.props.togglePopup()
   }
 
   render() {
