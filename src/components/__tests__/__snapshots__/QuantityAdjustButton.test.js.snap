@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuantityAdjustButton renders correctly 1`] = `
+<div
+  className="sc-bdVaJa hBFtSC"
+>
+  <div
+    className="sub"
+  >
+    -
+  </div>
+  <p />
+  <div
+    className="add"
+  >
+    +
+  </div>
+</div>
+`;
