@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product renders correctly 1`] = `
+<div
+  className="sc-hSdWYo iuwcOA"
+>
+  <div
+    className="sc-kkGfuU gfmpMk"
+  >
+    <img
+      alt="Highlighted Product"
+      className="highlight animated fadeIn"
+      src={
+        Object {
+          "file": Object {
+            "url": "//images.ctfassets.net/4yejk6rho2rp/1seQeOcUKEqkqG8iMeyQkO/f314700fc9f0e8d57715c30853a7859c/Retro-cylindrical-geometry-wood-earrings-jewelry-exaggerated-Christmas-red-green-colours-wood-pendant-earrings-for-women.jpg",
+          },
+        }
+      }
+    />
+    <div
+      className="photoCarousel animated slideInRight"
+    >
+      <img
+        alt="Product Page Image0"
+        name={0}
+        onClick={[Function]}
+        src={
+          Object {
+            "file": Object {
+              "url": "//images.ctfassets.net/4yejk6rho2rp/1seQeOcUKEqkqG8iMeyQkO/f314700fc9f0e8d57715c30853a7859c/Retro-cylindrical-geometry-wood-earrings-jewelry-exaggerated-Christmas-red-green-colours-wood-pendant-earrings-for-women.jpg",
+            },
+          }
+        }
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      />
+      <img
+        alt="Product Page Image1"
+        name={1}
+        onClick={[Function]}
+        src={
+          Object {
+            "file": Object {
+              "url": "//images.ctfassets.net/4yejk6rho2rp/7cx6GGghKo6ukOwq0ceoqi/150babae3d22e18cdb3fc87ec45564ac/Retro-cylindrical-geometry-wood-earrings-jewelry-exaggerated-Christmas-red-green-colours-wood-pendant-earrings-for-women.jpg",
+            },
+          }
+        }
+        style={Object {}}
+      />
+      <img
+        alt="Product Page Image2"
+        name={2}
+        onClick={[Function]}
+        src={
+          Object {
+            "file": Object {
+              "url": "//images.ctfassets.net/4yejk6rho2rp/4rSP9SxdLqaEaUI62GMsek/70ceaedde47a68c6152481aa12f91327/Retro-cylindrical-geometry-wood-earrings-jewelry-exaggerated-Christmas-red-green-colours-wood-pendant-earrings-for-women.jpg",
+            },
+          }
+        }
+        style={Object {}}
+      />
+    </div>
+  </div>
+  <div
+    className="sc-iAyFgw ihxKmm"
+  >
+    <h1 />
+    <p>
+      Hi
+    </p>
+    <hr
+      className="sc-jTzLTM diiVqZ"
+      width="100%"
+    />
+    <div>
+      <div
+        className="sc-jKJlTe bFiEdw"
+      >
+        <form
+          action="#"
+        >
+          <p>
+            <input
+              className="purchaseSelector"
+              id="oneTimePurchase"
+              name="radio-group"
+              type="radio"
+            />
+            <label
+              for="oneTimePurchase"
+            >
+               
+              <span
+                className="purchase-text"
+              >
+                 One-Time Purchase:
+              </span>
+              <strong
+                onClick={[Function]}
+              >
+                undefined
+              </strong>
+            </label>
+          </p>
+          <p>
+            <input
+              id="subscription"
+              name="radio-group"
+              type="radio"
+            />
+            <label
+              className="purchaseSelector"
+              for="subscription"
+            >
+               
+              <span
+                className="purchase-text"
+              >
+                Subscribe and Save:
+              </span>
+               
+              <strong>
+                $10/mo
+              </strong>
+            </label>
+          </p>
+        </form>
+      </div>
+    </div>
+    <form
+      className="purchase"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sc-fjdhpX hFNaJl"
+        color="#E20031"
+        height="2.5rem"
+      >
+        <div
+          className="sub"
+          data-id=""
+          onClick={[Function]}
+        >
+          -
+        </div>
+        <p>
+          1
+        </p>
+        <div
+          className="add"
+          data-id=""
+          onClick={[Function]}
+        >
+          +
+        </div>
+      </div>
+      <button
+        className="sc-gqjmRU cwnWUI"
+        fontSize=".65rem"
+        height="2.5rem"
+        width="18rem"
+      >
+        <b>
+          ADD TO BAG
+        </b>
+      </button>
+    </form>
+    <div
+      className="sc-jzJRlG cFuZQb"
+    >
+      <h4>
+        Details
+      </h4>
+      <p>
+        Enamel pin semiotics mixtape art party, selvage farm-to-table shabby chic vape 3 wolf moon sriracha glossier disrupt cronut celiac. Whatever vegan hexagon occupy celiac poutine enamel pin fanny pack tattooed master cleanse squid salvia. Celiac flexitarian biodiesel, coloring book raclette glossier migas. Fanny pack af tousled master cleanse woke. Jianbing whatever echo park, salvia raclette dreamcatcher narwhal letterpress pour-over.
+      </p>
+    </div>
+  </div>
+</div>
+`;
