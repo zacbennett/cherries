@@ -32,10 +32,7 @@ const options = {
 class CatalogPage extends Component {
   render() {
     const contentfulProductData = this.props.data.allContentfulProductPage.edges
-    debugger
-
-    const parsedQueryString = queryString.parse(this.props.location.search)
-    const searchTerm = parsedQueryString.search
+    const searchTerm = queryString.parse(this.props.location.search).search
 
     let productPicks
 
