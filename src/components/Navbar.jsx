@@ -14,6 +14,10 @@ const Container = Styled.div`
   align-items: center;
   justify-content: center;
   z-index: 2;
+  font-family: Montserrat;
+  a{
+    text-decoration: none;
+  }
 `
 export default () => (
   <StaticQuery
