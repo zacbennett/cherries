@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { IoIosClose } from 'react-icons/io'
+import { navigate } from '@reach/router'
 
 const Container = styled.div`
   width: 100%;
@@ -74,7 +75,7 @@ const Container = styled.div`
   }
 
   .grayed-out {
-    animation: fadein 0.2s;
+    animation: fadein 0.25s;
 
     @keyframes fadein {
       from {
@@ -104,6 +105,11 @@ class SearchModal extends Component {
     this.props.togglePopup()
   }
 
+  handleSubmit = e => {
+    e.preventDefault()
+    navigate(`/catalog?search=${this.state.search}`)
+  }
+
   render() {
     const style = {
       display: 'flex',
@@ -125,7 +131,7 @@ class SearchModal extends Component {
               <IoIosClose id="close-button" onClick={this.handleClick} />
             </div>
             <div className="popupInner">
-              <form id="search-form" action="/catalog">
+              <form id="search-form" onSubmit={this.handleSubmit}>
                 <div id="button-container">
                   <button id="search-button">
                     <img id="search-image" src={this.props.searchIcon} alt="" />

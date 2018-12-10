@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from '../atoms'
+import navigateTo from 'gatsby'
 
 const Container = styled.div`
   ul.side-navbar-dropdown {
     list-style: none;
   }
 
-  li.side-navbar-dropdown-link {
+  .side-navbar-dropdown-link {
     margin-left: 25px;
     margin-top: 10px;
+    a {
+      font-size: 0.8rem;
+    }
   }
 
   li.side-navbar-dropdown-link > a,
@@ -47,7 +51,7 @@ class SideNavLink extends Component {
             {this.props.dropDown.map((li, i) => {
               return (
                 <li key={li.name} className="side-navbar-dropdown-link">
-                  <NavLink to={li.route}>{li.name}</NavLink>
+                  <NavLink to={`/catalog?search=${li.name}`}>{li.name}</NavLink>
                 </li>
               )
             })}
