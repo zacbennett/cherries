@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterSubscription renders correctly 1`] = `
+<div
+  className="sc-bdVaJa cncvlg"
+>
+  <div>
+    <h4>
+      Enter Footer text here, boiiiiii
+    </h4>
+    <p
+      style={
+        Object {
+          "maxWidth": "20.8rem",
+        }
+      }
+    >
+      Footer
+    </p>
+    <form>
+      <label
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <br />
+      <input
+        style={
+          Object {
+            "width": "16rem",
+          }
+        }
+        type="email"
+      />
+      <button
+        style={
+          Object {
+            "backgroundColor": "#13CE66",
+            "border": "none",
+            "color": "#47525E",
+            "height": "32px",
+            "marginLeft": "12px",
+            "paddingTop": "2px",
+            "width": "6.5rem",
+          }
+        }
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
+`;

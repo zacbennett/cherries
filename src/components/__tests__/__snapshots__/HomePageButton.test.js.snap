@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePageButton renders correctly 1`] = `
+<div
+  className="sc-bdVaJa kFEIDT"
+>
+  <a
+    href="/subscribe"
+  >
+    GET STARTED
+  </a>
+</div>
+`;

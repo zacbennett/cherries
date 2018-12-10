@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterLinks renders correctly 1`] = `
+<div
+  className="sc-bdVaJa jYeLTA"
+>
+  <ul
+    className="list"
+  >
+    <li>
+      <a
+        className="list-items"
+        href="https://lipslut.com"
+      >
+        Refer a Friend
+      </a>
+    </li>
+  </ul>
+</div>
+`;
