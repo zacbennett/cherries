@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TryptychPanel renders correctly 1`] = `
+<div
+  className="sc-bdVaJa ftRuNj"
+>
+  <div
+    className="tryptych-panel"
+  >
+    <img
+      className="tryptych-panel-image"
+    />
+    <p
+      className="tryptych-panel-text"
+    />
+  </div>
+</div>
+`;
