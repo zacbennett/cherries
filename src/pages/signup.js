@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
 import { SideNav } from '../components'
 import {
   SignupEmailPassword,
@@ -43,6 +42,14 @@ const Container = styled.div`
   @media (max-width: 420px) {
     margin-top: 1rem;
   }
+  #googleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin-left: 0.5rem;
+    }
+  }
 `
 
 class Signup extends Component {
@@ -55,6 +62,17 @@ class Signup extends Component {
   handleError = errorMessage => {
     this.setState({ errorMessage: errorMessage })
   }
+
+  responseGoogle = response => {
+    // TODO - pass info through
+    console.log(response)
+  }
+
+  responseFacebook = response => {
+    // TODO - pass info through
+    console.log(response)
+  }
+
   render() {
     const displayError = {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
@@ -69,9 +87,14 @@ class Signup extends Component {
           </p>
           <SignupEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <SignupFacebook handleError={this.handleError} />
-          <SignupGoogle handleError={this.handleError} />
-
+          <SignupFacebook
+            responseFacebook={this.responseFacebook}
+            handleError={this.handleError}
+          />
+          <SignupGoogle
+            responseGoogle={this.responseGoogle}
+            handleError={this.handleError}
+          />
           <NavLink
             to="/login"
             fontSize=".8rem"
