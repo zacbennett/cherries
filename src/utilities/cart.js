@@ -27,7 +27,7 @@ class Cart {
       item.sku === sku ? (cartI = i) : (cartI = null)
     })
     cartI !== null
-      ? newCart[cartI].quantity++
+      ? (newCart[cartI].quantity += quantity)
       : newCart.push({ title, price, quantity, image, sku })
     componentThis.setState({
       cart: newCart,
