@@ -30,10 +30,13 @@ const Container = styled.div`
 class ShoppingBagIcon extends Component {
   render() {
     const { click, cart, cartIcon } = this.props
+    const cartQuantity = cart.reduce((acc, val) => {
+      return acc + val.quantity
+    }, 0)
     return (
       <Container>
         <img src={cartIcon} alt="cart-icon" onClick={click} />
-        <p onClick={click}>{cart.length}</p>
+        <p onClick={click}>{cartQuantity}</p>
       </Container>
     )
   }

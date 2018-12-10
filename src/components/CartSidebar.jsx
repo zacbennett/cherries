@@ -50,10 +50,12 @@ class CartSidebar extends Component {
     this.props.handleSidebar()
     const items = this.props.cart.map(item => {
       return {
-        variantId: item.sku,
+        variantId: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzY0NTE3NzY3MjY4',
+        // variantId: item.sku,
         quantity: item.quantity,
       }
     })
+    console.log('handleCheckout items', items)
     const hasAccount = this.props.curUser ? true : false
     postLambda('createCheckout', {
       items,

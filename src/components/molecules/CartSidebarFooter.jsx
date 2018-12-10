@@ -30,10 +30,6 @@ const Container = styled.div`
 `
 
 class CartSidebarFooter extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
   render() {
     const { cart, handleCheckout } = this.props
     const subtotal = cart
@@ -50,7 +46,7 @@ class CartSidebarFooter extends Component {
           <h4>${subtotal}</h4>
         </div>
         <StyledButton
-          onClick={cart.length !== 0 ? handleCheckout : ''}
+          onClick={cart.length !== 0 ? handleCheckout : undefined}
           style={{ opacity: opacity }}
           height={'3rem'}
           width={'18.5rem'}

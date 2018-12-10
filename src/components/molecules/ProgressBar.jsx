@@ -19,7 +19,7 @@ const Bar = styled.div.attrs(props => ({
 }))`
   width: ${props => props.progress};
   height: 0.875rem;
-  background: #ff0086;
+  background: #e20031;
   transition: 1.5s;
   transition-timing-function: ease;
 `
