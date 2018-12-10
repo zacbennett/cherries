@@ -88,6 +88,7 @@ class ProductDescription extends Component {
       this.props.images[0],
       this.props.sku
     )
+    console.log('item added')
     this.setState({ status: 'ADDED!' })
   }
   render() {
