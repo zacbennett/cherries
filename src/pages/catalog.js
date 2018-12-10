@@ -26,28 +26,24 @@ const options = {
   distance: 100,
   maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: ['node.title'],
+  keys: ['node.title', 'node.tags'],
 }
 
 class CatalogPage extends Component {
   render() {
-    // Grabs query string from the url to use for search.
+    const contentfulProductData = this.props.data.allContentfulProductPage.edges
+    debugger
+
     const parsedQueryString = queryString.parse(this.props.location.search)
     const searchTerm = parsedQueryString.search
-
-    // Grab our productdata from contentful
-    const contentfulProductData = this.props.data.allContentfulProductPage.edges
 
     let productPicks
 
     if (searchTerm) {
       // if the search term exists, create an instance of the Fuse class with data and options
       let fuse = new Fuse(contentfulProductData, options)
-
-      // Apply the search on productdata with our searchterm
       productPicks = fuse.search(searchTerm)
     } else {
-      // If no query string exists, productPicks contains all data for all products
       productPicks = contentfulProductData
     }
     return (
@@ -70,6 +66,7 @@ export const query = graphql`
           createdAt
           title
           price
+          tags
           images {
             file {
               url

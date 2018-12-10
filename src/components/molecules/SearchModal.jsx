@@ -75,7 +75,7 @@ const Container = styled.div`
   }
 
   .grayed-out {
-    animation: fadein 0.25s;
+    animation: fadein 0.3s;
 
     @keyframes fadein {
       from {
