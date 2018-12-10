@@ -8,36 +8,28 @@ import { HomePageButton } from '../components/atoms'
 import postLambda from '../utilities/postLambda'
 
 const Container = Styled.div`
-	
-animation: fadein 1s; 
-  .sideNav{
-    position:sticky
-  };
+  width: 100%;
+  height: 100vh;
+	margin: 0 auto;
+	display: flex;
+  animation: fadein 1s; 
 
   @keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
-    }
-
-  #image-container{
-  padding: 10px;
-	background: #dbdfe5;
-	-webkit-flex: 1; /* Safari */
-	-ms-flex: 1; /* IE 10 */
-	flex: 1; /* Standard syntax */
-    background-color: orange;
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
   
   #sub-info-container{
-  padding: 10px;
-	-webkit-flex: 1; /* Safari */
-	-ms-flex: 1; /* IE 10 */
-	flex: 1; /* Standard syntax */
-
+    flex-basis: 50%;
+    padding: 10px;
     height: 100%;
     background-color: #FBE5E9;
   }
-
+  #subscription-image{
+    flex-basis: 50%;
+    width: 10%;
+    height: 110%;
+  }
   #sub-info-text{
     font-weight: bold;
     padding-left: 79px;
@@ -45,7 +37,7 @@ animation: fadein 1s;
     width: 563px;
   }
 
-  p{
+  p {
   color: #47525E;
   font-family: Montserrat;
   font-size: 16px;
@@ -53,43 +45,29 @@ animation: fadein 1s;
   line-height: 33px;
   text-align: left;
 }
-#sub-header{
-  color: #E20031;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 52px;
-  text-align: left;
-}
-.center-text{
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-}
-.lead{
-  font-size:1.2rem
-  font-weight: bold;
-}
 
-.flex-container{
-  width: 100%;
-  height: 650px;
-	min-height: 300px;
-	margin: 0 auto;
-	display: -webkit-flex; /* Safari */		
-	display: flex; /* Standard syntax */
-}
-
-#subscription-image{
-  width: 640px;
-  height: 100%;
-}
-#get-started-button{
-  background-color: #FBE5E9;
+  #sub-header{
+    color: #E20031;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-align: left;
+  }
+  .center-text{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .lead{
+    font-size:1.2rem
+    font-weight: bold;
+  }
+  #get-started-button{
+    background-color: #FBE5E9;
     border: none;
-}
-
+  }
 `
 class Subscribe extends Component {
   constructor(props) {
@@ -145,22 +123,20 @@ class Subscribe extends Component {
     return (
       <MainLayout>
         <Container>
-          <div className="flex-container">
-            <img src={image} id="subscription-image" alt="subscription-image" />
+          <img src={image} id="subscription-image" alt="subscription-pic" />
 
-            <div id="sub-info-container">
-              <div id="sub-info-text">
-                {/* header = <h1>{header}</h1> or header = header */}
-                <h1 id="sub-header">{header}</h1>
-                <p className="lead">{lead}</p>
-                <div className="center-text">
-                  {textBeforeButton}
-                  <button id="get-started-button" onClick={this.handleClick}>
-                    <HomePageButton />
-                  </button>
-                  <br />
-                  {textAfterButton}
-                </div>
+          <div id="sub-info-container">
+            <div id="sub-info-text">
+              {/* header = <h1>{header}</h1> or header = header */}
+              <h1 id="sub-header">{header}</h1>
+              <p className="lead">{lead}</p>
+              <div className="center-text">
+                {textBeforeButton}
+                <button id="get-started-button" onClick={this.handleClick}>
+                  <HomePageButton />
+                </button>
+                <br />
+                {textAfterButton}
               </div>
             </div>
           </div>

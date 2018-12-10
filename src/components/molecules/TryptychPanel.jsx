@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   text-align: center;
-  // border: 1px solid black;
-  width: 220px;
-  font-size: 13px;
-  font-weight: bold;
+  width: 25rem;
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 2rem;
   .tryptych-panel-image {
-    width: 60px;
+    height: 5rem;
     margin: 0 auto;
   }
 `

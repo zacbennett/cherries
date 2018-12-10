@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-
+import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
+import SearchModal from './SearchModal'
 
 const Container = styled.div`
   display: flex;
@@ -57,6 +58,9 @@ const Container = styled.div`
       flex-basis: 20%;
       width: 100%;
       padding-left: 0rem;
+      :hover {
+        background-color: blue;
+      }
       a {
         display: none;
       }
@@ -80,6 +84,17 @@ const Container = styled.div`
 `
 
 class NavButtons extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showPopup: false,
+    }
+    this.togglePopup = this.togglePopup.bind(this)
+  }
+
+  togglePopup() {
+    this.setState({ showPopup: !this.state.showPopup })
+  }
   render() {
     const {
       searchIcon,
@@ -95,6 +110,14 @@ class NavButtons extends Component {
     const helpLinks = this.props.helpLinks[0].dropdownLinks
     return (
       <Container>
+        {this.state.showPopup ? (
+          <ModalLayout>
+            <SearchModal
+              searchIcon={this.props.searchIcon}
+              togglePopup={this.togglePopup}
+            />
+          </ModalLayout>
+        ) : null}
         <div className="leftNav">
           <img
             style={{
@@ -104,6 +127,7 @@ class NavButtons extends Component {
             }}
             src={searchIcon}
             alt="search-icon"
+            onClick={this.togglePopup}
           />
         </div>
         <div className="logo">

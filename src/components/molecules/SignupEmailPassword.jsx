@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { StyledInput, StyledButton, Loading } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
@@ -59,6 +58,7 @@ class SignupEmailPassword extends Component {
       })
     }
   }
+  
   async handleSubmit(evt) {
     evt.preventDefault()
     this.setState({ status: <Loading /> })
@@ -68,7 +68,6 @@ class SignupEmailPassword extends Component {
       // Set state on context through UserProvider component
       this.props.userContext.setState({ curUser })
     } catch (err) {
-      console.log(err)
       this.setState({ status: 'FAILURE' })
     }
   }

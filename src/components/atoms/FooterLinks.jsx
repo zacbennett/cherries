@@ -27,16 +27,20 @@ li {
 `
 class FooterLinks extends Component {
   render() {
+<<<<<<< HEAD
     console.log('what are the footer links props', this.props)
     const links = this.props.linkData.map((d, i) => (
       <li key={i}>
         {/* TODO: JUAN --> Add a comment here  */}
+=======
+    const links = this.props.linkData.map(d => (
+      <li>
+>>>>>>> master
         <Link className="list-items" to={d.content[1].data.uri}>
           {d.content[1].content[0].value}
         </Link>
       </li>
     ))
-    console.log('what do links look like', links)
     return (
       <Container>
         <ul className="list">{links}</ul>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink, SideNavLink } from './atoms'
-import { StaticQuery } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
 const Container = styled.div`
   position: fixed;
   margin-top: 80px;
-  z-index: 2;
+  z-index: 1;
   #side-navbar-list {
     list-style: none;
   }
