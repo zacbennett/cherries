@@ -8,7 +8,7 @@ import { UserContext } from '../containers/UserContext'
 import { CartContext } from '../containers/CartContext'
 
 const Container = Styled.div`
-  position: relative;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100vw;
@@ -17,6 +17,10 @@ const Container = Styled.div`
   align-items: center;
   justify-content: center;
   z-index: 2;
+  font-family: Montserrat;
+  a{
+    text-decoration: none;
+  }
 `
 
 // Refactored Navbar to be a component rendered by StaticQuery (instead of putting definition directly in StaticQuery render)
