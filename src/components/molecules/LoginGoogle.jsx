@@ -31,7 +31,6 @@ class LoginGoogle extends Component {
       `${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`,
       8
     )
-    console.log(email, password)
     let lambdaResponse = await postLambda('getAccount', {
       email,
       password,

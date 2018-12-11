@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { StyledButton } from '../atoms'
 import { FaFacebookSquare } from 'react-icons/fa'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import bcrypt from 'bcryptjs'
+import postLambda from '../../utilities/postLambda'
 
 const Container = styled.div`
   .facebook {
@@ -16,13 +18,33 @@ const Container = styled.div`
   }
 `
 class LoginFacebook extends Component {
+  constructor(props) {
+    super(props)
+    this.responseFacebook = this.responseFacebook.bind(this)
+  }
+
+  // TODO: Handle error
+  async responseFacebook(res) {
+    let email = res.email
+    let password = bcrypt.hashSync(
+      `${res.id}${process.env.FACEBOOK_AUTH_KEYWORD}`,
+      8
+    )
+    let lambdaResponse = await postLambda('getAccount', {
+      email,
+      password,
+      remember: true,
+    })
+  }
+
   render() {
     return (
       <Container>
         <FacebookLogin
           appId={process.env.FACEBOOK_APP_ID}
           autoLoad
-          callback={this.props.responseFacebook}
+          fields="name,email,id"
+          callback={this.responseFacebook}
           render={renderProps => (
             <StyledButton
               onClick={renderProps.onClick}

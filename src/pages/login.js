@@ -61,11 +61,6 @@ class Login extends Component {
     this.setState({ errorMessage: errorMessage })
   }
 
-  responseFacebook = response => {
-    // TODO - pass info through
-    console.log(response)
-  }
-
   render() {
     const displayError = {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
