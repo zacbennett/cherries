@@ -25,6 +25,11 @@ class IndexPage extends Component {
     this.state = {}
   }
   render() {
+    // loop over text in featured
+    // map and render productList passing in products with search query
+    // filter with search
+    // get first product list to render between homepagehero and homepage tryptych
+    // render rest of them after tryptych
     const freshPicks = this.props.data.allContentfulProductPage.edges
     return (
       <Container>
@@ -45,6 +50,9 @@ class IndexPage extends Component {
 }
 
 // Eventually may connect to shopify for sales-driven data
+
+// query for all the product data
+// query for what are the featured items
 export const query = graphql`
   {
     allContentfulProductPage(
