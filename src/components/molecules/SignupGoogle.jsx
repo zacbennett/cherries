@@ -20,7 +20,7 @@ class SignupGoogle extends Component {
       <Container>
         <GoogleLogin
           className="google"
-          clientId="TBD"
+          clientId={process.env.GOOGLE_CLIENT_ID}
           render={renderProps => (
             <StyledButton
               onClick={renderProps.onClick}

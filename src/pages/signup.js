@@ -42,14 +42,6 @@ const Container = styled.div`
   @media (max-width: 420px) {
     margin-top: 1rem;
   }
-  #googleButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      margin-left: 0.5rem;
-    }
-  }
 `
 
 class Signup extends Component {

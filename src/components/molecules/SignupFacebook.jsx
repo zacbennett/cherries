@@ -20,7 +20,7 @@ class SignupFacebook extends Component {
     return (
       <Container>
         <FacebookLogin
-          appId="TBD"
+          appId={process.env.FACEBOOK_APP_ID}
           autoLoad
           callback={this.props.responseFacebook}
           render={renderProps => (
