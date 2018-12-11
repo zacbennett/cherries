@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import { HomePageHero, HomePageTryptych, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
+import { type } from 'os'
 let Fuse = require('fuse.js')
 
 const Container = Styled.div`
@@ -35,25 +36,27 @@ class IndexPage extends Component {
       minMatchCharLength: 1,
       keys: ['node.tags'],
     }
-    // loop over text in featured
-    // map and render productList passing in products with search query
-    // filter with search
-    // get first product list to render between homepagehero and homepage tryptych
-    // render rest of them after tryptych
+
+    let featuredSearchResults
     const allProducts = this.props.data.allContentfulProductPage.edges
     const typeArray = this.props.data.allContentfulHomePage.edges[0].node
       .childContentfulHomePageFeaturedRichTextNode.content
     let fuse = new Fuse(allProducts, options)
+    console.log('TYPE ARRAY', typeArray)
     let productListComponents = typeArray.map(content => {
-      let searchResults = fuse.search(content.content[0].value)
-      console.log('SEARCH RESULTS', searchResults)
-      searchResults.length = 4
-      return (
-        <ProductList
-          products={searchResults}
-          title={content.content[0].value}
-        />
-      )
+      if (content.content[0].value === 'Featured') {
+        featuredSearchResults = fuse.search(content.content[0].value)
+        featuredSearchResults.length = 4
+      } else {
+        let searchResults = fuse.search(content.content[0].value)
+        searchResults.length = 4
+        return (
+          <ProductList
+            products={searchResults}
+            title={content.content[0].value}
+          />
+        )
+      }
     })
 
     return (
@@ -62,7 +65,7 @@ class IndexPage extends Component {
           <SideNav className="sideNav" />
           <div>
             <HomePageHero />
-            <ProductList products={allProducts.slice(0, 4)} />
+            <ProductList products={featuredSearchResults} title={'Featured'} />
             <HomePageTryptych />
             {productListComponents}
           </div>

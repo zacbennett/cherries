@@ -50,7 +50,7 @@ class ProductList extends Component {
   }
 
   render() {
-    const header = this.props.catalog ? 'Shop All' : 'Fresh Picks'
+    const header = this.props.catalog ? 'Shop All' : this.props.title
     const subheader = this.props.catalog ? (
       <form htmlFor="shopDropdown">
         <select
