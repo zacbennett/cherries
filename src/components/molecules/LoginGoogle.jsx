@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { StyledButton, GoogleIcon } from '../atoms'
 import GoogleLogin from 'react-google-login'
 import { UserContext } from '../../containers/UserContext'
+import bcrypt from 'bcryptjs'
+import postLambda from '../../utilities/postLambda'
 
 const Container = styled.div`
   .google {
@@ -16,15 +18,28 @@ const Container = styled.div`
   }
 `
 class LoginGoogle extends Component {
-  responseGoogle = response => {
-    typeof response.error === 'undefined' &&
-      console.log('something will happen here')
-    console.log('response:', response)
-    console.log('basic profile:', response.getBasicProfile())
-    console.log('email:', response.getBasicProfile().getEmail())
-    console.log('name:', response.getBasicProfile().getName())
-    console.log('id:', response.getBasicProfile().getId())
+  constructor(props) {
+    super(props)
+    this.responseGoogle = this.responseGoogle.bind(this)
   }
+
+  // TODO: Handle error
+  async responseGoogle(res) {
+    let userProfileId = res.getBasicProfile().getId()
+    let email = res.getBasicProfile().getEmail()
+    let password = bcrypt.hashSync(
+      `${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`,
+      8
+    )
+    console.log(email, password)
+    let lambdaResponse = await postLambda('getAccount', {
+      email,
+      password,
+      remember: true,
+    })
+    console.log('what is the lambdaResponse:', lambdaResponse)
+  }
+
   render() {
     return (
       <Container>
