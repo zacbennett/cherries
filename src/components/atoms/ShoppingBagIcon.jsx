@@ -4,7 +4,12 @@ import styled from 'styled-components'
 const Container = styled.div`
   cursor: pointer;
   display: flex;
-  margin-bottom: 0.2rem;
+  padding: 0.5rem;
+  margin-left: 0.2rem;
+  margin-top: 0.8rem;
+  img {
+    height: 1.5rem;
+  }
   p {
     position: relative;
     cursor: pointer;
@@ -17,26 +22,21 @@ const Container = styled.div`
     line-height: 1.2rem;
     font-size: 0.65rem !important;
     border-radius: 1000px;
-    background-color: #ff0086;
+    background-color: #e20031;
     text-align: center;
   }
 `
 
 class ShoppingBagIcon extends Component {
   render() {
+    const { click, cart, cartIcon } = this.props
+    const cartQuantity = cart.reduce((acc, val) => {
+      return acc + val.quantity
+    }, 0)
     return (
       <Container>
-        <img
-          style={{
-            marginRight: 20,
-            marginBottom: 5,
-            marginLeft: 10,
-            maxWidth: 23.92,
-            maxHeight: 26,
-          }}
-          src={this.props.cartIcon}
-          alt="search-icon"
-        />
+        <img src={cartIcon} alt="cart-icon" onClick={click} />
+        <p onClick={click}>{cartQuantity}</p>
       </Container>
     )
   }

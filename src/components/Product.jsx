@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { ProductPhotos, ProductDescription } from './molecules'
-// import { CartConsumer } from '../containers/CartContext'
+import { CartContext } from '../containers/CartContext'
 
 const Layout = styled.div`
   display: flex;
@@ -31,16 +31,19 @@ class Product extends Component {
     return (
       <Layout>
         <ProductPhotos images={images} />
-        {/* <CartConsumer> */}
-        {/* {cartContext => ( */}
-        <ProductDescription
-          productCopy={productCopy}
-          title={title}
-          price={price}
-          images={images}
-          sku={sku}
-          details={details}
-        />
+        <CartContext.Consumer>
+          {cartContext => (
+            <ProductDescription
+              productCopy={productCopy}
+              title={title}
+              price={price}
+              images={images}
+              sku={sku}
+              details={details}
+              handleCart={cartContext.handleCart}
+            />
+          )}
+        </CartContext.Consumer>
       </Layout>
     )
   }
