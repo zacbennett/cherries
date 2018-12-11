@@ -9,6 +9,7 @@ import {
 } from '../components/molecules'
 import { NavLink } from '../components/atoms'
 import { MainLayout } from '../components/layouts'
+// import postLambda from '../../utilities/postLambda'
 import { UserContext, UserProvider } from '../containers/UserContext'
 
 const Container = styled.div`
@@ -49,6 +50,9 @@ const Container = styled.div`
 class Login extends Component {
   state = {
     errorMessage: null,
+    email: '',
+    password: '',
+    remember: true,
   }
   componentDidMount() {
     // this.props.resetSidebar()
@@ -58,8 +62,13 @@ class Login extends Component {
   }
 
   responseGoogle = response => {
-    // TODO - pass info through
-    console.log(response)
+    typeof response.error === 'undefined' &&
+      console.log('something will happen here')
+    console.log('response:', response)
+    console.log('basic profile:', response.getBasicProfile())
+    console.log('email:', response.getBasicProfile().getEmail())
+    console.log('name:', response.getBasicProfile().getName())
+    console.log('id:', response.getBasicProfile().getId())
   }
 
   responseFacebook = response => {
