@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { StyledButton, GoogleIcon } from '../atoms'
 import GoogleLogin from 'react-google-login'
-import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
 
 const Container = styled.div`
@@ -17,6 +16,15 @@ const Container = styled.div`
   }
 `
 class LoginGoogle extends Component {
+  responseGoogle = response => {
+    typeof response.error === 'undefined' &&
+      console.log('something will happen here')
+    console.log('response:', response)
+    console.log('basic profile:', response.getBasicProfile())
+    console.log('email:', response.getBasicProfile().getEmail())
+    console.log('name:', response.getBasicProfile().getName())
+    console.log('id:', response.getBasicProfile().getId())
+  }
   render() {
     return (
       <Container>
@@ -40,15 +48,19 @@ class LoginGoogle extends Component {
             </StyledButton>
           )}
           icon={false}
-          onSuccess={this.props.responseGoogle}
-          onFailure={this.props.responseGoogle}
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
         />
       </Container>
     )
   }
 }
 
-export default LoginGoogle
+export default () => (
+  <UserContext.Consumer>
+    {userContext => <LoginGoogle userContext={userContext} />}
+  </UserContext.Consumer>
+)
 
 // OLD GOOGLE LOGIN
 //

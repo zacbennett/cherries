@@ -61,16 +61,6 @@ class Login extends Component {
     this.setState({ errorMessage: errorMessage })
   }
 
-  responseGoogle = response => {
-    typeof response.error === 'undefined' &&
-      console.log('something will happen here')
-    console.log('response:', response)
-    console.log('basic profile:', response.getBasicProfile())
-    console.log('email:', response.getBasicProfile().getEmail())
-    console.log('name:', response.getBasicProfile().getName())
-    console.log('id:', response.getBasicProfile().getId())
-  }
-
   responseFacebook = response => {
     // TODO - pass info through
     console.log(response)
@@ -91,14 +81,8 @@ class Login extends Component {
           </p>
           <LoginEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <LoginFacebook
-            responseFacebook={this.responseFacebook}
-            handleError={this.handleError}
-          />
-          <LoginGoogle
-            responseGoogle={this.responseGoogle}
-            handleError={this.handleError}
-          />
+          <LoginFacebook handleError={this.handleError} />
+          <LoginGoogle handleError={this.handleError} />
 
           <NavLink
             to="/signup"
