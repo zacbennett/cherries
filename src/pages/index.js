@@ -42,7 +42,6 @@ class IndexPage extends Component {
     const typeArray = this.props.data.allContentfulHomePage.edges[0].node
       .childContentfulHomePageFeaturedRichTextNode.content
     let fuse = new Fuse(allProducts, options)
-    console.log('TYPE ARRAY', typeArray)
     let productListComponents = typeArray.map(content => {
       if (content.content[0].value === 'Featured') {
         featuredSearchResults = fuse.search(content.content[0].value)
