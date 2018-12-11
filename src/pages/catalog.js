@@ -28,26 +28,55 @@ const options = {
   minMatchCharLength: 1,
   keys: ['node.title', 'node.tags'],
 }
-
 class CatalogPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      sortValue: '',
+    }
+    this.handleSort = this.handleSort.bind(this)
+  }
+
+  handleSort(sort) {
+    this.setState({ sortValue: sort })
+  }
+
   render() {
     const contentfulProductData = this.props.data.allContentfulProductPage.edges
     const searchTerm = queryString.parse(this.props.location.search).search
-
     let productPicks
-
     if (searchTerm) {
-      // if the search term exists, create an instance of the Fuse class with data and options
       let fuse = new Fuse(contentfulProductData, options)
       productPicks = fuse.search(searchTerm)
     } else {
       productPicks = contentfulProductData
     }
+    if (this.state.sortValue === 'featured') {
+      let fuse = new Fuse(productPicks, options)
+      productPicks = fuse.search(this.state.sortValue)
+    }
+    if (this.state.sortValue === 'sortBy') {
+      productPicks = contentfulProductData
+    }
+    if (this.state.sortValue === 'recentlyAdded') {
+      productPicks = this.props.data.recentlyAddedProduct.edges
+    }
+    if (this.state.sortValue === 'priceLowToHigh') {
+      productPicks = this.props.data.lowToHigh.edges
+    }
+    if (this.state.sortValue === 'priceHighToLow') {
+      productPicks = this.props.data.highToLow.edges
+    }
+
     return (
       <MainLayout>
         <Container>
           {/* Productpicks is passed into productList to be rendered */}
-          <ProductList products={productPicks} catalog={true} />
+          <ProductList
+            handleSort={this.handleSort}
+            products={productPicks}
+            catalog={true}
+          />
         </Container>
       </MainLayout>
     )
@@ -57,6 +86,58 @@ class CatalogPage extends Component {
 export const query = graphql`
   {
     allContentfulProductPage {
+      edges {
+        node {
+          id
+          createdAt
+          title
+          price
+          tags
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    recentlyAddedProduct: allContentfulProductPage(
+      sort: { fields: [createdAt], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          createdAt
+          title
+          price
+          tags
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    lowToHigh: allContentfulProductPage(sort: { fields: [price], order: ASC }) {
+      edges {
+        node {
+          id
+          createdAt
+          title
+          price
+          tags
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    highToLow: allContentfulProductPage(
+      sort: { fields: [price], order: DESC }
+    ) {
       edges {
         node {
           id

@@ -43,9 +43,8 @@ class ProductList extends Component {
   handleChange(evt) {
     //TODO: Work on Method
     //PROP METHOD GOES HERE
-    this.setState(
-      { [evt.target.name]: evt.target.value }
-      // TODO: THIS NEEDS TO TRIGGER A QUERY to shopify !!!!
+    this.setState({ [evt.target.name]: evt.target.value }, () =>
+      this.props.handleSort(this.state.shopDropdown)
     )
   }
 

@@ -65,7 +65,7 @@ class IndexPage extends Component {
           <div>
             <HomePageHero />
             <ProductList products={featuredSearchResults} title={'Featured'} />
-            <HomePageTryptych />
+            {/* <HomePageTryptych /> */}
             {productListComponents}
           </div>
         </MainLayout>
