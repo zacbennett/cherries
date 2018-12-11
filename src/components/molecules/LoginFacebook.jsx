@@ -26,10 +26,9 @@ class LoginFacebook extends Component {
   // TODO: Handle error
   async responseFacebook(res) {
     let email = res.email
-    let password = bcrypt.hashSync(
-      `${res.id}${process.env.FACEBOOK_AUTH_KEYWORD}`,
-      8
-    )
+    let password = bcrypt
+      .hashSync(`${res.id}${process.env.FACEBOOK_AUTH_KEYWORD}`, 8)
+      .slice(0, 40)
     let lambdaResponse = await postLambda('getAccount', {
       email,
       password,

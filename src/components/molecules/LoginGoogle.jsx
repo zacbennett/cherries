@@ -27,16 +27,15 @@ class LoginGoogle extends Component {
   async responseGoogle(res) {
     let userProfileId = res.getBasicProfile().getId()
     let email = res.getBasicProfile().getEmail()
-    let password = bcrypt.hashSync(
-      `${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`,
-      8
-    )
+    let password = bcrypt
+      .hashSync(`${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`, 8)
+      .slice(0, 40)
     let lambdaResponse = await postLambda('getAccount', {
       email,
       password,
       remember: true,
     })
-    console.log('what is the lambdaResponse:', lambdaResponse)
+    // TODO WHAT DO WE DO WITH LOGIN
   }
 
   render() {

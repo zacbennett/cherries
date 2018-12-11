@@ -10,7 +10,7 @@ const shopifyConfig = {
   'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_KEY,
 }
 exports.handler = async function(event, context, callback) {
-  console.log('are we running?', event.body)
+  // console.log('are we running?', event.body)
   if (event.httpMethod !== 'POST' || !event.body) {
     return callback(null, {
       statusCode,

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import { StyledButton, Loading } from '../atoms'
 import { FaFacebookSquare } from 'react-icons/fa'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import postLambda from '../../utilities/postLambda'
+import { UserContext } from '../../containers/UserContext'
+import bcrypt from 'bcryptjs'
 
 const Container = styled.div`
   .facebook {
@@ -16,13 +19,41 @@ const Container = styled.div`
   }
 `
 class SignupFacebook extends Component {
+  constructor(props) {
+    super(props)
+    this.responseFacebook = this.responseFacebook.bind(this)
+  }
+  // TODO Handle errors
+  async responseFacebook(res) {
+    console.log(res)
+    let email = res.email
+    let fullName = res.name.split(' ')
+    let firstName = fullName[0]
+    let lastName = fullName[1]
+    //Shopify forces a max of 40 char per password (hence the slice)
+    let password = bcrypt
+      .hashSync(`${email}${process.env.FACEBOOK_AUTH_KEYWORD}`, 6)
+      .slice(0, 40)
+    let lambdaResponse = await postLambda('newAccount', {
+      firstName,
+      lastName,
+      email,
+      password,
+      newsletter: true,
+      status: 'SIGN UP',
+    })
+    let curUser = lambdaResponse.data.customer
+    this.props.userContext.setState({ curUser })
+  }
+
   render() {
     return (
       <Container>
         <FacebookLogin
           appId={process.env.FACEBOOK_APP_ID}
           autoLoad
-          callback={this.props.responseFacebook}
+          fields="name,email,id"
+          callback={this.responseFacebook}
           render={renderProps => (
             <StyledButton
               onClick={renderProps.onClick}
@@ -86,4 +117,8 @@ class SignupFacebook extends Component {
 //   }
 // }
 
-export default SignupFacebook
+export default () => (
+  <UserContext.Consumer>
+    {userContext => <SignupFacebook userContext={userContext} />}
+  </UserContext.Consumer>
+)
