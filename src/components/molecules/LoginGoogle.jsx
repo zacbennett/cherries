@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { StyledButton, GoogleIcon } from '../atoms'
 import GoogleLogin from 'react-google-login'
+import postLambda from '../../utilities/postLambda'
+import { UserContext } from '../../containers/UserContext'
 
 const Container = styled.div`
   .google {
