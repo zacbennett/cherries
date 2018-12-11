@@ -60,87 +60,43 @@ exports.handler = async function(event, context, callback) {
     }
     let checkoutData
     try {
-      checkoutData = await axios({
+      let response = await axios({
         url: 'https://cherries2018.myshopify.com/api/graphql',
         method: 'post',
         headers: shopifyConfig,
         data: JSON.stringify(payload1),
       })
-      console.log('CHECKOUTDATA', checkoutData.data)
+
       // console.log('CHECKOUTDATA', checkoutData.data.errors[0].problems)
-      checkoutData = checkoutData.data.data.checkoutCreate.checkout
+      checkoutData = response.data.data.checkoutCreate.checkout
+
+      console.log('checkoutData', checkoutData)
     } catch (err) {
       console.log(err)
-      let response = {
+      let responseObj = {
         statusCode: 500,
         headers,
         body: JSON.stringify({
           error: err.message,
         }),
       }
-      callback(null, response)
+      callback(null, responseObj)
     }
 
     // IF the user has an account ASK shopify for a customeraccesstoken and asscoiate the checkout with the account
     if (!data.hasAccount) {
-      let response = {
+      let responseObj = {
         statusCode: 200,
         headers,
         body: JSON.stringify({
           data: checkoutData,
         }),
       }
-      console.log('createcheckout response', response)
-      callback(null, response)
+      console.log('createcheckout responseObj', responseObj)
+      callback(null, responseObj)
     } else {
-      const payload2 = {
-        query: `mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
-          customerAccessTokenCreate(input: $input) {
-            userErrors {
-              field
-              message
-            }
-            customerAccessToken {
-              accessToken
-              expiresAt
-            }
-            customerUserErrors {
-              field
-              message
-            }
-          }
-        }
-        `,
-        variables: {
-          input: {
-            email: data.user.email,
-            password: data.user.uid,
-          },
-        },
-      }
-      let token
-      try {
-        token = await axios({
-          url: 'https://cherries2018.myshopify.com/api/graphql',
-          method: 'POST',
-          headers: shopifyConfig,
-          data: JSON.stringify(payload2),
-        })
-        token =
-          token.data.data.customerAccessTokenCreate.customerAccessToken
-            .accessToken
-        console.log('token', token)
-      } catch (err) {
-        console.log(err)
-        let response = {
-          statusCode: 500,
-          headers,
-          body: JSON.stringify({
-            error: err.message,
-          }),
-        }
-        callback(null, response)
-      }
+      console.log('data.user.token', data.user.token)
+      console.log('checkoutData.id', checkoutData.id)
       const payload3 = {
         query: `mutation checkoutCustomerAssociateV2($checkoutId: ID!, $customerAccessToken: String!) {
           checkoutCustomerAssociateV2(checkoutId: $checkoutId, customerAccessToken: $customerAccessToken) {
@@ -158,17 +114,18 @@ exports.handler = async function(event, context, callback) {
         }`,
         variables: {
           checkoutId: checkoutData.id,
-          customerAccessToken: token,
+          customerAccessToken: data.user.token,
         },
       }
       try {
-        token = await axios({
+        console.log('TRY RAN')
+        await axios({
           url: 'https://cherries2018.myshopify.com/api/graphql',
           method: 'POST',
           headers: shopifyConfig,
           data: JSON.stringify(payload3),
         })
-        console.log('token2', token)
+        // console.log('token2', response)
         let response = {
           statusCode: 200,
           headers,

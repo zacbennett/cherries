@@ -50,7 +50,9 @@ class CartSidebar extends Component {
     this.props.handleSidebar()
     const items = this.props.cart.map(item => {
       return {
-        variantId: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzY0NTE3NzY3MjY4',
+        variantId:
+          'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8xNjQ0NzE5NjEwMjc1Ng==',
+        // variantId: '16447196102756',
         // variantId: item.sku,
         quantity: item.quantity,
       }
