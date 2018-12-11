@@ -20,6 +20,11 @@ const Container = styled.div`
     z-index: 3;
     a {
       padding: 0.2rem;
+      font-size: 0.8rem;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
     }
     animation: fadein 0.25s;
     @keyframes fadein {
@@ -30,10 +35,6 @@ const Container = styled.div`
         opacity: 1;
       }
     }
-  }
-  .links {
-    display: flex;
-    flex-direction: column;
   }
 `
 

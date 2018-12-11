@@ -25,6 +25,10 @@ const Container = styled.div`
     align-items: center;
     flex-basis: 45%;
     padding-left: 1rem;
+    img:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
   }
   .logo {
     display: flex;

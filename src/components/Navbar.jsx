@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { BannerPromo, NavButtons } from './molecules'
 
 const Container = Styled.div`
-  position: relative;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100vw;
@@ -14,6 +14,10 @@ const Container = Styled.div`
   align-items: center;
   justify-content: center;
   z-index: 2;
+  font-family: Montserrat;
+  a{
+    text-decoration: none;
+  }
 `
 export default () => (
   <StaticQuery

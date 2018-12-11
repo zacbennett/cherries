@@ -5,6 +5,15 @@ import { StaticQuery, graphql } from 'gatsby'
 import { NavBar, Footer } from '..'
 import './layout.css'
 import 'pace-js/themes/blue/pace-theme-minimal.css'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  font-family: Montserrat;
+  margin: auto;
+  a {
+    text-decoration: none;
+  }
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -33,14 +42,7 @@ const Layout = ({ children }) => (
         </Helmet>
         <div id="modalContainer" />
         <NavBar />
-        <div
-          style={{
-            margin: '0 auto',
-            fontFamily: 'Montserrat',
-          }}
-        >
-          {children}
-        </div>
+        <Container>{children}</Container>
         <Footer />
       </>
     )}
