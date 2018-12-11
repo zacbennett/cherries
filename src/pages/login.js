@@ -56,6 +56,17 @@ class Login extends Component {
   handleError = errorMessage => {
     this.setState({ errorMessage: errorMessage })
   }
+
+  responseGoogle = response => {
+    // TODO - pass info through
+    console.log(response)
+  }
+
+  responseFacebook = response => {
+    // TODO - pass info through
+    console.log(response)
+  }
+
   render() {
     const displayError = {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
@@ -71,8 +82,14 @@ class Login extends Component {
           </p>
           <LoginEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <LoginFacebook handleError={this.handleError} />
-          <LoginGoogle handleError={this.handleError} />
+          <LoginFacebook
+            responseFacebook={this.responseFacebook}
+            handleError={this.handleError}
+          />
+          <LoginGoogle
+            responseGoogle={this.responseGoogle}
+            handleError={this.handleError}
+          />
 
           <NavLink
             to="/signup"
