@@ -36,6 +36,7 @@ exports.handler = async function(event, context, callback) {
           }
           checkout {
             id
+            webUrl
           }
           checkoutUserErrors {
             field
@@ -66,6 +67,8 @@ exports.handler = async function(event, context, callback) {
         headers: shopifyConfig,
         data: JSON.stringify(payload1),
       })
+
+      console.log('response', response)
 
       // console.log('CHECKOUTDATA', checkoutData.data.errors[0].problems)
       checkoutData = response.data.data.checkoutCreate.checkout

@@ -19,12 +19,11 @@ class Cart {
     // windowGlobal.localStorage.setItem('cart', JSON.stringify(newCart))
   }
   static addItem(componentThis, title, price, quantity, image, sku) {
-    console.log('addItem ran')
     let newCart = componentThis.state.cart
     // test if sku is in cart
     let cartI = null
     componentThis.state.cart.forEach((item, i) => {
-      item.sku === sku ? (cartI = i) : (cartI = null)
+      if (item.sku === sku) cartI = i
     })
     cartI !== null
       ? (newCart[cartI].quantity += quantity)
@@ -39,7 +38,7 @@ class Cart {
   }
   static clearCart(componentThis) {
     componentThis.setState({ cart: [] })
-    windowGlobal.localStorage.setItem('cart', [])
+    // windowGlobal.localStorage.setItem('cart', [])
   }
 }
 
