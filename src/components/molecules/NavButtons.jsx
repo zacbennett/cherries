@@ -94,11 +94,18 @@ class NavButtons extends Component {
       showPopup: false,
     }
     this.togglePopup = this.togglePopup.bind(this)
+    this.logOutUser = this.logOutUser.bind(this)
   }
 
   togglePopup() {
     this.setState({ showPopup: !this.state.showPopup })
   }
+
+  // Sets curUser in UserContext state to null to log user out
+  logOutUser() {
+    this.props.logOutUser({ curUser: null })
+  }
+
   render() {
     const {
       searchIcon,
@@ -108,16 +115,21 @@ class NavButtons extends Component {
       cartIcon,
       cart,
       handleSidebar,
+      curUser,
+      logOutUser,
     } = this.props
-    //Get user links and help links that are passed down as props from NavBar - come from contentful
-    const userLinks = this.props.userLinks[0].dropdownLinks
-    const helpLinks = this.props.helpLinks[0].dropdownLinks
+    // Get user links and help links that are passed down as props from NavBar - come from contentful
+    // If user is logged in, show account/signout; otherwise show signup/login links
+    let userLinks = curUser
+      ? this.props.userLinks[1].dropdownLinks
+      : this.props.userLinks[0].dropdownLinks
+    let helpLinks = this.props.helpLinks[0].dropdownLinks
     return (
       <Container>
         {this.state.showPopup ? (
           <ModalLayout>
             <SearchModal
-              searchIcon={this.props.searchIcon}
+              searchIcon={searchIcon}
               togglePopup={this.togglePopup}
             />
           </ModalLayout>
@@ -149,7 +161,11 @@ class NavButtons extends Component {
         </div>
         <div className="rightNav">
           <DropdownMenu links={helpLinks} icon={helpIcon} />
-          <DropdownMenu links={userLinks} icon={userIcon} />
+          <DropdownMenu
+            links={userLinks}
+            icon={userIcon}
+            logOutUser={this.logOutUser}
+          />
           <ShoppingBagIcon
             cart={cart}
             cartIcon={cartIcon}

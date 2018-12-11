@@ -44,7 +44,6 @@ class LoginEmailPassword extends Component {
     let curUser = response.data.customer
     // Set state on context through UserProvider component
     this.props.userContext.setState({ curUser })
-    console.log('HANDLE SUBMIT CONTEXT', this.props.userContext)
   }
 
   handleChange(evt) {

@@ -78,6 +78,7 @@ exports.handler = async function(event, context, callback) {
             phone
             email
             id
+            tags
             orders(first:100){
               edges{
                 node{
