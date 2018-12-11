@@ -3,7 +3,7 @@ import SearchModal from '../molecules/SearchModal'
 let Fuse = require('fuse.js')
 
 describe('SearchModal', () => {
-  it('renders correctly', () => {
+  it('renders search results correctly given search term', () => {
     const options = {
       shouldSort: true,
       threshold: 0.3,
