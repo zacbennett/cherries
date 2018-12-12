@@ -62,9 +62,7 @@ const Container = styled.div`
       flex-basis: 20%;
       width: 100%;
       padding-left: 0rem;
-      :hover {
-        background-color: blue;
-      }
+
       a {
         display: none;
       }

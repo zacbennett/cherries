@@ -27,6 +27,12 @@ const Container = styled.div`
   .hyphen {
     margin-left: 7px;
   }
+
+  @media (max-width: 420px) {
+    #side-navbar-list {
+      margin-left: 0px;
+    }
+  }
 `
 
 class SideNav extends Component {

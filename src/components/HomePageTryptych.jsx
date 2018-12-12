@@ -15,7 +15,6 @@ const Container = styled.div`
   padding: 3rem;
   height: 35rem;
   #tryptych-header {
-    margin: 0;
     color: #e20031;
     font-size: 3rem;
     width: 100%;
@@ -30,6 +29,13 @@ const Container = styled.div`
   .tryptych-panel-text {
     line-height: 1.5em;
     color: #47525e;
+  }
+  @media (max-width: 420px) {
+    #tryptych-panel-container {
+      width: auto;
+      flex-direction: column;
+    }
+    height: auto;
   }
 `
 

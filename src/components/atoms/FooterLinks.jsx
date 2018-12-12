@@ -7,6 +7,7 @@ display: flex;
 flex-basis: 50%;
 align-items: center;
 justify-content: center;
+width: 100%;
 .list-items {
   text-decoration: none;
   color: white;
@@ -15,6 +16,7 @@ li {
   padding-right: 3.6rem;
 }
 .list {
+  width: 100%;
   height: 10rem;
   list-style-type: none;
   padding-top: 1rem;
@@ -23,6 +25,9 @@ li {
   flex-wrap: wrap;
   display: flex;
   flex-basis: 50%;
+}
+@media (max-width: 420px) {
+  flex-direction: column;
 }
 `
 class FooterLinks extends Component {
