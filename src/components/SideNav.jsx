@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink, SideNavLink } from './atoms'
 import { StaticQuery, graphql } from 'gatsby'
+import { UserContext } from '../containers/UserContext'
 
 const Container = styled.div`
   position: fixed;
@@ -31,6 +32,7 @@ const Container = styled.div`
 
 class SideNav extends Component {
   render() {
+    console.log(`userContext.curUser.tags`, this.props.userContext.curUser)
     const links = this.props.links.map((link, i) => {
       if (link.name === '-') {
         return (
@@ -38,6 +40,14 @@ class SideNav extends Component {
             {link.name}
           </li>
         )
+      }
+      if (
+        link.displayed === 'userNotSubscribed' &&
+        this.props.userContext.curUser
+      ) {
+        if (this.props.userContext.curUser.tags.includes('subscribed')) {
+          return
+        }
       }
       if (!link.dropDown) {
         return (
@@ -70,24 +80,33 @@ export const PureSideNav = ({ data }) => (
 )
 
 export default () => (
-  <StaticQuery
-    query={graphql`
-      {
-        contentfulHomePage(pageTitle: { eq: "Home Page" }) {
-          sideNavBar {
-            data {
-              name
-              displayed
-              route
-              dropDown {
-                name
-                route
+  <UserContext.Consumer>
+    {userContext => (
+      <StaticQuery
+        query={graphql`
+          {
+            contentfulHomePage(pageTitle: { eq: "Home Page" }) {
+              sideNavBar {
+                data {
+                  name
+                  displayed
+                  route
+                  dropDown {
+                    name
+                    route
+                  }
+                }
               }
             }
           }
-        }
-      }
-    `}
-    render={data => <SideNav links={data.contentfulHomePage.sideNavBar.data} />}
-  />
+        `}
+        render={data => (
+          <SideNav
+            links={data.contentfulHomePage.sideNavBar.data}
+            userContext={userContext}
+          />
+        )}
+      />
+    )}
+  </UserContext.Consumer>
 )

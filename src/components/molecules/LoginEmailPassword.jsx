@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { navigate } from '@reach/router'
+
 import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
@@ -44,6 +46,7 @@ class LoginEmailPassword extends Component {
     let curUser = response.data.customer
     // Set state on context through UserProvider component
     this.props.userContext.setState({ curUser })
+    navigate(`/`)
   }
 
   handleChange(evt) {

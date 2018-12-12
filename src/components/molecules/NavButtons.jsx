@@ -116,7 +116,6 @@ class NavButtons extends Component {
       cart,
       handleSidebar,
       curUser,
-      logOutUser,
     } = this.props
     // Get user links and help links that are passed down as props from NavBar - come from contentful
     // If user is logged in, show account/signout; otherwise show signup/login links

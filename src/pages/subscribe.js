@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 
 import { MainLayout } from '../components/layouts'
 import { UserContext } from '../containers/UserContext'
@@ -82,6 +82,7 @@ class Subscribe extends Component {
       id: this.props.userContext.curUser.id,
       tags: ['subscribed'],
     })
+    navigate(`/`)
   }
 
   render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { navigate } from '@reach/router'
 import { StyledInput, StyledButton, Loading } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
@@ -58,7 +59,7 @@ class SignupEmailPassword extends Component {
       })
     }
   }
-  
+
   async handleSubmit(evt) {
     evt.preventDefault()
     this.setState({ status: <Loading /> })
@@ -67,6 +68,7 @@ class SignupEmailPassword extends Component {
       let curUser = response.data.customer
       // Set state on context through UserProvider component
       this.props.userContext.setState({ curUser })
+      navigate(`/`)
     } catch (err) {
       this.setState({ status: 'FAILURE' })
     }
