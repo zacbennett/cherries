@@ -20,7 +20,7 @@ const Container = Styled.div`
 
 //config for Fuse.js search
 const options = {
-  shouldSort: true,
+  shouldSort: false,
   threshold: 0.3,
   location: 0,
   distance: 100,
@@ -28,26 +28,56 @@ const options = {
   minMatchCharLength: 1,
   keys: ['node.title', 'node.tags'],
 }
-
 class CatalogPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      sortValue: 'sortBy',
+    }
+    this.handleSort = this.handleSort.bind(this)
+  }
+
+  handleSort(sort) {
+    this.setState({ sortValue: sort })
+  }
+
   render() {
+    // handle sort
+    // handle search
     const contentfulProductData = this.props.data.allContentfulProductPage.edges
     const searchTerm = queryString.parse(this.props.location.search).search
-
     let productPicks
 
-    if (searchTerm) {
-      // if the search term exists, create an instance of the Fuse class with data and options
+    if (this.state.sortValue === 'featured') {
       let fuse = new Fuse(contentfulProductData, options)
-      productPicks = fuse.search(searchTerm)
-    } else {
+      productPicks = fuse.search(this.state.sortValue)
+    } else if (this.state.sortValue === 'sortBy') {
       productPicks = contentfulProductData
+    } else if (this.state.sortValue === 'recentlyAdded') {
+      productPicks = this.props.data.recentlyAddedProduct.edges
+    } else if (this.state.sortValue === 'priceLowToHigh') {
+      productPicks = this.props.data.lowToHigh.edges
+    } else if (this.state.sortValue === 'priceHighToLow') {
+      productPicks = this.props.data.highToLow.edges
     }
+
+    if (searchTerm) {
+      let fuse = new Fuse(productPicks, options)
+      productPicks = fuse.search(searchTerm)
+
+    }
+
     return (
       <MainLayout>
         <Container>
           {/* Productpicks is passed into productList to be rendered */}
-          <ProductList products={productPicks} catalog={true} />
+          <ProductList
+            handleSort={this.handleSort}
+            products={productPicks}
+            catalog={true}
+          />
+          {/* If there are no products that match the search term, display the message below */}
+          {productPicks.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
         </Container>
       </MainLayout>
     )
@@ -64,6 +94,59 @@ export const query = graphql`
           title
           price
           tags
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    recentlyAddedProduct: allContentfulProductPage(
+      sort: { fields: [createdAt], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          createdAt
+          title
+          price
+          tags
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    lowToHigh: allContentfulProductPage(sort: { fields: [price], order: ASC }) {
+      edges {
+        node {
+          id
+          createdAt
+          title
+          price
+          tags
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    highToLow: allContentfulProductPage(
+      sort: { fields: [price], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          createdAt
+          title
+          price
+          tags
+
           images {
             file {
               url
