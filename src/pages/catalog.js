@@ -64,6 +64,7 @@ class CatalogPage extends Component {
     if (searchTerm) {
       let fuse = new Fuse(productPicks, options)
       productPicks = fuse.search(searchTerm)
+
     }
 
     return (
@@ -145,6 +146,7 @@ export const query = graphql`
           title
           price
           tags
+
           images {
             file {
               url

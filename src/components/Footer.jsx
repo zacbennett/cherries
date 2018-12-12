@@ -16,7 +16,7 @@ const Container = Styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 1;
 `
 // The pure footer is for testing purposes only!
 export const PureFooter = ({ data }) => (

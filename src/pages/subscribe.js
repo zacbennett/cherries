@@ -3,7 +3,7 @@ import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import { MainLayout } from '../components/layouts'
-import { UserContext, UserProvider } from '../containers/UserContext'
+import { UserContext } from '../containers/UserContext'
 import { HomePageButton } from '../components/atoms'
 import postLambda from '../utilities/postLambda'
 
