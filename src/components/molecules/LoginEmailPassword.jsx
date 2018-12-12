@@ -6,8 +6,6 @@ import { StyledInput, StyledButton } from '../atoms'
 import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
 
-const windowGlobal = typeof window !== 'undefined' && window
-
 const Container = styled.form`
   display: flex;
   flex-direction: column;
@@ -48,7 +46,7 @@ class LoginEmailPassword extends Component {
     let curUser = response.data.customer
     // Set state on context through UserProvider component
     this.props.userContext.setState({ curUser })
-    windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
+    localStorage.setItem('curUser', JSON.stringify(curUser))
     navigate(`/`)
   }
 

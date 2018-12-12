@@ -68,6 +68,7 @@ class SignupEmailPassword extends Component {
       let curUser = response.data.customer
       // Set state on context through UserProvider component
       this.props.userContext.setState({ curUser })
+      localStorage.setItem('curUser', JSON.stringify(curUser))
       navigate(`/`)
     } catch (err) {
       this.setState({ status: 'FAILURE' })

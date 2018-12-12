@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
-const windowGlobal = typeof window !== 'undefined' && window
-
 export const UserContext = React.createContext()
 
 export class UserProvider extends Component {
   state = {
-    curUser: JSON.parse(windowGlobal.localStorage.getItem('curUser')),
+    curUser: JSON.parse(localStorage.getItem('curUser')),
   }
 
   render() {

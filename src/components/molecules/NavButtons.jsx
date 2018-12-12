@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 import SearchModal from './SearchModal'
+import { navigate } from '@reach/router'
 
 const Container = styled.div`
   display: flex;
@@ -104,6 +105,8 @@ class NavButtons extends Component {
   // Sets curUser in UserContext state to null to log user out
   logOutUser() {
     this.props.logOutUser({ curUser: null })
+    localStorage.removeItem('curUser')
+    navigate('/')
   }
 
   render() {
