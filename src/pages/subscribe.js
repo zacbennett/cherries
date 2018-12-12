@@ -7,6 +7,8 @@ import { UserContext } from '../containers/UserContext'
 import { HomePageButton } from '../components/atoms'
 import postLambda from '../utilities/postLambda'
 
+const windowGlobal = typeof window !== 'undefined' && window
+
 const Container = Styled.div`
   width: 100%;
   height: 100vh;
@@ -83,7 +85,7 @@ class Subscribe extends Component {
     })
     let curUser = { ...this.props.userContext.curUser, tags: ['subscribed'] }
     this.props.userContext.setState({ curUser })
-    localStorage.setItem('curUser', JSON.stringify(curUser))
+    windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
     navigate(`/`)
   }
 
