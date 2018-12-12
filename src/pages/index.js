@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { HomePageHero, HomePageTryptych, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
-import { type } from 'os'
 let Fuse = require('fuse.js')
 
 const Container = Styled.div`
@@ -42,7 +41,7 @@ class IndexPage extends Component {
     const typeArray = this.props.data.allContentfulHomePage.edges[0].node
       .childContentfulHomePageFeaturedRichTextNode.content
     let fuse = new Fuse(allProducts, options)
-    let productListComponents = typeArray.map(content => {
+    let productListComponents = typeArray.map((content, index) => {
       if (content.content[0].value === 'Featured') {
         featuredSearchResults = fuse.search(content.content[0].value)
         featuredSearchResults.length = 4
@@ -51,6 +50,7 @@ class IndexPage extends Component {
         searchResults.length = 4
         return (
           <ProductList
+            key={index}
             products={searchResults}
             title={content.content[0].value}
           />

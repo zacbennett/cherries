@@ -44,7 +44,7 @@ class SideNavLink extends Component {
     return (
       <Container>
         <li key={this.props.name} className="side-navbar-link">
-          <NavLink onClick={this.toggleMenu}>
+          <NavLink onClick={this.toggleMenu} to="">
             {this.props.name} {!this.state.display ? <>+</> : <>-</>}
           </NavLink>
           <ul className="side-navbar-dropdown" style={{ display: display }}>
