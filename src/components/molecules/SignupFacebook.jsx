@@ -21,6 +21,9 @@ const Container = styled.div`
 class SignupFacebook extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      status: '',
+    }
     this.responseFacebook = this.responseFacebook.bind(this)
   }
   // TODO Handle errors
@@ -34,16 +37,21 @@ class SignupFacebook extends Component {
     let password = bcrypt
       .hashSync(`${email}${process.env.FACEBOOK_AUTH_KEYWORD}`, 6)
       .slice(0, 40)
-    let lambdaResponse = await postLambda('newAccount', {
-      firstName,
-      lastName,
-      email,
-      password,
-      newsletter: true,
-      status: 'SIGN UP',
-    })
-    let curUser = lambdaResponse.data.customer
-    this.props.userContext.setState({ curUser })
+    try {
+      let lambdaResponse = await postLambda('newAccount', {
+        firstName,
+        lastName,
+        email,
+        password,
+        newsletter: true,
+        status: 'SIGN UP',
+      })
+      let curUser = lambdaResponse.data.customer
+      this.props.userContext.setState({ curUser })
+    } catch (err) {
+      console.log('failed signup')
+      this.setState({ status: 'FAILURE' })
+    }
   }
 
   render() {
@@ -51,7 +59,7 @@ class SignupFacebook extends Component {
       <Container>
         <FacebookLogin
           appId={process.env.FACEBOOK_APP_ID}
-          autoLoad
+          autoLoad={false}
           fields="name,email,id"
           callback={this.responseFacebook}
           render={renderProps => (

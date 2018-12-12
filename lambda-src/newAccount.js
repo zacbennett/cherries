@@ -103,6 +103,9 @@ exports.handler = async function(event, context, callback) {
             body: JSON.stringify(loginInfo),
           }),
         }
+        console.log('\n\n\n\n\n\nNEVER LET ME DOWN')
+
+        console.log('\n\n\n\nabout to call get account')
         let loggedInUser = await getAccount.handler(request)
         console.log('are we logging the user in?')
         return callback(null, loggedInUser)

@@ -10,7 +10,7 @@ const shopifyConfig = {
   'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_KEY,
 }
 exports.handler = async function(event, context, callback) {
-  // console.log('are we running?', event.body)
+  console.log('\n\n\n\n reached top of getAccount are we running?', event.body)
   if (event.httpMethod !== 'POST' || !event.body) {
     return callback(null, {
       statusCode,
@@ -48,7 +48,7 @@ exports.handler = async function(event, context, callback) {
         password: body.password,
       },
     }
-    // console.log('what are the tokenVars:', tokenVariables)
+    console.log('what are the tokenVars:', tokenVariables)
     let token
     try {
       let response = await axios.post(
@@ -59,15 +59,15 @@ exports.handler = async function(event, context, callback) {
         },
         { headers: shopifyConfig }
       )
-      // console.log('whats the response:', response)
+      console.log('whats the response:', response)
       if (response.data.data.errors) {
         return callback(response.data.data.customerAccessTokenCreate.userErrors)
       } else {
-        // console.log('tokencreate', response.data.data.customerAccessTokenCreate)
+        console.log('tokencreate', response.data.data.customerAccessTokenCreate)
         token =
           response.data.data.customerAccessTokenCreate.customerAccessToken
             .accessToken
-        // console.log('are we getting a token', token)
+        console.log('are we getting a token', token)
       }
     } catch (err) {
       return callback(err)
