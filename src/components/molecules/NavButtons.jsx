@@ -25,6 +25,10 @@ const Container = styled.div`
     align-items: center;
     flex-basis: 45%;
     padding-left: 1rem;
+    img:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
   }
   .logo {
     display: flex;
@@ -96,6 +100,15 @@ class NavButtons extends Component {
     this.setState({ showPopup: !this.state.showPopup })
   }
   render() {
+    const {
+      searchIcon,
+      cherriesIcon,
+      helpIcon,
+      userIcon,
+      cartIcon,
+      cart,
+      handleSidebar,
+    } = this.props
     //Get user links and help links that are passed down as props from NavBar - come from contentful
     const userLinks = this.props.userLinks[0].dropdownLinks
     const helpLinks = this.props.helpLinks[0].dropdownLinks
@@ -116,7 +129,7 @@ class NavButtons extends Component {
               maxWidth: 28,
               maxHeight: 28,
             }}
-            src={this.props.searchIcon}
+            src={searchIcon}
             alt="search-icon"
             onClick={this.togglePopup}
           />
@@ -129,15 +142,19 @@ class NavButtons extends Component {
                 maxWidth: 48,
                 maxHeight: 48,
               }}
-              src={this.props.cherriesIcon}
+              src={cherriesIcon}
               alt="Cherries Logo"
             />
           </Link>
         </div>
         <div className="rightNav">
-          <DropdownMenu links={helpLinks} icon={this.props.helpIcon} />
-          <DropdownMenu links={userLinks} icon={this.props.userIcon} />
-          <ShoppingBagIcon cartIcon={this.props.cartIcon} />
+          <DropdownMenu links={helpLinks} icon={helpIcon} />
+          <DropdownMenu links={userLinks} icon={userIcon} />
+          <ShoppingBagIcon
+            cart={cart}
+            cartIcon={cartIcon}
+            click={handleSidebar}
+          />
         </div>
       </Container>
     )

@@ -5,17 +5,23 @@ import { StaticQuery, graphql } from 'gatsby'
 
 const Container = styled.div`
   position: fixed;
-  margin-top: 80px;
+  margin-top: 3rem;
   z-index: 1;
+  overflow: auto;
+  height: 70vh;
   #side-navbar-list {
     list-style: none;
+  }
+  .side-navbar-link {
+    font-size: 0.7rem;
   }
   #side-navbar-list li.side-navbar-link,
   a,
   a:visited {
     margin-bottom: 20px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 1rem;
     color: #e20031;
   }
   .hyphen {

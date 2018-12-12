@@ -11,42 +11,41 @@ import { IoIosClose } from 'react-icons/io'
 
 const Container = styled.div`
   position: relative;
-  top: -8px;
   width: 100%;
   display: flex;
   justify-content: start;
   align-items: left;
   background-color: #e20031;
-  padding: 0.5rem;
   height: 2.5rem;
   text-align: left;
+  padding: 0.5rem 1rem;
   p {
-    margin-bottom: 0;
+    margin: 0;
     margin-right: 1rem;
   }
-`
-const Announcement = styled.div`
-  color: white;
-  font-size: 20px
-  margin: 0px 15px 10px 20px;
-  font-style: italic;
-  font-weight: bold;
-`
-const PromoText = styled.div`
-  color: white;
-  font-size: 12px;
-  margin-top: 2px;
-  font-weight: 400;
-  font-style: italic;
-  font-weight: bold;
-`
-const Icon = styled.div`
-  color: black;
-  margin-left: auto;
-  :hover {
-    cursor: pointer;
+  .banner-title {
+    color: white;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .banner-text {
+    color: white;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin: 0rem 1rem;
+  }
+
+  .icon {
+    color: black;
+    margin-left: auto;
+    :hover {
+      cursor: pointer;
+    }
   }
 `
+
 class BannerPromo extends Component {
   constructor(props) {
     super(props)
@@ -64,17 +63,11 @@ class BannerPromo extends Component {
   render() {
     const banner = this.state.display ? (
       <Container>
-        <Announcement className="banner-text">
-          {this.props.bannerTitle}
-        </Announcement>
-        <PromoText className="banner-text">{this.props.bannerText}</PromoText>
-        <Icon>
-          <IoIosClose
-            // style={{ color: 'black' }}
-            size={30}
-            onClick={this.handleClick}
-          />
-        </Icon>{' '}
+        <div className="banner-title">{this.props.bannerTitle}</div>
+        <p className="banner-text">{this.props.bannerText}</p>
+        <div className="icon">
+          <IoIosClose size={30} onClick={this.handleClick} />
+        </div>
       </Container>
     ) : (
       ''

@@ -13,7 +13,7 @@ const Container = styled.div`
   background-color: #ffe2e2;
   width: 100vw;
   padding: 3rem;
-  height: 40rem;
+  height: 35rem;
   #tryptych-header {
     margin: 0;
     color: #e20031;
@@ -74,21 +74,14 @@ export default () => (
     query={graphql`
       {
         contentfulHomePage(pageTitle: { eq: "Home Page" }) {
+          tryptychIcons {
+            fluid {
+              src
+            }
+          }
           tryptych {
             content {
               nodeType
-              data {
-                target {
-                  fields {
-                    file {
-                      en_US {
-                        url
-                        fileName
-                      }
-                    }
-                  }
-                }
-              }
               content {
                 value
               }
@@ -100,15 +93,13 @@ export default () => (
     render={data => {
       const tryptychContent = data.contentfulHomePage.tryptych.content
       let tryptychHeader
-      let tryptychIcons = []
+      let tryptychIcons = data.contentfulHomePage.tryptychIcons
       let tryptychCopy = []
 
       // Seperate content into its seperate nodetypes
       tryptychContent.forEach(item => {
         if (item.nodeType === 'heading-4')
           tryptychHeader = item.content[0].value
-        else if (item.nodeType === 'embedded-asset-block')
-          tryptychIcons.push(item.data.target.fields.file.en_US)
         else if (item.nodeType === 'paragraph')
           tryptychCopy.push(item.content[0].value)
       })
@@ -118,7 +109,7 @@ export default () => (
         tryptychPanels.push(
           <TryptychPanel
             key={i}
-            imageUrl={icon.url}
+            imageUrl={icon.fluid.src}
             imageName={icon.fileName}
             text={tryptychCopy[i]}
           />

@@ -7,6 +7,7 @@ import { ProductCard } from '../atoms'
 const Container = styled.div`
   margin: 0 auto;
   width: 75vw;
+  padding: 2rem;
   .product-list-card-container {
     display: flex;
     flex-wrap: wrap;

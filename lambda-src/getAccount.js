@@ -127,6 +127,7 @@ exports.handler = async function(event, context, callback) {
         return callback(response.data.data)
       } else {
         let customer = response.data.data.customer
+        customer.token = token
         let responseObj = {
           statusCode: 200,
           headers,
