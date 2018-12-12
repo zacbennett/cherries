@@ -20,7 +20,7 @@ const Container = Styled.div`
 
 //config for Fuse.js search
 const options = {
-  shouldSort: true,
+  shouldSort: false,
   threshold: 0.3,
   location: 0,
   distance: 100,
@@ -32,7 +32,7 @@ class CatalogPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      sortValue: '',
+      sortValue: 'sortBy',
     }
     this.handleSort = this.handleSort.bind(this)
   }
@@ -42,30 +42,28 @@ class CatalogPage extends Component {
   }
 
   render() {
+    // handle sort
+    // handle search
     const contentfulProductData = this.props.data.allContentfulProductPage.edges
     const searchTerm = queryString.parse(this.props.location.search).search
     let productPicks
-    if (searchTerm) {
-      let fuse = new Fuse(contentfulProductData, options)
-      productPicks = fuse.search(searchTerm)
-    } else {
-      productPicks = contentfulProductData
-    }
+
     if (this.state.sortValue === 'featured') {
-      let fuse = new Fuse(productPicks, options)
+      let fuse = new Fuse(contentfulProductData, options)
       productPicks = fuse.search(this.state.sortValue)
-    }
-    if (this.state.sortValue === 'sortBy') {
+    } else if (this.state.sortValue === 'sortBy') {
       productPicks = contentfulProductData
-    }
-    if (this.state.sortValue === 'recentlyAdded') {
+    } else if (this.state.sortValue === 'recentlyAdded') {
       productPicks = this.props.data.recentlyAddedProduct.edges
-    }
-    if (this.state.sortValue === 'priceLowToHigh') {
+    } else if (this.state.sortValue === 'priceLowToHigh') {
       productPicks = this.props.data.lowToHigh.edges
-    }
-    if (this.state.sortValue === 'priceHighToLow') {
+    } else if (this.state.sortValue === 'priceHighToLow') {
       productPicks = this.props.data.highToLow.edges
+    }
+
+    if (searchTerm) {
+      let fuse = new Fuse(productPicks, options)
+      productPicks = fuse.search(searchTerm)
     }
 
     return (
@@ -77,6 +75,8 @@ class CatalogPage extends Component {
             products={productPicks}
             catalog={true}
           />
+          {/* If there are no products that match the search term, display the message below */}
+          {productPicks.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
         </Container>
       </MainLayout>
     )
