@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCard renders correctly 1`] = `
+<div
+  className="sc-bdVaJa eNKvBx"
+>
+  <a
+    className="product-card"
+    href="Astronaut-Baby/"
+  >
+    <img
+      alt="earring"
+      className="product-card-image"
+      src="//images.ctfassets.net/4yejk6rho2rp/60XuYBiY6IIes0aqyAOQIs/e177ec00483171ad7d8a71e6cf8f462f/fashion-woman-dangle-earrings-heartly-space-dream-tong-qu-the-earth-rocket-astronauts-blue-pendants-earrings.jpg_640x640.jpg"
+    />
+    <p
+      className="product-card-name"
+    >
+      Astronaut Baby
+    </p>
+    <p
+      className="product-card-price"
+    >
+      $
+      22.99
+    </p>
+  </a>
+</div>
+`;

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductPhotos renders correctly 1`] = `
+<div
+  className="sc-bdVaJa bYrJrv"
+>
+  <img
+    alt="Highlighted Product"
+    className="highlight animated fadeIn"
+    src={
+      Object {
+        "file": Object {
+          "url": "//images.ctfassets.net/4yejk6rho2rp/6pSrs6IctGUKiQamkkqEaQ/3f917708b9e0ccd1a33802c8e6be3ee6/Temperament-female-contracted-joker-metal-fashionable-abstract-gestures-heart-first-heart-students-joker-earrings-stud-earri.jpg",
+        },
+      }
+    }
+  />
+  <div
+    className="photoCarousel animated slideInRight"
+  >
+    <img
+      alt="Product Page Image0"
+      name={0}
+      onClick={[Function]}
+      src={
+        Object {
+          "file": Object {
+            "url": "//images.ctfassets.net/4yejk6rho2rp/6pSrs6IctGUKiQamkkqEaQ/3f917708b9e0ccd1a33802c8e6be3ee6/Temperament-female-contracted-joker-metal-fashionable-abstract-gestures-heart-first-heart-students-joker-earrings-stud-earri.jpg",
+          },
+        }
+      }
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    />
+    <img
+      alt="Product Page Image1"
+      name={1}
+      onClick={[Function]}
+      src={
+        Object {
+          "file": Object {
+            "url": "//images.ctfassets.net/4yejk6rho2rp/3Ug6cvNybmquCqam8wKsWs/1563854d7d1673e0e943af7c3018d9d2/Temperament-female-contracted-joker-metal-fashionable-abstract-gestures-heart-first-heart-students-joker-earrings-stud-earri.jpg",
+          },
+        }
+      }
+      style={Object {}}
+    />
+    <img
+      alt="Product Page Image2"
+      name={2}
+      onClick={[Function]}
+      src={
+        Object {
+          "file": Object {
+            "url": "//images.ctfassets.net/4yejk6rho2rp/3r9KcbXdu0ssUaMGMqcqI0/7567b629b759930d54d2e714a995aa27/Temperament-female-contracted-joker-metal-fashionable-abstract-gestures-heart-first-heart-students-joker-earrings-stud-earri.jpg",
+          },
+        }
+      }
+      style={Object {}}
+    />
+  </div>
+</div>
+`;

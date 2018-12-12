@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders correctly 1`] = `
+<div
+  className="sc-bdVaJa ckrZze"
+>
+  <div
+    className="sk-fade-in sk-spinner sk-three-bounce"
+    color="#ff0086"
+    style={
+      Object {
+        "color": "#ff0086",
+      }
+    }
+  >
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownMenu renders correctly 1`] = `
+<div
+  className="sc-VigVT fuTuEz"
+  onMouseLeave={[Function]}
+>
+  <a
+    className="dropdown sc-htpNat eMXSJb"
+    href=""
+    onMouseEnter={[Function]}
+  >
+    <img
+      alt="nav-bar-icon"
+      src="//images.ctfassets.net/4yejk6rho2rp/6u7gsl9D3Oo46iYwW04y8c/66b1a6434576a65e23d5501ee03fb1a8/help-icon.png?w=800&q=50"
+      style={
+        Object {
+          "margin": 5,
+          "maxHeight": 28,
+          "maxWidth": 28,
+        }
+      }
+    />
+  </a>
+  <div
+    className="dropdown-content"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <div
+      className="links"
+    >
+      <a
+        className="sc-htpNat eMXSJb"
+        href="faq"
+      >
+        FAQ
+      </a>
+      <a
+        className="sc-htpNat eMXSJb"
+        href="faq"
+      >
+        Help
+      </a>
+      <a
+        className="sc-htpNat eMXSJb"
+        href="faq"
+      >
+        Returns
+      </a>
+      <a
+        className="sc-htpNat eMXSJb"
+        href="contact"
+      >
+        team@lipslut.com
+      </a>
+    </div>
+  </div>
+</div>
+`;

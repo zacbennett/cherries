@@ -24,6 +24,22 @@ const Container = styled.div`
     padding: 0px 10px;
   }
 `
+// This is for testing purposes only!
+export const PureHomePageHero = ({ data }) => (
+  <Container>
+    <img
+      id="hero-image"
+      src={data.contentfulHomePage.contentfulData.heroImage.file.url}
+      alt="hero"
+    />
+    <div id="hero-image-text-container">
+      <h4 id="hero-image-text">
+        {data.contentfulHomePage.contentfulData.heroImageText}
+      </h4>
+      <HomePageButton />
+    </div>
+  </Container>
+)
 
 export default () => (
   <StaticQuery

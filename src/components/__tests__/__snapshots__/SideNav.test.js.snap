@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNav renders correctly 1`] = `
+<div
+  className="sc-jTzLTM gwmvbb"
+>
+  <ul
+    id="side-navbar-list"
+  >
+    <div
+      className="sc-EHOje ciWOoP"
+    >
+      <li
+        className="side-navbar-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          onClick={[Function]}
+        >
+          Vibes
+           
+          +
+        </a>
+        <ul
+          className="side-navbar-dropdown"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="basics"
+            >
+              Basics
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="minimalist"
+            >
+              Minimalist
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="girlboss"
+            >
+              Girlboss
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="formal"
+            >
+              Formal
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="boho"
+            >
+              Boho
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="fun"
+            >
+              Fun
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <div
+      className="sc-EHOje ciWOoP"
+    >
+      <li
+        className="side-navbar-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          onClick={[Function]}
+        >
+          Type
+           
+          +
+        </a>
+        <ul
+          className="side-navbar-dropdown"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="stud"
+            >
+              Stud
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="hoop"
+            >
+              Hoop
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="drop"
+            >
+              Drop
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="dangle"
+            >
+              Dangle
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="huggy"
+            >
+              Huggy
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="thread"
+            >
+              Thread
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <div
+      className="sc-EHOje ciWOoP"
+    >
+      <li
+        className="side-navbar-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          onClick={[Function]}
+        >
+          Finish
+           
+          +
+        </a>
+        <ul
+          className="side-navbar-dropdown"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="resin"
+            >
+              Resin
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="enamel"
+            >
+              Enamel
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="gold"
+            >
+              Gold
+            </a>
+          </li>
+          <li
+            className="side-navbar-dropdown-link"
+          >
+            <a
+              className="sc-bxivhb dToeqL"
+              href="silver"
+            >
+              Silver
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <li
+      className="side-navbar-link"
+    >
+      <a
+        className="sc-bxivhb dToeqL"
+        href="catalog"
+      >
+        Shop All
+      </a>
+    </li>
+    <li
+      className="hyphen side-navbar-link"
+    >
+      -
+    </li>
+    <li
+      className="side-navbar-link"
+    >
+      <a
+        className="sc-bxivhb dToeqL"
+        href="subscribe"
+      >
+        Subscribe
+      </a>
+    </li>
+    <li
+      className="side-navbar-link"
+    >
+      <a
+        className="sc-bxivhb dToeqL"
+        href="about"
+      >
+        About
+      </a>
+    </li>
+  </ul>
+</div>
+`;

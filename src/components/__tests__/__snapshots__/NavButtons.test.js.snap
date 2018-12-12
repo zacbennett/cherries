@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavButtons renders correctly 1`] = `
+<div
+  className="sc-fjdhpX ewOEBx"
+>
+  <div
+    className="leftNav"
+  >
+    <img
+      alt="search-icon"
+      onClick={[Function]}
+      src="images.ctfassets.net/4yejk6rho2rp/1Kjc0inKTe0AEomGUy2iu/bc85cf1f149b25cb2513069c4a64846d/magnifying-glass__2_.png?w=800&q=50"
+      style={
+        Object {
+          "margin": 10,
+          "maxHeight": 28,
+          "maxWidth": 28,
+        }
+      }
+    />
+  </div>
+  <div
+    className="logo"
+  >
+    <a
+      href="/"
+    >
+      <img
+        alt="Cherries Logo"
+        src="//images.ctfassets.net/4yejk6rho2rp/vXHBTTvYRwKKsukOMKEQi/b1c8e9091314f28f5b66f0770f1da457/cherries-logo.png?w=800&q=50"
+        style={
+          Object {
+            "margin": "0 auto",
+            "maxHeight": 48,
+            "maxWidth": 48,
+          }
+        }
+      />
+    </a>
+  </div>
+  <div
+    className="rightNav"
+  >
+    <div
+      className="sc-bdVaJa dLUJbw"
+      onMouseLeave={[Function]}
+    >
+      <a
+        className="dropdown sc-bxivhb dToeqL"
+        href=""
+        onMouseEnter={[Function]}
+      >
+        <img
+          alt="nav-bar-icon"
+          src="//images.ctfassets.net/4yejk6rho2rp/6u7gsl9D3Oo46iYwW04y8c/66b1a6434576a65e23d5501ee03fb1a8/help-icon.png?w=800&q=50"
+          style={
+            Object {
+              "margin": 5,
+              "maxHeight": 28,
+              "maxWidth": 28,
+            }
+          }
+        />
+      </a>
+      <div
+        className="dropdown-content"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        <div
+          className="links"
+        >
+          <a
+            className="sc-bxivhb dToeqL"
+            href="faq"
+          >
+            FAQ
+          </a>
+          <a
+            className="sc-bxivhb dToeqL"
+            href="faq"
+          >
+            Help
+          </a>
+          <a
+            className="sc-bxivhb dToeqL"
+            href="faq"
+          >
+            Returns
+          </a>
+          <a
+            className="sc-bxivhb dToeqL"
+            href="contact"
+          >
+            team@lipslut.com
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa dLUJbw"
+      onMouseLeave={[Function]}
+    >
+      <a
+        className="dropdown sc-bxivhb dToeqL"
+        href=""
+        onMouseEnter={[Function]}
+      >
+        <img
+          alt="nav-bar-icon"
+          src="//images.ctfassets.net/4yejk6rho2rp/8WGaI6nf8suy8YUQYsois/17e7023c4ad873b82a22bf6704de790e/user-icon.png?w=800&q=50"
+          style={
+            Object {
+              "margin": 5,
+              "maxHeight": 28,
+              "maxWidth": 28,
+            }
+          }
+        />
+      </a>
+      <div
+        className="dropdown-content"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        <div
+          className="links"
+        >
+          <a
+            className="sc-bxivhb dToeqL"
+            href="signup"
+          >
+            Sign Up
+          </a>
+          <a
+            className="sc-bxivhb dToeqL"
+            href="login"
+          >
+            Log In
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-bZQynM HEtXj"
+    >
+      <img
+        alt="search-icon"
+        src="//images.ctfassets.net/4yejk6rho2rp/6NiPYpu9FYKqs4CW6QAKCi/cd5b1b98fe86f6fe2f264acbdf39dbdb/shopping-bag-icon.png?w=800&q=50"
+        style={
+          Object {
+            "marginBottom": 5,
+            "marginLeft": 10,
+            "marginRight": 20,
+            "maxHeight": 26,
+            "maxWidth": 23.92,
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

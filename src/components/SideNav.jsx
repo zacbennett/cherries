@@ -28,6 +28,7 @@ const Container = styled.div`
     margin-left: 7px;
   }
 `
+
 class SideNav extends Component {
   render() {
     const links = this.props.links.map((link, i) => {
@@ -63,6 +64,10 @@ class SideNav extends Component {
     )
   }
 }
+
+export const PureSideNav = ({ data }) => (
+  <SideNav links={data.contentfulHomePage.sideNavBar.data} />
+)
 
 export default () => (
   <StaticQuery
