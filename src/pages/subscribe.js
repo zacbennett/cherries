@@ -7,6 +7,8 @@ import { UserContext } from '../containers/UserContext'
 import { HomePageButton } from '../components/atoms'
 import postLambda from '../utilities/postLambda'
 
+const windowGlobal = typeof window !== 'undefined' && window
+
 const Container = Styled.div`
   width: 100%;
   height: 100vh;
@@ -76,12 +78,14 @@ class Subscribe extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
-    console.log('click', this.props.userContext.curUser)
-    postLambda('addSubscription', {
+  async handleClick() {
+    await postLambda('addSubscription', {
       id: this.props.userContext.curUser.id,
       tags: ['subscribed'],
     })
+    let curUser = { ...this.props.userContext.curUser, tags: ['subscribed'] }
+    this.props.userContext.setState({ curUser })
+    windowGlobal.localStorage.setItem('curUser', JSON.stringify(curUser))
     navigate(`/`)
   }
 

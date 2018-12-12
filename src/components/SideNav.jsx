@@ -32,8 +32,8 @@ const Container = styled.div`
 
 class SideNav extends Component {
   render() {
-    console.log(`userContext.curUser.tags`, this.props.userContext.curUser)
     const links = this.props.links.map((link, i) => {
+      // Hyphen separator
       if (link.name === '-') {
         return (
           <li key={link.name} className="hyphen side-navbar-link">
@@ -41,6 +41,7 @@ class SideNav extends Component {
           </li>
         )
       }
+      // Show subscribe link if user not subscribed
       if (
         link.displayed === 'userNotSubscribed' &&
         this.props.userContext.curUser
@@ -49,6 +50,7 @@ class SideNav extends Component {
           return
         }
       }
+      // Link to another page
       if (!link.dropDown) {
         return (
           <li className="side-navbar-link" key={link.name}>
@@ -57,6 +59,7 @@ class SideNav extends Component {
             </NavLink>
           </li>
         )
+        // Dropdown menu
       } else {
         return (
           <SideNavLink
