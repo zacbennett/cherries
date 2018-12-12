@@ -45,7 +45,7 @@ const Container = styled.div`
   }
   .price {
     text-align: center;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0rem;
   }
 `
 class SidebarItem extends Component {

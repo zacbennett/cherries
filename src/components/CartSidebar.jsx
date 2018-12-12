@@ -13,7 +13,7 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 3;
+  z-index: 5;
   width: 23rem;
   height: 100%;
   background-color: #fbe5e9;
