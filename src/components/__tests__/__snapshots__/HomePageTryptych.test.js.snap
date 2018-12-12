@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePageHero renders correctly 1`] = `
+<div
+  className="sc-hSdWYo dhuhYa"
+>
+  <h2
+    id="tryptych-header"
+  >
+    Jewelry, but make it fun.
+  </h2>
+  <div
+    id="tryptych-panel-container"
+  >
+    <div
+      className="sc-bdVaJa ftRuNj"
+    >
+      <div
+        className="tryptych-panel"
+      >
+        <img
+          alt="sparkle-emoji.png"
+          className="tryptych-panel-image"
+          src="//images.ctfassets.net/4yejk6rho2rp/29LnpcJWdua0WY4Ugm4Igs/0c47d026abad1822dca7bc2a8fb870cf/sparkle-emoji.png"
+        />
+        <p
+          className="tryptych-panel-text"
+        >
+          We make cute, unique jewelry for every occasion—that good ish you can't get anywhere else.
+        </p>
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa ftRuNj"
+    >
+      <div
+        className="tryptych-panel"
+      >
+        <img
+          alt="envelope-emoji.png"
+          className="tryptych-panel-image"
+          src="//images.ctfassets.net/4yejk6rho2rp/2LVH1dUby8UawuqSQGO0Yi/15aa6e94241b664921024c13add2907e/envelope-emoji.png"
+        />
+        <p
+          className="tryptych-panel-text"
+        >
+          Subscribe to monthly deliveries to save that $$$ and keep your looks fresh.
+        </p>
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa ftRuNj"
+    >
+      <div
+        className="tryptych-panel"
+      >
+        <img
+          alt="delivery-truck-emoji.png"
+          className="tryptych-panel-image"
+          src="//images.ctfassets.net/4yejk6rho2rp/2Uv99J8a9iEeySUusc8UcW/2a4d76f25e3f9e02055406cacb344ca0/delivery-truck-emoji.png"
+        />
+        <p
+          className="tryptych-panel-text"
+        >
+          We offer free shipping to subscribers on all US orders, because we got your back girl.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-bZQynM cjDaME"
+  >
+    <a
+      href="/subscribe"
+    >
+      GET STARTED
+    </a>
+  </div>
+</div>
+`;

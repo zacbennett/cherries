@@ -18,6 +18,18 @@ const Container = Styled.div`
   justify-content: center;
   z-index: 1;
 `
+// The pure footer is for testing purposes only!
+export const PureFooter = ({ data }) => (
+  <Container>
+    <FooterSubscription
+      title={data.allContentfulFooter.edges[0].node.footerSubscriptionTitle}
+      text={data.allContentfulFooter.edges[0].node.footerSubscriptionText}
+    />
+    <FooterLinks
+      linkData={data.allContentfulFooter.edges[0].node.footerLinks.content}
+    />
+  </Container>
+)
 
 export default () => (
   <StaticQuery
@@ -45,16 +57,22 @@ export default () => (
         }
       }
     `}
-    render={data => (
-      <Container>
-        <FooterSubscription
-          title={data.allContentfulFooter.edges[0].node.footerSubscriptionTitle}
-          text={data.allContentfulFooter.edges[0].node.footerSubscriptionText}
-        />
-        <FooterLinks
-          linkData={data.allContentfulFooter.edges[0].node.footerLinks.content}
-        />
-      </Container>
-    )}
+    render={data => {
+      return (
+        <Container>
+          <FooterSubscription
+            title={
+              data.allContentfulFooter.edges[0].node.footerSubscriptionTitle
+            }
+            text={data.allContentfulFooter.edges[0].node.footerSubscriptionText}
+          />
+          <FooterLinks
+            linkData={
+              data.allContentfulFooter.edges[0].node.footerLinks.content
+            }
+          />
+        </Container>
+      )
+    }}
   />
 )

@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNavLink renders correctly 1`] = `
+<div
+  className="sc-VigVT hxFqYU"
+>
+  <li
+    className="side-navbar-link"
+  >
+    <a
+      className="sc-bxivhb dToeqL"
+      onClick={[Function]}
+    >
+       
+      +
+    </a>
+    <ul
+      className="side-navbar-dropdown"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <li
+        className="side-navbar-dropdown-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          href="basics"
+        >
+          Basics
+        </a>
+      </li>
+      <li
+        className="side-navbar-dropdown-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          href="minimalist"
+        >
+          Minimalist
+        </a>
+      </li>
+      <li
+        className="side-navbar-dropdown-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          href="girlboss"
+        >
+          Girlboss
+        </a>
+      </li>
+      <li
+        className="side-navbar-dropdown-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          href="formal"
+        >
+          Formal
+        </a>
+      </li>
+      <li
+        className="side-navbar-dropdown-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          href="boho"
+        >
+          Boho
+        </a>
+      </li>
+      <li
+        className="side-navbar-dropdown-link"
+      >
+        <a
+          className="sc-bxivhb dToeqL"
+          href="fun"
+        >
+          Fun
+        </a>
+      </li>
+    </ul>
+  </li>
+</div>
+`;

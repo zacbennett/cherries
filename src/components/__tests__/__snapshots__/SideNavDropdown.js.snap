@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders correctly 1`] = `
+<li>
+  <a
+    className="sc-bdVaJa eWijjc"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "#e20031",
+        "fontWeight": "bold",
+        "textDecoration": "none",
+      }
+    }
+  >
+     
+    +
+  </a>
+  <ul
+    className="dropdownContent"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <li
+      className="dropDownLink"
+    >
+      <a
+        className="sc-bdVaJa eWijjc"
+        href="basics"
+        style={
+          Object {
+            "color": "#47525E",
+            "fontWeight": "bold",
+            "marginLeft": "25px",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Basics
+      </a>
+    </li>
+    <li
+      className="dropDownLink"
+    >
+      <a
+        className="sc-bdVaJa eWijjc"
+        href="minimalist"
+        style={
+          Object {
+            "color": "#47525E",
+            "fontWeight": "bold",
+            "marginLeft": "25px",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Minimalist
+      </a>
+    </li>
+    <li
+      className="dropDownLink"
+    >
+      <a
+        className="sc-bdVaJa eWijjc"
+        href="girlboss"
+        style={
+          Object {
+            "color": "#47525E",
+            "fontWeight": "bold",
+            "marginLeft": "25px",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Girlboss
+      </a>
+    </li>
+    <li
+      className="dropDownLink"
+    >
+      <a
+        className="sc-bdVaJa eWijjc"
+        href="formal"
+        style={
+          Object {
+            "color": "#47525E",
+            "fontWeight": "bold",
+            "marginLeft": "25px",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Formal
+      </a>
+    </li>
+    <li
+      className="dropDownLink"
+    >
+      <a
+        className="sc-bdVaJa eWijjc"
+        href="boho"
+        style={
+          Object {
+            "color": "#47525E",
+            "fontWeight": "bold",
+            "marginLeft": "25px",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Boho
+      </a>
+    </li>
+    <li
+      className="dropDownLink"
+    >
+      <a
+        className="sc-bdVaJa eWijjc"
+        href="fun"
+        style={
+          Object {
+            "color": "#47525E",
+            "fontWeight": "bold",
+            "marginLeft": "25px",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Fun
+      </a>
+    </li>
+  </ul>
+</li>
+`;

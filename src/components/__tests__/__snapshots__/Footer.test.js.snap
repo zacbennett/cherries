@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<div
+  className="sc-jTzLTM ehvlHX"
+>
+  <div
+    className="sc-gqjmRU cOPKih"
+  >
+    <div>
+      <h4>
+        Footer
+      </h4>
+      <p
+        style={
+          Object {
+            "maxWidth": "20.8rem",
+          }
+        }
+      >
+        Enter Footer text here, boiiiiii
+      </p>
+      <form>
+        <label
+          htmlFor="email"
+        >
+          Email
+        </label>
+        <br />
+        <input
+          style={
+            Object {
+              "width": "16rem",
+            }
+          }
+          type="email"
+        />
+        <button
+          style={
+            Object {
+              "backgroundColor": "#13CE66",
+              "border": "none",
+              "color": "#47525E",
+              "height": "32px",
+              "marginLeft": "12px",
+              "paddingTop": "2px",
+              "width": "6.5rem",
+            }
+          }
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    className="sc-VigVT jYNWCi"
+  >
+    <ul
+      className="list"
+    >
+      <li>
+        <a
+          className="list-items"
+          href="https://lipslut.com"
+        >
+          Refer a Friend
+        </a>
+      </li>
+      <li>
+        <a
+          className="list-items"
+          href="https://www.cherries.com/signin"
+        >
+          My Account
+        </a>
+      </li>
+      <li>
+        <a
+          className="list-items"
+          href="https://www.lipslut.com/contact-us/"
+        >
+          Careers
+        </a>
+      </li>
+      <li>
+        <a
+          className="list-items"
+          href="https://www.lipslut.com/faq/"
+        >
+          Help
+        </a>
+      </li>
+      <li>
+        <a
+          className="list-items"
+          href="https://www.lipslut.com/about-us/"
+        >
+          Our Story
+        </a>
+      </li>
+      <li>
+        <a
+          className="list-items"
+          href="https://www.instagram.com/hello.lipslut/"
+        >
+          Instagram
+        </a>
+      </li>
+      <li>
+        <a
+          className="list-items"
+          href="https://www.lipslut.com/terms-conditions/"
+        >
+          Terms of User
+        </a>
+      </li>
+      <li>
+        <a
+          className="list-items"
+          href="https://www.lipslut.com/privacy-policy/"
+        >
+          Privacy
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
