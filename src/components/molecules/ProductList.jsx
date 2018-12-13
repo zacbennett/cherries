@@ -43,14 +43,13 @@ class ProductList extends Component {
   handleChange(evt) {
     //TODO: Work on Method
     //PROP METHOD GOES HERE
-    this.setState(
-      { [evt.target.name]: evt.target.value }
-      // TODO: THIS NEEDS TO TRIGGER A QUERY to shopify !!!!
+    this.setState({ [evt.target.name]: evt.target.value }, () =>
+      this.props.handleSort(this.state.shopDropdown)
     )
   }
 
   render() {
-    const header = this.props.catalog ? 'Shop All' : 'Fresh Picks'
+    const header = this.props.catalog ? 'Shop All' : this.props.title
     const subheader = this.props.catalog ? (
       <form htmlFor="shopDropdown">
         <select

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from '../atoms'
+import navigateTo from 'gatsby'
 
 const Container = styled.div`
   ul.side-navbar-dropdown {
@@ -43,7 +44,7 @@ class SideNavLink extends Component {
     return (
       <Container>
         <li key={this.props.name} className="side-navbar-link">
-          <NavLink onClick={this.toggleMenu}>
+          <NavLink onClick={this.toggleMenu} to="">
             {this.props.name} {!this.state.display ? <>+</> : <>-</>}
           </NavLink>
           <ul className="side-navbar-dropdown" style={{ display: display }}>
