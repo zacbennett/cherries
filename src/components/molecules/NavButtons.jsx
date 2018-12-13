@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 import SearchModal from './SearchModal'
+import SideBarMobile from './SideBarMobile'
 
 const Container = styled.div`
   display: flex;
@@ -83,6 +84,23 @@ const Container = styled.div`
       }
     }
   }
+  // Want to ensure that the icon is hidden when screen is above 420px
+  // .rightNavHamburger {
+  //   display: none;
+  // }
+  @media (max-width: 420px) {
+    .rightNav {
+      display: none;
+    }
+    .rightNavHamburger {
+      display: static;
+      flex-basis: 25%;
+    }
+    #hamburgerIcon {
+      height: 28px;
+      margin-bottom: 0rem;
+    }
+  }
 `
 
 class NavButtons extends Component {
@@ -90,12 +108,17 @@ class NavButtons extends Component {
     super(props)
     this.state = {
       showPopup: false,
+      showSideBarMobile: false,
     }
     this.togglePopup = this.togglePopup.bind(this)
+    this.toggleShowSideBarMobile = this.toggleShowSideBarMobile.bind(this)
   }
 
   togglePopup() {
     this.setState({ showPopup: !this.state.showPopup })
+  }
+  toggleShowSideBarMobile() {
+    this.setState({ showSideBarMobile: !this.state.showSideBarMobile })
   }
   render() {
     const {
@@ -154,6 +177,27 @@ class NavButtons extends Component {
             click={handleSidebar}
           />
         </div>
+        <div className="rightNavHamburger">
+          <img
+            id="hamburgerIcon"
+            src="https://css-tricks.com/wp-content/uploads/2012/10/threelines.png"
+            onClick={this.toggleShowSideBarMobile}
+          />
+        </div>
+        {this.state.showSideBarMobile ? (
+          <ModalLayout>
+            <SideBarMobile
+              toggleShowSideBarMobile={this.toggleShowSideBarMobile}
+              cart={cart}
+              cartIcon={cartIcon}
+              click={handleSidebar}
+              helpLinks={helpLinks}
+              helpIcon={helpIcon}
+              userLinks={userLinks}
+              userIcon={userIcon}
+            />
+          </ModalLayout>
+        ) : null}
       </Container>
     )
   }
