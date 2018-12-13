@@ -30,6 +30,10 @@ const Container = styled.div`
   a {
     color: #e20031;
   }
+  @media (max-width: 420px) {
+    margin: 0;
+    width: 100vw;
+  }
 `
 class ProductList extends Component {
   constructor(props) {
