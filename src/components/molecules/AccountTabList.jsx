@@ -14,7 +14,9 @@ const Container = styled.div`
 
 class AccountTabList extends Component {
   render() {
-    let tabs = ['account-details', 'order-history']
+    let tabNames = ['account-details', 'order-history']
+    let tabs = tabNames.map()
+
     return (
       <Container>
         <p>Hi these are the AccountTabList</p>
