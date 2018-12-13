@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import { ProductCard } from '../atoms'
+import { navigate } from '@reach/router'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -67,7 +68,7 @@ class ProductList extends Component {
         </select>
       </form>
     ) : (
-      <Link to="/">
+      <Link to={`/catalog?search=${header}`}>
         <u>
           <i>
             <small>
