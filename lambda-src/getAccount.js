@@ -78,6 +78,7 @@ exports.handler = async function(event, context, callback) {
             phone
             email
             id
+            tags
             orders(first:100){
               edges{
                 node{
@@ -136,7 +137,8 @@ exports.handler = async function(event, context, callback) {
           }),
         }
 
-        return callback(null, responseObj)
+        return responseObj
+        // return callback(null, responseObj)
       }
     } catch (err) {
       return callback(err)

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink, SideNavLink } from './atoms'
 import { StaticQuery, graphql } from 'gatsby'
+import { UserContext } from '../containers/UserContext'
 
 const Container = styled.div`
   position: fixed;
@@ -32,6 +33,7 @@ const Container = styled.div`
 class SideNav extends Component {
   render() {
     const links = this.props.links.map((link, i) => {
+      // Hyphen separator
       if (link.name === '-') {
         return (
           <li key={link.name} className="hyphen side-navbar-link">
@@ -39,6 +41,16 @@ class SideNav extends Component {
           </li>
         )
       }
+      // Show subscribe link if user not subscribed
+      if (
+        link.displayed === 'userNotSubscribed' &&
+        this.props.userContext.curUser
+      ) {
+        if (this.props.userContext.curUser.tags.includes('subscribed')) {
+          return
+        }
+      }
+      // Link to another page
       if (!link.dropDown) {
         return (
           <li className="side-navbar-link" key={link.name}>
@@ -47,6 +59,7 @@ class SideNav extends Component {
             </NavLink>
           </li>
         )
+        // Dropdown menu
       } else {
         return (
           <SideNavLink
@@ -70,24 +83,33 @@ export const PureSideNav = ({ data }) => (
 )
 
 export default () => (
-  <StaticQuery
-    query={graphql`
-      {
-        contentfulHomePage(pageTitle: { eq: "Home Page" }) {
-          sideNavBar {
-            data {
-              name
-              displayed
-              route
-              dropDown {
-                name
-                route
+  <UserContext.Consumer>
+    {userContext => (
+      <StaticQuery
+        query={graphql`
+          {
+            contentfulHomePage(pageTitle: { eq: "Home Page" }) {
+              sideNavBar {
+                data {
+                  name
+                  displayed
+                  route
+                  dropDown {
+                    name
+                    route
+                  }
+                }
               }
             }
           }
-        }
-      }
-    `}
-    render={data => <SideNav links={data.contentfulHomePage.sideNavBar.data} />}
-  />
+        `}
+        render={data => (
+          <SideNav
+            links={data.contentfulHomePage.sideNavBar.data}
+            userContext={userContext}
+          />
+        )}
+      />
+    )}
+  </UserContext.Consumer>
 )
