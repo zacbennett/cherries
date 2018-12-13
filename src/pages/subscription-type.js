@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { MainLayout } from '../components/layouts'
-import { SubscriptionTypeButton } from '../components/atoms'
+import { SubscriptionTypeButton } from '../components/molecules'
 
 const Container = Styled.div`
   width: 100%;
@@ -70,14 +70,20 @@ class SubscriptionType extends Component {
   render() {
     console.log(this.props)
     let data = this.props.data.allContentfulSubscriptionType.edges[0].node
-    console.log(data)
     return (
       <MainLayout>
         <Container>
           <h2>{data.header}</h2>
-          <SubscriptionTypeButton text={data.oneMonthSubscription} />
-          <SubscriptionTypeButton text={data.twoMonthSubscription} />
-          <SubscriptionTypeButton text={data.threeMonthSubscription} />
+          <SubscriptionTypeButton text={data.oneMonthSubscription} type={''} />
+          <SubscriptionTypeButton
+            text={data.twoMonthSubscription}
+            type={'two'}
+          />
+          <SubscriptionTypeButton
+            text={data.threeMonthSubscription}
+            type={'three'}
+          />
+          <h5>One pair of earrings in each shipment</h5>
         </Container>
       </MainLayout>
     )
