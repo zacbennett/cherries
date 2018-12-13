@@ -58,7 +58,7 @@ class SignupEmailPassword extends Component {
       })
     }
   }
-  
+
   async handleSubmit(evt) {
     evt.preventDefault()
     this.setState({ status: <Loading /> })

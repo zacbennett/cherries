@@ -10,6 +10,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   font-family: Montserrat;
   margin: auto;
+  min-height: 50vh;
   a {
     text-decoration: none;
   }

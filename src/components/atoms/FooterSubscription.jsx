@@ -22,7 +22,7 @@ class FooterSubscription extends Component {
           <h4>{this.props.title}</h4>
           <p style={{ maxWidth: '20.8rem' }}>{this.props.text}</p>
           {/* TODO:  Move to separate component once this actually does something! */}
-          <form>
+          <form name="email" data-netlify="true">
             <label htmlFor="email">Email</label>
             <br />
             <input type="email" style={{ width: '16rem' }} />

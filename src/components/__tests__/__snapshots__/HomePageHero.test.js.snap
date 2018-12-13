@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePageHero renders correctly 1`] = `
+<div
+  className="sc-jTzLTM chmQRN"
+>
+  <img
+    alt="hero"
+    id="hero-image"
+    src="//images.ctfassets.net/4yejk6rho2rp/2Idi2Gr1KMYwYUQ8qWSqYq/b4406e872c773f97f8c0a188b7b608d9/homepage-hero-image.png"
+  />
+  <div
+    id="hero-image-text-container"
+  >
+    <h4
+      id="hero-image-text"
+    >
+      Fresh earrings, hand-picked by you
+    </h4>
+    <div
+      className="sc-bwzfXH joayuL"
+    >
+      <a
+        href="/subscribe"
+      >
+        GET STARTED
+      </a>
+    </div>
+  </div>
+</div>
+`;

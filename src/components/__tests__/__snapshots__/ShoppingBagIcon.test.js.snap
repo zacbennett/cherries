@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShoppingBagIcon renders correctly 1`] = `
+<div
+  className="sc-bdVaJa fTFgr"
+>
+  <img
+    alt="search-icon"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginLeft": 10,
+        "marginRight": 20,
+        "maxHeight": 26,
+        "maxWidth": 23.92,
+      }
+    }
+  />
+</div>
+`;

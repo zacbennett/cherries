@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductPhotos renders correctly 1`] = `
+<div
+  className="sc-bdVaJa fpBCjz"
+>
+  <form
+    action="#"
+  >
+    <p>
+      <input
+        className="purchaseSelector"
+        id="oneTimePurchase"
+        name="radio-group"
+        type="radio"
+      />
+      <label
+        for="oneTimePurchase"
+      >
+         
+        <span
+          className="purchase-text"
+        >
+           One-Time Purchase:
+        </span>
+        <strong>
+          undefined
+        </strong>
+      </label>
+    </p>
+    <p>
+      <input
+        id="subscription"
+        name="radio-group"
+        type="radio"
+      />
+      <label
+        className="purchaseSelector"
+        for="subscription"
+      >
+         
+        <span
+          className="purchase-text"
+        >
+          Subscribe and Save:
+        </span>
+         
+        <strong>
+          $10/mo
+        </strong>
+      </label>
+    </p>
+  </form>
+</div>
+`;

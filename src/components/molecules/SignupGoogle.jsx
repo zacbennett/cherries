@@ -5,7 +5,8 @@ import { StyledButton, GoogleIcon, Loading } from '../atoms'
 import GoogleLogin from 'react-google-login'
 import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
-import bcrypt from 'bcryptjs'
+// import bcrypt from 'bcryptjs'
+import { navigate } from '@reach/router'
 
 const Container = styled.div`
   .google {
@@ -28,19 +29,24 @@ class SignupGoogle extends Component {
     let email = res.getBasicProfile().getEmail()
     let firstName = res.getBasicProfile().ofa
     let lastName = res.getBasicProfile().wea
-    let password = bcrypt
-      .hashSync(`${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`, 8)
-      .slice(0, 40)
-    let lambdaResponse = await postLambda('newAccount', {
-      firstName,
-      lastName,
-      email,
-      password,
-      newsletter: true,
-      status: 'SIGN UP',
-    })
-    let curUser = lambdaResponse.data.customer
-    this.props.userContext.setState({ curUser })
+    let password = `${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`
+    let lambdaResponse
+    try {
+      lambdaResponse = await postLambda('newAccount', {
+        firstName,
+        lastName,
+        email,
+        password,
+        newsletter: true,
+        status: 'SIGN UP',
+      })
+      let curUser = lambdaResponse.data.customer
+      this.props.userContext.setState({ curUser })
+      // TODO: Once we have a User Homepage, redirect them here. Otherwise, for the time being, theyre being redirected to the homepage
+      navigate('/')
+    } catch (err) {
+      this.setState({ status: 'FAILURE' })
+    }
   }
 
   render() {

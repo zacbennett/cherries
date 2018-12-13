@@ -52,11 +52,15 @@ class ProductDescription extends Component {
     quantity: 1,
     price: this.props.price,
     status: 'ADD TO BAG',
-    oneTimePurchase: true,
+    // Default selection to one-time purchase
+    purchaseType: 'oneTimePurchase',
   }
   handleChange = e => {
     e.preventDefault()
     this.setState({ [e.target.name]: e.target.value })
+  }
+  handleClick = e => {
+    this.setState({ purchaseType: e.target.id })
   }
   handleAdjust = e => {
     let newQuantity
@@ -88,6 +92,7 @@ class ProductDescription extends Component {
       this.props.images[0],
       this.props.sku
     )
+    console.log('item added')
     this.setState({ status: 'ADDED!' })
   }
   render() {
@@ -106,6 +111,7 @@ class ProductDescription extends Component {
         return <p key={i}>{fullClause}</p>
       }
     })
+    const opacity = this.state.purchaseType !== 'oneTimePurchase' ? 0.3 : 1
     return (
       <Layout>
         <h1>{this.props.title}</h1>
@@ -115,7 +121,7 @@ class ProductDescription extends Component {
           <ProductOrder
             price={this.state.price}
             handleAdjust={this.handleAdjust}
-            handleChange={this.handleChange}
+            handleClick={this.handleClick}
           />
         </div>
         <form className="purchase" onSubmit={this.handleSubmit}>
@@ -127,7 +133,13 @@ class ProductDescription extends Component {
             height={'2.5rem'}
             width={'3rem'}
           />
-          <StyledButton height={'2.5rem'} width={'18rem'} fontSize={'.65rem'}>
+          <StyledButton
+            height={'2.5rem'}
+            width={'18rem'}
+            fontSize={'.65rem'}
+            style={{ opacity: opacity }}
+            disabled={this.state.oneTimePurchase === 'oneTimePurchase' && false}
+          >
             <b>{this.state.status}</b>
           </StyledButton>
         </form>

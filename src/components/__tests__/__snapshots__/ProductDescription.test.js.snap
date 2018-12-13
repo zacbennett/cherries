@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDescription renders correctly 1`] = `
+<div
+  className="sc-iAyFgw ihxKmm"
+>
+  <h1>
+    Test Product
+  </h1>
+  <p>
+    Hi
+  </p>
+  <hr
+    className="sc-dnqmqq dAdrog"
+    width="100%"
+  />
+  <div>
+    <div
+      className="sc-jKJlTe bFiEdw"
+    >
+      <form
+        action="#"
+      >
+        <p>
+          <input
+            className="purchaseSelector"
+            id="oneTimePurchase"
+            name="radio-group"
+            type="radio"
+          />
+          <label
+            for="oneTimePurchase"
+          >
+             
+            <span
+              className="purchase-text"
+            >
+               One-Time Purchase:
+            </span>
+            <strong
+              onClick={[Function]}
+            >
+              9.99
+            </strong>
+          </label>
+        </p>
+        <p>
+          <input
+            id="subscription"
+            name="radio-group"
+            type="radio"
+          />
+          <label
+            className="purchaseSelector"
+            for="subscription"
+          >
+             
+            <span
+              className="purchase-text"
+            >
+              Subscribe and Save:
+            </span>
+             
+            <strong>
+              $10/mo
+            </strong>
+          </label>
+        </p>
+      </form>
+    </div>
+  </div>
+  <form
+    className="purchase"
+    onSubmit={[Function]}
+  >
+    <div
+      className="sc-iwsKbI laXdmC"
+      color="#E20031"
+      height="2.5rem"
+    >
+      <div
+        className="sub"
+        data-id=""
+        onClick={[Function]}
+      >
+        -
+      </div>
+      <p>
+        1
+      </p>
+      <div
+        className="add"
+        data-id=""
+        onClick={[Function]}
+      >
+        +
+      </div>
+    </div>
+    <button
+      className="sc-gzVnrw dTowVe"
+      fontSize=".65rem"
+      height="2.5rem"
+      width="18rem"
+    >
+      <b>
+        ADD TO BAG
+      </b>
+    </button>
+  </form>
+  <div
+    className="sc-gZMcBi acVHm"
+  >
+    <h4>
+      Details
+    </h4>
+    <p>
+      Enamel pin semiotics mixtape art party, selvage farm-to-table shabby chic vape 3 wolf moon sriracha glossier disrupt cronut celiac. Whatever vegan hexagon occupy celiac poutine enamel pin fanny pack tattooed master cleanse squid salvia. Celiac flexitarian biodiesel, coloring book raclette glossier migas. Fanny pack af tousled master cleanse woke. Jianbing whatever echo park, salvia raclette dreamcatcher narwhal letterpress pour-over.
+    </p>
+  </div>
+</div>
+`;

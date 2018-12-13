@@ -2,6 +2,7 @@ import axios from 'axios'
 const windowGlobal = typeof window !== 'undefined' && window
 
 function postLambda(lambdaName, data) {
+  // console.log('WHAT DOES DATA LOOK LIKE?', data)
   try {
     return axios.post(
       windowGlobal.location.hostname === 'localhost'

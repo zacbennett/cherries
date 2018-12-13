@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetail renders correctly 1`] = `
+<div
+  className="sc-bdVaJa hRKdxn"
+>
+  <h4>
+    Details
+  </h4>
+  <p>
+    Materials: something something something
+  </p>
+  <p>
+    Closure: something else
+  </p>
+  <p>
+    Allergy Information: something the most
+  </p>
+</div>
+`;

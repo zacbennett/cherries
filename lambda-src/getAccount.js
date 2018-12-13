@@ -10,7 +10,15 @@ const shopifyConfig = {
   'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_KEY,
 }
 exports.handler = async function(event, context, callback) {
-  console.log('\n\n\n\n reached top of getAccount are we running?', event.body)
+  // console.log(
+  //   '\n\n\n\n reached top of getAccount are we running? event:',
+  //   event.body,
+  //   'context:',
+  //   context,
+  //   'callback:',
+  //   callback
+  // )
+  let statusCode = 200
   if (event.httpMethod !== 'POST' || !event.body) {
     return callback(null, {
       statusCode,
@@ -48,7 +56,8 @@ exports.handler = async function(event, context, callback) {
         password: body.password,
       },
     }
-    console.log('what are the tokenVars:', tokenVariables)
+    console.log('WHAT ARE THE TOKEN_VARIABLES:', tokenVariables)
+    console.log('WHAT IS SHOPIFY CONFIG:', shopifyConfig)
     let token
     try {
       let response = await axios.post(
@@ -59,17 +68,26 @@ exports.handler = async function(event, context, callback) {
         },
         { headers: shopifyConfig }
       )
-      console.log('whats the response:', response)
+      console.log('LOOK AT THE RESPONSE A LITTLE DEEPER:', response)
+      console.log(
+        'WHATS THE RESPONSE.DATA.DATA.CUSTOMERACCESSTOKENCREATE:',
+        response.data.data.customerAccessTokenCreate
+      )
+      // console.log('WHATS THE RESPONSE.DATA.DATA:', response.data.data)
       if (response.data.data.errors) {
         return callback(response.data.data.customerAccessTokenCreate.userErrors)
       } else {
-        console.log('tokencreate', response.data.data.customerAccessTokenCreate)
+        // console.log(
+        //   'TOKEN CREATE',
+        //   response.data.data.customerAccessTokenCreate
+        // )
         token =
           response.data.data.customerAccessTokenCreate.customerAccessToken
             .accessToken
-        console.log('are we getting a token', token)
+        console.log('ARE WE GETTING A TOKEN?', token)
       }
     } catch (err) {
+      // console.log('OR ARE WE GETTING AN ERROR:', err)
       return callback(err)
     }
 
@@ -120,6 +138,9 @@ exports.handler = async function(event, context, callback) {
     const customerVariable = {
       customerAccessToken: token,
     }
+    // console.log('ARE WE GETTING CUSTOMER VARIABLE?', customerVariable)
+    // console.log('ARE WE GETTING CUSTOMER QUERY?', customerQuery)
+    // console.log('ARE WE GETTING SHOPIFY CONFIG?', shopifyConfig)
 
     try {
       let response = await axios.post(
@@ -128,9 +149,12 @@ exports.handler = async function(event, context, callback) {
         { headers: shopifyConfig }
       )
       if (response.data.data.errors) {
+        // console.log('DID WE ERROR OUT?:', response.data.data)
         return callback(response.data.data)
       } else {
+        console.log('OR DID WE SUCCEED?')
         let customer = response.data.data.customer
+        customer.token = token
         let responseObj = {
           statusCode: 200,
           headers,
@@ -139,7 +163,7 @@ exports.handler = async function(event, context, callback) {
           }),
         }
 
-        return callback(null, responseObj)
+        return responseObj
       }
     } catch (err) {
       return callback(err)

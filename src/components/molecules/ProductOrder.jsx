@@ -67,6 +67,8 @@ class ProductOrder extends Component {
               type="radio"
               name="radio-group"
               id="oneTimePurchase"
+              onClick={this.props.handleClick}
+              checked
             />
             <label for="oneTimePurchase">
               {' '}
@@ -77,7 +79,12 @@ class ProductOrder extends Component {
             </label>
           </p>
           <p>
-            <input type="radio" name="radio-group" id="subscription" />
+            <input
+              type="radio"
+              name="radio-group"
+              id="subscription"
+              onClick={this.props.handleClick}
+            />
             <label className="purchaseSelector" for="subscription">
               {' '}
               <span className="purchase-text">Subscribe and Save:</span>{' '}

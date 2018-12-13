@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList renders correctly 1`] = `
+<div
+  className="sc-jTzLTM kakAjN"
+>
+  <p
+    className="product-list-header"
+  >
+    Fresh Picks
+    <span
+      className="product-list-subheader"
+    >
+      <a
+        href="/"
+      >
+        <u>
+          <i>
+            <small>
+              <span
+                className="product-list-subheader"
+              >
+                Show all
+              </span>
+            </small>
+          </i>
+        </u>
+      </a>
+    </span>
+  </p>
+  <div
+    className="product-list-card-container"
+  >
+    <div
+      className="sc-ifAKCX hDJblS"
+    >
+      <a
+        className="product-card"
+        href="Astronaut-Baby/"
+      >
+        <img
+          alt="earring"
+          className="product-card-image"
+          src="//images.ctfassets.net/4yejk6rho2rp/60XuYBiY6IIes0aqyAOQIs/e177ec00483171ad7d8a71e6cf8f462f/fashion-woman-dangle-earrings-heartly-space-dream-tong-qu-the-earth-rocket-astronauts-blue-pendants-earrings.jpg_640x640.jpg"
+        />
+        <p
+          className="product-card-name"
+        >
+          Astronaut Baby
+        </p>
+        <p
+          className="product-card-price"
+        >
+          $
+          22.99
+        </p>
+      </a>
+    </div>
+    <div
+      className="sc-ifAKCX hDJblS"
+    >
+      <a
+        className="product-card"
+        href="Geometric-Oval-Drop/"
+      >
+        <img
+          alt="earring"
+          className="product-card-image"
+          src="//images.ctfassets.net/4yejk6rho2rp/7slN8SXJ0QiKkcYCyGkSyO/9b62e2aefc280bbc818a5f7dbab3a515/Fashion-color-metal-geometry-stud-earrings-female-popular-Classic-Golden-women-stud-earrings-red-rectangle-earrings.jpg"
+        />
+        <p
+          className="product-card-name"
+        >
+          Geometric Oval Drop
+        </p>
+        <p
+          className="product-card-price"
+        >
+          $
+          18.99
+        </p>
+      </a>
+    </div>
+  </div>
+</div>
+`;

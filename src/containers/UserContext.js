@@ -4,7 +4,7 @@ export const UserContext = React.createContext()
 
 export class UserProvider extends Component {
   state = {
-    curUser: {},
+    curUser: null,
   }
 
   render() {

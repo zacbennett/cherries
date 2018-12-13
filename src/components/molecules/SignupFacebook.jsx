@@ -6,7 +6,8 @@ import { FaFacebookSquare } from 'react-icons/fa'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import postLambda from '../../utilities/postLambda'
 import { UserContext } from '../../containers/UserContext'
-import bcrypt from 'bcryptjs'
+// import bcrypt from 'bcryptjs'
+import { navigate } from '@reach/router'
 
 const Container = styled.div`
   .facebook {
@@ -28,17 +29,14 @@ class SignupFacebook extends Component {
   }
   // TODO Handle errors
   async responseFacebook(res) {
-    console.log(res)
     let email = res.email
     let fullName = res.name.split(' ')
     let firstName = fullName[0]
     let lastName = fullName[1]
-    //Shopify forces a max of 40 char per password (hence the slice)
-    let password = bcrypt
-      .hashSync(`${email}${process.env.FACEBOOK_AUTH_KEYWORD}`, 6)
-      .slice(0, 40)
+    let password = `${res.id}${process.env.FACEBOOK_AUTH_KEYWORD}`
+    let lambdaResponse
     try {
-      let lambdaResponse = await postLambda('newAccount', {
+      lambdaResponse = await postLambda('newAccount', {
         firstName,
         lastName,
         email,
@@ -48,8 +46,9 @@ class SignupFacebook extends Component {
       })
       let curUser = lambdaResponse.data.customer
       this.props.userContext.setState({ curUser })
+      // TODO: Once we have a User Homepage, redirect them here. Otherwise, for the time being, theyre being redirected to the homepage
+      navigate('/')
     } catch (err) {
-      console.log('failed signup')
       this.setState({ status: 'FAILURE' })
     }
   }

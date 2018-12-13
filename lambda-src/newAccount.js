@@ -62,7 +62,7 @@ exports.handler = async function(event, context, callback) {
         lastName: body.lastName,
       },
     }
-    console.log('here are the variables', variables)
+    // console.log('here are the variables', variables)
     axios
       .post(
         'https://cherries2018.myshopify.com/api/graphql',
@@ -75,10 +75,13 @@ exports.handler = async function(event, context, callback) {
       .then(async function(response) {
         let customer
         if (response.data.errors) {
+          console.log('what are the response.data.errors', response.data.errors)
+          console.log('what does callback look like again?', callback)
+          // return response.data.errors
           return callback(response.data.errors)
         } else {
           customer = response.data.data.customerCreate
-          console.log('new customer:', customer)
+          console.log('ARE WE MAKING A NEW CUSTOMER?', customer)
         }
         // let responseObj = {
         //   statusCode: 200,
@@ -93,6 +96,7 @@ exports.handler = async function(event, context, callback) {
         let loginInfo = {
           email: body.email,
           password: body.password,
+          remember: true,
         }
         let request = {
           httpMethod: 'POST',
@@ -103,11 +107,10 @@ exports.handler = async function(event, context, callback) {
             body: JSON.stringify(loginInfo),
           }),
         }
-        console.log('\n\n\n\n\n\nNEVER LET ME DOWN')
 
-        console.log('\n\n\n\nabout to call get account')
+        console.log('\n\n\n\nabout to call get account ----- request:', request)
         let loggedInUser = await getAccount.handler(request)
-        console.log('are we logging the user in?')
+        console.log('WHAT DOES LOGGEDINUSER LOOK LIKE', loggedInUser)
         return callback(null, loggedInUser)
       })
       .catch(err => {
