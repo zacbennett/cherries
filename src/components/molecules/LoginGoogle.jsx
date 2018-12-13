@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { StyledButton, GoogleIcon } from '../atoms'
+import { StyledButton, GoogleIcon, Loading } from '../atoms'
 import GoogleLogin from 'react-google-login'
 import { UserContext } from '../../containers/UserContext'
-import bcrypt from 'bcryptjs'
+// import bcrypt from 'bcryptjs'
 import postLambda from '../../utilities/postLambda'
+import { navigate } from '@reach/router'
 
 const Container = styled.div`
   .google {
     display: flex;
     align-items: center;
     justify-content: center;
+    fontSize=".8rem";
     svg {
       margin-left: 0.5rem;
     }
@@ -20,22 +22,31 @@ const Container = styled.div`
 class LoginGoogle extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      errorOrLoading: '',
+    }
     this.responseGoogle = this.responseGoogle.bind(this)
   }
 
   // TODO: Handle error
   async responseGoogle(res) {
+    this.setState({ errorOrLoading: <Loading /> })
     let userProfileId = res.getBasicProfile().getId()
     let email = res.getBasicProfile().getEmail()
-    let password = bcrypt
-      .hashSync(`${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`, 8)
-      .slice(0, 40)
-    let lambdaResponse = await postLambda('getAccount', {
-      email,
-      password,
-      remember: true,
-    })
-    // TODO WHAT DO WE DO WITH LOGIN
+    let password = `${userProfileId}${process.env.GOOGLE_AUTH_KEYWORD}`
+    try {
+      let lambdaResponse = await postLambda('getAccount', {
+        email,
+        password,
+        remember: true,
+      })
+      let curUser = lambdaResponse.data.customer
+      // Set state on context through UserProvider component
+      this.props.userContext.setState({ curUser })
+      navigate('/')
+    } catch (err) {
+      this.setState({ errorOrLoading: 'Uh oh. There was an error!' })
+    }
   }
 
   render() {
@@ -64,16 +75,11 @@ class LoginGoogle extends Component {
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
         />
+        <p className="google">{this.state.errorOrLoading}</p>
       </Container>
     )
   }
 }
-
-export default () => (
-  <UserContext.Consumer>
-    {userContext => <LoginGoogle userContext={userContext} />}
-  </UserContext.Consumer>
-)
 
 // OLD GOOGLE LOGIN
 //
@@ -111,3 +117,9 @@ export default () => (
 //     )
 //   }
 // }
+
+export default () => (
+  <UserContext.Consumer>
+    {userContext => <LoginGoogle userContext={userContext} />}
+  </UserContext.Consumer>
+)

@@ -14,6 +14,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    fontSize='.8rem';
     svg {
       margin-left: 0.5rem;
     }
@@ -23,12 +24,13 @@ class SignupFacebook extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      status: '',
+      errorOrLoading: '',
     }
     this.responseFacebook = this.responseFacebook.bind(this)
   }
   // TODO Handle errors
   async responseFacebook(res) {
+    this.setState({ errorOrLoading: <Loading /> })
     let email = res.email
     let fullName = res.name.split(' ')
     let firstName = fullName[0]
@@ -49,13 +51,14 @@ class SignupFacebook extends Component {
       // TODO: Once we have a User Homepage, redirect them here. Otherwise, for the time being, theyre being redirected to the homepage
       navigate('/')
     } catch (err) {
-      this.setState({ status: 'FAILURE' })
+      this.setState({ errorOrLoading: 'Uh oh. There was an error!' })
     }
   }
 
   render() {
     return (
       <Container>
+        <p className="facebook">{this.state.errorOrLoading}</p>
         <FacebookLogin
           appId={process.env.FACEBOOK_APP_ID}
           autoLoad={false}

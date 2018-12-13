@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { StyledButton } from '../atoms'
+import { StyledButton, Loading } from '../atoms'
 import { FaFacebookSquare } from 'react-icons/fa'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import bcrypt from 'bcryptjs'
+// import bcrypt from 'bcryptjs'
 import postLambda from '../../utilities/postLambda'
+import { navigate } from '@reach/router'
+import { UserContext } from '../../containers/UserContext'
 
 const Container = styled.div`
   .facebook {
     display: flex;
     align-items: center;
     justify-content: center;
+    fontSize=".8rem";
     svg {
       margin-left: 0.5rem;
     }
@@ -20,32 +23,39 @@ const Container = styled.div`
 class LoginFacebook extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      errorOrLoading: '',
+    }
     this.responseFacebook = this.responseFacebook.bind(this)
   }
 
   // TODO: Handle error
   async responseFacebook(res) {
+    this.setState({ errorOrLoading: <Loading /> })
     let email = res.email
-    // let password = bcrypt.hashSync(
-    //   `${email}${process.env.FACEBOOK_AUTH_KEYWORD}`,
-    //   8
-    // )
-    // .slice(0, 5)
-    let password = res.id
-    console.log('access password', password)
-    let lambdaResponse = await postLambda('getAccount', {
-      email,
-      password,
-      remember: true,
-    })
+    let password = `${res.id}${process.env.FACEBOOK_AUTH_KEYWORD}`
+    try {
+      let lambdaResponse = await postLambda('getAccount', {
+        email,
+        password,
+        remember: true,
+      })
+      let curUser = lambdaResponse.data.customer
+      // Set state on context through UserProvider component
+      this.props.userContext.setState({ curUser })
+      navigate('/')
+    } catch (err) {
+      this.setState({ errorOrLoading: 'Uh oh. There was an error!' })
+    }
   }
 
   render() {
     return (
       <Container>
+        <p className="facebook">{this.state.errorOrLoading}</p>
         <FacebookLogin
           appId={process.env.FACEBOOK_APP_ID}
-          autoLoad
+          autoLoad={false}
           fields="name,email,id"
           callback={this.responseFacebook}
           render={renderProps => (
@@ -70,8 +80,6 @@ class LoginFacebook extends Component {
     )
   }
 }
-
-export default LoginFacebook
 
 // OLD FACEBOOK LOGIN
 //
@@ -108,3 +116,9 @@ export default LoginFacebook
 //     )
 //   }
 // }
+
+export default () => (
+  <UserContext.Consumer>
+    {userContext => <LoginFacebook userContext={userContext} />}
+  </UserContext.Consumer>
+)

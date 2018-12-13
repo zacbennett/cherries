@@ -45,13 +45,19 @@ const Container = styled.div`
 `
 
 class Signup extends Component {
-  state = {
-    errorMessage: null,
+  constructor(props) {
+    super(props)
+    this.state = {
+      errorMessage: null,
+    }
+    this.handleError = this.handleError.bind(this)
   }
   componentDidMount() {
     // this.props.resetSidebar()
   }
-  handleError = errorMessage => {
+  handleError(errorMessage) {
+    console.log('do we get here?')
+    console.log('if so, what is the err message', errorMessage)
     this.setState({ errorMessage: errorMessage })
   }
 

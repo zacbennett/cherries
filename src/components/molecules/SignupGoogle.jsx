@@ -13,6 +13,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    fontSize=".8rem";
     svg {
       margin-left: 0.5rem;
     }
@@ -21,10 +22,13 @@ const Container = styled.div`
 class SignupGoogle extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      errorOrLoading: '',
+    }
     this.responseGoogle = this.responseGoogle.bind(this)
   }
-  // TODO Handle Errors
   async responseGoogle(res) {
+    this.setState({ errorOrLoading: <Loading /> })
     let userProfileId = res.getBasicProfile().getId()
     let email = res.getBasicProfile().getEmail()
     let firstName = res.getBasicProfile().ofa
@@ -45,7 +49,7 @@ class SignupGoogle extends Component {
       // TODO: Once we have a User Homepage, redirect them here. Otherwise, for the time being, theyre being redirected to the homepage
       navigate('/')
     } catch (err) {
-      this.setState({ status: 'FAILURE' })
+      this.setState({ errorOrLoading: 'Uh oh. There was an error!' })
     }
   }
 
@@ -75,6 +79,7 @@ class SignupGoogle extends Component {
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
         />
+        <p className="google">{this.state.errorOrLoading}</p>
       </Container>
     )
   }
