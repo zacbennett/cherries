@@ -20,6 +20,7 @@ const Container = styled.div`
     }
   }
 `
+
 class SignupFacebook extends Component {
   constructor(props) {
     super(props)

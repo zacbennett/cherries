@@ -24,7 +24,6 @@ const shopifyConfig = {
 exports.handler = async function(event, context, callback) {
   //make sure request is secure - CORS
   //sends an option method request
-  // console.log('we ran new account')
   if (event.httpMethod !== 'POST' || !event.body) {
     return callback(null, {
       statusCode,
@@ -62,7 +61,7 @@ exports.handler = async function(event, context, callback) {
         lastName: body.lastName,
       },
     }
-    // console.log('here are the variables', variables)
+
     axios
       .post(
         'https://cherries2018.myshopify.com/api/graphql',
@@ -75,13 +74,10 @@ exports.handler = async function(event, context, callback) {
       .then(async function(response) {
         let customer
         if (response.data.errors) {
-          console.log('what are the response.data.errors', response.data.errors)
-          console.log('what does callback look like again?', callback)
           // return response.data.errors
           return callback(response.data.errors)
         } else {
           customer = response.data.data.customerCreate
-          console.log('ARE WE MAKING A NEW CUSTOMER?', customer)
         }
         // let responseObj = {
         //   statusCode: 200,
@@ -107,10 +103,7 @@ exports.handler = async function(event, context, callback) {
             body: JSON.stringify(loginInfo),
           }),
         }
-
-        console.log('\n\n\n\nabout to call get account ----- request:', request)
         let loggedInUser = await getAccount.handler(request)
-        console.log('WHAT DOES LOGGEDINUSER LOOK LIKE', loggedInUser)
         return callback(null, loggedInUser)
       })
       .catch(err => {

@@ -20,6 +20,7 @@ const Container = styled.div`
     }
   }
 `
+
 class LoginFacebook extends Component {
   constructor(props) {
     super(props)
@@ -28,8 +29,6 @@ class LoginFacebook extends Component {
     }
     this.responseFacebook = this.responseFacebook.bind(this)
   }
-
-  // TODO: Handle error
   async responseFacebook(res) {
     this.setState({ errorOrLoading: <Loading /> })
     let email = res.email

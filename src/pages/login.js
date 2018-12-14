@@ -46,6 +46,7 @@ const Container = styled.div`
     margin-top: 1rem;
   }
 `
+const windowGlobal = typeof window !== 'undefined' && window
 
 class Login extends Component {
   state = {
@@ -76,9 +77,18 @@ class Login extends Component {
           </p>
           <LoginEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <LoginFacebook handleError={this.handleError} />
-          <LoginGoogle handleError={this.handleError} />
-
+          {/* {typeof window !== 'undefined' && process.browser && (
+            <React.Fragment>
+              <LoginFacebook handleError={this.handleError} />
+              <LoginGoogle handleError={this.handleError} />
+            </React.Fragment>
+          )} */}
+          {windowGlobal && (
+            <React.Fragment>
+              <LoginFacebook handleError={this.handleError} />
+              <LoginGoogle handleError={this.handleError} />
+            </React.Fragment>
+          )}
           <NavLink
             to="/signup"
             fontSize=".8rem"

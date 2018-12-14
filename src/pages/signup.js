@@ -43,6 +43,7 @@ const Container = styled.div`
     margin-top: 1rem;
   }
 `
+const windowGlobal = typeof window !== 'undefined' && window
 
 class Signup extends Component {
   constructor(props) {
@@ -56,8 +57,6 @@ class Signup extends Component {
     // this.props.resetSidebar()
   }
   handleError(errorMessage) {
-    console.log('do we get here?')
-    console.log('if so, what is the err message', errorMessage)
     this.setState({ errorMessage: errorMessage })
   }
 
@@ -75,8 +74,19 @@ class Signup extends Component {
           </p>
           <SignupEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <SignupFacebook handleError={this.handleError} />
-          <SignupGoogle handleError={this.handleError} />
+          {/* {typeof window !== 'undefined' && process.browser && (
+            <React.Fragment>
+              <SignupFacebook handleError={this.handleError} />
+              <SignupGoogle handleError={this.handleError} />
+            </React.Fragment>
+          )} */}
+          {windowGlobal && (
+            <React.Fragment>
+              <SignupFacebook handleError={this.handleError} />
+              <SignupGoogle handleError={this.handleError} />
+            </React.Fragment>
+          )}
+
           <NavLink
             to="/login"
             fontSize=".8rem"

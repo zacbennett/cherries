@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { StyledButton, GoogleIcon, Loading } from '../atoms'
-import GoogleLogin from 'react-google-login'
 import { UserContext } from '../../containers/UserContext'
 // import bcrypt from 'bcryptjs'
 import postLambda from '../../utilities/postLambda'
 import { navigate } from '@reach/router'
+// import GoogleLogin from 'react-google-login'
 
+if (typeof window !== 'undefined') {
+  var GoogleLogin = require('react-google-login')
+}
 const Container = styled.div`
   .google {
     display: flex;
@@ -19,11 +22,13 @@ const Container = styled.div`
     }
   }
 `
+
 class LoginGoogle extends Component {
   constructor(props) {
     super(props)
     this.state = {
       errorOrLoading: '',
+      render: '',
     }
     this.responseGoogle = this.responseGoogle.bind(this)
   }
@@ -52,29 +57,31 @@ class LoginGoogle extends Component {
   render() {
     return (
       <Container>
-        <GoogleLogin
-          className="google"
-          clientId={process.env.GOOGLE_CLIENT_ID}
-          render={renderProps => (
-            <StyledButton
-              onClick={renderProps.onClick}
-              width="17rem"
-              height="2.5rem"
-              color="#D34836"
-              backgroundColor="white"
-              borderColor="#D34836"
-              borderWidth="2px"
-              hovercolor="#F9F7F1"
-              margin=".5rem"
-              className="google"
-            >
-              CONNECT WITH <GoogleIcon />
-            </StyledButton>
-          )}
-          icon={false}
-          onSuccess={this.responseGoogle}
-          onFailure={this.responseGoogle}
-        />
+        {typeof window !== 'undefined' && (
+          <GoogleLogin.GoogleLogin
+            className="google"
+            clientId={process.env.GOOGLE_CLIENT_ID}
+            render={renderProps => (
+              <StyledButton
+                onClick={renderProps.onClick}
+                width="17rem"
+                height="2.5rem"
+                color="#D34836"
+                backgroundColor="white"
+                borderColor="#D34836"
+                borderWidth="2px"
+                hovercolor="#F9F7F1"
+                margin=".5rem"
+                className="google"
+              >
+                CONNECT WITH <GoogleIcon />
+              </StyledButton>
+            )}
+            icon={false}
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+          />
+        )}
         <p className="google">{this.state.errorOrLoading}</p>
       </Container>
     )

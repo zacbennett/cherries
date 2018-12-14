@@ -15,6 +15,7 @@
     "fuse.js": "^3.3.0",
     "gatsby": "^2.0.53",
     "gatsby-image": "^2.0.20",
+    "gatsby-plugin-archives": "^1.0.4",
     "gatsby-plugin-google-fonts": "0.0.4",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-netlify": "^2.0.6",
