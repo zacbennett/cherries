@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from '../atoms'
-import navigateTo from 'gatsby'
 
 const Container = styled.div`
   ul.side-navbar-dropdown {

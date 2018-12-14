@@ -7,7 +7,11 @@ import { MainLayout } from '../components/layouts'
 const Container = Styled.div`
   display: flex;
   justify-content: center;
+  margin: 2rem: 
 `
+
+//Subscription page renders a ButtonList component which gets passed data from GraphQL query
+//This data includes header and subscription description text
 class SubscriptionType extends Component {
   render() {
     let data = this.props.data.allContentfulSubscriptionType.edges[0].node

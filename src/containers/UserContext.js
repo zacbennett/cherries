@@ -8,7 +8,6 @@ export class UserProvider extends Component {
   }
 
   render() {
-    console.log('userContext', this.state.curUser)
     return (
       <UserContext.Provider
         value={{ ...this.state, setState: this.setState.bind(this) }}

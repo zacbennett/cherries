@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { ClaimSubscription } from '../atoms'
 import { SubscriptionOvalButton } from '../atoms'
-import { MainLayout } from '../layouts'
 
 const Container = Styled.div`
    justify-content: space-around;
@@ -33,12 +32,18 @@ const Container = Styled.div`
       height: 83px;
     }
 `
+
+//Right now the subscription page is setup so that when a user clicks on a specific button
+//then the add to bag button appears and other 2 buttons get disabled
+//This was work in progress so you probably want to change.
+
+//Claim subscription component that is rendered holds Add to Bag button and Description
+
 class SubscriptionOvalButtonList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      subscriptionType: '',
-      claimSubscription: false,
+      subscriptionType: { initial: true, type: '' },
       clickedButton: false,
     }
     this.changeSubscription = this.changeSubscription.bind(this)
@@ -46,8 +51,10 @@ class SubscriptionOvalButtonList extends Component {
 
   changeSubscription(subscriptionType) {
     this.setState(st => ({
-      subscriptionType: subscriptionType,
-      claimSubscription: true,
+      subscriptionType: {
+        initial: !st.subscriptionType.initial,
+        type: subscriptionType,
+      },
       clickedButton: !st.clickedButton,
     }))
   }
@@ -63,20 +70,40 @@ class SubscriptionOvalButtonList extends Component {
             text={this.props.buttonData.oneMonthSubscription}
             type={''}
             changeSubscription={this.changeSubscription}
+            disabled={
+              this.state.subscriptionType.type === '' ||
+              this.state.subscriptionType.initial === true
+                ? false
+                : true
+            }
           />
           <SubscriptionOvalButton
             text={this.props.buttonData.twoMonthSubscription}
             type={'two'}
             changeSubscription={this.changeSubscription}
+            disabled={
+              this.state.subscriptionType.type === 'two' ||
+              this.state.subscriptionType.initial === true
+                ? false
+                : true
+            }
           />
           <SubscriptionOvalButton
             text={this.props.buttonData.threeMonthSubscription}
             type={'three'}
             changeSubscription={this.changeSubscription}
+            disabled={
+              this.state.subscriptionType.type === 'three' ||
+              this.state.subscriptionType.initial === true
+                ? false
+                : true
+            }
           />
         </div>
-        {this.state.claimSubscription || this.state.clickedButton ? (
-          <ClaimSubscription subscriptionType={this.state.subscriptionType} />
+        {this.state.clickedButton ? (
+          <ClaimSubscription
+            subscriptionType={this.state.subscriptionType.type}
+          />
         ) : (
           ''
         )}
