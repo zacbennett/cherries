@@ -19,6 +19,7 @@ const Container = styled.div`
   padding: 4rem;
   color: #47525e;
   font-family: Lato;
+  */
   a {
     text-decoration: none;
   }
@@ -41,7 +42,7 @@ const Container = styled.div`
     font-size: 0.8rem;
   }
   @media (max-width: 420px) {
-    margin-top: 1rem; */
+    margin-top: 1rem;
   }
 `
 

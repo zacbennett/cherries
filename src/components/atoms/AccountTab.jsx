@@ -7,7 +7,9 @@ const Container = Styled.div`
 li{
 margin:0;
 background-color: white;
-outline: 2px solid black;
+border: 1px solid black;
+border-right: 0;
+
 text-align: left;
 font-size: 0.8rem;
 font-weight: bold;

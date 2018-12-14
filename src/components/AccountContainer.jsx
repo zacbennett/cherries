@@ -8,22 +8,9 @@ import { UserContext } from '../containers/UserContext'
 const Container = Styled.div`
   position: relative;
   display: flex;
-  margin: 5rem;
-  max-width: 40rem;
-  height: 30rem;
-  outline: 2px solid black;
-  /* position: relative;
-  font-family: Montserrat;
-  font-size: .8rem;
-  font-weight: 700;
-  color: white;
-  height: 170vw;
-  width: 100vw;
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  z-index: 1; */
+  margin: 5rem auto;
+  width: 40rem;
+  height: 25rem;
 `
 class AccountContainer extends Component {
   constructor(props) {
@@ -39,14 +26,26 @@ class AccountContainer extends Component {
   }
 
   render() {
+    const tabNames = [
+      'Account Details',
+      'Subscription',
+      'Free Earrings',
+      'Order History',
+      'Address Book',
+      'Billing',
+    ]
     const { currentContent } = this.state
     return (
       <UserContext.Consumer>
         {userContext => (
           <Container>
-            <AccountTabList handleClick={this.changeContent} />
+            <AccountTabList
+              tabNames={tabNames}
+              handleClick={this.changeContent}
+            />
             <AccountContent
               userContext={userContext}
+              tabNames={tabNames}
               currentContent={currentContent}
             />
           </Container>

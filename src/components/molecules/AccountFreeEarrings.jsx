@@ -17,30 +17,13 @@ const Container = styled.ul`
   }
 `
 
-class AccountDetails extends Component {
-  state = { isLoading: true }
-
-  componentDidMount() {
-    this.setState({ isLoading: false })
-  }
-
+class AccountFreeEarrings extends Component {
   render() {
     const { userContext } = this.props
-    const curUser = userContext.curUser
 
     return (
       <Container>
-        {this.state.isLoading ? (
-          <h1>Loading...</h1>
-        ) : (
-          <>
-            <h4>Account Details</h4>
-            <p>
-              {curUser.firstName} {curUser.lastName}
-            </p>
-            <p>{curUser.email}</p>
-          </>
-        )}
+        <h4>Free Earrings</h4>
       </Container>
     )
   }
@@ -48,6 +31,6 @@ class AccountDetails extends Component {
 
 export default () => (
   <UserContext.Consumer>
-    {userContext => <AccountDetails userContext={userContext} />}
+    {userContext => <AccountFreeEarrings userContext={userContext} />}
   </UserContext.Consumer>
 )

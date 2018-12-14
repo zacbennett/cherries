@@ -7,23 +7,17 @@ import { AccountTab } from '../atoms'
 
 const Container = styled.ul`
   text-align: center;
-  width: 30%;
+  width: 20%;
   display: inline-block;
   list-style: none;
   margin-left: 0em;
-  border: 2px solid black;
+  margin-bottom: 0em;
+  /* outline: 2px solid black; */
 `
 
 class AccountTabList extends Component {
   render() {
-    const tabNames = [
-      'Account Details',
-      'Subscription',
-      'Free Earrings',
-      'Order History',
-      'Address Book',
-      'Billing',
-    ]
+    const { tabNames } = this.props
     const tabs = tabNames.map(tabName => (
       <AccountTab
         key={tabName}

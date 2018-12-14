@@ -9,14 +9,15 @@ export class UserProvider extends Component {
     curUser: null,
   }
 
-  componentDidMount() {
-    this.setState({
+  async componentDidMount() {
+    this.setState(st => ({
       curUser: JSON.parse(windowGlobal.localStorage.getItem('curUser')),
-    })
+    }))
   }
 
   render() {
     console.log('userContext', this.state.curUser)
+
     return (
       <UserContext.Provider
         value={{ ...this.state, setState: this.setState.bind(this) }}
