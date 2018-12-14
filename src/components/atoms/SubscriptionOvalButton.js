@@ -7,13 +7,28 @@ const Container = Styled.div`
     border-radius: 100%;
     width: 83px;
     height: 83px;
+    margin: 20px;
   }
   .pressedButton { 
-      background-color: #E20031;
-      border-radius: 100%;
-      width: 83px;
-      height: 83px;
+    background-color: #E20031;
+    border-radius: 100%;
+    width: 83px;
+    height: 83px;
+    margin: 20px;
     }
+  .buttonText {
+    color: #E20031;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 39px;
+    text-align: center;
+  }
+  .subscriptionDescription {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+  }
 `
 class SubscriptionOvalButton extends Component {
   constructor(props) {
@@ -46,8 +61,8 @@ class SubscriptionOvalButton extends Component {
     return (
       <Container>
         <button onClick={this.handleClick} className={buttonClass} />
-        <h6>{this.props.text}</h6>
-        <h5>{`We'll deliver ${subscriptionType}`}</h5>
+        <p className="buttonText">{this.props.text}</p>
+        <p className="subscriptionDescription">{`We'll deliver ${subscriptionType}`}</p>
       </Container>
     )
   }
