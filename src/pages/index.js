@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
-
 import { HomePageHero, HomePageTryptych, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
+let Fuse = require('fuse.js')
 
 const Container = Styled.div`
   align-items: center;
@@ -24,19 +24,49 @@ class IndexPage extends Component {
     super(props)
     this.state = {}
   }
+
   render() {
-    const freshPicks = this.props.data.allContentfulProductPage.edges
+    const options = {
+      shouldSort: true,
+      threshold: 0.3,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: ['node.tags'],
+    }
+
+    let featuredSearchResults
+    const allProducts = this.props.data.allContentfulProductPage.edges
+    const typeArray = this.props.data.allContentfulHomePage.edges[0].node
+      .childContentfulHomePageFeaturedRichTextNode.content
+    let fuse = new Fuse(allProducts, options)
+    let productListComponents = typeArray.map((content, index) => {
+      if (content.content[0].value === 'Featured') {
+        featuredSearchResults = fuse.search(content.content[0].value)
+        featuredSearchResults.length = 4
+      } else {
+        let searchResults = fuse.search(content.content[0].value)
+        searchResults.length = 4
+        return (
+          <ProductList
+            key={index}
+            products={searchResults}
+            title={content.content[0].value}
+          />
+        )
+      }
+    })
+
     return (
       <Container>
         <MainLayout>
           <SideNav className="sideNav" />
           <div>
             <HomePageHero />
-            <ProductList products={freshPicks} />
+            <ProductList products={featuredSearchResults} title={'Featured'} />
             <HomePageTryptych />
-            <ProductList products={freshPicks} />
-            <ProductList products={freshPicks} />
-            <ProductList products={freshPicks} />
+            {productListComponents}
           </div>
         </MainLayout>
       </Container>
@@ -45,21 +75,35 @@ class IndexPage extends Component {
 }
 
 // Eventually may connect to shopify for sales-driven data
+
+// query for all the product data
+// query for what are the featured items
 export const query = graphql`
   {
-    allContentfulProductPage(
-      sort: { fields: [createdAt], order: DESC }
-      limit: 4
-    ) {
+    allContentfulProductPage(sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           id
           createdAt
           title
+          tags
           price
           images {
             file {
               url
+            }
+          }
+        }
+      }
+    }
+    allContentfulHomePage {
+      edges {
+        node {
+          childContentfulHomePageFeaturedRichTextNode {
+            content {
+              content {
+                value
+              }
             }
           }
         }

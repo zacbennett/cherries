@@ -23,8 +23,6 @@ const Container = Styled.div`
   }
 `
 
-// Refactored Navbar to be a component rendered by StaticQuery (instead of putting definition directly in StaticQuery render)
-
 class Navbar extends Component {
   constructor(props) {
     super(props)
@@ -43,7 +41,17 @@ class Navbar extends Component {
   }
 
   render() {
-    const { data } = this.props
+    const {
+      bannerPromoText,
+      bannerPromoTitle,
+      navHelpIcon,
+      navUserIcon,
+      navSearchIcon,
+      navCartIcon,
+      navCherriesIcon,
+      userLinks,
+      helpLinks,
+    } = this.props.data.contentfulHomePage
     const { sidebar, displayFix } = this.state
     return (
       <Container>
@@ -53,21 +61,21 @@ class Navbar extends Component {
               {cartContext => (
                 <>
                   <BannerPromo
-                    bannerText={data.contentfulHomePage.bannerPromoText}
-                    bannerTitle={data.contentfulHomePage.bannerPromoTitle}
+                    bannerText={bannerPromoText}
+                    bannerTitle={bannerPromoTitle}
                   />
                   <NavButtons
-                    helpIcon={data.contentfulHomePage.navHelpIcon.fluid.src}
-                    userIcon={data.contentfulHomePage.navUserIcon.fluid.src}
-                    searchIcon={data.contentfulHomePage.navSearchIcon.fluid.src}
-                    cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
-                    cherriesIcon={
-                      data.contentfulHomePage.navCherriesIcon.fluid.src
-                    }
-                    userLinks={data.contentfulHomePage.userLinks.data}
-                    helpLinks={data.contentfulHomePage.helpLinks.data}
+                    helpIcon={navHelpIcon.fluid.src}
+                    userIcon={navUserIcon.fluid.src}
+                    searchIcon={navSearchIcon.fluid.src}
+                    cartIcon={navCartIcon.fluid.src}
+                    cherriesIcon={navCherriesIcon.fluid.src}
+                    userLinks={userLinks.data}
+                    helpLinks={helpLinks.data}
                     handleSidebar={this.handleSidebar}
                     cart={cartContext.cart}
+                    curUser={userContext.curUser}
+                    logOutUser={userContext.setState}
                   />
                   <CartSidebar
                     cart={cartContext.cart}
@@ -76,7 +84,7 @@ class Navbar extends Component {
                     display={sidebar}
                     handleSidebar={this.handleSidebar}
                     displayFix={displayFix}
-                    cartIcon={data.contentfulHomePage.navCartIcon.fluid.src}
+                    cartIcon={navCartIcon.fluid.src}
                   />
                 </>
               )}
