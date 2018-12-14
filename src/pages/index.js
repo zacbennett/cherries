@@ -9,15 +9,17 @@ let Fuse = require('fuse.js')
 const Container = Styled.div`
   align-items: center;
   animation: fadein 1s;
-  .sideNav{
-    position:sticky
-  };
+  
 
   @keyframes fadein {
         from { opacity: 0; }
         to   { opacity: 1; }
     }
-
+    @media (max-width: 420px) {
+      .sideNav{
+        display: none;
+      }
+    }
 `
 class IndexPage extends Component {
   constructor(props) {

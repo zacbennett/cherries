@@ -32,6 +32,13 @@ const Container = styled.div`
     text-align: left;
     margin: 0;
   }
+
+  @media (max-width: 420px) {
+    width: 150px;
+    .product-card-name {
+      width: 150px;
+    }
+  }
 `
 
 class ProductCard extends Component {

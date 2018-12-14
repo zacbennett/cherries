@@ -11,6 +11,12 @@ const Container = styled.div`
     height: 5rem;
     margin: 0 auto;
   }
+
+  flex-basis: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 `
 
 class TryptychPanel extends Component {

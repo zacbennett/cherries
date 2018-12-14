@@ -71,16 +71,18 @@ class SideNav extends Component {
       }
     })
     return (
-      <Container>
+      <Container className={this.props.className}>
         <ul id="side-navbar-list">{links}</ul>
       </Container>
     )
   }
 }
 
+// This is for testing only!
 export const PureSideNav = ({ data }) => (
   <SideNav links={data.contentfulHomePage.sideNavBar.data} />
 )
+
 
 export default () => (
   <UserContext.Consumer>
@@ -105,6 +107,7 @@ export default () => (
         `}
         render={data => (
           <SideNav
+            {...props}
             links={data.contentfulHomePage.sideNavBar.data}
             userContext={userContext}
           />
