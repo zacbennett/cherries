@@ -6,7 +6,7 @@ import { SubscriptionOvalButton } from '../atoms'
 const Container = Styled.div`
    justify-content: space-around;
    align-items: center;
-   margin: 2rem;
+   margin: 0.5rem;
   .subscriptionHeader {
     color: #47525E;
     font-size: 2rem;

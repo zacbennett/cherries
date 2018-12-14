@@ -5,16 +5,16 @@ const Container = Styled.div`
   .notPressedButton {
     background-color: #FBE5E9;
     border-radius: 100%;
-    width: 1rem;
+    width: <i className="far fa-repeat-1-alt"></i>rem;
     height: 1rem;
-    margin: 2rem;
+    margin: 1rem;
   }
   .pressedButton { 
     background-color: #E20031;
     border-radius: 100%;
     width: 1rem;
     height: 1rem;
-    margin: 2rem;
+    margin: 1rem;
     }
   .buttonText {
     color: #E20031;
