@@ -23,8 +23,6 @@ const Container = Styled.div`
   }
 `
 
-// Refactored Navbar to be a component rendered by StaticQuery (instead of putting definition directly in StaticQuery render)
-
 class Navbar extends Component {
   constructor(props) {
     super(props)

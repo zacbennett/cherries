@@ -10,6 +10,7 @@ const shopifyConfig = {
   'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_KEY,
 }
 exports.handler = async function(event, context, callback) {
+  let statusCode = 200
   if (event.httpMethod !== 'POST' || !event.body) {
     return callback(null, {
       statusCode,
@@ -47,7 +48,6 @@ exports.handler = async function(event, context, callback) {
         password: body.password,
       },
     }
-
     let token
     try {
       let response = await axios.post(
@@ -138,7 +138,6 @@ exports.handler = async function(event, context, callback) {
         }
 
         return responseObj
-        // return callback(null, responseObj)
       }
     } catch (err) {
       return callback(err)
