@@ -69,13 +69,7 @@ class SideBarMobile extends Component {
           <div>
             <IoIosClose id="close-button" onClick={this.handleClick} />
           </div>
-          {/* <MobilePopupNav /> */}
-          <ShoppingBagIcon
-            cart={this.props.cart}
-            cartIcon={this.props.cartIcon}
-            click={this.props.handleSidebar}
-          />
-          <div id="nav-container" />
+          
         </div>
       </Container>
     )

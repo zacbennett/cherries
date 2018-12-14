@@ -50,9 +50,7 @@ const Container = styled.div`
     position: sticky;
     background-color: #f7f7f7;
     top: 0;
-    img {
-      width: 9rem;
-    }
+
     div {
       padding: 0rem;
     }

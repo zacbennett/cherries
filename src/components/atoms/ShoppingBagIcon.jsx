@@ -28,11 +28,8 @@ const Container = styled.div`
   }
 
   @media (max-width: 420px) {
-    margin-top: 0rem;
-    padding: 0.9rem;
-    img{
-      width: 4rem;
-      height: 4rem;
+    img {
+      height: 1.6rem;
     }
   }
 `
