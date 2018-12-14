@@ -6,12 +6,12 @@ import { SubscriptionOvalButton } from '../atoms'
 const Container = Styled.div`
    justify-content: space-around;
    align-items: center;
-   margin: 30px;
+   margin: 2rem;
   .subscriptionHeader {
     color: #47525E;
-    font-size: 38px;
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 49px;
+    line-height: 2rem;
     text-align: center;
   }
   .subscriptionButtons {
@@ -22,14 +22,14 @@ const Container = Styled.div`
   .notPressedButton {
     background-color: #FBE5E9;
     border-radius: 100%;
-    width: 83px;
-    height: 83px;
+    width: 4rem;
+    height: 4rem;
   }
   .pressedButton { 
       background-color: #E20031;
       border-radius: 100%;
-      width: 83px;
-      height: 83px;
+      width: 4em;
+      height: 4rem;
     }
 `
 

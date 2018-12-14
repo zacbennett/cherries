@@ -9,16 +9,16 @@ justify-content: center;
 flex-direction: column;
 .buttonDescription {
   color: #47525E;
-  font-size: 19px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1rem;
   text-align: center;
 }
 .addSubscription{
   align-items: center;
   background-color: #E20031;
-  width: 362px;
-  height: 51px;
+  width: 15rem;
+  height: 3rem;
 }
   
 `
