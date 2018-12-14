@@ -16,4 +16,6 @@ export { default as CartSidebarHeader } from './CartSidebarHeader'
 export { default as CartSidebarFooter } from './CartSidebarFooter'
 export { default as SidebarItem } from './SidebarItem'
 export { default as ProgressBar } from './ProgressBar'
-export { default as SubscriptionTypeButton } from './SubscriptionTypeButton'
+export {
+  default as SubscriptionOvalButtonList,
+} from './SubscriptionOvalButtonList'
