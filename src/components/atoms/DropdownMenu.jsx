@@ -64,11 +64,21 @@ class DropdownMenu extends Component {
 
   render() {
     const display = this.state.display ? 'initial' : 'none'
-    const links = this.props.links.map((link, i) => (
-      <NavLink to={link.route} key={i}>
-        {link.name}
-      </NavLink>
-    ))
+    const links = this.props.links.map((link, i) => {
+      if (link.route) {
+        return (
+          <NavLink to={link.route} key={link.name}>
+            {link.name}
+          </NavLink>
+        )
+      } else {
+        return (
+          <NavLink to="/" onClick={this.props.logOutUser} key={link.name}>
+            {link.name}
+          </NavLink>
+        )
+      }
+    })
     return (
       <Container onMouseLeave={this.hideMenu}>
         <NavLink className="dropdown" onMouseEnter={this.showMenu} to="">
