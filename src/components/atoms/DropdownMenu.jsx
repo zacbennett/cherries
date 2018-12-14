@@ -72,7 +72,14 @@ class DropdownMenu extends Component {
     return (
       <Container onMouseLeave={this.hideMenu}>
         <NavLink className="dropdown" onMouseEnter={this.showMenu} to="">
-          <img src={this.props.icon} alt="nav-bar-icon" />
+          <img
+            style={{
+              margin: 5, 
+              maxWidth: 28, 
+              maxHeight: 28 }}
+            src={this.props.icon}
+            alt="nav-bar-icon"
+          />
         </NavLink>
         <div className="dropdown-content" style={{ display: display }}>
           <div className="links">{links}</div>

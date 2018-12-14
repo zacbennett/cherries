@@ -30,10 +30,6 @@ const Container = styled.div`
 `
 
 class SideNav extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const links = this.props.links.map((link, i) => {
       if (link.name === '-') {

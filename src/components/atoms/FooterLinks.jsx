@@ -16,7 +16,7 @@ li {
   padding-right: 3.6rem;
 }
 .list {
-  width: 100%;
+  width: 90%;
   height: 10rem;
   list-style-type: none;
   padding-top: 1rem;

@@ -18,13 +18,11 @@ const Container = styled.div`
   a {
     margin-right: 0.7rem;
   }
-  .hamburger {
-    display: none;
-  }
+
   .leftNav {
     display: flex;
     align-items: center;
-    flex-basis: 45%;
+    flex-basis: 33%;
     padding-left: 1rem;
     img:hover {
       opacity: 0.7;
@@ -40,8 +38,15 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-basis: 45%;
+    flex-basis: 33%;
   }
+  .logo {
+    flex-basis: 33%;
+  }
+  .rightNavHamburger {
+    display: none;
+  }
+
   @media (max-width: 420px) {
     width: 100%;
     padding: 1rem;
@@ -50,6 +55,10 @@ const Container = styled.div`
     position: sticky;
     background-color: #f7f7f7;
     top: 0;
+    .rightNavHamburger {
+      display: inline;
+      flex-basis: 33%;
+    }
 
     div {
       padding: 0rem;
@@ -58,22 +67,16 @@ const Container = styled.div`
       height: 2rem;
     }
     .leftNav {
-      flex-basis: 20%;
+      flex-basis: 33%;
       width: 100%;
       padding-left: 0rem;
 
       a {
         display: none;
       }
-      .hamburger {
-        display: initial;
-      }
     }
-    .logo {
-      flex-basis: 55%;
-    }
+
     .rightNav {
-      flex-basis: 25%;
       div:nth-child(1) {
         display: none;
       }
@@ -81,15 +84,7 @@ const Container = styled.div`
         display: none;
       }
     }
-  }
-  .rightNavHamburger {
-    display: none;
-  }
-  @media (max-width: 420px) {
-    .rightNavHamburger {
-      display: inline;
-      flex-basis: 25%;
-    }
+
     #hamburgerIcon {
       height: 28px;
       margin-bottom: 0rem;
@@ -170,13 +165,15 @@ class NavButtons extends Component {
             cartIcon={cartIcon}
             click={handleSidebar}
           />
-        </div>
-        <div className="rightNavHamburger">
-          <img
-            id="hamburgerIcon"
-            src="https://css-tricks.com/wp-content/uploads/2012/10/threelines.png"
-            onClick={this.toggleShowSideBarMobile}
-          />
+          {/* This is only displayed when screen width is less than 420 */}
+          <div className="rightNavHamburger">
+            <img
+              id="hamburgerIcon"
+              src="https://css-tricks.com/wp-content/uploads/2012/10/threelines.png"
+              onClick={this.toggleShowSideBarMobile}
+              alt="open menu"
+            />
+          </div>
         </div>
         {this.state.showSideBarMobile ? (
           <ModalLayout>

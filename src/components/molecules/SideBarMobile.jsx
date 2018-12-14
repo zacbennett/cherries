@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { IoIosClose } from 'react-icons/io'
-import { DropdownMenu, ShoppingBagIcon } from '../atoms'
-
-import { navigate } from '@reach/router'
-import { MobilePopupNav } from '../'
 
 const Container = styled.div`
   width: 100%;
@@ -35,6 +31,8 @@ const Container = styled.div`
 class SideBarMobile extends Component {
   constructor(props) {
     super(props)
+
+    this.handleClick = this.handleClick.bind(this)
   }
 
   //handleClick will call togglePopup which will change state of parent component NavButtons
@@ -42,13 +40,10 @@ class SideBarMobile extends Component {
     this.props.toggleShowSideBarMobile()
   }
 
-  // handleSubmit = e => {
-  //   e.preventDefault()
-  //   navigate(`/catalog?search=${this.state.search}`)
-  //   this.props.togglePopup()
-  // }
-
   render() {
+    // The following style must be inline, since this is what is passed into the portal. So any styles
+    // passed by a styled will not be applied
+
     const style = {
       display: 'flex',
       position: 'fixed',
@@ -69,7 +64,7 @@ class SideBarMobile extends Component {
           <div>
             <IoIosClose id="close-button" onClick={this.handleClick} />
           </div>
-          
+          {/* TODO: Add the Desktop Side Nav with lis for account and FAQ */}
         </div>
       </Container>
     )

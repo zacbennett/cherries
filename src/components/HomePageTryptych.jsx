@@ -13,7 +13,6 @@ const Container = styled.div`
   background-color: #ffe2e2;
   width: 100vw;
   padding: 3rem;
-  height: 35rem;
   #tryptych-header {
     color: #e20031;
     font-size: 3rem;
