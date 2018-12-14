@@ -19,6 +19,9 @@ const Container = styled.div`
   a:visited {
     color: #47525e;
   }
+  @media (max-width: 420px) {
+    flex: 0 0 33%;
+  }
 `
 class SideNavLink extends Component {
   constructor(props) {

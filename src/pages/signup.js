@@ -61,7 +61,7 @@ class Signup extends Component {
     }
     return (
       <MainLayout>
-        <SideNav />
+        <SideNav  />
         <Container>
           <h2>Create Account</h2>
           <p className="errorMessage animated fadeInRight" style={displayError}>

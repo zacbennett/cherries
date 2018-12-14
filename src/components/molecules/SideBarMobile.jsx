@@ -4,27 +4,10 @@ import { IoIosClose } from 'react-icons/io'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 
 import { navigate } from '@reach/router'
-import { SideNav } from '../'
+import { MobilePopupNav } from '../'
 
 const Container = styled.div`
   width: 100%;
-  padding: 1rem;
-
-  .popup {
-    z-index: 10;
-    position: fixed;
-    width: 100vw;
-    height: 300px;
-  }
-  .popupInner {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    width: 75%;
-  }
 
   .grayed-out {
     animation: fadein 0.3s;
@@ -42,6 +25,10 @@ const Container = styled.div`
   #close-button {
     width: 3rem;
     height: 3rem;
+  }
+
+  #nav-container {
+    width: 100%;
   }
 `
 
@@ -65,6 +52,8 @@ class SideBarMobile extends Component {
     const style = {
       display: 'flex',
       position: 'fixed',
+      flexFlow: 'wrap',
+      justifyContent: 'flex-start',
       top: 0,
       bottom: 0,
       left: 0,
@@ -80,20 +69,13 @@ class SideBarMobile extends Component {
           <div>
             <IoIosClose id="close-button" onClick={this.handleClick} />
           </div>
-          <DropdownMenu
-            links={this.props.helpLinks}
-            icon={this.props.helpIcon}
-          />
-          <DropdownMenu
-            links={this.props.userLinks}
-            icon={this.props.userIcon}
-          />
+          {/* <MobilePopupNav /> */}
           <ShoppingBagIcon
             cart={this.props.cart}
             cartIcon={this.props.cartIcon}
             click={this.props.handleSidebar}
           />
-          <SideNav id="sideNav" />
+          <div id="nav-container" />
         </div>
       </Container>
     )

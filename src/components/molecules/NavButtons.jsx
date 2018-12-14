@@ -84,16 +84,12 @@ const Container = styled.div`
       }
     }
   }
-  // Want to ensure that the icon is hidden when screen is above 420px
-  // .rightNavHamburger {
-  //   display: none;
-  // }
+  .rightNavHamburger {
+    display: none;
+  }
   @media (max-width: 420px) {
-    .rightNav {
-      display: none;
-    }
     .rightNavHamburger {
-      display: static;
+      display: inline;
       flex-basis: 25%;
     }
     #hamburgerIcon {

@@ -36,6 +36,19 @@ const Container = styled.div`
       }
     }
   }
+
+  img {
+    margin: 0.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  @media (max-width: 420px) {
+    img {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
 `
 
 class DropdownMenu extends Component {
@@ -59,15 +72,7 @@ class DropdownMenu extends Component {
     return (
       <Container onMouseLeave={this.hideMenu}>
         <NavLink className="dropdown" onMouseEnter={this.showMenu} to="">
-          <img
-            style={{
-              margin: 5,
-              maxWidth: 28,
-              maxHeight: 28,
-            }}
-            src={this.props.icon}
-            alt="nav-bar-icon"
-          />
+          <img src={this.props.icon} alt="nav-bar-icon" />
         </NavLink>
         <div className="dropdown-content" style={{ display: display }}>
           <div className="links">{links}</div>

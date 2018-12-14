@@ -27,6 +27,19 @@ const Container = styled.div`
   .hyphen {
     margin-left: 7px;
   }
+
+  @media (max-width: 420px) {
+    #side-navbar-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 0.5rem;
+      justify-content: center;
+    }
+    .hyphen {
+      display: none;
+    }
+    margin-top: 0rem;
+  }
 `
 
 class SideNav extends Component {
@@ -64,15 +77,13 @@ class SideNav extends Component {
     return (
       <Container className={this.props.className}>
         <ul id="side-navbar-list">{links}</ul>
+        {/* Account */}
       </Container>
     )
   }
 }
 
 // This is for testing only!
-export const PureSideNav = ({ data }) => (
-  <SideNav links={data.contentfulHomePage.sideNavBar.data} />
-)
 
 export default props => (
   <StaticQuery
