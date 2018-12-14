@@ -74,6 +74,7 @@ exports.handler = async function(event, context, callback) {
       .then(async function(response) {
         let customer
         if (response.data.errors) {
+          // return response.data.errors
           return callback(response.data.errors)
         } else {
           customer = response.data.data.customerCreate
@@ -91,6 +92,7 @@ exports.handler = async function(event, context, callback) {
         let loginInfo = {
           email: body.email,
           password: body.password,
+          remember: true,
         }
         let request = {
           httpMethod: 'POST',
