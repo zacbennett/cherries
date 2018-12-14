@@ -1,42 +1,40 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
+import slugify from 'slugify'
 import { Link } from 'gatsby'
 
 const Container = Styled.div`
-display: flex;
-flex-basis: 50%;
-align-items: center;
-justify-content: center;
-.list-items {
-  text-decoration: none;
-  color: white;
-}
-li {
-  padding-right: 3.6rem;
-}
-.list {
-  height: 10rem;
-  list-style-type: none;
-  padding-top: 1rem;
-  padding-right: 1rem;
-  flex-direction: column;
-  flex-wrap: wrap;
-  display: flex;
-  flex-basis: 50%;
+li{
+margin:0;
+background-color: white;
+outline: 2px solid black;
+text-align: left;
+font-size: 0.8rem;
+font-weight: bold;
+padding-left: 0.5rem;
+cursor: pointer;
+
 }
 `
+
 class AccountTab extends Component {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(e) {
+    const contentName = slugify(`tab-${e.target.id}`, { lower: true })
+    this.props.handleClick(contentName)
+  }
+
   render() {
-    const links = this.props.linkData.map(d => (
-      <li>
-        <Link className="list-items" to={d.content[1].data.uri}>
-          {d.content[1].content[0].value}
-        </Link>
-      </li>
-    ))
+    const { tabName } = this.props
     return (
       <Container>
-        <ul className="list">{links}</ul>
+        <li id={tabName} onClick={this.handleClick}>
+          {tabName}
+        </li>
       </Container>
     )
   }

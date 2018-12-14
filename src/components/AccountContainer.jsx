@@ -29,19 +29,25 @@ class AccountContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentContent: 'account-details',
+      currentContent: 'tab-account-details',
     }
+    this.changeContent = this.changeContent.bind(this)
+  }
+
+  changeContent(contentName) {
+    this.setState({ currentContent: contentName })
   }
 
   render() {
+    const { currentContent } = this.state
     return (
       <UserContext.Consumer>
         {userContext => (
           <Container>
-            <AccountTabList />
+            <AccountTabList handleClick={this.changeContent} />
             <AccountContent
               userContext={userContext}
-              currentContent={this.state.currentContent}
+              currentContent={currentContent}
             />
           </Container>
         )}
@@ -51,44 +57,3 @@ class AccountContainer extends Component {
 }
 
 export default AccountContainer
-
-// export default () => (
-//   <UserContext.Consumer>
-//     {userContext => (
-//       <StaticQuery
-//         query={graphql`
-//           {
-//             allContentfulAccount {
-//               edges {
-//                 node {
-//                   footerSubscriptionTitle
-//                   footerSubscriptionText
-//                   footerLinks {
-//                     content {
-//                       content {
-//                         data {
-//                           uri
-//                         }
-//                         content {
-//                           value
-//                         }
-//                       }
-//                     }
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         `}
-//         render={data => {
-//           return (
-//             <Container>
-//               <AccountTabList />
-//               <AccountContent userContext={userContext} />
-//             </Container>
-//           )
-//         }}
-//       />
-//     )}
-//   </UserContext.Consumer>
-// )

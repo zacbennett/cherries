@@ -1,27 +1,37 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+// import slugify from 'slugify'
 
-const Container = styled.div`
+import { AccountDetails, OrderHistory } from './'
+import { AccountTab } from '../atoms'
+
+const Container = styled.ul`
   text-align: center;
-  font-size: 1rem;
-  font-weight: 900;
-  padding: 2rem;
   width: 30%;
-
-  outline: 2px solid red;
   display: inline-block;
+  list-style: none;
+  margin-left: 0em;
+  border: 2px solid black;
 `
 
 class AccountTabList extends Component {
   render() {
-    let tabNames = ['account-details', 'order-history']
-    let tabs = tabNames.map()
-
-    return (
-      <Container>
-        <p>Hi these are the AccountTabList</p>
-      </Container>
-    )
+    const tabNames = [
+      'Account Details',
+      'Subscription',
+      'Free Earrings',
+      'Order History',
+      'Address Book',
+      'Billing',
+    ]
+    const tabs = tabNames.map(tabName => (
+      <AccountTab
+        key={tabName}
+        tabName={tabName}
+        handleClick={this.props.handleClick}
+      />
+    ))
+    return <Container>{tabs}</Container>
   }
 }
 
