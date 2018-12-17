@@ -8,7 +8,7 @@ const Container = styled.div`
   margin-left: 0.2rem;
   margin-top: 0.8rem;
   img {
-    height: 1.5rem;
+    height: 1.6rem;
   }
   p {
     position: relative;
@@ -25,6 +25,12 @@ const Container = styled.div`
     background-color: #e20031;
     text-align: center;
     font-weight: bold;
+  }
+
+  @media (max-width: 420px) {
+    img {
+      height: 1.6rem;
+    }
   }
 `
 

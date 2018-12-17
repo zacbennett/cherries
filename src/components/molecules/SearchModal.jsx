@@ -9,7 +9,7 @@ const Container = styled.div`
   .popup {
     z-index: 10;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 300px;
     background-color: #fbe5e9;
   }
@@ -84,6 +84,13 @@ const Container = styled.div`
       to {
         opacity: 1;
       }
+    }
+  }
+
+  @media (max-width: 420px) {
+    #search-bar-text {
+      line-height: normal;
+      padding-top: 0rem;
     }
   }
 `

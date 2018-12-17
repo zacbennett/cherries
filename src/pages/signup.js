@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
 import { SideNav } from '../components'
 import {
   SignupEmailPassword,
@@ -44,24 +43,30 @@ const Container = styled.div`
     margin-top: 1rem;
   }
 `
+const windowGlobal = typeof window !== 'undefined' && window
 
 class Signup extends Component {
-  state = {
-    errorMessage: null,
+  constructor(props) {
+    super(props)
+    this.state = {
+      errorMessage: null,
+    }
+    this.handleError = this.handleError.bind(this)
   }
   componentDidMount() {
     // this.props.resetSidebar()
   }
-  handleError = errorMessage => {
+  handleError(errorMessage) {
     this.setState({ errorMessage: errorMessage })
   }
+
   render() {
     const displayError = {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
     }
     return (
       <MainLayout>
-        <SideNav />
+        <SideNav  />
         <Container>
           <h2>Create Account</h2>
           <p className="errorMessage animated fadeInRight" style={displayError}>
@@ -69,8 +74,18 @@ class Signup extends Component {
           </p>
           <SignupEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <SignupFacebook handleError={this.handleError} />
-          <SignupGoogle handleError={this.handleError} />
+          {/* {typeof window !== 'undefined' && process.browser && (
+            <React.Fragment>
+              <SignupFacebook handleError={this.handleError} />
+              <SignupGoogle handleError={this.handleError} />
+            </React.Fragment>
+          )} */}
+          {windowGlobal && (
+            <React.Fragment>
+              <SignupFacebook handleError={this.handleError} />
+              <SignupGoogle handleError={this.handleError} />
+            </React.Fragment>
+          )}
 
           <NavLink
             to="/login"

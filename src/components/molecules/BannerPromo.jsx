@@ -44,6 +44,9 @@ const Container = styled.div`
       cursor: pointer;
     }
   }
+  @media (max-width: 420px) {
+    height: auto;
+  }
 `
 
 class BannerPromo extends Component {

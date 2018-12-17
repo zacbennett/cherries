@@ -56,5 +56,21 @@ module.exports = {
         // Add any options here
       },
     },
+    {
+      resolve: `gatsby-plugin-archives`,
+      options: {
+        // Files and directories to exclude. Default: ["archive/"]
+        exclude: [
+          'node_modules/react-google-login/',
+          './node_modules/react-google-login/',
+          'node_modules/react-facebook-login/',
+          './node_modules/react-facebook-login/',
+          'node_modules/react-google-login/dist/google-login.js',
+          './node_modules/react-google-login/dist/google-login.js',
+        ],
+        // Make excludes case sensitive. Default: false
+        caseSensitive: false,
+      },
+    },
   ],
 }

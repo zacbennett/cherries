@@ -10,6 +10,9 @@ import {
 import { NavLink } from '../components/atoms'
 import { MainLayout } from '../components/layouts'
 
+// import postLambda from '../../utilities/postLambda'
+import { UserContext, UserProvider } from '../containers/UserContext'
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,10 +47,14 @@ const Container = styled.div`
     margin-top: 1rem;
   }
 `
+const windowGlobal = typeof window !== 'undefined' && window
 
 class Login extends Component {
   state = {
     errorMessage: null,
+    email: '',
+    password: '',
+    remember: true,
   }
   componentDidMount() {
     // this.props.resetSidebar()
@@ -55,6 +62,7 @@ class Login extends Component {
   handleError = errorMessage => {
     this.setState({ errorMessage: errorMessage })
   }
+
   render() {
     const displayError = {
       display: typeof this.state.errorMessage !== 'string' ? 'none' : 'inherit',
@@ -70,8 +78,14 @@ class Login extends Component {
           </p>
           <LoginEmailPassword handleError={this.handleError} />
           <p>or</p>
-          <LoginFacebook handleError={this.handleError} />
-          <LoginGoogle handleError={this.handleError} />
+
+          {windowGlobal && (
+            <React.Fragment>
+              <LoginFacebook handleError={this.handleError} />
+              <LoginGoogle handleError={this.handleError} />
+            </React.Fragment>
+          )}
+
           <NavLink
             to="/signup"
             fontSize=".8rem"

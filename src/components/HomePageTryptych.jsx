@@ -13,9 +13,7 @@ const Container = styled.div`
   background-color: #ffe2e2;
   width: 100vw;
   padding: 3rem;
-  height: 35rem;
   #tryptych-header {
-    margin: 0;
     color: #e20031;
     font-size: 3rem;
     width: 100%;
@@ -31,43 +29,14 @@ const Container = styled.div`
     line-height: 1.5em;
     color: #47525e;
   }
+  @media (max-width: 420px) {
+    #tryptych-panel-container {
+      width: auto;
+      flex-direction: column;
+    }
+    height: auto;
+  }
 `
-
-export const PureHomePageTryptych = ({ data }) => {
-  const tryptychContent = data.contentfulHomePage.tryptych.content
-  let tryptychHeader
-  let tryptychIcons = []
-  let tryptychCopy = []
-
-  // Seperate content into its seperate nodetypes
-  tryptychContent.forEach(item => {
-    if (item.nodeType === 'heading-4') tryptychHeader = item.content[0].value
-    else if (item.nodeType === 'embedded-asset-block')
-      tryptychIcons.push(item.data.target.fields.file.en_US)
-    else if (item.nodeType === 'paragraph')
-      tryptychCopy.push(item.content[0].value)
-  })
-
-  let tryptychPanels = []
-  tryptychIcons.forEach((icon, i) => {
-    tryptychPanels.push(
-      <TryptychPanel
-        key={i}
-        imageUrl={icon.url}
-        imageName={icon.fileName}
-        text={tryptychCopy[i]}
-      />
-    )
-  })
-
-  return (
-    <Container>
-      <h2 id="tryptych-header">{tryptychHeader}</h2>
-      <div id="tryptych-panel-container">{tryptychPanels}</div>
-      <HomePageButton />
-    </Container>
-  )
-}
 
 export default () => (
   <StaticQuery

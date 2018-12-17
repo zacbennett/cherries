@@ -10,13 +10,16 @@ const Container = Styled.div`
   font-size: .8rem;
   font-weight: 700;
   color: white;
-  height: 17vw;
   width: 100vw;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  @media (max-width: 420px) {
+    height: auto;
+    flex-direction: column;
+  }
 `
 // The pure footer is for testing purposes only!
 export const PureFooter = ({ data }) => (

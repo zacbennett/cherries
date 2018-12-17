@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import { ProductCard } from '../atoms'
+import { navigate } from '@reach/router'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -25,10 +26,14 @@ const Container = styled.div`
   }
   .product-list-subheader {
     font-size: 16px;
-    margin-left: 30px;
+    margin-left: 0.5em;
   }
   a {
     color: #e20031;
+  }
+  @media (max-width: 420px) {
+    margin: 0;
+    width: 100vw;
   }
 `
 class ProductList extends Component {
@@ -67,7 +72,7 @@ class ProductList extends Component {
         </select>
       </form>
     ) : (
-      <Link to="/">
+      <Link to={`/catalog?search=${header}`}>
         <u>
           <i>
             <small>
