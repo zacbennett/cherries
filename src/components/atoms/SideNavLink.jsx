@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from '../atoms'
-import navigateTo from 'gatsby'
 
 const Container = styled.div`
   ul.side-navbar-dropdown {
@@ -19,6 +18,9 @@ const Container = styled.div`
   li.side-navbar-dropdown-link > a,
   a:visited {
     color: #47525e;
+  }
+  @media (max-width: 420px) {
+    flex: 0 0 33%;
   }
 `
 class SideNavLink extends Component {

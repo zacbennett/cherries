@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import ModalLayout from '../layouts/ModalLayout'
 import { DropdownMenu, ShoppingBagIcon } from '../atoms'
 import SearchModal from './SearchModal'
+import SideBarMobile from './SideBarMobile'
 import { navigate } from '@reach/router'
 
 const windowGlobal = typeof window !== 'undefined' && window
@@ -20,13 +21,11 @@ const Container = styled.div`
   a {
     margin-right: 0.7rem;
   }
-  .hamburger {
-    display: none;
-  }
+
   .leftNav {
     display: flex;
     align-items: center;
-    flex-basis: 45%;
+    flex-basis: 33%;
     padding-left: 1rem;
     img:hover {
       opacity: 0.7;
@@ -42,8 +41,15 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-basis: 45%;
+    flex-basis: 33%;
   }
+  .logo {
+    flex-basis: 33%;
+  }
+  .rightNavHamburger {
+    display: none;
+  }
+
   @media (max-width: 420px) {
     width: 100%;
     padding: 1rem;
@@ -52,9 +58,11 @@ const Container = styled.div`
     position: sticky;
     background-color: #f7f7f7;
     top: 0;
-    img {
-      width: 9rem;
+    .rightNavHamburger {
+      display: inline;
+      flex-basis: 33%;
     }
+
     div {
       padding: 0rem;
     }
@@ -62,30 +70,27 @@ const Container = styled.div`
       height: 2rem;
     }
     .leftNav {
-      flex-basis: 20%;
+      flex-basis: 33%;
       width: 100%;
       padding-left: 0rem;
-      :hover {
-        background-color: blue;
-      }
+
       a {
         display: none;
       }
-      .hamburger {
-        display: initial;
-      }
     }
-    .logo {
-      flex-basis: 55%;
-    }
+
     .rightNav {
-      flex-basis: 25%;
       div:nth-child(1) {
         display: none;
       }
       div:nth-child(2) {
         display: none;
       }
+    }
+
+    #hamburgerIcon {
+      height: 28px;
+      margin-bottom: 0rem;
     }
   }
 `
@@ -95,13 +100,19 @@ class NavButtons extends Component {
     super(props)
     this.state = {
       showPopup: false,
+      showSideBarMobile: false,
     }
     this.togglePopup = this.togglePopup.bind(this)
+    this.toggleShowSideBarMobile = this.toggleShowSideBarMobile.bind(this)
     this.logOutUser = this.logOutUser.bind(this)
   }
 
   togglePopup() {
     this.setState({ showPopup: !this.state.showPopup })
+  }
+  
+  toggleShowSideBarMobile() {
+    this.setState({ showSideBarMobile: !this.state.showSideBarMobile })
   }
 
   // Sets curUser in UserContext state to null to log user out
@@ -110,7 +121,6 @@ class NavButtons extends Component {
     windowGlobal.localStorage.removeItem('curUser')
     navigate('/')
   }
-
   render() {
     const {
       searchIcon,
@@ -175,7 +185,30 @@ class NavButtons extends Component {
             cartIcon={cartIcon}
             click={handleSidebar}
           />
+          {/* This is only displayed when screen width is less than 420 */}
+          <div className="rightNavHamburger">
+            <img
+              id="hamburgerIcon"
+              src="https://css-tricks.com/wp-content/uploads/2012/10/threelines.png"
+              onClick={this.toggleShowSideBarMobile}
+              alt="open menu"
+            />
+          </div>
         </div>
+        {this.state.showSideBarMobile ? (
+          <ModalLayout>
+            <SideBarMobile
+              toggleShowSideBarMobile={this.toggleShowSideBarMobile}
+              cart={cart}
+              cartIcon={cartIcon}
+              click={handleSidebar}
+              helpLinks={helpLinks}
+              helpIcon={helpIcon}
+              userLinks={userLinks}
+              userIcon={userIcon}
+            />
+          </ModalLayout>
+        ) : null}
       </Container>
     )
   }

@@ -23,6 +23,19 @@ const Container = styled.div`
     margin: 15px 0px;
     padding: 0px 10px;
   }
+
+  @media (max-width: 420px) {
+    #hero-image-text-container {
+      position: static;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #hero-image-text {
+      text-align: center;
+    }
+  }
 `
 // This is for testing purposes only!
 export const PureHomePageHero = ({ data }) => (

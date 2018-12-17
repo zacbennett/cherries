@@ -24,3 +24,6 @@ export { default as AccountFreeEarrings } from './AccountFreeEarrings'
 export { default as AccountOrderHistory } from './AccountOrderHistory'
 export { default as AccountAddressBook } from './AccountAddressBook'
 export { default as AccountBilling } from './AccountBilling'
+export {
+  default as SubscriptionOvalButtonList,
+} from './SubscriptionOvalButtonList'

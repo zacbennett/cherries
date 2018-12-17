@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { HomePageHero, HomePageTryptych, SideNav } from '../components'
+import { HomePageHero, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
 let Fuse = require('fuse.js')
@@ -9,15 +9,17 @@ let Fuse = require('fuse.js')
 const Container = Styled.div`
   align-items: center;
   animation: fadein 1s;
-  .sideNav{
-    position:sticky
-  };
+  
 
   @keyframes fadein {
         from { opacity: 0; }
         to   { opacity: 1; }
     }
-
+    @media (max-width: 420px) {
+      .sideNav{
+        display: none;
+      }
+    }
 `
 class IndexPage extends Component {
   constructor(props) {
@@ -65,6 +67,7 @@ class IndexPage extends Component {
           <div>
             <HomePageHero />
             <ProductList products={featuredSearchResults} title={'Featured'} />
+
             <HomePageTryptych />
             {productListComponents}
           </div>

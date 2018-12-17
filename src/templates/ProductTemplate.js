@@ -23,7 +23,7 @@ class ProductTemplate extends Component {
       : []
     return (
       <MainLayout>
-        <SideNav />
+        <SideNav  />
         <Container>
           <div>
             <Product
