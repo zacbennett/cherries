@@ -9,9 +9,9 @@ import {
 } from '../components/molecules'
 import { NavLink } from '../components/atoms'
 import { MainLayout } from '../components/layouts'
+
 // import postLambda from '../../utilities/postLambda'
 import { UserContext, UserProvider } from '../containers/UserContext'
-
 
 const Container = styled.div`
   display: flex;
@@ -78,18 +78,14 @@ class Login extends Component {
           </p>
           <LoginEmailPassword handleError={this.handleError} />
           <p>or</p>
-          {/* {typeof window !== 'undefined' && process.browser && (
-            <React.Fragment>
-              <LoginFacebook handleError={this.handleError} />
-              <LoginGoogle handleError={this.handleError} />
-            </React.Fragment>
-          )} */}
+
           {windowGlobal && (
             <React.Fragment>
               <LoginFacebook handleError={this.handleError} />
               <LoginGoogle handleError={this.handleError} />
             </React.Fragment>
           )}
+
           <NavLink
             to="/signup"
             fontSize=".8rem"

@@ -129,7 +129,6 @@ class Subscribe extends Component {
       <MainLayout>
         <Container>
           <img src={image} id="subscription-image" alt="subscription-pic" />
-
           <div id="sub-info-container">
             <div id="sub-info-text">
               {/* header = <h1>{header}</h1> or header = header */}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { HomePageHero, HomePageTryptych, SideNav } from '../components'
+import { HomePageHero, SideNav } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
 let Fuse = require('fuse.js')
@@ -67,6 +67,7 @@ class IndexPage extends Component {
           <div>
             <HomePageHero />
             <ProductList products={featuredSearchResults} title={'Featured'} />
+
             <HomePageTryptych />
             {productListComponents}
           </div>
