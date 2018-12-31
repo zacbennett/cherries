@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { HomePageHero, SideNav } from '../components'
+import { HomePageHero, SideNav, HomePageTryptych } from '../components'
 import { ProductList } from '../components/molecules'
 import { MainLayout } from '../components/layouts'
 let Fuse = require('fuse.js')

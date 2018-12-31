@@ -47,7 +47,7 @@ class SideNav extends Component {
         this.props.userContext.curUser
       ) {
         if (this.props.userContext.curUser.tags.includes('subscribed')) {
-          return
+          return ''
         }
       }
       // Link to another page
@@ -107,7 +107,7 @@ export default () => (
         `}
         render={data => (
           <SideNav
-            {...props}
+            {...data}
             links={data.contentfulHomePage.sideNavBar.data}
             userContext={userContext}
           />

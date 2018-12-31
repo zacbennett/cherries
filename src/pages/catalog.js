@@ -42,17 +42,14 @@ class CatalogPage extends Component {
   }
 
   render() {
-    // handle sort
-    // handle search
-    const contentfulProductData = this.props.data.allContentfulProductPage.edges
+    
+    let productPicks = this.props.data.allContentfulProductPage.edges
     const searchTerm = queryString.parse(this.props.location.search).search
-    let productPicks
-
+    
+    // handle sort
     if (this.state.sortValue === 'featured') {
-      let fuse = new Fuse(contentfulProductData, options)
+      let fuse = new Fuse(productPicks, options)
       productPicks = fuse.search(this.state.sortValue)
-    } else if (this.state.sortValue === 'sortBy') {
-      productPicks = contentfulProductData
     } else if (this.state.sortValue === 'recentlyAdded') {
       productPicks = this.props.data.recentlyAddedProduct.edges
     } else if (this.state.sortValue === 'priceLowToHigh') {
@@ -61,10 +58,10 @@ class CatalogPage extends Component {
       productPicks = this.props.data.highToLow.edges
     }
 
+    // handle search
     if (searchTerm) {
       let fuse = new Fuse(productPicks, options)
       productPicks = fuse.search(searchTerm)
-
     }
 
     return (
