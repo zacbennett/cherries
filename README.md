@@ -4,7 +4,7 @@
 
 ## Pictures
 
-- 
+- <img src="https://www.zacbennett.io/assets/homepage.png"></img>
 
 ---
 
