@@ -5,8 +5,11 @@
 ## Pictures
 
 <img src="https://www.zacbennett.io/assets/homepage.png"></img>
+--
 <img src="https://www.zacbennett.io/assets/catalog.png"></img>
+--
 <img src="https://www.zacbennett.io/assets/subscribe.png"></img>
+--
 
 ---
 
