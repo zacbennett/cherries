@@ -11,13 +11,6 @@
 <img src="https://www.zacbennett.io/assets/subscribe.png"></img>
 --
 
----
 
-## To Start
-
-- Clone the repo and type 'npm i' in terminal to download the dependencies 
-- Type 'gatsby develop' in terminal 
-- Navigate to 'http://localhost:8000/'
-- Click around and enjoy!
 
 
