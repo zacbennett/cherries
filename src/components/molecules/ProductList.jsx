@@ -10,9 +10,13 @@ const Container = styled.div`
   width: 75vw;
   padding: 2rem;
   .product-list-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 2em;
+
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
   }
   .product-list-header {
     color: #e20031;
@@ -46,13 +50,12 @@ class ProductList extends Component {
   }
 
   handleChange(evt) {
-    //TODO: Work on Method
-    //PROP METHOD GOES HERE
+    
     this.setState({ [evt.target.name]: evt.target.value }, () =>
       this.props.handleSort(this.state.shopDropdown)
     )
   }
-
+  
   render() {
     const header = this.props.catalog ? 'Shop All' : this.props.title
     const subheader = this.props.catalog ? (
@@ -92,10 +95,10 @@ class ProductList extends Component {
 
     return (
       <Container>
-        <p className="product-list-header">
+        <div className="product-list-header">
           {header}
           <span className="product-list-subheader">{subheader}</span>
-        </p>
+        </div>
         <div className="product-list-card-container">{products}</div>
       </Container>
     )

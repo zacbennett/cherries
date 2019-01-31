@@ -32,36 +32,44 @@ class CatalogPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      sortValue: 'sortBy',
+      sortValue: '',
+      productPicks: this.props.data.allContentfulProductPage.edges
     }
+    this.prevQuery = '';
     this.handleSort = this.handleSort.bind(this)
   }
 
   handleSort(sort) {
-    this.setState({ sortValue: sort })
+    let newProductPicks;
+
+    if (sort === 'featured') {
+      let fuse = new Fuse(this.state.productPicks, options)
+      newProductPicks = fuse.search(sort)
+    } else if (sort === 'recentlyAdded') {
+      newProductPicks = this.props.data.recentlyAddedProduct.edges
+    } else if (sort === 'priceLowToHigh') {
+      newProductPicks = this.props.data.lowToHigh.edges
+    } else if (sort === 'priceHighToLow') {
+      newProductPicks = this.props.data.highToLow.edges
+    }
+    this.setState({productPicks: newProductPicks})
+  }
+
+  handleSearch(searchTerm){
+      let fuse = new Fuse(this.state.productPicks, options)
+      let newProductPicks = fuse.search(searchTerm)
+      this.setState({productPicks: newProductPicks})
   }
 
   render() {
     
-    let productPicks = this.props.data.allContentfulProductPage.edges
+    // Each time we rerender, we check if the query string changes and handleSearch
     const searchTerm = queryString.parse(this.props.location.search).search
-    
-    // handle sort
-    if (this.state.sortValue === 'featured') {
-      let fuse = new Fuse(productPicks, options)
-      productPicks = fuse.search(this.state.sortValue)
-    } else if (this.state.sortValue === 'recentlyAdded') {
-      productPicks = this.props.data.recentlyAddedProduct.edges
-    } else if (this.state.sortValue === 'priceLowToHigh') {
-      productPicks = this.props.data.lowToHigh.edges
-    } else if (this.state.sortValue === 'priceHighToLow') {
-      productPicks = this.props.data.highToLow.edges
-    }
 
-    // handle search
-    if (searchTerm) {
-      let fuse = new Fuse(productPicks, options)
-      productPicks = fuse.search(searchTerm)
+    // Must cache previous searchTerm to prevent infiniteloop
+    if (searchTerm !== this.prevQuery) {
+      this.handleSearch(searchTerm);
+      this.prevQuery = searchTerm;
     }
 
     return (
@@ -70,11 +78,11 @@ class CatalogPage extends Component {
           {/* Productpicks is passed into productList to be rendered */}
           <ProductList
             handleSort={this.handleSort}
-            products={productPicks}
+            products={this.state.productPicks}
             catalog={true}
           />
           {/* If there are no products that match the search term, display the message below */}
-          {productPicks.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
+          {this.state.productPicks.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
         </Container>
       </MainLayout>
     )

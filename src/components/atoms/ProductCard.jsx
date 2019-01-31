@@ -4,11 +4,9 @@ import { Link } from 'gatsby'
 
 const Container = styled.div`
   margin-bottom: 70px;
-  width: 187.02px;
-  flex: 1 0 25%;
+  width: 100%;
 
   .product-card-image {
-    width: 187.02px;
     height: 238.63px;
     margin-bottom: 0;
   }
