@@ -42,7 +42,10 @@ class CatalogPage extends Component {
   handleSort(sort) {
     let newProductPicks;
 
-    if (sort === 'featured') {
+    if(sort === 'sort by'){
+      newProductPicks = this.props.data.allContentfulProductPage.edges
+    }
+    else if (sort === 'featured') {
       let fuse = new Fuse(this.state.productPicks, options)
       newProductPicks = fuse.search(sort)
     } else if (sort === 'recentlyAdded') {

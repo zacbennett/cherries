@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { NavBar, Footer } from '..'
+import { NavBar } from '..'
+// import { NavBar, Footer } from '..'
 import './layout.css'
 import 'pace-js/themes/blue/pace-theme-minimal.css'
 import styled from 'styled-components'
@@ -45,7 +46,7 @@ const Layout = ({ children }) => (
         <div id="modalContainer" />
         <NavBar />
         <Container>{children}</Container>
-        <Footer />
+        {/* <Footer /> */}
       </>
     )}
   />
