@@ -98,7 +98,7 @@ class ProductList extends Component {
         <div className="product-list-card-container">
           {products}
           {/* If there are no products that match the search term, display the message below */}
-          {this.state.productPicks.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
+          {this.props.products.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
         </div>
       </Container>
     )
