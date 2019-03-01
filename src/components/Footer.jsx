@@ -36,30 +36,30 @@ export const PureFooter = ({ data }) => (
 
 export default () => (
   <StaticQuery
-    query={graphql`
-      {
-        allContentfulFooter {
-          edges {
-            node {
-              footerSubscriptionTitle
-              footerSubscriptionText
-              footerLinks {
-                content {
-                  content {
-                    data {
-                      uri
-                    }
-                    content {
-                      value
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
+    // query={graphql`
+    //   {
+    //     allContentfulFooter {
+    //       edges {
+    //         node {
+    //           footerSubscriptionTitle
+    //           footerSubscriptionText
+    //           footerLinks {
+    //             content {
+    //               content {
+    //                 data {
+    //                   uri
+    //                 }
+    //                 content {
+    //                   value
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // `}
     render={data => {
       return (
         <Container>

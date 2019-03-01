@@ -13,10 +13,6 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-gap: 2em;
-
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
   }
   .product-list-header {
     color: #e20031;
@@ -75,7 +71,7 @@ class ProductList extends Component {
         </select>
       </form>
     ) : (
-      <Link to={`/catalog?search=${header}`}>
+      <Link to={`/catalog`}>
         <u>
           <i>
             <small>
@@ -99,7 +95,11 @@ class ProductList extends Component {
           {header}
           <span className="product-list-subheader">{subheader}</span>
         </div>
-        <div className="product-list-card-container">{products}</div>
+        <div className="product-list-card-container">
+          {products}
+          {/* If there are no products that match the search term, display the message below */}
+          {this.state.productPicks.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
+        </div>
       </Container>
     )
   }

@@ -82,8 +82,6 @@ class CatalogPage extends Component {
             products={this.state.productPicks}
             catalog={true}
           />
-          {/* If there are no products that match the search term, display the message below */}
-          {this.state.productPicks.length === 0 ? <h1>Whoops! No products! :(</h1> : null}
         </Container>
       </MainLayout>
     )
