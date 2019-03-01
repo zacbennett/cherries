@@ -37,6 +37,7 @@ class CatalogPage extends Component {
     }
     this.prevQuery = '';
     this.handleSort = this.handleSort.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleSort(sort) {
