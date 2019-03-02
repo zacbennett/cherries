@@ -44,7 +44,7 @@ class ProductList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      shopDropdown: 'sort by',
+      shopDropdown: 'sortBy',
     }
     this.handleChange = this.handleChange.bind(this)
   }

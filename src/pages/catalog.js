@@ -52,6 +52,8 @@ class CatalogPage extends Component {
       newProductPicks = this.props.data.lowToHigh.edges
     } else if (sort === 'priceHighToLow') {
       newProductPicks = this.props.data.highToLow.edges
+    }else if(sort === 'sortBy'){
+      newProductPicks = this.props.data.allContentfulProductPage.edges
     }
     this.setState({productPicks: newProductPicks})
   }
