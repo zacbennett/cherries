@@ -28,6 +28,9 @@ const Container = styled.div`
   .hyphen {
     margin-left: 7px;
   }
+  @media (max-width: 420px) {
+    display: none;
+  }
 `
 
 class SideNav extends Component {

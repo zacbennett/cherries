@@ -34,6 +34,10 @@ const Container = styled.div`
   @media (max-width: 420px) {
     margin: 0;
     width: 100vw;
+    .product-list-card-container {
+      grid-template-columns: 50% 50%;
+
+    }
   }
 `
 class ProductList extends Component {

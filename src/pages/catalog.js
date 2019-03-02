@@ -35,13 +35,13 @@ class CatalogPage extends Component {
       sortValue: '',
       productPicks: this.props.data.allContentfulProductPage.edges
     }
-    this.prevQuery = '';
+    this.prevQuery = null;
     this.handleSort = this.handleSort.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleSort(sort) {
-    let newProductPicks;
+    let newProductPicks = this.state.productPicks;
 
     if (sort === 'featured') {
       let fuse = new Fuse(this.state.productPicks, options)
@@ -67,8 +67,8 @@ class CatalogPage extends Component {
     // Each time we rerender, we check if the query string changes and handleSearch
     const searchTerm = queryString.parse(this.props.location.search).search
 
-    // Must cache previous searchTerm to prevent infiniteloop
-    if (searchTerm !== this.prevQuery) {
+    // Must cache previous searchTerm and check that searchTerm is defined to prevent infiniteloop 
+    if (searchTerm !== this.prevQuery && searchTerm) {
       this.handleSearch(searchTerm);
       this.prevQuery = searchTerm;
     }

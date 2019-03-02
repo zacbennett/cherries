@@ -45,7 +45,7 @@ const Layout = ({ children }) => (
         <div id="modalContainer" />
         <NavBar />
         <Container>{children}</Container>
-        <Footer />
+        {/* <Footer /> */}
       </>
     )}
   />

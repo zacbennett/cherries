@@ -35,7 +35,6 @@ export const PureFooter = ({ data }) => (
 )
 
 export default () => (
-  <StaticQuery
     // query={graphql`
     //   {
     //     allContentfulFooter {
@@ -60,22 +59,24 @@ export default () => (
     //     }
     //   }
     // `}
-    render={data => {
-      return (
+    // render={data => {
+    //   return (
         <Container>
           <FooterSubscription
-            title={
-              data.allContentfulFooter.edges[0].node.footerSubscriptionTitle
-            }
-            text={data.allContentfulFooter.edges[0].node.footerSubscriptionText}
+            title={'this is the footer'}
+            text={'and Im the text'}
+            // title={
+            //   data.allContentfulFooter.edges[0].node.footerSubscriptionTitle
+            // }
+            // text={data.allContentfulFooter.edges[0].node.footerSubscriptionText}
           />
           <FooterLinks
-            linkData={
-              data.allContentfulFooter.edges[0].node.footerLinks.content
-            }
+            // linkData={
+            //   data.allContentfulFooter.edges[0].node.footerLinks.content
+            // }
           />
         </Container>
-      )
-    }}
-  />
+      // )
+    // }}
+  
 )
