@@ -1,6 +1,6 @@
 # Cherries
 
-> Cherries is an online earring subscription store that allows you to purchase individual earrings or a subscription. Myself and a team of three created it in three weeks as part of an internship with Lipslut. Cherries is not currently live, but you can check out a in-progress version here: <a href="https://jamstack-cherries.netlify.com/"> Link </a>
+> Cherries is an online earring subscription store that allows you to purchase individual earrings or a subscription. Myself and a team of three created it in three weeks as part of an internship with Lipslut. Cherries is not currently live, but you can check out a in-progress version here: <a href="https://zealous-bose-838af0.netlify.com/"> Link </a>
 
 ## Pictures
 
